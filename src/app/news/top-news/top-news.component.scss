@@ -1,0 +1,14 @@
+.bk-grey {
+  background-color: grey;
+}
+
+.bk-white {
+  background-color: White;
+}
+
+$margin-image: 0.75rem;
+
+.news-image {
+  margin-right: $margin-image;
+  margin-bottom: $margin-image;
+}

@@ -1,0 +1,12 @@
+.btn-showTimes {
+  background-color: #136cb2;
+  color: #ffffff;
+  font-size: 18px;
+  height: 60px;
+  text-align: center;
+  width: 100%;
+
+  &:hover{
+      text-decoration: underline;
+  }
+}

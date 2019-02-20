@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+  crossorigin="anonymous">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <a href="#">
+        <img class="logo" src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png">
+      </a>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Find Movies, TV shows, Celebrities and more ...">
+          <div class="input-group-append">
+            <div class="dropdown" appDropdown #r="appDropDown">
+              <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                All
+              </button>
+              <div class="dropdown-menu" [ngClass]="{'show':r.isOpen}">
+                <a class="dropdown-item" href="#">Titles</a>
+                <a class="dropdown-item" href="#">TV episodes</a>
+              </div>
+            </div>
+
+            <button type="button" class="btn"> <i class=" fas fa-search"></i> </button>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="dropdown" appDropdown #t="appDropDown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Movies, TV & Showtimes
+            </button>
+            <div class="dropdown-menu" [ngClass]="{'show':t.isOpen}">
+              <a class="dropdown-item" href="#">Movies</a>
+              <a class="dropdown-item" href="#">TV & Videos</a>
+            </div>
+          </div>
+          <div class="dropdown" appDropdown #rr="appDropDown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Celebs, Events & Photos
+            </button>
+            <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
+              <a class="dropdown-item" href="#">Celebs</a>
+              <a class="dropdown-item" href="#">Events</a>
+            </div>
+          </div>
+          <div class="dropdown" appDropdown #tt="appDropDown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              News & Community
+            </button>
+            <div class="dropdown-menu" [ngClass]="{'show':tt.isOpen}">
+              <span class="dropdown-item-text text-uppercase">News</span>
+              <a class="dropdown-item" routerLink="/news/top">Top News</a>
+              <a class="dropdown-item" href="#">Movie News</a>
+              <a class="dropdown-item" href="#">TV News</a>
+              <a class="dropdown-item" href="#">Celebrity News</a>
+              <a class="dropdown-item" href="#">Indie News</a>
+
+              <span class="dropdown-item-text text-uppercase">Latest headlines</span>
+
+              <a class="dropdown-item" href="#">...</a>
+            </div>
+          </div>
+          <div class="dropdown" appDropdown #a="appDropDown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Watchlist
+            </button>
+            <div class="dropdown-menu" [ngClass]="{'show':a.isOpen}">
+              <a class="dropdown-item" href="#">Your watchlist</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+.font11 {
+  font-size: 11px;
+}
+
+.font15 {
+  font-size: 15px;
+}
+
+.font13 {
+  font-size: 13px;
+}
+
+.font18 {
+  font-size: 18px;
+}
+
+.no-link {
+  color: black;  
+
+  &:hover {
+    color: #0056b3 !important;
+  }
+  
+  &.title{
+    font-size: 1.5rem !important;
+  }
+}
+
+body {
+  background: grey;
+}
