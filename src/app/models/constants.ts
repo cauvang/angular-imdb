@@ -6,5 +6,6 @@ export class AppConfig {
         tvNews: string;
         celebNews: string;
     }
+    rootURL:string;
 
 }

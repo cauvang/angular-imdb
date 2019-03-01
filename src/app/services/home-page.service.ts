@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,53 +7,49 @@ import { ISchedule } from '../models/schedule';
 import { IArticle } from '../models/article';
 import { IGetNewsResponse } from '../models/news';
 import { IGetBirthdayResponse } from '../models/birthday';
+import { AppConfig } from '../models/constants';
+import { APP_CONFIG } from '../app.config';
+import { getLocaleDateFormat, FormatWidth } from '@angular/common';
 
-const rootURL = "https://84uistcmod.execute-api.us-east-1.amazonaws.com/dev/";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class HomePageService {
-  private openingThisWeekURL = rootURL + "schedules/open-this-week";
-  private nowPlayingURL = rootURL + "schedules/now-playing";
-  private comingSoonURL = rootURL + "schedules/comming-soon";
+  private appConfig: AppConfig;
 
-  private articlesURL = rootURL + "articles/home";
-  private topNewsURL = rootURL + "news/top";
-
-  private birthdayURL = rootURL + "name/birthday/02-11";
-  private trailerURL = rootURL + "trailers/top3";
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject(APP_CONFIG) config: AppConfig) {
+    this.appConfig = config;
+  }
 
 
   public getTopTrailers(): Observable<ITrailer[]> {
-    return this.http.get<ITrailer[]>(this.trailerURL);
+    return this.http.get<ITrailer[]>(this.appConfig.rootURL + "trailers/top3");
   }
 
   public getOpeningThisWeekSchedule(): Observable<ISchedule[]> {
-    return this.http.get<ISchedule[]>(this.openingThisWeekURL);
+    return this.http.get<ISchedule[]>(this.appConfig.rootURL + "schedules/open-this-week");
   }
 
   public getNowPlayingSchedule(): Observable<ISchedule[]> {
-    return this.http.get<ISchedule[]>(this.nowPlayingURL);
+    return this.http.get<ISchedule[]>(this.appConfig.rootURL + "schedules/now-playing");
   }
 
   public getComingSoonSchedule(): Observable<ISchedule[]> {
-    return this.http.get<ISchedule[]>(this.comingSoonURL);
+    return this.http.get<ISchedule[]>(this.appConfig.rootURL + "schedules/comming-soon");
   }
 
   public getArticles(): Observable<IArticle[]> {
-    return this.http.get<IArticle[]>(this.articlesURL);
+    return this.http.get<IArticle[]>(this.appConfig.rootURL + "articles/home");
   }
 
   public getNewsResponse(): Observable<IGetNewsResponse> {
-    return this.http.get<IGetNewsResponse>(this.topNewsURL);
+    return this.http.get<IGetNewsResponse>(this.appConfig.rootURL + "news/top");
   }
 
   public getBirthdayResponse(): Observable<IGetBirthdayResponse> {
-    return this.http.get<IGetBirthdayResponse>(this.birthdayURL);
+    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/" + getLocaleDateFormat("MM/dd", FormatWidth.Medium));
   }
 
 }

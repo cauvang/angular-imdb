@@ -1,19 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IGetNewsResponse } from '../models/news';
+import { AppConfig } from '../models/constants';
+import { APP_CONFIG } from '../app.config';
 
-const rootURL = "https://84uistcmod.execute-api.us-east-1.amazonaws.com/dev";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
-  private newsURL = rootURL + "/news/";
+  private newsURL;
   // rootURL + "/news/top?token="{{next_token}}"
 
-  constructor(private http: HttpClient) { }
+    private appConfig: AppConfig;
+
+    constructor(private http: HttpClient, @Inject(APP_CONFIG) config: AppConfig) {
+      this.appConfig = config;
+    this.newsURL = this.appConfig.rootURL + "news/";
+  }
 
   public getNewsList(newsType: string, token: string): Observable<IGetNewsResponse> {
     var url = this.newsURL + newsType;

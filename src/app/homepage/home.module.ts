@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CoreModule } from '../core/core.module';
 import { CommonModule } from '@angular/common';
 import { TrailerComponent } from './trailer/trailer.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { TrailerComponent } from './trailer/trailer.component';
     imports: [
         AppRoutingModule,
         CommonModule,
-        CoreModule
+        CoreModule,
+        SharedModule
     ],
     exports: [
         AppRoutingModule,

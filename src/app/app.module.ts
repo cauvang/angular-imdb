@@ -12,11 +12,13 @@ import { HomeModule } from './homepage/home.module';
 import { NewsModule } from './news/news.module';
 import { NewsService } from './services/news.service';
 import { APP_CONFIG_VALUE, APP_CONFIG } from './app.config';
+import { TrailersComponent } from './trailers/trailers.component';
 // import { AppConfig } from './models/constants';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TrailersComponent,
 
   ],
   imports: [

@@ -1,14 +1,8 @@
 <div class="row mt-2 border-bottom p-3" *ngFor="let item of data">
 
   <a href="#" class="no-link title mb-2 ">{{item.title}}</a>
-  <!-- <div *ngFor="let img of item.images">
-  <img src="{{img.url}}"> 
-</div>-->
-    <div class="position-relative w-100">
-      <img title="{{item.images[0].title}}" class="article-img " src="{{item.images[0].url}}">
 
-      <img class="article-icon position-absolute" src="https://m.media-amazon.com/images/G/01/IMDb/icon/play-button-hover._CB318667374_.png">
-    </div>
+  <app-video-image [image]="item.images[0]" class="w-100"></app-video-image>
 
   <div class="mt-3">{{item.content}}</div>
 

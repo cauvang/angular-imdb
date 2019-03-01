@@ -11,5 +11,8 @@ export const APP_CONFIG_VALUE: AppConfig = {
         movieNews: "movie",
         tvNews: "tv",
         celebNews: "celebrity"
-    }
+    },
+    rootURL: "https://84uistcmod.execute-api.us-east-1.amazonaws.com/dev/"
+
 };
+
