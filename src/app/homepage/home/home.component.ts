@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.trailers = this.service.getTopTrailers();
+    this.service.getTopTrailers().subscribe((data) => { this.trailers = data; });
 
     this.service.getOpeningThisWeekSchedule().subscribe((data) => { this.schedulesThisWeek = data; });
 
@@ -40,20 +40,17 @@ export class HomeComponent implements OnInit {
 
     this.service.getComingSoonSchedule().subscribe((data) => { this.schedulesComingSoon = data; });
 
-    this.service.getArticles().subscribe((data) => {
-      this.articles = data;
-    });
+    this.service.getArticles().subscribe((data) => { this.articles = data; });
 
     this.service.getNewsResponse().subscribe((data) => {
 
       this.news = data.items.slice(1, 5);
       this.topNews = data.items[0];
-      // console.log(this.topNews);
     });
 
     this.service.getBirthdayResponse().subscribe((data) => {
       this.birthday = data.items.slice(0, 5);
-      console.log(this.birthday);
+      // console.log(this.birthday);
     });
   }
 

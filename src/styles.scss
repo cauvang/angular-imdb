@@ -16,17 +16,45 @@
 }
 
 .no-link {
-  color: black;  
+  color: black;
 
   &:hover {
     color: #0056b3 !important;
   }
-  
-  &.title{
+
+  &.title {
     font-size: 1.5rem !important;
   }
 }
 
 body {
   background: grey;
+}
+
+a {
+  color: #136CB2;
+}
+
+.color-gold {
+  color: #664700;
+}
+
+.color-white {
+  color: white;
+}
+
+.bk-grey {
+  background-color: #f6f6f5;
+}
+
+.bk-white {
+  background-color: #fbfbfb;
+}
+
+.bk-black {
+  background-color: #333;
+}
+
+.bk-black-p {
+  background-color: rgba(0, 0, 0, 0.7);
 }

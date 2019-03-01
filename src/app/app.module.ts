@@ -7,15 +7,17 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HomePageService } from './services/home-page.service';
 import { HttpClientModule } from '@angular/common/http';
-import { TopNewsComponent } from './news/top-news/top-news.component';
-import { NewsHomeComponent } from './news/news-home/news-home.component';
+
 import { HomeModule } from './homepage/home.module';
+import { NewsModule } from './news/news.module';
+import { NewsService } from './services/news.service';
+import { APP_CONFIG_VALUE, APP_CONFIG } from './app.config';
+// import { AppConfig } from './models/constants';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopNewsComponent,
-    NewsHomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -23,9 +25,12 @@ import { HomeModule } from './homepage/home.module';
     HttpClientModule,
     SharedModule,
     CoreModule,
-    HomeModule
+    HomeModule,
+    NewsModule
   ],
-  providers: [HomePageService],
+  providers: [HomePageService, NewsService,
+    { provide: APP_CONFIG, useValue: APP_CONFIG_VALUE }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

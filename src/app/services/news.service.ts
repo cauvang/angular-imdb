@@ -9,12 +9,23 @@ const rootURL = "https://84uistcmod.execute-api.us-east-1.amazonaws.com/dev";
   providedIn: 'root'
 })
 export class NewsService {
-  private topNewsURL = rootURL + "/news/top";
-private topNewsTokenURL=rootURL+"/news/top?token=";//{{next_token}}"
 
-  constructor(private http:HttpClient) { }
+  private newsURL = rootURL + "/news/";
+  // rootURL + "/news/top?token="{{next_token}}"
 
-  public getNewsResponse(): Observable<IGetNewsResponse> {
-    return this.http.get<IGetNewsResponse>(this.topNewsURL);
-  } 
+  constructor(private http: HttpClient) { }
+
+  public getNewsList(newsType: string, token: string): Observable<IGetNewsResponse> {
+    var url = this.newsURL + newsType;
+    // console.log(url);
+    if (token != null)
+      url += "?token=" + token + "";
+    return this.http.get<IGetNewsResponse>(url);
+  }
+
+  public getNewsAbb(newsType: string): Observable<IGetNewsResponse> {
+    return this.http.get<IGetNewsResponse>(this.newsURL + newsType);
+  }
+
+
 }

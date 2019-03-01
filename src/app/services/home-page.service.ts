@@ -8,30 +8,29 @@ import { IArticle } from '../models/article';
 import { IGetNewsResponse } from '../models/news';
 import { IGetBirthdayResponse } from '../models/birthday';
 
-const rootURL = "https://84uistcmod.execute-api.us-east-1.amazonaws.com/dev";
+const rootURL = "https://84uistcmod.execute-api.us-east-1.amazonaws.com/dev/";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class HomePageService {
-  private openingThisWeekURL = rootURL + "/schedules/open-this-week";
-  private nowPlayingURL = rootURL + "/schedules/now-playing";
-  private comingSoonURL = rootURL + "/schedules/comming-soon";
+  private openingThisWeekURL = rootURL + "schedules/open-this-week";
+  private nowPlayingURL = rootURL + "schedules/now-playing";
+  private comingSoonURL = rootURL + "schedules/comming-soon";
 
-  private articlesURL = rootURL + "/articles/home";
-  private topNewsURL = rootURL + "/news/top";
+  private articlesURL = rootURL + "articles/home";
+  private topNewsURL = rootURL + "news/top";
 
-  private birthdayURL = rootURL + "/name/birthday/02-11";
+  private birthdayURL = rootURL + "name/birthday/02-11";
+  private trailerURL = rootURL + "trailers/top3";
 
   constructor(private http: HttpClient) { }
 
-  public getTopTrailers(): ITrailer[] {
-    return [
-      { title: "test", image: "xxx" }
-    ]
-  }
 
+  public getTopTrailers(): Observable<ITrailer[]> {
+    return this.http.get<ITrailer[]>(this.trailerURL);
+  }
 
   public getOpeningThisWeekSchedule(): Observable<ISchedule[]> {
     return this.http.get<ISchedule[]>(this.openingThisWeekURL);

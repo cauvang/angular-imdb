@@ -3,12 +3,13 @@ import { INews, ISource } from 'src/app/models/news';
 import { IImage } from 'src/app/models/article';
 
 @Component({
-  selector: 'app-top-news',
-  templateUrl: './top-news.component.html',
-  styleUrls: ['./top-news.component.scss']
+  selector: 'app-news-list',
+  templateUrl: './news-list.component.html',
+  styleUrls: ['./news-list.component.scss']
 })
-export class TopNewsComponent implements OnInit {
+export class NewsListComponent implements OnInit {
   @Input() data: INews[];
+  
   @Input() date: Date;
   @Input() auhor: string;
   @Input() title: string;

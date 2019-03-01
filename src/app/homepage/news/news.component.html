@@ -2,7 +2,7 @@
   crossorigin="anonymous">
 
 
-<div class="row mt-3 d-flex">
+<div class="row mt-3 p-3 d-flex">
   <h4 class="flex-grow-1">Top News</h4>
   <ul class="font-weight-bold">
     <li><a href="#">Movie News</a></li>
@@ -11,7 +11,7 @@
   </ul>
 </div>
 
-<div class="row mt-3 border-bottom">
+<div class="row mt-3 p-3  border-bottom">
   <div *ngIf="topData!=null" class="font15 row">
     <div class="col-md-2">
       <img srcset="{{topData.image.url}}">
