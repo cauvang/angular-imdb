@@ -49,7 +49,7 @@ export class HomePageService {
   }
 
   public getBirthdayResponse(): Observable<IGetBirthdayResponse> {
-    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/" + getLocaleDateFormat("MM/dd", FormatWidth.Medium));
+    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/01-11");// + getLocaleDateFormat(new Date().toDateString(), FormatWidth.Medium));
   }
 
 }

@@ -14,7 +14,7 @@ export class NewsComponent implements OnInit {
   @Input() auhor: string;
   @Input() title: string;
   @Input() url: string;
-  @Input() id: string;
+  // @Input() id: string;
   @Input() content: string;
   @Input() image: IImage;
   @Input() source: ISource;

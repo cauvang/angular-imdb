@@ -1,21 +1,14 @@
 <div class="row bk-black p-3 ">
   <div class="col-md-4 pl-1 pr-1" *ngFor="let item of data">
-    <app-video-image [image]="item.image"></app-video-image>
+    <app-video-image [imageUrl]="item.image.url" [imageTitle]="item.image.title"></app-video-image>
 
-    <!-- <div>
-      <img title=" {{item.image.title}}" src="{{item.image.url}}" class=" w-100">
-    </div> -->
-    <!-- <div class="position-relative w-100">
-      <img title="{{item.images[0].title}}" class="article-img " src="{{item.images[0].url}}">
-  
-      <img class="article-icon position-absolute" src="https://m.media-amazon.com/images/G/01/IMDb/icon/play-button-hover._CB318667374_.png">
-    </div> -->
+   
 
     <div class="fixed-bottom position-absolute bk-black-p color-white ml-1 mr-1">
       <div class="font13">{{item.title}}</div>
       <div class="font11">{{item.subTitle}}</div>
     </div>
   </div>
-  <a class="mt-2 mb-2" href="#">Browse trailers >></a>
+  <a class="mt-2 mb-2" routerLink="/trailers">Browse trailers >></a>
 
 </div>
