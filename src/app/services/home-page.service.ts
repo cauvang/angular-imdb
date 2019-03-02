@@ -49,7 +49,12 @@ export class HomePageService {
   }
 
   public getBirthdayResponse(): Observable<IGetBirthdayResponse> {
-    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/01-11");// + getLocaleDateFormat(new Date().toDateString(), FormatWidth.Medium));
+    const today = new Date();
+    const dd = today.getDate();
+    const mm = today.getMonth();
+
+    const ddmm = (dd < 10 ? "0" + dd : dd) + "-" + (mm < 9 ? "0" + (mm + 1) : (mm + 1));
+    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/" + ddmm);// + getLocaleDateFormat(new Date().toDateString(), FormatWidth.Medium));
   }
 
 }
