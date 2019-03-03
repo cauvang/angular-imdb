@@ -7,7 +7,7 @@ import { TrailersComponent } from './trailers/trailers.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'news/:newsType', component: NewsHomeComponent },
-  { path: 'trailers', component: TrailersComponent }
+  { path: 'trailers/:trailerType', component: TrailersComponent, }
 ];
 
 @NgModule({

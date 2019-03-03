@@ -10,22 +10,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TrailersService {
-  private popularURL;
   private appConfig: AppConfig;
 
   constructor(private http: HttpClient, @Inject(APP_CONFIG) config: AppConfig) {
     this.appConfig = config;
   }
 
-  public getPopularTrailers(): Observable<IGetTrailerResponse[]> {
-    return this.http.get<IGetTrailerResponse[]>(this.appConfig.rootURL + "trailers?tabSection=popular");
+  public getTrailers(trailerType: string): Observable<IGetTrailerResponse[]> {
+    return this.http.get<IGetTrailerResponse[]>(this.appConfig.rootURL + "trailers?tabSection=" + trailerType);
   }
 
-  public getTVTrailers(): Observable<IGetTrailerResponse[]> {
-    return this.http.get<IGetTrailerResponse[]>(this.appConfig.rootURL + "trailers?tabSection=tv");
-  }
-
-  public getRecentTrailers(): Observable<IGetTrailerResponse[]> {
-    return this.http.get<IGetTrailerResponse[]>(this.appConfig.rootURL + "trailers?tabSection=recent");
-  }
+  
 }
