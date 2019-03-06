@@ -1,6 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { INews, ISource } from 'src/app/models/news';
 import { IImage } from 'src/app/models/article';
+import { ActivatedRoute, Params } from '@angular/router';
+import { AppConfig } from 'src/app/models/constants';
+import { NewsService } from 'src/app/services/news.service';
+import { APP_CONFIG } from 'src/app/app.config';
 
 @Component({
   selector: 'app-news-list',
@@ -8,20 +12,54 @@ import { IImage } from 'src/app/models/article';
   styleUrls: ['./news-list.component.scss']
 })
 export class NewsListComponent implements OnInit {
-  @Input() data: INews[];
-  
-  @Input() date: Date;
-  @Input() auhor: string;
-  @Input() title: string;
-  @Input() url: string;
-  @Input() id: string;
-  @Input() content: string;
-  @Input() image: IImage;
-  @Input() source: ISource;
 
-  constructor() { }
+
+  private news: INews[];
+
+  private token: string;
+  private newsType: string;
+  private config: AppConfig;
+  private bLoadSuccess: boolean;
+
+  constructor(private service: NewsService, private route: ActivatedRoute, @Inject(APP_CONFIG) config: AppConfig) {
+    this.config = config;
+
+    this.route.url.subscribe(url => {
+      this.loadList();
+    });
+
+  }
+
 
   ngOnInit() {
+    this.loadList();
+  }
+
+  loadList() {
+    this.news = [];
+
+    // this.newsType = this.route.snapshot.params['newsType'];
+    this.route.params.subscribe((params: Params) => {
+      this.newsType = params['newsType'];
+    });
+
+
+    this.service.getNewsList(this.newsType, "").subscribe((data) => {
+      this.news = data.items;
+      this.token = data.next;
+      this.bLoadSuccess = true;
+    });
+
+  }
+
+  OnLoad() {
+    this.service.getNewsList(this.newsType, this.token).subscribe((data) => {
+      this.news = [... this.news, ...data.items];
+      this.token = data.next;
+      this.bLoadSuccess = true;
+
+    });
+
   }
 
 }

@@ -3,33 +3,15 @@
 
 <div class="row">
   <div class="col-md-8  p-3">
-    <div class="border rounded p-3">
-      <h4 class="pl-3"> {{ newsType | getTitle }} News</h4>
-      <app-news-list [data]="news"></app-news-list>
-      <span *ngIf="bLoadSuccess">
-        <button type="button mt-2" class="btn btn-light btn-outline-dark w-100 " (click)="OnLoad()"><i class="fas fa-caret-down"></i>
-          Load
-          more </button>
-        <div class="font11 mt-2 mb-2">IMDb.com, Inc. takes no responsibility for the content or accuracy of the above
-          news
-          articles,Tweets, or blog posts. This content is published for the entertainment of our users only. The news
-          articles, Tweets, and blog posts do not represent IMDb's opinions nor can we guarantee that the reporting
-          therein
-          is completely factual. Please visit the source responsible for the item in question to report any concerns
-          you
-          may have regarding content or accuracy.</div>
-      </span>
-    </div>
+    <router-outlet></router-outlet>
   </div>
   <div class="col-md-4 p-3 ">
-    <app-news-abb [data]="otherNews.top" newsType="{{config.newsType.topNews}}"></app-news-abb>
-    <app-news-abb [data]="otherNews.movie" newsType="{{config.newsType.movieNews}}"></app-news-abb>
-    <app-news-abb [data]="otherNews.tv" newsType="{{config.newsType.tvNews}}"></app-news-abb>
-    <app-news-abb [data]="otherNews.celebrity" newsType="{{config.newsType.celebNews}}"></app-news-abb>
-  </div>
-  <div class="col-md-12">
-    <app-views></app-views>
-    <app-footer></app-footer>
+    <app-news-abb [data]="otherNews.top" newsType="{{config.newsType.topNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
+    <app-news-abb [data]="otherNews.movie" newsType="{{config.newsType.movieNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
+    <app-news-abb [data]="otherNews.tv" newsType="{{config.newsType.tvNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
+    <app-news-abb [data]="otherNews.celebrity" newsType="{{config.newsType.celebNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
+    <app-news-abb [data]="otherNews.indie" newsType="{{config.newsType.indieNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
 
   </div>
+
 </div>

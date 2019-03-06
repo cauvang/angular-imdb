@@ -1,0 +1,23 @@
+<div class="border rounded p-3">
+  <app-news-item [data]="news"></app-news-item>
+</div>
+
+<div class="border rounded p-3 mt-3">
+  <h4 class="color-gold">Similar News</h4>
+  <div *ngFor="let item of similarNews" class="mt-2">
+    <a href="#" class="font-weight-bold font15">{{item.name}}</a>
+    <div *ngFor="let content of item.newsItems">
+      <a class="font13" href="#">{{content.title}}</a>
+      <div class="font11">{{content.date}} | {{content.source.name}}</div>
+    </div>
+  </div>
+</div>
+
+<div class="font11 mt-2 mb-2">IMDb.com, Inc. takes no responsibility for the content or accuracy of the above
+  news
+  articles,Tweets, or blog posts. This content is published for the entertainment of our users only. The news
+  articles, Tweets, and blog posts do not represent IMDb's opinions nor can we guarantee that the reporting
+  therein
+  is completely factual. Please visit the source responsible for the item in question to report any concerns
+  you
+  may have regarding content or accuracy.</div>

@@ -1,0 +1,14 @@
+<div *ngIf="data!=null">
+  <a class="font18" href="{{'https://www.imdb.com'+data.source.url}}">{{data.title}}</a>
+  <div class="font11">{{data.date}} | {{data.source.name}}</div>
+</div>
+<div class="mt-2 body">
+  <img srcset="{{data.image.url}}" class="float-left news-image">
+  <div class=" news-content" innerHTML="{{data.content}}"> </div>
+
+  <div class="mt-3"> <a href="{{'https://www.imdb.com'+data.source.url}}"> See full article
+      at
+      {{data.source.name}} »</a>
+  </div>
+  <div> <a class="no-link font11">Permalink</a> | <a class="no-link font11"> Report this</a></div>
+</div>

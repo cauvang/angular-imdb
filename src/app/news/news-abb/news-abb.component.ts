@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { INews } from 'src/app/models/news';
 
 @Component({
@@ -9,16 +9,15 @@ import { INews } from 'src/app/models/news';
 export class NewsAbbComponent implements OnInit {
 
   @Input() data: INews[];
-  @Input() date: Date;
-  @Input() auhor: string;
-  @Input() title: string;
   @Input() newsType: string;
-
+  @Output() routeChange = new EventEmitter();
   constructor() {
 
   }
 
   ngOnInit() {
   }
-
+  onRouteClick() {
+    this.routeChange.emit(this.newsType);
+  }
 }

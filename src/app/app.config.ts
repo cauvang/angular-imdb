@@ -10,7 +10,8 @@ export const APP_CONFIG_VALUE: AppConfig = {
         topNews: "top",
         movieNews: "movie",
         tvNews: "tv",
-        celebNews: "celebrity"
+        celebNews: "celebrity",
+        indieNews: "indie"
     },
     rootURL: "https://84uistcmod.execute-api.us-east-1.amazonaws.com/dev/"
 

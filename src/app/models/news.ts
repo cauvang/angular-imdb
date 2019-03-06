@@ -1,8 +1,8 @@
 import { IImage } from './article';
 
-export interface IGetNewsResponse{
-    next:string;
-    items:INews[];
+export interface IGetNewsResponse {
+    next: string;
+    items: INews[];
 }
 export interface INews {
     date: Date;
@@ -18,4 +18,14 @@ export interface INews {
 export interface ISource {
     name: string;
     url: string;
+}
+
+export interface iNewsDetail {
+    item: INews;
+    similarNews: ISimilar[];
+}
+
+export interface ISimilar {
+    name: string;
+    newsItems: INews[];
 }

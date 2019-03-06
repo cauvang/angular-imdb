@@ -1,7 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { INews } from 'src/app/models/news';
+import { Component, OnInit, Inject, DoCheck, AfterContentChecked, EventEmitter } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Params, Router } from '@angular/router'
 import { APP_CONFIG } from 'src/app/app.config';
 import { AppConfig } from 'src/app/models/constants';
 
@@ -11,64 +10,56 @@ import { AppConfig } from 'src/app/models/constants';
   styleUrls: ['./news-home.component.scss']
 })
 export class NewsHomeComponent implements OnInit {
-  private news: INews[];
   private otherNews = {
     top: [],
     movie: [],
     tv: [],
-    celebrity: []
+    celebrity: [],
+    indie: []
   }
-  private token: string;
   private newsType: string;
   private config: AppConfig;
-  private bLoadSuccess: boolean;
-
-  constructor(private service: NewsService, private route: ActivatedRoute, @Inject(APP_CONFIG) config: AppConfig) {
-    this.newsType = config.newsType.topNews;
+  constructor(private service: NewsService, private route: ActivatedRoute, @Inject(APP_CONFIG) config: AppConfig,
+    private router: Router) {
     this.config = config;
-
     this.route.url.subscribe(url => {
-      console.log("url", url);
+      console.log("router.routerState.snapshot.url", router.routerState.snapshot.url)
+      const tmp = router.routerState.snapshot.url.split('/');
+      this.newsType = tmp[2];
+      console.log(tmp);
       this.loadList();
     });
-
   }
 
 
 
   ngOnInit() {
+
+    // this.route.params.subscribe((params: Params) => { this.newsType = params['newsType']; });
+    this.newsType = this.route.snapshot.firstChild.params['newsType'];
+
+    this.loadList();
+  }
+  onRouteChange(type: string) {
+    this.newsType = type;
     this.loadList();
   }
 
   loadList() {
-    this.news = [];
-
-    this.newsType = this.route.snapshot.params['newsType'];
-    this.OnLoad();
-
     for (const key in this.otherNews) {
       if (this.otherNews.hasOwnProperty(key)) {
         if (key === this.newsType) {
-          console.log("newstype", this.newsType);
           this.otherNews[key] = [];
           continue;
         }
 
         this.service.getNewsAbb(key).subscribe((data) => {
           this.otherNews[key] = data.items.slice(0, 5);
-          // console.log("other", this.otherNews);
         });
+
       }
     }
   }
 
-  OnLoad() {
-    this.service.getNewsList(this.newsType, this.token).subscribe((data) => {
-      this.news = [... this.news, ...data.items];
-      this.token = data.next;
-    this.bLoadSuccess=true;
 
-    });
-
-  }
 }

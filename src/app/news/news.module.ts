@@ -7,7 +7,9 @@ import { NewsHomeComponent } from './news-home/news-home.component';
 import { NewsListComponent } from './news-list/news-list.component';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from '../core/core.module';
-import { GetTitlePipe } from '../getTitle.pipe';
+import { GetTitlePipe } from '../shared/getTitle.pipe';
+import { NewsDetailComponent } from './news-detail/news-detail.component';
+import { NewsItemComponent } from './news-item/news-item.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { GetTitlePipe } from '../getTitle.pipe';
         NewsAbbComponent,
         NewsListComponent,
         NewsHomeComponent,
-        GetTitlePipe
+        GetTitlePipe,
+        NewsDetailComponent,
+        NewsItemComponent
     ],
     imports: [
         AppRoutingModule,

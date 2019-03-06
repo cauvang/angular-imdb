@@ -7,7 +7,9 @@ export class GetTitlePipe implements PipeTransform {
             "tv": "TV",
             "top": "Top",
             "movie": "Movie",
-            "celebrity": "Celebrity"
+            "celebrity": "Celebrity",
+            "indie": "Indie",
+
         }
         return mapping[type];
     }
