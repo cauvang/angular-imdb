@@ -5,9 +5,9 @@
 <div class="border rounded p-3 mt-3">
   <h4 class="color-gold">Similar News</h4>
   <div *ngFor="let item of similarNews" class="mt-2">
-    <a href="#" class="font-weight-bold font15">{{item.name}}</a>
+    <a href="" class="font-weight-bold font15">{{item.name}}</a>
     <div *ngFor="let content of item.newsItems">
-      <a class="font13" href="#">{{content.title}}</a>
+      <a class="font13" [routerLink]="detail/content.id">{{content.title}}</a>
       <div class="font11">{{content.date}} | {{content.source.name}}</div>
     </div>
   </div>

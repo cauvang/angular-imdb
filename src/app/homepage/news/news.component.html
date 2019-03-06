@@ -17,10 +17,11 @@
       <img srcset="{{topData.image.url}}">
     </div>
     <div class="col-md-10 ">
-      <a href="#">{{topData.title}}</a>
+      <a [routerLink]="detail/topData.id">{{topData.title}}</a><!-- testing -->
       <div>{{topData.date}} | {{topData.source.name}}</div>
       <div class="overflow-hidden mt-2 news-content" innerHTML="{{topData.content}}"> </div>
-      <span>... <a href="#">See more >>></a></span>
+      <span>... <a [routerLink]="detail/topData.id">See more >>></a></span> <!-- testing -->
+
     </div>
   </div>
 
