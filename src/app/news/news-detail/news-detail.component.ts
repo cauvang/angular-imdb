@@ -16,7 +16,6 @@ export class NewsDetailComponent implements OnInit {
 
   constructor(private service: NewsService, private route: ActivatedRoute) {
     this.route.url.subscribe(url => {
-      // console.log("url", url);
       this.loadNews();
     });
   }
@@ -28,7 +27,6 @@ export class NewsDetailComponent implements OnInit {
   loadNews() {
     
     this.route.params.subscribe((params: Params) => { this.id = params['id']; });
-    // console.log("id", this.id);
 
     this.service.getNewsDetail(this.id).subscribe((data) => {
       this.news = data.item;

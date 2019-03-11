@@ -1,0 +1,15 @@
+ul {
+    list-style-type: none;
+  }
+  
+  li {
+    display: inline;
+  
+    &::after {
+      content: '|';
+    }
+  
+    &:last-child::after {
+      content: '';
+    }
+  }

@@ -1,0 +1,9 @@
+<app-loading-icon [isLoading]="isLoading"></app-loading-icon>
+
+<div *ngFor="let item of data;let i=index" [ngClass]="{'bk-grey': i%2==0, 'bk-white': i%2 ==1}" class="m-2 w-100">
+  <div class="color-gold font-weight-bold">{{item.name}}</div>
+  <div *ngFor="let movie of item.items">
+    <app-movie-item [data]="movie"></app-movie-item>
+
+  </div>
+</div>

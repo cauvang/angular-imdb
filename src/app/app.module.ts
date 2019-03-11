@@ -1,27 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HomePageService } from './services/home-page.service';
-import { HttpClientModule } from '@angular/common/http';
-
 import { HomeModule } from './homepage/home.module';
 import { NewsModule } from './news/news.module';
 import { NewsService } from './services/news.service';
 import { APP_CONFIG_VALUE, APP_CONFIG } from './app.config';
 import { TrailersComponent } from './trailers/trailers.component';
-import { LoadingIconComponent } from './loading-icon/loading-icon.component';
-// import { AppConfig } from './models/constants';
+import { MoviesModule } from './movies/movies.module';
+import { MoviesService } from './services/movies.service';
+import { ShowtimesService } from './services/showtimes.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrailersComponent,
-    LoadingIconComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -30,9 +28,10 @@ import { LoadingIconComponent } from './loading-icon/loading-icon.component';
     SharedModule,
     CoreModule,
     HomeModule,
-    NewsModule
+    NewsModule,
+    MoviesModule
   ],
-  providers: [HomePageService, NewsService,
+  providers: [HomePageService, NewsService, MoviesService, ShowtimesService,
     { provide: APP_CONFIG, useValue: APP_CONFIG_VALUE }
   ],
   bootstrap: [AppComponent]

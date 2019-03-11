@@ -9,7 +9,6 @@ import { IGetNewsResponse } from '../models/news';
 import { IGetBirthdayResponse } from '../models/birthday';
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
-import { getLocaleDateFormat, FormatWidth } from '@angular/common';
 
 
 @Injectable({

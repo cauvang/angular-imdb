@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TrailersService } from '../services/trailers.service';
 import { IGetTrailerResponse } from '../models/trailer';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +17,6 @@ export class TrailersComponent implements OnInit {
     this.trailerType = "popular";
     this.isLoading = false;
     this.route.url.subscribe(url => {
-      console.log("url", url);
       this.loadTrailers();
     });
   }

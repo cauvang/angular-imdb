@@ -29,3 +29,4 @@ export interface ISimilar {
     name: string;
     newsItems: INews[];
 }
+

@@ -36,8 +36,17 @@
               Movies, TV & Showtimes
             </button>
             <div class="dropdown-menu" [ngClass]="{'show':t.isOpen}">
-              <a class="dropdown-item" href="#">Movies</a>
-              <a class="dropdown-item" href="#">TV & Videos</a>
+              <label class="color-gold">Movies</label>
+              <a class="dropdown-item" routerLink="/movies/in-theater">In Theaters</a>
+              <a class="dropdown-item" href="#">Showtimes and Tickets</a>
+              <a class="dropdown-item" href="#">Latest Trailers</a>
+              <a class="dropdown-item" routerLink="/movies/coming-soon">Coming Soon</a>
+
+              <label class="color-gold">TV & Video</label>
+
+              <a class="dropdown-item" href="#">IMDb TV</a>
+              <a class="dropdown-item" href="#">Top Rated TV Show</a>
+
             </div>
           </div>
           <div class="dropdown" appDropdown #rr="appDropDown">

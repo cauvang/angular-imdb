@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, DoCheck, AfterContentChecked, EventEmitter } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
-import { ActivatedRoute, Params, Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { APP_CONFIG } from 'src/app/app.config';
 import { AppConfig } from 'src/app/models/constants';
 
@@ -19,14 +19,13 @@ export class NewsHomeComponent implements OnInit {
   }
   private newsType: string;
   private config: AppConfig;
+
   constructor(private service: NewsService, private route: ActivatedRoute, @Inject(APP_CONFIG) config: AppConfig,
     private router: Router) {
     this.config = config;
     this.route.url.subscribe(url => {
-      console.log("router.routerState.snapshot.url", router.routerState.snapshot.url)
       const tmp = router.routerState.snapshot.url.split('/');
       this.newsType = tmp[2];
-      console.log(tmp);
       this.loadList();
     });
   }
@@ -40,6 +39,7 @@ export class NewsHomeComponent implements OnInit {
 
     this.loadList();
   }
+
   onRouteChange(type: string) {
     this.newsType = type;
     this.loadList();

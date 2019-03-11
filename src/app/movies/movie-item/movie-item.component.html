@@ -1,0 +1,41 @@
+<div class="row p-2">
+  <div class="col-3">
+    <img src="{{data.poster.url}}" title="{{data.poster.title}}">
+  </div>
+  <div class="col-9 font11">
+    <h4><a href="#">{{data.name}}</a></h4>
+    <div class="m-2">
+      <img class="d-inline" src="{{data.certImage.url}}">
+      <div class="d-inline"> {{data.lenght}} - </div>
+      <ul class="d-inline " *ngIf="data.generes!=null">
+        <li *ngFor="let item of data.generes" class="pr-1 splitVertical">{{item}} </li>
+      </ul>
+    </div>
+    <div class="m-2 d-block" *ngIf="data.metascore!=''">
+      <span class="d-inline metascore"> {{data.metascore}}</span>
+      <span>Metascore </span>
+    </div>
+    <div innerHTML="{{data.description}}"></div>
+    <div *ngIf="data.directors!=null">
+      <span class="font-weight-bold d-inline-flex" *ngIf="data.directors.length>1 ;else elseBlock">Directors:</span>
+      <ng-template #elseBlock>
+        <span class="font-weight-bold">Director:</span>
+      </ng-template>
+      <ul class="d-inline-flex pl-2">
+        <li *ngFor="let item of data.directors" class="splitVertical">
+          <a href="#" class="pl-1 "> {{item.name}} </a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="data.stars !=null">
+      <span class="font-weight-bold d-inline-flex">Stars: </span>
+      <ul class="d-inline-flex pl-2">
+        <li *ngFor="let item of data.stars" class="splitComma">
+          <a href="#" class="pl-1 "> {{item.name}} </a>
+        </li>
+      </ul>
+    </div>
+    <button class="bk-yellow rounded mr-2" *ngIf="data.trailer.id">Watch Trailer</button>
+    <button class="bk-yellow rounded">Add to Watchlist</button>
+  </div>
+</div>

@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { INews, ISource } from 'src/app/models/news';
-import { IImage } from 'src/app/models/article';
+import { Component, OnInit, Inject } from '@angular/core';
+import { INews } from 'src/app/models/news';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AppConfig } from 'src/app/models/constants';
 import { NewsService } from 'src/app/services/news.service';

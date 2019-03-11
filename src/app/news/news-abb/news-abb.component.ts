@@ -17,6 +17,7 @@ export class NewsAbbComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   onRouteClick() {
     this.routeChange.emit(this.newsType);
   }
