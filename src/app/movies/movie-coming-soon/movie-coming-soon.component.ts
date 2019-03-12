@@ -42,4 +42,8 @@ export class MovieComingSoonComponent implements OnInit {
     });
   }
 
+  trimSpace(inputData: string) {
+    return inputData.replace(' ', '');
+  }
+
 }

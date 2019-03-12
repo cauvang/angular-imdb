@@ -6,6 +6,7 @@ import { VideoImageComponent } from './video-image/video-image.component';
 import { GetTitlePipe } from './getTitle.pipe';
 import { LoadingIconComponent } from './loading-icon/loading-icon.component';
 import { OverlayImageComponent } from './overlay-image/overlay-image.component';
+import { ShareWidgetComponent } from './share-widget/share-widget.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { OverlayImageComponent } from './overlay-image/overlay-image.component';
         VideoImageComponent,
         GetTitlePipe,
         LoadingIconComponent,
-        OverlayImageComponent
+        OverlayImageComponent,
+        ShareWidgetComponent
     ],
     exports: [
         CommonModule,
@@ -24,7 +26,8 @@ import { OverlayImageComponent } from './overlay-image/overlay-image.component';
         VideoImageComponent,
         GetTitlePipe,
         LoadingIconComponent,
-        OverlayImageComponent
+        OverlayImageComponent,
+        ShareWidgetComponent
     ]
 })
 export class SharedModule { }

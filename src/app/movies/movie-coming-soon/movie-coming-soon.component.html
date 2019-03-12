@@ -1,17 +1,19 @@
 <app-loading-icon [isLoading]="isLoading"></app-loading-icon>
 
 <div>
-<ul class="d-inline-flex pl-2">
-  <li *ngFor="let item of data">
-    <a href="#" class="pl-1"> {{item.name}} </a>
-  </li>
-</ul>
+  <ul class="d-inline-flex pl-2">
+    <li *ngFor="let item of data">
+      <a href="movies/coming-soon#{{trimSpace(item.name)}}" class="pl-1"> {{item.name}} </a>
+    </li>
+  </ul>
 
 
 </div>
 
 <div *ngFor="let item of data;let i=index" [ngClass]="{'bk-grey': i%2==0, 'bk-white': i%2 ==1}" class="m-2 w-100">
-  <div class="color-gold font-weight-bold">{{item.name}}</div>
+  <div class="color-gold font-weight-bold">{{item.name}}
+    <a name="{{trimSpace(item.name)}}"></a>
+  </div>
   <div *ngFor="let movie of item.items">
     <app-movie-item [data]="movie"></app-movie-item>
 

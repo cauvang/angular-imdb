@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-8  p-3">
+    <div class="border rounded p-3">
+      <a href="#" class="font-weight-bold">Showtimes</a>
+      <h4>3030 AU</h4><a href="#">Change</a>
+      <br />
+      <ul class="nav nav-tabs position-relative">
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/showtimes/movies">Movies ()</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/showtimes/theater">Theater ()</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/showtimes/favourite">Favourite ()</a>
+        </li>
+        <a routerLink="/movies/in-theater" class="link-right"> Opening this week</a> | <a routerLink="/movies/coming-soon"
+          class="link-right">Coming Soon >>></a>
+      </ul>
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+  <div class="col-md-4 p-3 ">
+    <div class="p-2 bk-grey rounded">
+      <b>Share</b> this page:
+      <img class="icon mr-2" title="Share on Facebook" src="https://angelpropertymanagers.co.nz/wp-content/uploads/2018/09/facebook-logo.jpg">
+      <img class="icon mr-2" title="Share on Twitter" src="https://cdn2.iconfinder.com/data/icons/minimalism/512/twitter.png">
+      <img class="icon" title="Share this page" src="https://image.flaticon.com/icons/svg/34/34735.svg">
+    </div>
+
+    <app-showtime-movie-near></app-showtime-movie-near>
+
+    <app-showtime-theater-near></app-showtime-theater-near>
+  </div>
+
+</div>

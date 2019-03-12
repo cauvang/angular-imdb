@@ -8,6 +8,10 @@ import { NewsListComponent } from './news/news-list/news-list.component';
 import { MovieHomeComponent } from './movies/movie-home/movie-home.component';
 import { MovieTheatreComponent } from './movies/movie-theatre/movie-theatre.component';
 import { MovieComingSoonComponent } from './movies/movie-coming-soon/movie-coming-soon.component';
+import { ShowtimeHomeComponent } from './showtimes/showtime-home/showtime-home.component';
+import { ShowtimeMovieComponent } from './showtimes/showtime-movie/showtime-movie.component';
+import { ShowtimeTheaterComponent } from './showtimes/showtime-theater/showtime-theater.component';
+import { ShowtimeFavouriteComponent } from './showtimes/showtime-favourite/showtime-favourite.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +27,13 @@ const routes: Routes = [
       { path: 'in-theater', component: MovieTheatreComponent },
       { path: 'coming-soon', component: MovieComingSoonComponent },
 
+    ]
+  },
+  {
+    path: 'showtimes', component: ShowtimeHomeComponent, children: [
+      { path: 'movies', component: ShowtimeMovieComponent },
+      { path: 'theater', component: ShowtimeTheaterComponent },
+      { path: 'favourite', component: ShowtimeFavouriteComponent },
     ]
   },
 ];

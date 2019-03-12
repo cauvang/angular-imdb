@@ -26,7 +26,7 @@ export interface IValue {
 }
 
 export interface IGetShowtimeTheaterResponse {
-    items: IShowtimeTheater[];
+    items: IShowtimeGroup[];
     count: number;
 }
 
@@ -34,10 +34,12 @@ export interface IShowtimeGroup {
     groupName: string;
     items: IShowtimeTheater[];
 }
+
 export interface IShowtimeTheater {
     name: string;
     id: string;
     address: IAddress;
+    movies: IMovie[];
 }
 
 export interface IAddress {

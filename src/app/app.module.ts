@@ -15,6 +15,7 @@ import { TrailersComponent } from './trailers/trailers.component';
 import { MoviesModule } from './movies/movies.module';
 import { MoviesService } from './services/movies.service';
 import { ShowtimesService } from './services/showtimes.service';
+import { ShowtimesModule } from './showtimes/showtimes.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ShowtimesService } from './services/showtimes.service';
     CoreModule,
     HomeModule,
     NewsModule,
-    MoviesModule
+    MoviesModule,
+    ShowtimesModule
   ],
   providers: [HomePageService, NewsService, MoviesService, ShowtimesService,
     { provide: APP_CONFIG, useValue: APP_CONFIG_VALUE }

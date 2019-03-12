@@ -9,6 +9,7 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
 import { MovieTheatreComponent } from './movie-theatre/movie-theatre.component';
 import { MovieComingSoonComponent } from './movie-coming-soon/movie-coming-soon.component';
 import { SharedModule } from '../shared/shared.module';
+import { ShowtimesModule } from '../showtimes/showtimes.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SharedModule } from '../shared/shared.module';
         AppRoutingModule,
         CommonModule,
         CoreModule,
-        SharedModule
+        SharedModule,
+        ShowtimesModule
     ],
     exports: [
         AppRoutingModule,
