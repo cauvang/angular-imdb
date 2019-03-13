@@ -2,8 +2,10 @@
   <div class="col-md-8  p-3">
     <div class="border rounded p-3">
       <a href="#" class="font-weight-bold">Showtimes</a>
-      <h4>3030 AU</h4><a href="#">Change</a>
-      <br />
+      <div class="overflow-auto">
+        <h4 class="float-left pr-3">3030 AU</h4>
+        <a href="#">Change</a>
+      </div>
       <ul class="nav nav-tabs position-relative">
         <li class="nav-item">
           <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/showtimes/movies">Movies ()</a>
@@ -14,24 +16,29 @@
         <li class="nav-item">
           <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/showtimes/favourite">Favourite ()</a>
         </li>
-        <a routerLink="/movies/in-theater" class="link-right"> Opening this week</a> | <a routerLink="/movies/coming-soon"
-          class="link-right">Coming Soon >>></a>
+        <div class="link-right">
+          <a routerLink="/movies/in-theater"> Opening this week</a>
+          <span> | </span>
+          <a routerLink="/movies/coming-soon">Coming Soon >>></a>
+        </div>
       </ul>
       <router-outlet></router-outlet>
 
     </div>
   </div>
   <div class="col-md-4 p-3 ">
-    <div class="p-2 bk-grey rounded">
-      <b>Share</b> this page:
-      <img class="icon mr-2" title="Share on Facebook" src="https://angelpropertymanagers.co.nz/wp-content/uploads/2018/09/facebook-logo.jpg">
-      <img class="icon mr-2" title="Share on Twitter" src="https://cdn2.iconfinder.com/data/icons/minimalism/512/twitter.png">
-      <img class="icon" title="Share this page" src="https://image.flaticon.com/icons/svg/34/34735.svg">
+    <div class="rounded bk-grey">
+      <span class="color-gold font-weight-bold">Favorite Theaters</span>
+      <div>
+        Click the <img class="favourite" src="https://imageog.flaticon.com/icons/png/512/9/9571.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF6083._V_.png" />
+        next to a theater name on any showtimes page to mark it as a favorite. </div>
     </div>
-
-    <app-showtime-movie-near></app-showtime-movie-near>
+    <app-showtime-movie-near>
+    </app-showtime-movie-near>
 
     <app-showtime-theater-near></app-showtime-theater-near>
+    <app-share-widget></app-share-widget>
+
   </div>
 
 </div>

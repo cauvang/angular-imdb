@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from '../app-routing.module';
 import { CommonModule } from '@angular/common';
@@ -26,7 +26,8 @@ import { ShowtimeFavouriteComponent } from './showtime-favourite/showtime-favour
         AppRoutingModule,
         CommonModule,
         CoreModule,
-        SharedModule
+        SharedModule,
+        BsDropdownModule.forRoot()
     ],
     exports: [
         AppRoutingModule,

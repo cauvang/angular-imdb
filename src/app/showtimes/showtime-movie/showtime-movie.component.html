@@ -1,1 +1,31 @@
+<div class=" rounded bk-grey p-2 mt-2">
+  <a href="#">Refine</a>
+  | See movies by genre, rating, online ticketing, etc.
+</div>
+<div class="border mt-2 bk-trans">
+  <div class="d-flex">
+    <span class="flex-grow-1"> {{nMovie}} movies playing near you today, {{today}}</span>
+    <div>
+      <div>Sort by:</div>
+      <div class="btn-group pr-2" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="dropdown-toggle" aria-controls="dropdown-basic">
+          Popularity <span class="caret"></span>
+        </button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item" href="#">Popularity</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Alphabetical</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">IMDb Rating</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Release Date</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Runtime</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-wrap">
+    <div *ngFor="let item of movies" class="m-2" style="width: 22%">
+      <app-image-popover [data]="item"></app-image-popover>
+    </div>
 
+
+  </div>
+</div>

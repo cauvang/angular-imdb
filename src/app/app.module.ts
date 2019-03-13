@@ -31,7 +31,7 @@ import { ShowtimesModule } from './showtimes/showtimes.module';
     HomeModule,
     NewsModule,
     MoviesModule,
-    ShowtimesModule
+    ShowtimesModule,
   ],
   providers: [HomePageService, NewsService, MoviesService, ShowtimesService,
     { provide: APP_CONFIG, useValue: APP_CONFIG_VALUE }

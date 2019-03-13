@@ -18,7 +18,7 @@ export class ShowtimeMovieNearComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getShowtimesMovie().subscribe((data) => {
+    this.service.getShowtimesMovie(null, null).subscribe((data) => {
       this.nMovie = data.totalCount;
       this.moviesNear = data.items.slice(0, 12);
     });

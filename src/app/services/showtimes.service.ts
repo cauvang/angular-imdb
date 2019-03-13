@@ -16,12 +16,18 @@ export class ShowtimesService {
     this.appConfig = config;
   }
 
-  public getShowtimesMovie(): Observable<IGetShowtimeMovieResponse> {
-    return this.http.get<IGetShowtimeMovieResponse>(this.appConfig.rootURL + "showtimes/location");
-  }
-
   public getShowtimesTheater(): Observable<IGetShowtimeTheaterResponse> {
     return this.http.get<IGetShowtimeTheaterResponse>(this.appConfig.rootURL + "showtimes");
+  }
+  public getShowtimesMovie(location: string, date: string): Observable<IGetShowtimeMovieResponse> {
+    {
+      var url = this.appConfig.rootURL + "showtimes/location";
+      if (location != null)
+        url += '/' + location;//AU/3026/
+      if (date != null)
+        url += '/' + date; //2019 - 03 - 13
+      return this.http.get<IGetShowtimeMovieResponse>(url);
+    }
   }
 
 }
