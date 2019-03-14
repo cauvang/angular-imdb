@@ -16,9 +16,15 @@ export class ShowtimesService {
     this.appConfig = config;
   }
 
-  public getShowtimesTheater(): Observable<IGetShowtimeTheaterResponse> {
-    return this.http.get<IGetShowtimeTheaterResponse>(this.appConfig.rootURL + "showtimes");
+  public getShowtimesTheater(location: string, date: string): Observable<IGetShowtimeTheaterResponse> {
+    var url = this.appConfig.rootURL + "showtimes";
+    if (location != null)
+      url += '/' + location;//AU/3026/
+    if (date != null)
+      url += '/' + date; //2019 - 03 - 13
+    return this.http.get<IGetShowtimeTheaterResponse>(url);
   }
+
   public getShowtimesMovie(location: string, date: string): Observable<IGetShowtimeMovieResponse> {
     {
       var url = this.appConfig.rootURL + "showtimes/location";

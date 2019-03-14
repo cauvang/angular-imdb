@@ -1,0 +1,19 @@
+<div class="border-dotted pt-2">
+  <div class="image-size float-left pr-2">
+    <app-overlay-image [imageUrl]="data.image.url" [imageTitle]=""></app-overlay-image>
+  </div>
+  <div class="font11">
+    <a class="font-weight-bold" href="#">{{data.name}}</a>
+    <div>
+      {{data.duration}} - User Rating: <span class="font-weight-bold">{{data.ratingValue}}</span>/10
+      ({{data.ratingCount}} user ratings)
+      <span class="metascore"> {{data.metascore}}</span> | Rank: ????
+    </div>
+    <div>
+      <span class="font-weight-bold">Showtimes:</span>
+      <ul class="font13">
+        <li class="pr-1" *ngFor="let item of data.showtimes">{{item}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

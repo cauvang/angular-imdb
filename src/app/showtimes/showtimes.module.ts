@@ -11,6 +11,7 @@ import { ShowtimeHomeComponent } from './showtime-home/showtime-home.component';
 import { ShowtimeMovieNearComponent } from './showtime-movie-near/showtime-movie-near.component';
 import { ShowtimeTheaterNearComponent } from './showtime-theater-near/showtime-theater-near.component';
 import { ShowtimeFavouriteComponent } from './showtime-favourite/showtime-favourite.component';
+import { ShowtimeTheaterItemComponent } from './showtime-theater-item/showtime-theater-item.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ShowtimeFavouriteComponent } from './showtime-favourite/showtime-favour
         ShowtimeHomeComponent,
         ShowtimeMovieNearComponent,
         ShowtimeTheaterNearComponent,
-        ShowtimeFavouriteComponent
+        ShowtimeFavouriteComponent,
+        ShowtimeTheaterItemComponent
     ],
     imports: [
         AppRoutingModule,

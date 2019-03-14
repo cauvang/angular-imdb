@@ -20,7 +20,7 @@ export class ShowtimeTheaterNearComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getShowtimesTheater().subscribe((data) => {
+    this.service.getShowtimesTheater(null, null).subscribe((data) => {
       this.theatersNear = data.items;
       data.items.forEach(element => {
         this.nTheater += element.items.length;
