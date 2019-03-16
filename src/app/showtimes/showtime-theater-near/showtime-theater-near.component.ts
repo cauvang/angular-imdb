@@ -9,8 +9,6 @@ import { ShowtimesService } from 'src/app/services/showtimes.service';
 })
 export class ShowtimeTheaterNearComponent implements OnInit {
 
-
-
   private theatersNear: IShowtimeGroup[];
   private nTheater: number;
 
@@ -27,6 +25,5 @@ export class ShowtimeTheaterNearComponent implements OnInit {
       });
     });
 
-    console.log(this.nTheater);
   }
 }

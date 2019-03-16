@@ -1,0 +1,27 @@
+.my-btn {
+  border: 1px g#E0E0E0 #C0C0C0 #C0C0C0 #E0E0E0 solid;
+  border-radius: 4px;
+  background-color: #fbfbfa;
+  box-shadow: 2px 3px #888888;
+  text-align: center;
+  padding: 2px 5px;
+
+  &:hover {
+    background-color: rgba($color: yellow, $alpha: 0.4)
+  }
+}
+
+
+ul {
+  margin: 0;
+  padding: 0px;
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+.active {
+  color: black;
+}

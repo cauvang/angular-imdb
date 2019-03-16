@@ -1,0 +1,10 @@
+{{selectedDate| date: 'MMMM'}}
+<ul>
+  <li *ngFor="let item of dates;let i=index" class="my-btn m-1 font13">
+    <a routerLink="{{type}}/{{item | date :'yyyy-MM-dd'}}" (click)="OnSelectDate(item)" [ngClass]="{'active': selectedDate.getDate() === item.getDate()}">
+      {{item | customDateFormat: 'ddd'}}
+      <br />
+      {{item | customDateFormat: 'DD'}}
+    </a>
+  </li>
+</ul>

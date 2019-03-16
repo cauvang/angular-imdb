@@ -8,6 +8,9 @@ import { LoadingIconComponent } from './loading-icon/loading-icon.component';
 import { OverlayImageComponent } from './overlay-image/overlay-image.component';
 import { ShareWidgetComponent } from './share-widget/share-widget.component';
 import { ImagePopoverComponent } from './image-popover/image-popover.component';
+import { WeekdaySelectComponent } from './weekday-select/weekday-select.component';
+import { CustomDateFormatPipe } from './custom-date-format.pipe';
+import { RefinementComponent } from './refinement/refinement.component';
 
 @NgModule({
     imports: [
@@ -20,7 +23,9 @@ import { ImagePopoverComponent } from './image-popover/image-popover.component';
         LoadingIconComponent,
         OverlayImageComponent,
         ShareWidgetComponent,
-        ImagePopoverComponent
+        ImagePopoverComponent,
+        CustomDateFormatPipe,
+        RefinementComponent,
     ],
     exports: [
         CommonModule,
@@ -30,7 +35,8 @@ import { ImagePopoverComponent } from './image-popover/image-popover.component';
         LoadingIconComponent,
         OverlayImageComponent,
         ShareWidgetComponent,
-        ImagePopoverComponent
+        ImagePopoverComponent,
+        CustomDateFormatPipe
     ]
 })
 export class SharedModule { }

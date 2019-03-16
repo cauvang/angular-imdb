@@ -32,7 +32,11 @@ const routes: Routes = [
   {
     path: 'showtimes', component: ShowtimeHomeComponent, children: [
       { path: 'movies', component: ShowtimeMovieComponent },
+      { path: 'movies/:date', component: ShowtimeMovieComponent },
+
       { path: 'theater', component: ShowtimeTheaterComponent },
+      { path: 'theater/:date', component: ShowtimeTheaterComponent },
+
       { path: 'favourite', component: ShowtimeFavouriteComponent },
     ]
   },

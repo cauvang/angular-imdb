@@ -16,6 +16,7 @@ import { MoviesModule } from './movies/movies.module';
 import { MoviesService } from './services/movies.service';
 import { ShowtimesService } from './services/showtimes.service';
 import { ShowtimesModule } from './showtimes/showtimes.module';
+import { GetDateService } from './services/getDate.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ShowtimesModule } from './showtimes/showtimes.module';
     MoviesModule,
     ShowtimesModule,
   ],
-  providers: [HomePageService, NewsService, MoviesService, ShowtimesService,
+  providers: [HomePageService, NewsService, MoviesService, ShowtimesService, GetDateService,
     { provide: APP_CONFIG, useValue: APP_CONFIG_VALUE }
   ],
   bootstrap: [AppComponent]

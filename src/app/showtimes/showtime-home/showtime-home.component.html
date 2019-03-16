@@ -6,7 +6,10 @@
         <h4 class="float-left pr-3">3030 AU</h4>
         <a href="#">Change</a>
       </div>
-      <ul class="nav nav-tabs position-relative">
+
+      <app-weekday-select [type]="type"></app-weekday-select>
+
+      <ul class="nav nav-tabs position-relative mt-3">
         <li class="nav-item">
           <a class="nav-link font-weight-bold" routerLinkActive="active" routerLink="/showtimes/movies">Movies ()</a>
         </li>
@@ -29,15 +32,20 @@
   </div>
   <div class="col-md-4 p-3 ">
     <div class="rounded bk-grey">
-      <span class="color-gold font-weight-bold">Favorite Theaters</span>
-      <div>
-        Click the <img class="favourite" src="https://imageog.flaticon.com/icons/png/512/9/9571.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF6083._V_.png" />
-        next to a theater name on any showtimes page to mark it as a favorite. </div>
-    </div>
-    <app-showtime-movie-near>
-    </app-showtime-movie-near>
+      <div *ngIf="type!='favourite'">
 
-    <app-showtime-theater-near></app-showtime-theater-near>
+        <span class="color-gold font-weight-bold">Favorite Theaters</span>
+        <div>
+          Click the <img class="favourite" src="https://imageog.flaticon.com/icons/png/512/9/9571.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF6083._V_.png" />
+          next to a theater name on any showtimes page to mark it as a favorite. </div>
+      </div>
+    </div>
+    <div *ngIf="type!='movies'">
+      <app-showtime-movie-near> </app-showtime-movie-near>
+    </div>
+    <div *ngIf="type!='theater'">
+      <app-showtime-theater-near></app-showtime-theater-near>
+    </div>
     <app-share-widget></app-share-widget>
 
   </div>

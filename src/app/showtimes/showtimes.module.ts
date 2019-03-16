@@ -12,6 +12,7 @@ import { ShowtimeMovieNearComponent } from './showtime-movie-near/showtime-movie
 import { ShowtimeTheaterNearComponent } from './showtime-theater-near/showtime-theater-near.component';
 import { ShowtimeFavouriteComponent } from './showtime-favourite/showtime-favourite.component';
 import { ShowtimeTheaterItemComponent } from './showtime-theater-item/showtime-theater-item.component';
+import { WeekdaySelectComponent } from './weekday-select/weekday-select.component';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { ShowtimeTheaterItemComponent } from './showtime-theater-item/showtime-t
         ShowtimeMovieNearComponent,
         ShowtimeTheaterNearComponent,
         ShowtimeFavouriteComponent,
-        ShowtimeTheaterItemComponent
+        ShowtimeTheaterItemComponent,
+        WeekdaySelectComponent,
+
     ],
     imports: [
         AppRoutingModule,
@@ -38,7 +41,9 @@ import { ShowtimeTheaterItemComponent } from './showtime-theater-item/showtime-t
         ShowtimeHomeComponent,
         ShowtimeMovieNearComponent,
         ShowtimeTheaterNearComponent,
-        ShowtimeFavouriteComponent
+        ShowtimeFavouriteComponent,
+        WeekdaySelectComponent,
+
     ],
 
 })

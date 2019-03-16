@@ -9,6 +9,7 @@ import { IGetNewsResponse } from '../models/news';
 import { IGetBirthdayResponse } from '../models/birthday';
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
+import { GetDateService } from './getDate.service';
 
 
 @Injectable({
@@ -18,7 +19,7 @@ import { APP_CONFIG } from '../app.config';
 export class HomePageService {
   private appConfig: AppConfig;
 
-  constructor(private http: HttpClient, @Inject(APP_CONFIG) config: AppConfig) {
+  constructor(private http: HttpClient, @Inject(APP_CONFIG) config: AppConfig, private service: GetDateService) {
     this.appConfig = config;
   }
 
@@ -48,12 +49,8 @@ export class HomePageService {
   }
 
   public getBirthdayResponse(): Observable<IGetBirthdayResponse> {
-    const today = new Date();
-    const dd = today.getDate();
-    const mm = today.getMonth();
-
-    const ddmm = (dd < 10 ? "0" + dd : dd) + "-" + (mm < 9 ? "0" + (mm + 1) : (mm + 1));
-    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/" + ddmm);// + getLocaleDateFormat(new Date().toDateString(), FormatWidth.Medium));
+    const ddmm = this.service.GetToday_DDMM();
+    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/" + ddmm);
   }
 
 }

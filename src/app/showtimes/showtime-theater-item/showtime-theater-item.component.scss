@@ -3,9 +3,10 @@ ul {
 }
 
 li {
-  display: inline;
+  display: inline-block;
 
   &::after {
+    padding-right: 2px;
     content: '|';
   }
 
