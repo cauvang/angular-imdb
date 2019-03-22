@@ -16,6 +16,7 @@ export interface IShowtimeMovie {
 
 export interface IMetadata {
     categoryName: string;
+    searchKey: string;
     values: IValue[];
 }
 

@@ -10,7 +10,6 @@ export class WeekdaySelectComponent implements OnInit {
   @Input() type: string;
   private selectedDate: Date;
   private dates: Date[];
-  // private today:Date;
 
   constructor() {
     this.dates = [];

@@ -1,7 +1,12 @@
 <div class=" rounded bk-grey p-2 mt-2">
-  <a href="#">Refine</a>
-  | See movies by genre, rating, online ticketing, etc.
+  <button class="btn btn-link" (click)="onRefine()">Refine</button>
+  <span>| See movies by genre, rating, online ticketing, etc.</span>
 </div>
+
+<div [hidden]="!bRefine">
+  <app-refinement [data]="metaData"></app-refinement>
+</div>
+
 <div class="border mt-2 bk-trans">
   <div class="d-flex">
     <span class="flex-grow-1"> {{nMovie}} movies playing near you today, {{today|date:'EEEE, MMMM d'}}</span>
@@ -28,4 +33,5 @@
 
 
   </div>
+
 </div>

@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ShowtimeHomeComponent implements OnInit {
   private type: string;
+  private nMovie: number;
 
   constructor(private route: ActivatedRoute, private router: Router) {
     // this.route.url.subscribe(url => {
@@ -22,7 +23,10 @@ export class ShowtimeHomeComponent implements OnInit {
       this.type = tmp[2];
     });
     // console.log(this.type);
-
   }
 
+  getMovieCount(nMovie) {
+    this.nMovie = nMovie;
+    console.log("nMovie", this.nMovie);
+  }
 }
