@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
-import { IShowtimeTheater, IShowtimeGroup } from 'src/app/models/showtimes';
-import { getDateOffset } from 'ngx-bootstrap/chronos/units/offset';
+import { IShowtimeGroup } from 'src/app/models/showtimes';
 import { GetDateService } from 'src/app/services/getDate.service';
 import { Params, ActivatedRoute } from '@angular/router';
 
@@ -12,9 +11,9 @@ import { Params, ActivatedRoute } from '@angular/router';
 })
 export class ShowtimeTheaterComponent implements OnInit {
 
-  private theaters: IShowtimeGroup[];
-  private nTheater: number;
-  private today: string;
+  public theaters: IShowtimeGroup[];
+  public nTheater: number;
+  public today: string;
 
   constructor(private service: ShowtimesService, private route: ActivatedRoute, private dateService: GetDateService) {
     this.theaters = [];

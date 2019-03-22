@@ -10,10 +10,15 @@ import { ImagePopoverComponent } from './image-popover/image-popover.component';
 import { CustomDateFormatPipe } from './custom-date-format.pipe';
 import { RefinementComponent } from './refinement/refinement.component';
 import { FormsModule } from '@angular/forms';
+import { SortComponent } from './sort/sort.component';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
     imports: [
-        CommonModule, FormsModule
+        CommonModule, FormsModule,
+        MatSelectModule,
+        BrowserAnimationsModule
     ],
     declarations: [
         DropdownDirective,
@@ -25,6 +30,7 @@ import { FormsModule } from '@angular/forms';
         ImagePopoverComponent,
         CustomDateFormatPipe,
         RefinementComponent,
+        SortComponent,
     ],
     exports: [
         CommonModule,
@@ -36,7 +42,8 @@ import { FormsModule } from '@angular/forms';
         ShareWidgetComponent,
         ImagePopoverComponent,
         CustomDateFormatPipe,
-        RefinementComponent
+        RefinementComponent,
+        SortComponent
     ]
 })
 export class SharedModule { }

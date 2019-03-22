@@ -1,0 +1,28 @@
+<div>Sort by:</div>
+
+
+<!-- <div class="float-left border dropdown dropdown-size" appDropdown #rr="appDropDown">
+  <button id="button-basic" class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    {{data[0]}}
+  </button>
+
+  <div class="dropdown-menu dropdown-size" [ngClass]="{'show':rr.isOpen}">
+    <div *ngFor="let item of data">
+      <a class="dropdown-item" href="#">{{item}}</a>
+    </div>
+  </div>
+</div> -->
+
+
+<mat-form-field>
+  <mat-label>{{data[0]}}</mat-label>
+  <mat-select [(value)]="sortBy" (selectionChange)="onSortByChanged($event)">
+    <mat-option *ngFor="let item of data" value="{{item}}">{{item}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<span class="border mr-1 p-2 bk-grey" title={{sortDirectionTitle}} (click)="onSortDirectionClick()">
+  <span> <i class="fas fa-long-arrow-alt-down text-gray" [ngClass]="{'text-gray': sortDirection=='desc'}"></i></span>
+  <i class="fas fa-long-arrow-alt-up " [ngClass]="{'text-gray': sortDirection=='asc'}"></i>
+</span>

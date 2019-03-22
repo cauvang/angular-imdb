@@ -14,8 +14,9 @@ export const APP_CONFIG_VALUE: AppConfig = {
         indieNews: "indie"
     },
 
-    
-    rootURL: "https://72hrelako9.execute-api.us-east-1.amazonaws.com/dev/"
+
+    // rootURL: "https://72hrelako9.execute-api.us-east-1.amazonaws.com/dev/"
+    rootURL: "https://n0yy6c0l9c.execute-api.us-east-1.amazonaws.com/prod/"
 
 };
 
