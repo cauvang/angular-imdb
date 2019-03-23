@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sort',
@@ -7,24 +7,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SortComponent implements OnInit {
   public data = [
-    "Popularity",
-    "Alphabetical",
-    "IMDb Rating",
-    "Release Date",
-    "Runtime"
+    {
+      name: "Popularity",
+      value: "moviemeter"
+    },
+    {
+      name: "Alphabetical",
+      value: "alpha"
+    },
+    {
+      name: "IMDb Rating",
+      value: "user_rating"
+    },
+    {
+      name: "Release Date",
+      value: "release_date"
+    },
+    {
+      name: "Runtime",
+      value: "runtime"
+    }
   ];
+  @Output() sortChange = new EventEmitter();
+
+  sortBy = "moviemeter";
   sortDirection: string = "asc";
-  sortBy: string;
   sortDirectionTitle: string;
+
 
   constructor() { }
 
   ngOnInit() {
   }
+
   onSortByChanged(event) {
-    console.log(this.sortBy);
-    console.log(event);
+    this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
   }
+
   onSortDirectionClick() {
     if (this.sortDirection === "asc") {
       this.sortDirection = "desc";
@@ -34,5 +53,6 @@ export class SortComponent implements OnInit {
       this.sortDirection = "asc";
       this.sortDirectionTitle = "Ascending order";
     }
+    this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
   }
 }

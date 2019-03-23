@@ -8,6 +8,7 @@ export class AppConfig {
         indieNews: string;
     }
 
+
     rootURL: string;
 
 }
