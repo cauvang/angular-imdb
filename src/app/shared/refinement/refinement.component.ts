@@ -11,8 +11,16 @@ export class RefinementComponent implements OnInit, OnChanges {
   @Input() data: IMetadata[];
   private selectedTab: string;
   @Output() refineChange = new EventEmitter();
+  ratingInc = [];
+  ratingRev = [];
+  from = "1";
+  to = "10";
 
   constructor(private router: Router) {
+    for (let index = 1; index <= 10; index += 0.1) {
+      this.ratingInc.push(Math.round(index * 10) / 10);
+    }
+    this.ratingRev = [...this.ratingInc].reverse();
   }
 
   ngOnInit() {
