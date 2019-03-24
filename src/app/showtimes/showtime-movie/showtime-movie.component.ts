@@ -16,8 +16,6 @@ export class ShowtimeMovieComponent implements OnInit {
   private nMovie: number;
   private metaData: IMetadata[];
   private today: string;
-  private bRefine: boolean;
-
 
   constructor(private service: ShowtimesService, private route: ActivatedRoute, private dateService: GetDateService,
     private router: Router) {
@@ -29,7 +27,6 @@ export class ShowtimeMovieComponent implements OnInit {
       this.loadMovies();
     });
 
-    this.bRefine = false;
   }
 
   ngOnInit() {
@@ -41,11 +38,14 @@ export class ShowtimeMovieComponent implements OnInit {
   loadMovies() {
 
     const url = document.location.href;
+
     let queryString = "";
 
     if (url.indexOf("?")) {
       queryString = url.split('?')[1];
     }
+    // console.log("queryS", queryString, url);
+
     if (this.today === undefined)
       this.today = this.dateService.GetToday_YYYYMMDD();
 
@@ -53,15 +53,11 @@ export class ShowtimeMovieComponent implements OnInit {
       this.nMovie = data.totalCount;
       this.movies = data.items;
       this.metaData = data.metadata;
+
     });
   }
 
-  onRefine() {
-    if (this.bRefine == false)
-      this.bRefine = true;
-    else
-      this.bRefine = false;
-  }
+
 
   onSortChange(sortBy: string) {
     this.router.navigate(
@@ -76,15 +72,16 @@ export class ShowtimeMovieComponent implements OnInit {
   }
 
   onRefineChange(queryParams) {
-
     this.router.navigate(
       [],
       {
         relativeTo: this.route,
         queryParams,
         queryParamsHandling: "merge"
+      }).then(() => {
+        this.loadMovies();
+
       });
-    this.loadMovies();
   }
 }
 

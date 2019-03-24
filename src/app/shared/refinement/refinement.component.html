@@ -1,38 +1,65 @@
-<div class="row">
-  <div class="col-3">
-    <div *ngIf="data!=null" class="nav flex-column  bk-grey">
-      <div *ngFor="let item of data">
-        <a class="nav-link p-2" aria-selected="true" [ngClass]="{'active': item.categoryName==selectedTab}"
-          (click)="onClick(item.categoryName)">{{item.categoryName}}</a>
-      </div>
+<div class=" rounded bk-grey p-2 mt-2">
+  <button class="btn btn-link border-right" (click)="onRefine()">Refine</button>
+  <span class="refinedList"> See movies by genre, rating, online ticketing, etc.</span>
+  <div class="d-flex">
+    <div *ngFor="let item of selectedValues" class="selectedVal">
+      <label> {{item}}</label>
+      <i class="fas fa-times-circle ml-2"></i>
     </div>
   </div>
-  <div class="col-9">
-    <div class="tab-content overflow-auto" style="max-height:236px">
-      <div *ngFor="let item of data">
-        <div *ngIf="item.categoryName === selectedTab" class="d-flex flex-wrap flex-row">
-          <div *ngIf="item.searchKey === 'imdb_rating';else elseBlock">
-            IMDb user rating (average)
-            <mat-form-field>
-              <mat-select [(value)]="from">
-                <mat-option *ngFor="let item of ratingInc" value="{{item}}">{{item}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            to
-            <mat-form-field>
-              <!-- <mat-label>{{to}}</mat-label> -->
+</div>
+<div [hidden]="!bRefine">
 
-              <mat-select [(value)]="to">
-                <mat-option *ngFor="let item of ratingRev" value="{{item}}">{{item}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div #elseBlock *ngIf="item.searchKey==='elease_date';else finallyBlock">
+  <div class="row">
+    <div class="col-3">
+      <div *ngIf="data!=null" class="nav flex-column  bk-grey">
+        <div *ngFor="let item of data">
+          <a class="nav-link p-2" aria-selected="true" [ngClass]="{'active': item.categoryName==selectedTab}"
+            (click)="onClick(item.categoryName)">{{item.categoryName}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="tab-content overflow-auto" style="max-height:236px">
+        <div *ngFor="let item of data">
+          <div *ngIf="item.categoryName === selectedTab" class="d-flex flex-wrap flex-row">
+            <div *ngIf="item.searchKey === 'imdb_rating';else elseBlock">
+              <span>IMDb user rating (average)</span>
+              <div>
+                <mat-form-field>
+                  <mat-select [(value)]="from">
+                    <mat-option *ngFor="let item of ratingInc" value="{{item}}">{{item}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                to
+                <mat-form-field>
+                  <mat-select [(value)]="to">
+                    <mat-option *ngFor="let item of ratingRev" value="{{item}}">{{item}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <span>Number of votes</span>
+              <div class="d-flex">
+                <input type="text" class="form-control">
+                <span class="p-2">to </span>
+                <input type="text" class="form-control">
+                <label title="Search" class=" p-1 ml-2 btn-search border"> >> </label>
+              </div>
 
-          </div>
-          <div #finallyBlock *ngFor="let value of item.values" style="width: 50%">
-            <input type="checkbox" [(ngModel)]="value.checked" (change)="onChecked(item.categoryName, value.name)">
-            <span class="pl-2">{{value.name}} ({{value.count}})</span>
+            </div>
+            <div #elseBlock *ngIf="item.searchKey==='release_date';else finallyBlock">
+              <span>Release year or range</span>
+              <div class="d-flex">
+                <input type="text" class="form-control">
+                <span class="p-2">to </span>
+                <input type="text" class="form-control">
+                <label title="Search" class=" p-1 ml-2 btn-search border"> >> </label>
+              </div>
+            </div>
+            <div #finallyBlock *ngFor="let value of item.values" style="width: 50%">
+              <input type="checkbox" [(ngModel)]="value.checked" (change)="onChecked(item.categoryName, value.name)">
+              <span class="pl-2">{{value.name}} ({{value.count}})</span>
+            </div>
           </div>
         </div>
       </div>

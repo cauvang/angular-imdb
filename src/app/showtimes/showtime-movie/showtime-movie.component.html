@@ -1,11 +1,17 @@
-<div class=" rounded bk-grey p-2 mt-2">
-  <button class="btn btn-link" (click)="onRefine()">Refine</button>
-  <span>| See movies by genre, rating, online ticketing, etc.</span>
+<!-- <div class=" rounded bk-grey p-2 mt-2">
+  <button class="btn btn-link border-right" (click)="onRefine()">Refine</button>
+  <span class="refinedList"> See movies by genre, rating, online ticketing, etc.</span>
+  <div class="d-flex">
+    <div *ngFor="let item of refineList" class="border p-1">
+      <label> {{item}}</label>
+      <button class="rounded-circle border p-1 bk-grey">x</button>
+    </div>
+  </div>
 </div>
-
 <div [hidden]="!bRefine">
   <app-refinement [data]="metaData" (refineChange)="onRefineChange($event)"></app-refinement>
-</div>
+</div> -->
+<app-refinement [data]="metaData" (refineChange)="onRefineChange($event)"></app-refinement>
 
 <div class="border mt-2 bk-trans">
   <div class="d-flex">
