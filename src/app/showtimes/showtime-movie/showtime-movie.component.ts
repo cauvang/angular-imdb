@@ -3,7 +3,6 @@ import { IShowtimeMovie, IMetadata } from 'src/app/models/showtimes';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { GetDateService } from 'src/app/services/getDate.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { query } from '@angular/animations';
 
 @Component({
   selector: 'app-showtime-movie',

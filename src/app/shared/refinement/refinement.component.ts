@@ -14,10 +14,15 @@ export class RefinementComponent implements OnInit, OnChanges {
   ratingInc = [];
   ratingRev = [];
   from = "1";
+  fromStr = "";
   to = "10";
+  toStr = "";
   private bRefine: boolean;
 
   selectedValues: string[];
+  catList = {};
+
+
 
   constructor(private router: Router) {
     for (let index = 1; index <= 10; index += 0.1) {
@@ -32,15 +37,23 @@ export class RefinementComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+
     if (this.data.length > 0 && this.selectedTab == null)
       this.selectedTab = this.data[0].categoryName;
-    let selectedValues = [];
 
+    let selectedValues = [];
     this.data.forEach(element => {
       selectedValues = selectedValues.concat(element.values.filter(x => x.checked).map(x => x.name));
     });
-    this.selectedValues = selectedValues;
 
+    if (this.fromStr != "" && this.toStr != "")
+      selectedValues = selectedValues.concat(this.from + "-" + this.to + " IMDb user rating (average)");
+    else if (this.fromStr != "")
+      selectedValues = selectedValues.concat(this.fromStr);
+    else if (this.toStr != "")
+      selectedValues = selectedValues.concat(this.toStr);
+
+    this.selectedValues = selectedValues;
   }
 
   onClick(catName: string) {
@@ -55,11 +68,9 @@ export class RefinementComponent implements OnInit, OnChanges {
   }
 
   onChecked(catName: string, value: string) {
-    const catList = {};
+    // const catList = {};
 
     const query = this.data.map(d => {
-      // console.log("ddd", d);
-
       let valueString = "";
       const list = d.values.filter(t => t.checked).map(v => {
         valueString += v.name + ",";
@@ -68,10 +79,36 @@ export class RefinementComponent implements OnInit, OnChanges {
       if (valueString[valueString.length - 1] == ',') {
         valueString = valueString.substr(0, valueString.length - 1);
       }
-      //if (valueString !== "")
-      catList[d.searchKey] = valueString !== "" ? valueString : null;
+      this.catList[d.searchKey] = valueString !== "" ? valueString : null;
     })
-    // console.log("emit", catList);
-    this.refineChange.emit(catList);
+    this.refineChange.emit(this.catList);
+    //user_rating=2.1%2C9.8&num_votes=1%2C2
+    //now_playing=favorite
+  }
+
+  onGetRatingFromChanged(event) {
+    if (this.from === "1")
+      this.fromStr = "";
+    else
+      this.fromStr = "At least " + this.from + " IMDb user rating (average)";
+
+    let catStr = null;
+    if (this.from !== "1" || this.to !== "10")
+      catStr = (this.from === "1" ? "" : this.from) + '%2C' + (this.to === "10" ? "" : this.to);
+    this.catList['user_rating'] = catStr;
+    this.refineChange.emit(this.catList);
+  }
+
+  onGetRatingToChanged(event) {
+    if (this.to === "10")
+      this.toStr = "";
+    else
+      this.toStr = "No more than " + this.to + " IMDb user rating (average)";
+
+    let catStr = null;
+    if (this.from !== "1" || this.to !== "10")
+      catStr = (this.from === "1" ? "" : this.from) + '%2C' + (this.to === "10" ? "" : this.to);
+    this.catList['user_rating'] = catStr;
+    this.refineChange.emit(this.catList);
   }
 }

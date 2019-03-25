@@ -1,13 +1,16 @@
 <div class=" rounded bk-grey p-2 mt-2">
   <button class="btn btn-link border-right" (click)="onRefine()">Refine</button>
   <span class="refinedList"> See movies by genre, rating, online ticketing, etc.</span>
+  <!-- <div *ngIf="selectedValues!=null"> -->
+
   <div class="d-flex">
-    <div *ngFor="let item of selectedValues" class="selectedVal">
+    <div *ngFor="let item of selectedValues" class="selectedVal  mr-2">
       <label> {{item}}</label>
       <i class="fas fa-times-circle ml-2"></i>
     </div>
   </div>
 </div>
+<!-- </div> -->
 <div [hidden]="!bRefine">
 
   <div class="row">
@@ -23,17 +26,22 @@
       <div class="tab-content overflow-auto" style="max-height:236px">
         <div *ngFor="let item of data">
           <div *ngIf="item.categoryName === selectedTab" class="d-flex flex-wrap flex-row">
-            <div *ngIf="item.searchKey === 'imdb_rating';else elseBlock">
+            <div *ngIf="item.searchKey==='tickets_theaters';else ratingBlock">
+              <input type="radio">
+              <label>In Favourite Theaters</label>
+              <a href="#" class="border-top">Reset</a>
+            </div>
+            <div #ratingBlock *ngIf="item.searchKey === 'imdb_rating';else releaseBlock">
               <span>IMDb user rating (average)</span>
               <div>
                 <mat-form-field>
-                  <mat-select [(value)]="from">
+                  <mat-select [(value)]="from" (selectionChange)="onGetRatingFromChanged($event)">
                     <mat-option *ngFor="let item of ratingInc" value="{{item}}">{{item}}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 to
                 <mat-form-field>
-                  <mat-select [(value)]="to">
+                  <mat-select [(value)]="to" (selectionChange)="onGetRatingToChanged($event)">
                     <mat-option *ngFor="let item of ratingRev" value="{{item}}">{{item}}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -45,9 +53,8 @@
                 <input type="text" class="form-control">
                 <label title="Search" class=" p-1 ml-2 btn-search border"> >> </label>
               </div>
-
             </div>
-            <div #elseBlock *ngIf="item.searchKey==='release_date';else finallyBlock">
+            <div #releaseBlock *ngIf="item.searchKey==='release_date';else finallyBlock">
               <span>Release year or range</span>
               <div class="d-flex">
                 <input type="text" class="form-control">
