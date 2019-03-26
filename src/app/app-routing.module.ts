@@ -12,6 +12,7 @@ import { ShowtimeHomeComponent } from './showtimes/showtime-home/showtime-home.c
 import { ShowtimeMovieComponent } from './showtimes/showtime-movie/showtime-movie.component';
 import { ShowtimeTheaterComponent } from './showtimes/showtime-theater/showtime-theater.component';
 import { ShowtimeFavouriteComponent } from './showtimes/showtime-favourite/showtime-favourite.component';
+import { ShowtimeTitleComponent } from './showtimes/showtime-title/showtime-title.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,6 +41,8 @@ const routes: Routes = [
       { path: 'favourite', component: ShowtimeFavouriteComponent },
     ]
   },
+  { path: 'showtimes/title/:id', component: ShowtimeTitleComponent }
+
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IShowtimeGroup } from 'src/app/models/showtimes';
+import { IGroup } from 'src/app/models/showtimes';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ShowtimesService } from 'src/app/services/showtimes.service';
 })
 export class ShowtimeTheaterNearComponent implements OnInit {
 
-  private theatersNear: IShowtimeGroup[];
+  private theatersNear: IGroup[];
   private nTheater: number;
 
   constructor(private service: ShowtimesService) {

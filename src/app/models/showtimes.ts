@@ -2,17 +2,17 @@ import { IImage } from './article';
 import { IMovie } from './movies';
 
 export interface IGetShowtimeMovieResponse {
-    items: IShowtimeMovie[];
+    items: IMovie[];
     metadata: IMetadata[];
     totalCount: number;
 }
 
-export interface IShowtimeMovie {
-    id: string;
-    name: string;
-    rank: number;
-    image: IImage;
-}
+// export interface IShowtimeMovie {
+//     id: string;
+//     name: string;
+//     rank: number;
+//     image: IImage;
+// }
 
 export interface IMetadata {
     categoryName: string;
@@ -27,16 +27,16 @@ export interface IValue {
 }
 
 export interface IGetShowtimeTheaterResponse {
-    items: IShowtimeGroup[];
+    items: IGroup[];
     count: number;
 }
 
-export interface IShowtimeGroup {
+export interface IGroup {
     groupName: string;
-    items: IShowtimeTheater[];
+    items: ITheater[];
 }
 
-export interface IShowtimeTheater {
+export interface ITheater {
     name: string;
     id: string;
     address: IAddress;
@@ -50,17 +50,4 @@ export interface IAddress {
     postalCode: number;
     telephone: string;
     address: string;
-    movies: IMovies[];
 }
-
-export interface IMovies {
-    name: string;
-    id: string;
-    metascore: string;
-    ratingValue: string;
-    ratingCount: string;
-    duration: string;
-    showtimes: string[];
-    image: IImage;
-}
-

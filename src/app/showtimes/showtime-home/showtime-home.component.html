@@ -35,22 +35,16 @@
   <div class="col-md-4 p-3 ">
     <div class="rounded bk-grey">
       <div *ngIf="type!='favourite'">
-
-        <span class="color-gold font-weight-bold">Favorite Theaters</span>
-        <div>
-          Click the <img class="favourite"
-            src="https://imageog.flaticon.com/icons/png/512/9/9571.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF6083._V_.png" />
-          next to a theater name on any showtimes page to mark it as a favorite. </div>
+        <app-favourite></app-favourite>
       </div>
+      <div *ngIf="type!='movies'">
+        <app-showtime-movie-near> </app-showtime-movie-near>
+      </div>
+      <div *ngIf="type!='theater'">
+        <app-showtime-theater-near></app-showtime-theater-near>
+      </div>
+      <app-share-widget></app-share-widget>
+
     </div>
-    <div *ngIf="type!='movies'">
-      <app-showtime-movie-near> </app-showtime-movie-near>
-    </div>
-    <div *ngIf="type!='theater'">
-      <app-showtime-theater-near></app-showtime-theater-near>
-    </div>
-    <app-share-widget></app-share-widget>
 
   </div>
-
-</div>

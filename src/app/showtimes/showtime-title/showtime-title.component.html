@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-8  p-3">
+    <div class="border rounded p-3">
+      <a href="#" class="font-weight-bold">Showtimes</a>
+      <div class="overflow-auto">
+        <h4 class="float-left pr-3">3030 AU</h4>
+        <a href="#">Change</a>
+      </div>
+      <app-weekday-select [type]="type"></app-weekday-select>
+      <h4 *ngIf="title!=null">{{title.name}}</h4>
+      <div class="rounded">
+        <app-movie-item [data]="title"> </app-movie-item>
+      </div>
+
+      <app-showtime-theater [theaters]="groups"></app-showtime-theater>
+
+
+    </div>
+  </div>
+  <div class="col-md-4 p-3 ">
+    <div class="rounded bk-grey">
+      <div *ngIf="type!='favourite'">
+        <app-favourite></app-favourite>
+      </div>
+      <div *ngIf="type!='movies'">
+        <app-showtime-movie-near> </app-showtime-movie-near>
+      </div>
+      <div *ngIf="type!='theater'">
+        <app-showtime-theater-near></app-showtime-theater-near>
+      </div>
+      <app-share-widget></app-share-widget>
+
+    </div>
+
+  </div>

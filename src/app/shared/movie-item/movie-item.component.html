@@ -1,4 +1,4 @@
-<div class="row p-2">
+<div class="row p-2 " *ngIf="data">
   <div class="col-3">
     <img src="{{data.poster.url}}" title="{{data.poster.title}}">
   </div>
@@ -6,10 +6,13 @@
     <h4><a href="#">{{data.name}}</a></h4>
     <div class="m-2">
       <img class="d-inline" src="{{data.certImage.url}}">
-      <div class="d-inline"> {{data.lenght}} - </div>
+      <div class="d-inline"> {{data.length}} - </div>
       <ul class="d-inline " *ngIf="data.generes!=null">
         <li *ngFor="let item of data.generes" class="pr-1 splitVertical">{{item}} </li>
       </ul>
+    </div>
+    <div *ngIf="data.ratingValue!=null" class="rounded">
+      <app-ratings [data]="data.ratingValue"></app-ratings>
     </div>
     <div class="m-2 d-block" *ngIf="data.metascore!=''">
       <span class="d-inline metascore"> {{data.metascore}}</span>
@@ -34,6 +37,10 @@
           <a href="#" class="pl-1 "> {{item.name}} </a>
         </li>
       </ul>
+    </div>
+    <div *ngIf="boxOffice!=null">
+      <span class="font-weight-bold d-inline-flex">Stars: </span>
+
     </div>
     <button class="bk-yellow rounded mr-2" *ngIf="data.trailer.id">Watch Trailer</button>
     <button class="bk-yellow rounded">Add to Watchlist</button>

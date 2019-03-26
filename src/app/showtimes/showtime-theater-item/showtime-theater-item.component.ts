@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IMovies } from 'src/app/models/showtimes';
+import { IMovie } from 'src/app/models/movies';
 
 @Component({
   selector: 'app-showtime-theater-item',
@@ -7,7 +7,7 @@ import { IMovies } from 'src/app/models/showtimes';
   styleUrls: ['./showtime-theater-item.component.scss']
 })
 export class ShowtimeTheaterItemComponent implements OnInit {
-  @Input() data: IMovies;
+  @Input() data: IMovie;
 
   constructor() { }
 

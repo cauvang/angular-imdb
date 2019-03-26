@@ -13,10 +13,19 @@ import { FormsModule } from '@angular/forms';
 import { SortComponent } from './sort/sort.component';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AppRoutingModule } from '../app-routing.module';
+import { WeekdaySelectComponent } from './weekday-select/weekday-select.component';
+import { MovieItemComponent } from './movie-item/movie-item.component';
+import { ShowtimeMovieNearComponent } from './showtime-movie-near/showtime-movie-near.component';
+import { ShowtimeTheaterNearComponent } from './showtime-theater-near/showtime-theater-near.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { FavouriteComponent } from './favourite/favourite.component';
 
 @NgModule({
     imports: [
-        CommonModule, FormsModule,
+        AppRoutingModule,
+        CommonModule,
+        FormsModule,
         MatSelectModule,
         BrowserAnimationsModule
     ],
@@ -31,8 +40,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
         CustomDateFormatPipe,
         RefinementComponent,
         SortComponent,
+        WeekdaySelectComponent,
+        MovieItemComponent,
+        ShowtimeMovieNearComponent,
+        ShowtimeTheaterNearComponent,
+        RatingsComponent,
+        FavouriteComponent
     ],
     exports: [
+        AppRoutingModule,
         CommonModule,
         DropdownDirective,
         VideoImageComponent,
@@ -43,7 +59,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
         ImagePopoverComponent,
         CustomDateFormatPipe,
         RefinementComponent,
-        SortComponent
+        SortComponent,
+        WeekdaySelectComponent,
+        MovieItemComponent,
+        ShowtimeMovieNearComponent,
+        ShowtimeTheaterNearComponent,
+        FavouriteComponent
+
     ]
 })
 export class SharedModule { }

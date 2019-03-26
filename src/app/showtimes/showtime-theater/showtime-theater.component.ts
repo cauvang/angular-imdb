@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
-import { IShowtimeGroup } from 'src/app/models/showtimes';
+import { IGroup } from 'src/app/models/showtimes';
 import { GetDateService } from 'src/app/services/getDate.service';
 import { Params, ActivatedRoute } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Params, ActivatedRoute } from '@angular/router';
 })
 export class ShowtimeTheaterComponent implements OnInit {
 
-  public theaters: IShowtimeGroup[];
+  public theaters: IGroup[];
   public nTheater: number;
   public today: string;
 
@@ -32,7 +32,6 @@ export class ShowtimeTheaterComponent implements OnInit {
     this.route.params.subscribe((params: Params) => { this.today = params['date']; });
     if (this.today === undefined)
       this.today = this.dateService.GetToday_YYYYMMDD();
-    // console.log("date..", this.today);
 
     this.service.getShowtimesTheater('AU/3030', this.today).subscribe((data) => {
       this.theaters = data.items;

@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IShowtimeMovie, IMetadata } from 'src/app/models/showtimes';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
+import { IMetadata } from 'src/app/models/showtimes';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { GetDateService } from 'src/app/services/getDate.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { IMovie } from 'src/app/models/movies';
 
 @Component({
   selector: 'app-showtime-movie',
@@ -11,7 +13,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class ShowtimeMovieComponent implements OnInit {
 
-  private movies: IShowtimeMovie[];
+  private movies: IMovie[];
   private nMovie: number;
   private metaData: IMetadata[];
   private today: string;
@@ -43,7 +45,6 @@ export class ShowtimeMovieComponent implements OnInit {
     if (url.indexOf("?")) {
       queryString = url.split('?')[1];
     }
-    // console.log("queryS", queryString, url);
 
     if (this.today === undefined)
       this.today = this.dateService.GetToday_YYYYMMDD();
@@ -55,8 +56,6 @@ export class ShowtimeMovieComponent implements OnInit {
 
     });
   }
-
-
 
   onSortChange(sortBy: string) {
     this.router.navigate(

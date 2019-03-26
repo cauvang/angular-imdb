@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IShowtimeMovie } from 'src/app/models/showtimes';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
+import { IMovie } from 'src/app/models/movies';
 
 @Component({
   selector: 'app-showtime-movie-near',
@@ -8,9 +8,7 @@ import { ShowtimesService } from 'src/app/services/showtimes.service';
   styleUrls: ['./showtime-movie-near.component.scss']
 })
 export class ShowtimeMovieNearComponent implements OnInit {
-
-
-  private moviesNear: IShowtimeMovie[];
+  private moviesNear: IMovie[];
   private nMovie: number;
 
   constructor(private service: ShowtimesService) {
