@@ -1,0 +1,28 @@
+<div class=" rounded bk-grey p-2 mt-2">
+  Showing {{nTheater}} theaters with showtimes near you today, {{today|date:'EEEE, MMMM d'}}
+  <div class="mt-5" *ngFor="let group of data;let i=index" [ngClass]="{'bk-grey': i%2==0,'bk-white':i%2==1}">
+    <div class="font-weight-bold">{{group.groupName}}</div>
+    <div *ngFor="let item of group.items">
+      <a class="font-weight-bold" href="#">{{item.name}}</a>
+      <img class="favourite"
+        src="https://imageog.flaticon.com/icons/png/512/9/9571.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF6083._V_.png" />
+
+      <div class="font11" innerHTML="{{item.address.address}}"></div>
+      <div *ngIf="item.movies;else elseBlock">
+        <div *ngFor="let movie of item.movies" class="overflow-auto">
+          <app-showtime-theater-item [data]="movie"></app-showtime-theater-item>
+          <div *ngFor="let showtime of movie.showtimes">
+            <app-showtime-display [data]="showtime.showtimes" [type]="showtime.type"></app-showtime-display>
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <div *ngFor="let showtime of item.showtimes">
+          <app-showtime-display [data]="showtime.showtimes" [type]="showtime.type"></app-showtime-display>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="font11 mt-3">Movie showtimes data provided by <a href="#">Webedia Entertainment</a> and is subject to
+    change</div>
+</div>

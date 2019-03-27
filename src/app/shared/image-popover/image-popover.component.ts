@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IShowtimeMovie } from 'src/app/models/showtimes';
+import { IMovie } from 'src/app/models/movies';
 
 @Component({
   selector: 'app-image-popover',
@@ -7,7 +7,7 @@ import { IShowtimeMovie } from 'src/app/models/showtimes';
   styleUrls: ['./image-popover.component.scss']
 })
 export class ImagePopoverComponent implements OnInit {
-  @Input() data: IShowtimeMovie;
+  @Input() data: IMovie;
 
   constructor() { }
 

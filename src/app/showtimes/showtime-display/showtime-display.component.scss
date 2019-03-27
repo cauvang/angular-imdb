@@ -1,0 +1,36 @@
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+  letter-spacing: 1px;
+
+  &::after {
+    padding-right: 5px;
+    padding-left: 5px;
+    content: '|';
+  }
+
+  &:last-child::after {
+    content: '';
+  }
+}
+
+.type {
+  font-size: 11px;
+  color: #666;
+  margin: 0;
+  padding: 0;
+  line-height: 2.2em;
+
+  &::before {
+    content: "";
+    border-bottom: 1px dotted #CCC;
+    width: 90%;
+    margin-top: 12px;
+    margin-bottom: -13px;
+    margin-left: 62px;
+    float: left;
+  }
+}

@@ -1,4 +1,3 @@
-import { IImage } from './article';
 import { IMovie } from './movies';
 
 export interface IGetShowtimeMovieResponse {
@@ -6,13 +5,6 @@ export interface IGetShowtimeMovieResponse {
     metadata: IMetadata[];
     totalCount: number;
 }
-
-// export interface IShowtimeMovie {
-//     id: string;
-//     name: string;
-//     rank: number;
-//     image: IImage;
-// }
 
 export interface IMetadata {
     categoryName: string;
@@ -41,6 +33,8 @@ export interface ITheater {
     id: string;
     address: IAddress;
     movies: IMovie[];
+    showtimes: string[];
+    showtimes3D: string[];
 }
 
 export interface IAddress {
@@ -50,4 +44,9 @@ export interface IAddress {
     postalCode: number;
     telephone: string;
     address: string;
+}
+
+export interface ITitle {
+    item: IMovie;
+    items: IGroup[];
 }

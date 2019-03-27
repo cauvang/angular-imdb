@@ -4,8 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
-import { IGetShowtimeMovieResponse, IGetShowtimeTheaterResponse } from '../models/showtimes';
-import { ITitle } from '../models/movies';
+import { IGetShowtimeMovieResponse, IGetShowtimeTheaterResponse, ITitle } from '../models/showtimes';
 
 @Injectable({
   providedIn: 'root'

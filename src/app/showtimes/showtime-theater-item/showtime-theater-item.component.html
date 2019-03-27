@@ -9,11 +9,6 @@
       ({{data.ratingCount}} user ratings)
       <span *ngIf="data.metascore!=null" class="metascore"> {{data.metascore}}</span> | Rank: {{data.rank}}
     </div>
-    <div>
-      <span class="font-weight-bold">Showtimes:</span>
-      <ul class="font13">
-        <li *ngFor="let item of data.showtimes">{{item}}</li>
-      </ul>
-    </div>
+
   </div>
 </div>

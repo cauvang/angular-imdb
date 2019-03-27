@@ -1,5 +1,4 @@
 import { IImage } from './article';
-import { IGroup } from './showtimes';
 
 export interface IGetMovieResponse {
     name: string;
@@ -38,7 +37,4 @@ export interface IId {
     id: string;
 }
 
-export interface ITitle {
-    item: IMovie;
-    items: IGroup[];
-}
+

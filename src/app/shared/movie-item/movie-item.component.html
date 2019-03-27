@@ -1,17 +1,17 @@
 <div class="row p-2 " *ngIf="data">
-  <div class="col-3">
+  <div class="col-3" *ngIf="data.poster">
     <img src="{{data.poster.url}}" title="{{data.poster.title}}">
   </div>
   <div class="col-9 font11">
     <h4><a href="#">{{data.name}}</a></h4>
-    <div class="m-2">
+    <div class="m-2" *ngIf="data.certImage">
       <img class="d-inline" src="{{data.certImage.url}}">
       <div class="d-inline"> {{data.length}} - </div>
       <ul class="d-inline " *ngIf="data.generes!=null">
         <li *ngFor="let item of data.generes" class="pr-1 splitVertical">{{item}} </li>
       </ul>
     </div>
-    <div *ngIf="data.ratingValue!=null" class="rounded">
+    <div *ngIf="data.ratingValue" class="rounded">
       <app-ratings [data]="data.ratingValue"></app-ratings>
     </div>
     <div class="m-2 d-block" *ngIf="data.metascore!=''">
@@ -19,7 +19,7 @@
       <span>Metascore </span>
     </div>
     <div innerHTML="{{data.description}}"></div>
-    <div *ngIf="data.directors!=null">
+    <div *ngIf="data.directors">
       <span class="font-weight-bold d-inline-flex" *ngIf="data.directors.length>1 ;else elseBlock">Directors:</span>
       <ng-template #elseBlock>
         <span class="font-weight-bold">Director:</span>
