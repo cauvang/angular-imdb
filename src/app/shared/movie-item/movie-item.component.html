@@ -7,7 +7,7 @@
     <div class="m-2" *ngIf="data.certImage">
       <img class="d-inline" src="{{data.certImage.url}}">
       <div class="d-inline"> {{data.length}} - </div>
-      <ul class="d-inline " *ngIf="data.generes!=null">
+      <ul class="d-inline " *ngIf="data.generes">
         <li *ngFor="let item of data.generes" class="pr-1 splitVertical">{{item}} </li>
       </ul>
     </div>
@@ -30,7 +30,7 @@
         </li>
       </ul>
     </div>
-    <div *ngIf="data.stars !=null">
+    <div *ngIf="data.stars">
       <span class="font-weight-bold d-inline-flex">Stars: </span>
       <ul class="d-inline-flex pl-2">
         <li *ngFor="let item of data.stars" class="splitComma">
@@ -38,11 +38,10 @@
         </li>
       </ul>
     </div>
-    <div *ngIf="boxOffice!=null">
+    <div *ngIf="boxOffice">
       <span class="font-weight-bold d-inline-flex">Stars: </span>
-
     </div>
-    <button class="bk-yellow rounded mr-2" *ngIf="data.trailer.id">Watch Trailer</button>
-    <button class="bk-yellow rounded">Add to Watchlist</button>
+    <button class="bk-yellow rounded mt-2 mr-2" *ngIf="data.trailer.id">Watch Trailer</button>
+    <button class="bk-yellow rounded mt-2">Add to Watchlist</button>
   </div>
 </div>

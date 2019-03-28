@@ -30,6 +30,8 @@ const routes: Routes = [
 
     ]
   },
+  { path: 'showtimes/title/:id', component: ShowtimeTitleComponent },
+  { path: 'showtimes/title/:id/:date', component: ShowtimeTitleComponent },
   {
     path: 'showtimes', component: ShowtimeHomeComponent, children: [
       { path: 'movies', component: ShowtimeMovieComponent },
@@ -41,7 +43,7 @@ const routes: Routes = [
       { path: 'favourite', component: ShowtimeFavouriteComponent },
     ]
   },
-  { path: 'showtimes/title/:id', component: ShowtimeTitleComponent }
+
 
 ];
 

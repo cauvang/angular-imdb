@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IMovie } from 'src/app/models/movies';
 
+
 @Component({
   selector: 'app-image-popover',
   templateUrl: './image-popover.component.html',

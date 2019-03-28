@@ -1,1 +1,31 @@
+.font21 {
+  font-size: 21px;
+}
 
+.change-location {
+  display: inline;
+
+}
+
+.postcode {
+  margin-right: -0.2em;
+  padding: 0.048em 0.14em;
+  text-align: right;
+  width: 6.08em;
+}
+
+.country,
+.postcode,
+.btn-go {
+  border-color: #BBBBBB #BBBBBB #E0E0E0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px 2px 2px 3px;
+  height: 30px;
+}
+
+.btn-go {
+  &:hover {
+    border-color: #E6B800 !important;
+  }
+}

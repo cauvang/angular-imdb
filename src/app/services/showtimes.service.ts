@@ -38,8 +38,12 @@ export class ShowtimesService {
     }
   }
 
-  public getShowtimesTitle(id: string): Observable<ITitle> {
+  public getShowtimesTitle(location: string, date: string, id: string): Observable<ITitle> {
     var url = this.appConfig.rootURL + "showtimes/title/" + id;
+    if (location != null)
+      url += '/' + location;//AU/3026/
+    if (date != null)
+      url += '/' + date; //2019 - 03 - 13
     return this.http.get<ITitle>(url);
   }
 

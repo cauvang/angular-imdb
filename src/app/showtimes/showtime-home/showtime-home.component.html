@@ -1,11 +1,21 @@
 <div class="row">
   <div class="col-md-8  p-3">
     <div class="border rounded p-3">
-      <a href="#" class="font-weight-bold">Showtimes</a>
+      <a routerLink="/showtimes/movies" class="font-weight-bold font21">Showtimes</a>
       <div class="overflow-auto">
-        <h4 class="float-left pr-3">3030 AU</h4>
-        <a href="#">Change</a>
+        <h5 class="float-left pr-3">{{postcode}} {{country}}</h5>
+        <button class="btn btn-link" (click)="onChangeClick()">Change</button>
       </div>
+      <div class="change-location">
+        <input type="text" class="postcode mr-1" placeholder="Postal code" value="{{postcode}}">
+
+        <select class="country" [(ngModel)]="country">
+          <option *ngFor="let item of countryList" [ngValue]="item">{{item}}</option>
+        </select>
+        <button type="submit" class="btn-go btn-outline-secondary mr-1 ml-1">Go</button>
+        <button type="button">[X]</button>
+      </div>
+
 
       <app-weekday-select [type]="type"></app-weekday-select>
 

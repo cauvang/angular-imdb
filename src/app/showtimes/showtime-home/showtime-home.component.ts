@@ -12,6 +12,9 @@ export class ShowtimeHomeComponent implements OnInit {
   private type: string;
   public nMovie: number;
   public nTheater = 0;
+  private postcode = "3030";
+  private country = "AU";
+  private countryList: string[] = ["AR", "AU", "CA", "CL", "ES", "FR", "IT", "MX", "NZ", "PT", "UK", "US"];
 
   constructor(private route: ActivatedRoute, private router: Router,
     private service: ShowtimesService, private dateService: GetDateService) {
@@ -43,11 +46,11 @@ export class ShowtimeHomeComponent implements OnInit {
     if (today === undefined)
       today = this.dateService.GetToday_YYYYMMDD();
 
-    this.service.getShowtimesMovie('AU/3030', today, queryString).subscribe((data) => {
+    this.service.getShowtimesMovie(this.country + "/" + this.postcode, today, queryString).subscribe((data) => {
       this.nMovie = data.totalCount;
     });
 
-    this.service.getShowtimesTheater('AU/3030', today).subscribe((data) => {
+    this.service.getShowtimesTheater(this.country + "/" + this.postcode, today).subscribe((data) => {
       data.items.forEach(element => {
         this.nTheater += element.items.length;
       });

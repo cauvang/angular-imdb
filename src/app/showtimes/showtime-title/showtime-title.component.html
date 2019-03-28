@@ -6,8 +6,8 @@
         <h4 class="float-left pr-3">3030 AU</h4>
         <a href="#">Change</a>
       </div>
-      <app-weekday-select [type]="type"></app-weekday-select>
-      <h4 *ngIf="title!=null">{{title.name}}</h4>
+      <app-weekday-select type="/showtimes/title/{{id}}"></app-weekday-select>
+      <h4 class="mt-3" *ngIf="title!=null">{{title.name}}</h4>
       <div class="rounded">
         <app-movie-item [data]="title"> </app-movie-item>
       </div>
