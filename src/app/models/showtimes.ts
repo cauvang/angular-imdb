@@ -50,3 +50,8 @@ export interface ITitle {
     item: IMovie;
     items: IGroup[];
 }
+
+export interface ILocation {
+    postcode: string;
+    country: string;
+}

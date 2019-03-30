@@ -1,5 +1,49 @@
-.container{
-  background:black;
+@import "../../../constants";
+
+.header {
+  background: $light-dark;
+  box-sizing: border-box;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 0px;
+
+  &-inner {
+    background: $dark;
+    margin-top: 15px;
+    padding: 15px 15px 0px 15px;
+    width: 100%;
+  }
+
+  &-menu {
+    width: 130px;
+    font-size: 13px;
+
+    &-title {
+      color: $gold;
+      font-size: 13px;
+      padding-left: 0.5rem;
+      padding-top: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    &-popup {
+      width: 550px;
+      z-index: 1111;
+
+      .dropdown-item {
+        padding: 0.1rem 0.5rem;
+      }
+    }
+  }
+
+  .search-type {
+    background: #fff;
+    color: black;
+    width: 100px;
+    border-radius: 0;
+    height: 38px;
+    margin-left: 1.5px;
+  }
 }
 
 .logo {
@@ -11,11 +55,19 @@
   color: red;
   width: 50px;
 }
-.btn{
-  color:white;
+
+.btn {
+  color: white;
 }
 
-.dropdown-item-text{
-  color:#A58500;
-  
+.dropdown-item-text {
+  color: $dark-yellow;
+
+}
+
+.dropdown-menu {
+  z-index: 11111;
+  margin-top: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

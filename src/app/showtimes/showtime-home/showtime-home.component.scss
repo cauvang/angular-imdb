@@ -3,7 +3,7 @@
 }
 
 .change-location {
-  display: inline;
+  //   display: inline;
 
 }
 
@@ -28,4 +28,8 @@
   &:hover {
     border-color: #E6B800 !important;
   }
+}
+
+.unknown-location{
+  background-color:#F3EEAF;
 }

@@ -1,66 +1,95 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-  crossorigin="anonymous">
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-2">
-      <a href="#">
-        <img class="logo" src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png">
-      </a>
-    </div>
-    <div class="col-md-8">
-      <div class="row">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Find Movies, TV shows, Celebrities and more ...">
-          <div class="input-group-append">
-            <div class="dropdown" appDropdown #r="appDropDown">
-              <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                All
-              </button>
-              <div class="dropdown-menu" [ngClass]="{'show':r.isOpen}">
-                <a class="dropdown-item" href="#">Titles</a>
-                <a class="dropdown-item" href="#">TV episodes</a>
+<nav class="navbar header">
+  <div class="header-inner">
+    <div class="row">
+      <div class="col-md-2">
+        <a href="#">
+          <img class="logo"
+            src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png">
+        </a>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="input-group">
+            <input type="text" class="form-control font13"
+              placeholder="Find Movies, TV shows, Celebrities and more ...">
+            <div class="input-group-append">
+              <div class="dropdown" appDropdown #r="appDropDown">
+                <button class="btn  dropdown-toggle font13 search-type" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  All
+                </button>
+                <div class="dropdown-menu" [ngClass]="{'show':r.isOpen}">
+                  <a class="dropdown-item" href="#">Titles</a>
+                  <a class="dropdown-item" href="#">TV episodes</a>
+                </div>
               </div>
-            </div>
 
-            <button type="button" class="btn"> <i class=" fas fa-search"></i> </button>
+              <button type="button" class="btn  bg-gold"> <i class=" fas fa-search"></i> </button>
+            </div>
           </div>
         </div>
 
-
         <div class="row">
-          <div class="dropdown" appDropdown #t="appDropDown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          <div class="dropdown header-menu" appDropdown #t="appDropDown">
+            <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Movies, TV & Showtimes
             </button>
             <div class="dropdown-menu" [ngClass]="{'show':t.isOpen}">
-              <label class="color-gold">Movies</label>
-              <a class="dropdown-item" routerLink="/movies/in-theater">In Theaters</a>
-              <a class="dropdown-item" routerLink="/showtimes/movies">Showtimes and Tickets</a>
-              <a class="dropdown-item" href="#">Latest Trailers</a>
-              <a class="dropdown-item" routerLink="/movies/coming-soon">Coming Soon</a>
+              <div class="header-menu-popup p-3 row">
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">Movies</h2>
+                  <a class="dropdown-item" routerLink="/movies/in-theater">In Theaters</a>
+                  <a class="dropdown-item" routerLink="/showtimes/movies">Showtimes and Tickets</a>
+                  <a class="dropdown-item" href="#">Latest Trailers</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Coming Soon</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Release Calendar</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Top Rated Movies</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Top Rated India Movies</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Most Popular Movies</a>
 
-              <label class="color-gold">TV & Video</label>
+                  <h2 class="header-menu-title">Charts & Trends</h2>
 
-              <a class="dropdown-item" href="#">IMDb TV</a>
-              <a class="dropdown-item" href="#">Top Rated TV Show</a>
+                  <a class="dropdown-item" href="#">Box Offices</a>
+                  <a class="dropdown-item" href="#">Oscar Winners</a>
+                  <a class="dropdown-item" href="#">Most Popular By Genre</a>
+                </div>
+
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">TV & Video</h2>
+                  <a class="dropdown-item" routerLink="/movies/in-theater">IMDB TV</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Top Rated TV Shows</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Most popular TV Shows</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">DVD & Bluray</a>
+
+                  <h2 class="header-menu-title">Special Features</h2>
+                  <a class="dropdown-item" routerLink="/movies/in-theater">Amazon Originals</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Streaming Now</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Horror Guide</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">IMDB Picks</a>
+
+
+                </div>
+
+
+
+
+              </div>
 
             </div>
           </div>
-          <div class="dropdown" appDropdown #rr="appDropDown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          <div class="dropdown header-menu" appDropdown #rr="appDropDown">
+            <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Celebs, Events & Photos
             </button>
             <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
-              <a class="dropdown-item" href="#">Celebs</a>
-              <a class="dropdown-item" href="#">Events</a>
+              < <a class="dropdown-item" href="#">Celebs</a>
+                <a class="dropdown-item" href="#">Events</a>
             </div>
           </div>
-          <div class="dropdown" appDropdown #tt="appDropDown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          <div class="dropdown  header-menu" appDropdown #tt="appDropDown">
+            <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               News & Community
             </button>
@@ -77,8 +106,8 @@
               <a class="dropdown-item" href="#">...</a>
             </div>
           </div>
-          <div class="dropdown" appDropdown #a="appDropDown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          <div class="dropdown  header-menu" appDropdown #a="appDropDown">
+            <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Watchlist
             </button>
@@ -89,5 +118,5 @@
         </div>
       </div>
     </div>
-
   </div>
+</nav>

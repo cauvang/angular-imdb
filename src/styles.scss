@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./constants";
 
 $font11:font11;
 
@@ -31,8 +32,13 @@ $font11:font11;
   }
 }
 
+.bg-gold {
+  background: $gold;
+}
+
 body {
-  background: grey;
+  background: $gray;
+  font-family: 'Lato', sans-serif;
 }
 
 a {

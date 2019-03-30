@@ -2,9 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IMovie } from 'src/app/models/movies';
-import { IGroup } from 'src/app/models/showtimes';
+import { IGroup, ILocation } from 'src/app/models/showtimes';
 import { GetDateService } from 'src/app/services/getDate.service';
-import { TabHeadingDirective } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-showtime-title',
@@ -13,6 +12,7 @@ import { TabHeadingDirective } from 'ngx-bootstrap';
 })
 export class ShowtimeTitleComponent implements OnInit {
   @Input() id: string;
+
   private title: IMovie;
   private groups: IGroup[];
   private nTheater = 0;
@@ -42,7 +42,12 @@ export class ShowtimeTitleComponent implements OnInit {
 
 
     this.route.params.subscribe((params: Params) => { this.id = params['id']; });
-    this.service.getShowtimesTitle('AU/3030', this.today, this.id).subscribe((data) => {
+    ///fixxxx
+    const location: ILocation = {
+      postcode: '3030',
+      country: 'AU'
+    }
+    this.service.getShowtimesTitle(location, this.today, this.id).subscribe((data) => {
       this.title = data.item;
       this.groups = data.items;
       data.items.forEach(element => {

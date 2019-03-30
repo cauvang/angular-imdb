@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
-import { IGetShowtimeMovieResponse, IGetShowtimeTheaterResponse, ITitle } from '../models/showtimes';
+import { IGetShowtimeMovieResponse, IGetShowtimeTheaterResponse, ITitle, ILocation } from '../models/showtimes';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +16,20 @@ export class ShowtimesService {
     this.appConfig = config;
   }
 
-  public getShowtimesTheater(location: string, date: string): Observable<IGetShowtimeTheaterResponse> {
+  public getShowtimesTheater(location: ILocation, date: string): Observable<IGetShowtimeTheaterResponse> {
     var url = this.appConfig.rootURL + "showtimes";
     if (location != null)
-      url += '/' + location;//AU/3026/
+      url += '/' + location.country + '/' + location.postcode;//AU/3026/
     if (date != null)
       url += '/' + date; //2019 - 03 - 13
     return this.http.get<IGetShowtimeTheaterResponse>(url);
   }
 
-  public getShowtimesMovie(location: string, date: string, queryString: string = ""): Observable<IGetShowtimeMovieResponse> {
+  public getShowtimesMovie(location: ILocation, date: string, queryString: string = ""): Observable<IGetShowtimeMovieResponse> {
     {
       var url = this.appConfig.rootURL + "showtimes/location";
       if (location != null)
-        url += '/' + location;//AU/3026/
+        url += '/' + location.country + '/' + location.postcode;//AU/3026/
       if (date != null)
         url += '/' + date; //2019 - 03 - 13
       if (queryString != null)
@@ -38,10 +38,10 @@ export class ShowtimesService {
     }
   }
 
-  public getShowtimesTitle(location: string, date: string, id: string): Observable<ITitle> {
+  public getShowtimesTitle(location: ILocation, date: string, id: string): Observable<ITitle> {
     var url = this.appConfig.rootURL + "showtimes/title/" + id;
     if (location != null)
-      url += '/' + location;//AU/3026/
+      url += '/' + location.country + '/' + location.postcode;//AU/3026/
     if (date != null)
       url += '/' + date; //2019 - 03 - 13
     return this.http.get<ITitle>(url);

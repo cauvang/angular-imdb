@@ -6,9 +6,11 @@
     <app-sort (sortChange)="onSortChange($event)"></app-sort>
   </div>
   <div class="d-flex flex-wrap">
+    <!-- <div *ngIf="movies.length>0"> -->
     <div *ngFor="let item of movies" class="m-2" style="width: 22%">
-      <app-image-popover [data]="item"></app-image-popover>
+      <app-image-popover [data]="item" *ngIf="movies.length>0"></app-image-popover>
     </div>
+    <!-- </div> -->
   </div>
   <div class="font11 mt-3">Movie showtimes data provided by <a href="#">Webedia Entertainment</a> and is subject to
     change</div>

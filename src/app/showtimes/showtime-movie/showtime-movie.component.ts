@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { IMetadata } from 'src/app/models/showtimes';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { GetDateService } from 'src/app/services/getDate.service';
 import { IMovie } from 'src/app/models/movies';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-showtime-movie',
@@ -18,19 +19,21 @@ export class ShowtimeMovieComponent implements OnInit {
   private metaData: IMetadata[];
   private today: string;
 
-  constructor(private service: ShowtimesService, private route: ActivatedRoute, private dateService: GetDateService,
+  constructor(private locationService: LocationService, private service: ShowtimesService, private route: ActivatedRoute, private dateService: GetDateService,
     private router: Router) {
     this.movies = [];
     this.metaData = [];
     this.nMovie = 0;
 
-    this.route.url.subscribe(url => {
-      this.loadMovies();
-    });
+
 
   }
 
   ngOnInit() {
+    this.route.url.subscribe(url => {
+      this.loadMovies();
+    });
+
     this.route.params.subscribe((params: Params) => { this.today = params['date']; });
 
     this.loadMovies();
@@ -49,13 +52,16 @@ export class ShowtimeMovieComponent implements OnInit {
     if (this.today === undefined)
       this.today = this.dateService.GetToday_YYYYMMDD();
 
-    this.service.getShowtimesMovie('AU/3030', this.today, queryString).subscribe((data) => {
+    const location = this.locationService.getLocation();
+    this.service.getShowtimesMovie(location, this.today, queryString).subscribe((data) => {
       this.nMovie = data.totalCount;
       this.movies = data.items;
       this.metaData = data.metadata;
-
     });
+
   }
+
+
 
   onSortChange(sortBy: string) {
     this.router.navigate(
