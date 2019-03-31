@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AppRoutingModule } from '../app-routing.module';
 import { CoreModule } from '../core/core.module';
+import { FormsModule } from '@angular/forms';
+
 import { SharedModule } from '../shared/shared.module';
 import { ShowtimeMovieComponent } from './showtime-movie/showtime-movie.component';
 import { ShowtimeTheaterComponent } from './showtime-theater/showtime-theater.component';
@@ -10,9 +11,10 @@ import { ShowtimeHomeComponent } from './showtime-home/showtime-home.component';
 import { ShowtimeFavouriteComponent } from './showtime-favourite/showtime-favourite.component';
 import { ShowtimeTheaterItemComponent } from './showtime-theater-item/showtime-theater-item.component';
 import { ShowtimeTitleComponent } from './showtime-title/showtime-title.component';
-import { ShowtimeTheaterInputComponent } from './showtime-theater-input/showtime-theater-input.component';
 import { ShowtimeDisplayComponent } from './showtime-display/showtime-display.component';
-import { FormsModule } from '@angular/forms';
+import { ShowtimeTheaterListComponent } from './showtime-theater-list/showtime-theater-list.component';
+import { ShowtimeCinemaComponent } from './showtime-cinema/showtime-cinema.component';
+import { SetLocationComponent } from './set-location/set-location.component';
 
 @NgModule({
     declarations: [
@@ -20,10 +22,12 @@ import { FormsModule } from '@angular/forms';
         ShowtimeHomeComponent,
         ShowtimeMovieComponent,
         ShowtimeTheaterComponent,
-        ShowtimeTheaterInputComponent,
+        ShowtimeTheaterListComponent,
         ShowtimeTheaterItemComponent,
         ShowtimeTitleComponent,
-        ShowtimeDisplayComponent
+        ShowtimeDisplayComponent,
+        ShowtimeCinemaComponent,
+        SetLocationComponent
     ],
     imports: [
         AppRoutingModule,
@@ -37,9 +41,11 @@ import { FormsModule } from '@angular/forms';
         ShowtimeHomeComponent,
         ShowtimeMovieComponent,
         ShowtimeTheaterComponent,
-        ShowtimeTheaterInputComponent,
+        ShowtimeTheaterListComponent,
         ShowtimeTheaterItemComponent,
-        ShowtimeTitleComponent
+        ShowtimeTitleComponent,
+        ShowtimeCinemaComponent,
+        SetLocationComponent
     ],
 
 })

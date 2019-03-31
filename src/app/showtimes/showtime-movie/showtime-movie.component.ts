@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { IMetadata } from 'src/app/models/showtimes';
@@ -24,30 +24,20 @@ export class ShowtimeMovieComponent implements OnInit {
     this.movies = [];
     this.metaData = [];
     this.nMovie = 0;
-
-
-
   }
 
   ngOnInit() {
-    this.route.url.subscribe(url => {
-      this.loadMovies();
-    });
-
-    this.route.params.subscribe((params: Params) => { this.today = params['date']; });
-
-    this.loadMovies();
+    this.route.url.subscribe(url => { this.loadMovies(); });
+    // this.loadMovies();
   }
 
   loadMovies() {
+    this.route.params.subscribe((params: Params) => { this.today = params['date']; });
 
     const url = document.location.href;
-
     let queryString = "";
-
-    if (url.indexOf("?")) {
+    if (url.indexOf("?"))
       queryString = url.split('?')[1];
-    }
 
     if (this.today === undefined)
       this.today = this.dateService.GetToday_YYYYMMDD();
@@ -60,8 +50,6 @@ export class ShowtimeMovieComponent implements OnInit {
     });
 
   }
-
-
 
   onSortChange(sortBy: string) {
     this.router.navigate(

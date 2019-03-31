@@ -1,0 +1,2 @@
+1. khi select date, moviecomponent thay doi nmovie, nhung showtimehome ko update, do weekday-select-app goi routerLink la moviecomponet, ko lien quan showtimehome de no tinh lai nmovie
+2. khi click len hinh trong theater tab, scrollbar hien ra

@@ -1,0 +1,31 @@
+   <!-- <button type="button" class="btn btn-secondary" data-container="body" 
+          data-toggle="popover" data-placement="top" data-content="Unknown Location
+          We're unable to identify the location you entered. Please double-check the postal code and country.">
+              Popover on top
+            </button> -->
+   <!-- <div #unknownLocation class="row unknown-location">
+        <div class="col-2">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="col-10">
+          <h4> Unknown Location</h4>
+          <span> We're unable to identify the location you entered. Please double-check the postal code and
+            country.</span>
+        </div>
+      </div> -->
+   <a routerLink="/showtimes/movies" class="font-weight-bold font21">Showtimes</a>
+   <div *ngIf="!bChange" class="overflow-auto">
+     <h5 class="float-left pr-3">{{location.postcode}} {{location.country}}</h5>
+     <button class="btn btn-link" (click)="onChangeClick()">Change</button>
+   </div>
+   <div *ngIf="bChange" class="change-location mb-3">
+     <input type="text" class="postcode mr-1" placeholder="Postal code" [(ngModel)]="location.postcode"
+       value="{{location.postcode}}">
+     <select class="country" [(ngModel)]="location.country">
+       <option *ngFor="let item of countryList" [ngValue]="item">{{item}}</option>
+     </select>
+     <!-- <button type="submit" class="btn-go btn-outline-secondary mr-1 ml-1" (click)="onClickGo()" data-container="body"
+          data-toggle="popover" data-placement="top" data-content="#unknownLocation">Go</button> -->
+     <button type="submit" class="btn-go btn-outline-secondary mr-1 ml-1" (click)="onClickGo()">Go</button>
+     <button type="button" (click)="onCancel()">[X]</button>
+   </div>

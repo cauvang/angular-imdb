@@ -19,28 +19,33 @@ export class ShowtimeTheaterComponent implements OnInit {
   constructor(private locationService: LocationService, private service: ShowtimesService, private route: ActivatedRoute, private dateService: GetDateService) {
     this.theaters = [];
     this.nTheater = 0;
-    // this.route.url.subscribe(url => {
-    //   this.loadTheaters();
-    // });
+
   }
 
   ngOnInit() {
-    this.loadTheaters();
+    this.route.url.subscribe(url => { this.loadTheaters(); });
+
+    //this.loadTheaters();
   }
 
   loadTheaters() {
-
+    this.nTheater = 0;
     this.route.params.subscribe((params: Params) => { this.today = params['date']; });
+
     if (this.today === undefined)
       this.today = this.dateService.GetToday_YYYYMMDD();
 
     const location = this.locationService.getLocation();
+    console.log("load data", location);
     this.service.getShowtimesTheater(location, this.today).subscribe((data) => {
+
       this.theaters = data.items;
       data.items.forEach(element => {
+        console.log("da", element.items.length);
         this.nTheater += element.items.length;
       });
 
     });
   }
 }
+
