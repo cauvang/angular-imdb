@@ -15,13 +15,36 @@
   }
 
   &-menu {
-    width: 130px;
+    width: 140px;
     font-size: 13px;
+    &-button {
+      height: 48px;
 
+      padding: 5px 25px;
+      color: #fff;
+      a {
+        color: #fff;
+      }
+      &:hover {
+        background: linear-gradient(
+          to bottom,
+          rgba(51, 51, 51, 0) 3%,
+          #333 15%,
+          #505050 50%,
+          #333 85%
+        );
+      }
+    }
     &::before {
       content: "";
       width: 1px;
-      background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 3%, #333 15%, #727272 50%, #232323 85%);
+      background: linear-gradient(
+        to bottom,
+        rgba(51, 51, 51, 0) 3%,
+        #333 15%,
+        #727272 50%,
+        #232323 85%
+      );
       height: 46px;
       display: inline-block;
       position: absolute;
@@ -30,7 +53,15 @@
     &-last::after {
       content: "";
       width: 1px;
-      background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 3%, #333 15%, #727272 50%, #232323 85%);
+      top: 0;
+      right: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(51, 51, 51, 0) 3%,
+        #333 15%,
+        #727272 50%,
+        #232323 85%
+      );
       height: 46px;
       display: inline-block;
       position: absolute;
@@ -80,7 +111,6 @@
 
 .dropdown-item-text {
   color: $dark-yellow;
-
 }
 
 .dropdown-menu {
@@ -108,7 +138,7 @@
     }
 
     a {
-      color: #fff
+      color: #fff;
     }
   }
 }
