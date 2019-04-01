@@ -30,11 +30,11 @@
         </div>
 
         <div class="row">
-          <div class="dropdown header-menu" appDropdown #t="appDropDown">
-            <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          <div class="dropdown header-menu font13" appDropdown #t="appDropDown">
+            <div class="dropdown-toggle font13 header-menu-button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Movies, TV & Showtimes
-            </button>
+              <a href="#">Movies</a>, TV & Showtimes
+            </div>
             <div class="dropdown-menu" [ngClass]="{'show':t.isOpen}">
               <div class="header-menu-popup p-3 row">
                 <div class="col-md-6">
@@ -79,20 +79,20 @@
             </div>
           </div>
           <div class="dropdown header-menu" appDropdown #rr="appDropDown">
-            <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Celebs, Events & Photos
-            </button>
+            <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <a href="">Celebs</a>, Events & Photos
+            </div>
             <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
               <a class="dropdown-item" href="#">Celebs</a>
               <a class="dropdown-item" href="#">Events</a>
             </div>
           </div>
           <div class="dropdown  header-menu" appDropdown #tt="appDropDown">
-            <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              News & Community
-            </button>
+            <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <a href="">News</a> & <a href="">Community</a>
+            </div>
             <div class="dropdown-menu" [ngClass]="{'show':tt.isOpen}">
               <span class="dropdown-item-text text-uppercase">News</span>
               <a class="dropdown-item" routerLink="news/top">Top News</a>
@@ -107,10 +107,10 @@
             </div>
           </div>
           <div class="dropdown  header-menu header-menu-last" appDropdown #a="appDropDown">
-            <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
               Watchlist
-            </button>
+            </div>
             <div class="dropdown-menu" [ngClass]="{'show':a.isOpen}">
               <a class="dropdown-item" href="#">Your watchlist</a>
             </div>
