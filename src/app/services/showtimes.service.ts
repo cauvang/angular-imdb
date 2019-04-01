@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
-import { IGetShowtimeMovieResponse, IGetShowtimeTheaterResponse, ITitle, ILocation } from '../models/showtimes';
+import { IGetShowtimeMovieResponse, IGetShowtimeTheaterResponse, ITitle, ILocation, ITheater } from '../models/showtimes';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +45,11 @@ export class ShowtimesService {
     if (date != null)
       url += '/' + date; //2019 - 03 - 13
     return this.http.get<ITitle>(url);
+  }
+
+  public getShowtimesCinema(id: string): Observable<ITheater> {
+    var url = this.appConfig.rootURL + "showtimes/cinema/" + id;
+    return this.http.get<ITheater>(url);
   }
 
 }

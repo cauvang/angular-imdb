@@ -13,6 +13,7 @@ import { ShowtimeMovieComponent } from './showtimes/showtime-movie/showtime-movi
 import { ShowtimeTheaterComponent } from './showtimes/showtime-theater/showtime-theater.component';
 import { ShowtimeFavouriteComponent } from './showtimes/showtime-favourite/showtime-favourite.component';
 import { ShowtimeTitleComponent } from './showtimes/showtime-title/showtime-title.component';
+import { ShowtimeCinemaComponent } from './showtimes/showtime-cinema/showtime-cinema.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
       { path: 'favourite', component: ShowtimeFavouriteComponent },
     ]
   },
+  { path: 'showtimes/cinema/:id', component: ShowtimeCinemaComponent }
 
 
 ];
