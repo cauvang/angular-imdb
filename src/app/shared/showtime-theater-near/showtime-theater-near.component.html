@@ -3,7 +3,7 @@
   <div *ngFor="let iTheater of theatersNear">
     <div class="font-weight-bold font11 pt-3 [b-3">{{iTheater.groupName}}......</div>
     <div *ngFor="let item of iTheater.items">
-      <a class="font13 pl-3" href="#">{{item.name}}</a>
+      <a class="font13 pl-3" routerLink="/showtimes/cinema/{{item.id}}">{{item.name}}</a>
     </div>
   </div>
 </div>

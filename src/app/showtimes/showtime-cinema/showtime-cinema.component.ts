@@ -13,17 +13,20 @@ export class ShowtimeCinemaComponent implements OnInit {
   public theater: ITheater;
   private id: string;
   private overlayStyle = OverlayStyles.bottomIcon;
+
   constructor(private route: ActivatedRoute, private service: ShowtimesService) { }
 
   ngOnInit() {
 
-    this.route.params.subscribe((params: Params) => { this.id = params["id"]; });
+    this.route.params.subscribe((params: Params) => {
+      this.id = params["id"];
+      this.reloadData();
+    });
+  }
+  reloadData() {
     this.service.getShowtimesCinema(this.id).subscribe((data) => {
       this.theater = data;
     });
-
-
   }
-
 
 }
