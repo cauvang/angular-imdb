@@ -10,7 +10,9 @@
       <div class="font11" innerHTML="{{item.address.address}}"></div>
       <div *ngIf="item.movies;else elseBlock">
         <div *ngFor="let movie of item.movies" class="overflow-auto">
-          <app-showtime-theater-item [data]="movie"></app-showtime-theater-item>
+          <app-showtime-theater-item [data]="movie" overlayStyle="default"
+            iconUrl="https://m.media-amazon.com/images/G/01/imdb/images/st_small_hover-3108504300._V_.png">
+          </app-showtime-theater-item>
           <div *ngFor="let showtime of movie.showtimes">
             <app-showtime-display [data]="showtime.showtimes" [type]="showtime.type"></app-showtime-display>
           </div>

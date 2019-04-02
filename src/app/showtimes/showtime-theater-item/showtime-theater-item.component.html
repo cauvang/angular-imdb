@@ -1,6 +1,7 @@
 <div class="border-dotted pt-2">
-  <div class="image-size float-left pr-2">
-    <app-overlay-image [imageUrl]="data.image.url" [imageTitle]=""></app-overlay-image>
+  <div class="image-size float-left pr-2" [ngClass]="getClass()">
+    <app-overlay-image [imageUrl]="data.image.url" [imageTitle]="" [overlayStyle]="overlayStyle" [iconUrl]="iconUrl">
+    </app-overlay-image>
   </div>
   <div class="font11">
     <a class="font-weight-bold" href="/showtimes/title/{{data.id}}">{{data.name}}</a>
