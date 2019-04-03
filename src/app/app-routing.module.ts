@@ -14,6 +14,9 @@ import { ShowtimeTheaterComponent } from './showtimes/showtime-theater/showtime-
 import { ShowtimeFavouriteComponent } from './showtimes/showtime-favourite/showtime-favourite.component';
 import { ShowtimeTitleComponent } from './showtimes/showtime-title/showtime-title.component';
 import { ShowtimeCinemaComponent } from './showtimes/showtime-cinema/showtime-cinema.component';
+import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
+import { BoxofficeComponent } from './charts/boxoffice/boxoffice.component';
+import { ToptvComponent } from './charts/toptv/toptv.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,7 +47,10 @@ const routes: Routes = [
       { path: 'favourite', component: ShowtimeFavouriteComponent },
     ]
   },
-  { path: 'showtimes/cinema/:id', component: ShowtimeCinemaComponent }
+  { path: 'showtimes/cinema/:id', component: ShowtimeCinemaComponent },
+  { path: 'titles/:id', component: TitlesHomeComponent },
+  { path: 'chart/boxoffice', component: BoxofficeComponent },
+  { path: 'chart/toptv', component: ToptvComponent },
 
 
 ];

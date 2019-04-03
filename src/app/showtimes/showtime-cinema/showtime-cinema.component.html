@@ -1,12 +1,11 @@
 <div class="row">
   <div class="col-md-8  p-3">
-    <div class="border rounded p-3">
+    <div class="border rounded p-3" *ngIf="theater">
       <app-set-location></app-set-location>
-      <app-weekday-select [type]="type"></app-weekday-select>
+      <app-weekday-select type="/showtimes/cinema/{{theater.id}}"></app-weekday-select>
       <div class="mt-5">
         <span class=" font21 font-weight-bold">{{theater.name}}</span>
-        <img class="favourite-icon"
-          src="https://imageog.flaticon.com/icons/png/512/9/9571.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF6083._V_.png" />
+        <img class="favourite-icon" src="../../../assets/favourite.png">
 
         <div class=" mt-2 mb-2 font15">{{theater.address.streetAddress}}, {{theater.address.addressLocality}}
           {{theater.address.addressRegion}} {{theater.address.postalCode}} | {{theater.address.telephone}}</div>
@@ -24,19 +23,20 @@
     </div>
   </div>
   <div class="col-md-4 p-3 ">
-    <div class="rounded bk-grey">
-      <div *ngIf="type!='favourite'">
-        <app-favourite></app-favourite>
-      </div>
-      <!-- <div *ngIf="type!='movies'">
+    <!-- <div class="rounded bk-grey"> -->
+    <div *ngIf="type!='favourite'">
+      <app-favourite></app-favourite>
+    </div>
+    <!-- </div> -->
+    <!-- <div *ngIf="type!='movies'">
         <app-showtime-movie-near> </app-showtime-movie-near>
       </div> -->
+    <div class="rounded bk-grey">
       <div *ngIf="type!='theater'">
         <app-showtime-theater-near></app-showtime-theater-near>
       </div>
-      <app-share-widget></app-share-widget>
-
     </div>
+    <app-share-widget></app-share-widget>
 
   </div>
 </div>

@@ -4,8 +4,7 @@
     <div class="font-weight-bold">{{group.groupName}}</div>
     <div *ngFor="let item of group.items">
       <a class="font-weight-bold" routerLink="/showtimes/cinema/{{item.id}}">{{item.name}}</a>
-      <img class="favourite-icon"
-        src="https://imageog.flaticon.com/icons/png/512/9/9571.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF6083._V_.png" />
+      <img class="favourite-icon" src="../../../assets/favourite.png" />
 
       <div class="font11" innerHTML="{{item.address.address}}"></div>
       <div *ngIf="item.movies;else elseBlock">

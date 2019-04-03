@@ -11,14 +11,15 @@ export class ShowtimeTheaterItemComponent implements OnInit {
   @Input() data: IMovie;
   @Input() overlayStyle: OverlayStyles;
   @Input() iconUrl: string;
+
   constructor() { }
 
   ngOnInit() {
-    console.log(this.iconUrl);
   }
+
   getClass() {
-    return {
-      large: true
-    }
+    if (this.overlayStyle == OverlayStyles.bottomIcon)
+      return { large: true }
+    return { large: false };
   }
 }

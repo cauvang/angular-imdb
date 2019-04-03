@@ -26,7 +26,6 @@ export class ShowtimeHomeComponent implements OnInit {
   ngOnInit() {
     this.route.url.subscribe(url => {
       const params = (this.route.firstChild.params as any)._value;
-      console.log("caa", params, this.route.firstChild.params)
       if (params["country"]) {
         this.location = {
           country: params["country"],
@@ -36,17 +35,23 @@ export class ShowtimeHomeComponent implements OnInit {
       else {
         this.location = this.locationService.getLocation()
       }
+      if (params["date"]) {
+        this.today = params["date"];
+      }
+      else
+        this.today = this.dateService.GetToday_YYYYMMDD();
 
       const tmp = this.router.routerState.snapshot.url.split('/');
       this.type = tmp[2] + '/' + this.location.country + '/' + this.location.postcode;
       this.loadData();
     });
 
-    this.route.params.subscribe((params: Params) => {
-      this.today = params['date'];
-      console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxx", params);
-      this.loadData();
-    });
+    // this.route.params.subscribe((params: Params) => {
+    //   this.today = params['date'];
+    //   console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxx", params);
+    //   this.loadData();
+    // });
+
     this.locationService.getLocationEvent.subscribe((x) => {
       this.location = x;
       this.loadData();
@@ -65,16 +70,16 @@ export class ShowtimeHomeComponent implements OnInit {
       this.today = this.dateService.GetToday_YYYYMMDD();
 
     this.nMovie = 0;
-    this.service.getShowtimesMovie(this.location, this.today, queryString).subscribe((data) => {
-      this.nMovie = data.totalCount;
-    });
+    // this.service.getShowtimesMovie(this.location, this.today, queryString).subscribe((data) => {
+    //   this.nMovie = data.totalCount;
+    // });
 
     this.nTheater = 0;
-    this.service.getShowtimesTheater(this.location, this.today).subscribe((data) => {
-      data.items.forEach(element => {
-        this.nTheater += element.items.length;
-      });
-    });
+    // this.service.getShowtimesTheater(this.location, this.today).subscribe((data) => {
+    //   data.items.forEach(element => {
+    //     this.nTheater += element.items.length;
+    //   });
+    // });
   }
 
 

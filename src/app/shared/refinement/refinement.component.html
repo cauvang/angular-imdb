@@ -1,8 +1,6 @@
 <div class=" rounded bk-grey p-2 mt-2">
   <button class="btn btn-link border-right" (click)="onRefine()">Refine</button>
   <span class="refinedList"> See movies by genre, rating, online ticketing, etc.</span>
-  <!-- <div *ngIf="selectedValues!=null"> -->
-
   <div class="d-flex">
     <div *ngFor="let item of selectedValues" class="selectedVal  mr-2">
       <label> {{item}}</label>
@@ -10,9 +8,7 @@
     </div>
   </div>
 </div>
-<!-- </div> -->
 <div [hidden]="!bRefine">
-
   <div class="row">
     <div class="col-3">
       <div *ngIf="data!=null" class="nav flex-column  bk-grey">

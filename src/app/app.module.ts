@@ -17,11 +17,17 @@ import { MoviesService } from './services/movies.service';
 import { ShowtimesService } from './services/showtimes.service';
 import { ShowtimesModule } from './showtimes/showtimes.module';
 import { GetDateService } from './services/getDate.service';
+import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
+import { BoxofficeComponent } from './charts/boxoffice/boxoffice.component';
+import { ToptvComponent } from './charts/toptv/toptv.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrailersComponent,
+    TitlesHomeComponent,
+    BoxofficeComponent,
+    ToptvComponent,
   ],
   imports: [
     BrowserModule,
