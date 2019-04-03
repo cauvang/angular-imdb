@@ -27,30 +27,33 @@ export class ShowtimesService {
 
   public getShowtimesMovie(location: ILocation, date: string, queryString: string = ""): Observable<IGetShowtimeMovieResponse> {
     {
-      var url = this.appConfig.rootURL + "showtimes/location";
-      if (location != null)
-        url += '/' + location.country + '/' + location.postcode;//AU/3026/
-      if (date != null)
-        url += '/' + date; //2019 - 03 - 13
-      if (queryString != null)
-        url += "?" + queryString;
+      let url = this.appConfig.rootURL + "showtimes/location";
+      url = this.getURL(url, location, date, queryString);
       return this.http.get<IGetShowtimeMovieResponse>(url);
     }
   }
 
   public getShowtimesTitle(location: ILocation, date: string, id: string): Observable<ITitle> {
-    var url = this.appConfig.rootURL + "showtimes/title/" + id;
+    let url = this.appConfig.rootURL + "showtimes/title/" + id;
+    url = this.getURL(url, location, date, null);
+    return this.http.get<ITitle>(url);
+  }
+
+  public getShowtimesCinema(id: string, queryString: string = ""): Observable<ITheater> {
+    let url = this.appConfig.rootURL + "showtimes/cinema/" + id;
+    url = this.getURL(url, null, null, queryString);
+    console.log("url", url)
+    return this.http.get<ITheater>(url);
+  }
+
+  private getURL(url: string, location: ILocation, date: string, queryString: string = "") {
     if (location != null)
       url += '/' + location.country + '/' + location.postcode;//AU/3026/
     if (date != null)
       url += '/' + date; //2019 - 03 - 13
-    return this.http.get<ITitle>(url);
+    if (queryString != null)
+      url += "?" + queryString;
+    return url;
   }
-
-  public getShowtimesCinema(id: string): Observable<ITheater> {
-    var url = this.appConfig.rootURL + "showtimes/cinema/" + id;
-    return this.http.get<ITheater>(url);
-  }
-
 }
 

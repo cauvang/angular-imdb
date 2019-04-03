@@ -68,8 +68,6 @@ export class RefinementComponent implements OnInit, OnChanges {
   }
 
   onChecked(catName: string, value: string) {
-    // const catList = {};
-
     const query = this.data.map(d => {
       let valueString = "";
       const list = d.values.filter(t => t.checked).map(v => {
@@ -82,8 +80,6 @@ export class RefinementComponent implements OnInit, OnChanges {
       this.catList[d.searchKey] = valueString !== "" ? valueString : null;
     })
     this.refineChange.emit(this.catList);
-    //user_rating=2.1%2C9.8&num_votes=1%2C2
-    //now_playing=favorite
   }
 
   onGetRatingFromChanged(event) {

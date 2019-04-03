@@ -1,7 +1,7 @@
 <div class="p-2 bk-grey rounded mt-2 mb-2">
   <div class="color-gold font-weight-bold">Movies Near You (<a href="#">{{nMovie}}</a>)</div>
   <div class="d-flex flex-wrap">
-    <div *ngFor="let item of moviesNear" class="m-2" style="width: 20%">
+    <div *ngFor="let item of moviesNear" class="m-2 movie-display-{{movieDisplayStyle}}">
       <app-overlay-image [imageTitle]="item.image.title" [imageUrl]="item.image.url"></app-overlay-image>
     </div>
 

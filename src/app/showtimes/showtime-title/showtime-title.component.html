@@ -10,22 +10,18 @@
 
       <app-showtime-theater-list [data]="groups" [nTheater]="nTheater" [today]="today"></app-showtime-theater-list>
 
-
     </div>
   </div>
   <div class="col-md-4 p-3 ">
-    <div class="rounded bk-grey">
-      <div *ngIf="type!='favourite'">
-        <app-favourite></app-favourite>
-      </div>
-      <div *ngIf="type!='movies'">
-        <app-showtime-movie-near> </app-showtime-movie-near>
-      </div>
-      <div *ngIf="type!='theater'">
-        <app-showtime-theater-near></app-showtime-theater-near>
-      </div>
-      <app-share-widget></app-share-widget>
-
+    <div *ngIf="type!='favourite'">
+      <app-favourite></app-favourite>
     </div>
-
+    <div *ngIf="type!='movies'">
+      <app-showtime-movie-near nMovieDisplayed="12" movieDisplayStyle="default"> </app-showtime-movie-near>
+    </div>
+    <div *ngIf="type!='theater'">
+      <app-showtime-theater-near></app-showtime-theater-near>
+    </div>
+    <app-share-widget></app-share-widget>
   </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sort',
@@ -6,42 +6,72 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./sort.component.scss']
 })
 export class SortComponent implements OnInit {
-  public data = [
-    {
-      name: "Popularity",
-      value: "moviemeter"
-    },
-    {
-      name: "Alphabetical",
-      value: "alpha"
-    },
-    {
-      name: "IMDb Rating",
-      value: "user_rating"
-    },
-    {
-      name: "Release Date",
-      value: "release_date"
-    },
-    {
-      name: "Runtime",
-      value: "runtime"
-    }
-  ];
+  private dataset = {
+    "movie": [
+      {
+        name: "Popularity",
+        value: "moviemeter"
+      },
+      {
+        name: "Alphabetical",
+        value: "alpha"
+      },
+      {
+        name: "IMDb Rating",
+        value: "user_rating"
+      },
+      {
+        name: "Release Date",
+        value: "release_date"
+      },
+      {
+        name: "Runtime",
+        value: "runtime"
+      }
+    ],
+    "cinema": [
+      {
+        name: "Popularity",
+        value: "movieMeter"
+      },
+      {
+        name: "Title",
+        value: "title"
+      },
+      {
+        name: "User Rating",
+        value: "userRating"
+      },
+      {
+        name: "Release Date",
+        value: "releaseDate"
+      },
+      {
+        name: "Runtime",
+        value: "runtime"
+      }
+    ]
+  };
   @Output() sortChange = new EventEmitter();
+  @Input() datasetType: string;
 
   sortBy = "moviemeter";
   sortDirection: string = "asc";
   sortDirectionTitle: string;
+  data: [];
+  sortStr = {};
 
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.data = this.dataset[this.datasetType];
+    this.sortBy = this.dataset[this.datasetType][0].value;//  "moviemeter";
+
   }
 
   onSortByChanged(event) {
-    this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
+    this.sortByType();
   }
 
   onSortDirectionClick() {
@@ -53,6 +83,17 @@ export class SortComponent implements OnInit {
       this.sortDirection = "asc";
       this.sortDirectionTitle = "Ascending order";
     }
-    this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
+    this.sortByType();
+  }
+
+  private sortByType() {
+    if (this.datasetType === "movie")
+      // this.sortStr = "this.sortBy + ',' + this.sortDirection";
+
+      this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
+    else if (this.datasetType === "cinema")
+      // this.sortStr = "this.sortBy + '&dir=' + this.sortDirection";
+      this.sortChange.emit({ sort: this.sortBy, dir: this.sortDirection });
+    // this.sortChange.emit(this.sortStr);
   }
 }

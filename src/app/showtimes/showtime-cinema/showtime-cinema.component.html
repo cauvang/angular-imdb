@@ -10,6 +10,11 @@
         <div class=" mt-2 mb-2 font15">{{theater.address.streetAddress}}, {{theater.address.addressLocality}}
           {{theater.address.addressRegion}} {{theater.address.postalCode}} | {{theater.address.telephone}}</div>
 
+        <div class="row  p-3 d-flex">
+          <span class="flex-grow-1">14 movies playing at this theater today, {{today|date:'EEEE, MMMM d'}}</span>
+          <app-sort datasetType="cinema" (sortChange)="onSortChange($event)"></app-sort>
+        </div>
+
         <div *ngFor="let movie of theater.movies; let i=index" class="overflow-auto"
           [ngClass]="{'bk-grey': i%2==0, 'bk-white': i%2 ==1}">
           <app-showtime-theater-item [data]="movie" [overlayStyle]="overlayStyle"
@@ -21,16 +26,13 @@
         </div>
       </div>
     </div>
+    <app-showtime-movie-near nMovieDisplayed="9" movieDisplayStyle="row"> </app-showtime-movie-near>
+
   </div>
   <div class="col-md-4 p-3 ">
-    <!-- <div class="rounded bk-grey"> -->
     <div *ngIf="type!='favourite'">
       <app-favourite></app-favourite>
     </div>
-    <!-- </div> -->
-    <!-- <div *ngIf="type!='movies'">
-        <app-showtime-movie-near> </app-showtime-movie-near>
-      </div> -->
     <div class="rounded bk-grey">
       <div *ngIf="type!='theater'">
         <app-showtime-theater-near></app-showtime-theater-near>

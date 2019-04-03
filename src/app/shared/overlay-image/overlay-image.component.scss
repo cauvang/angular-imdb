@@ -1,24 +1,3 @@
-.img-hover {
-  display: none;
-}
-
-.showtime-img {
-
-  &:hover {
-    .img-hover {
-      display: block !important;
-      position: absolute;
-      background: rgba($color: #000000, $alpha: 0.5);
-      // top: 0px;
-
-      margin: -52px -7px 0 -3px;
-      position: relative;
-      width: 50%;
-    }
-  }
-}
-
-
 .image-container {
   position: relative;
 
