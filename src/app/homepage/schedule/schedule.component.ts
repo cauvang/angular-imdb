@@ -9,8 +9,9 @@ import { ISchedule } from 'src/app/models/schedule';
 export class ScheduleComponent implements OnInit {
   @Input() data: ISchedule[];
   @Input() title: string;
-  @Input() secondaryText:string;
+  @Input() secondaryText: string;
   @Input() viewAll: string;
+  @Input() linkURL: string;
 
   constructor() { }
 

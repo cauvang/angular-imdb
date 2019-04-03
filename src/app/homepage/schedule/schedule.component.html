@@ -1,24 +1,19 @@
 <div class="schedule ">
-  <a href="#" class="no-link title mt-3"> {{title}}</a>
+  <a routerLink="{{linkURL}}" class="no-link title mt-3"> {{title}}</a>
   <div class="row mt-2" *ngFor="let item of data">
     <div class="col-md-9 d-flex flex-row">
       <a title="Click to add to watchlist"><img class="img-watchlist" src="../../../assets/add-to-watchlist.png"> </a>
       <div class="d-flex flex-column pl-2">
-        <a href="#">{{item.title}}</a>
+        <a routerLink="/titles/{{item.id}}">{{item.title}}</a>
         <label class="font11">{{item.secondaryText}}</label>
       </div>
     </div>
-
     <div class="col-md-3" *ngIf="item.onCinema">
-      <a class="font11">Show Times</a>
+      <a routerLink="/showtimes/title/{{item.id}}" class="font11">Show Times</a>
     </div>
-
     <div class="col-md-3" *ngIf="item.openDate">
       {{ item.openDate | date }}
     </div>
-
   </div>
-  <a class=" mt-3 mb-3 d-block" href="#">{{viewAll}}</a>
-
-
+  <a class=" mt-3 mb-3 d-block" routerLink="{{linkURL}}">{{viewAll}}</a>
 </div>

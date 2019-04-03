@@ -2,7 +2,7 @@
   <div class="header-inner">
     <div class="row">
       <div class="col-md-2">
-        <a href="#">
+        <a routerLink="">
           <img class="logo"
             src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png">
         </a>
@@ -33,7 +33,8 @@
           <div class="dropdown header-menu font13" appDropdown #t="appDropDown">
             <div class="dropdown-toggle font13 header-menu-button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <a href="#">Movies</a>, TV & <a routerLink="/showtimes/theater">Showtimes</a>
+              <a routerLink="/movies/in-theater">Movies</a>, <a routerLink="/char/toptv">TV </a>& <a
+                routerLink="/showtimes/theater">Showtimes</a>
             </div>
             <div class="dropdown-menu" [ngClass]="{'show':t.isOpen}">
               <div class="header-menu-popup p-3 row">
@@ -41,12 +42,12 @@
                   <h2 class="header-menu-title">Movies</h2>
                   <a class="dropdown-item" routerLink="/movies/in-theater">In Theaters</a>
                   <a class="dropdown-item" routerLink="/showtimes/movies">Showtimes and Tickets</a>
-                  <a class="dropdown-item" href="#">Latest Trailers</a>
+                  <a class="dropdown-item" routerLink="/trailers">Latest Trailers</a>
                   <a class="dropdown-item" routerLink="/movies/coming-soon">Coming Soon</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">Release Calendar</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">Top Rated Movies</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">Top Rated India Movies</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">Most Popular Movies</a>
+                  <a class="dropdown-item" href="#">Release Calendar</a>
+                  <a class="dropdown-item" href="#">Top Rated Movies</a>
+                  <a class="dropdown-item" href="#">Top Rated India Movies</a>
+                  <a class="dropdown-item" href="#">Most Popular Movies</a>
 
                   <h2 class="header-menu-title">Charts & Trends</h2>
 
@@ -57,23 +58,17 @@
 
                 <div class="col-md-6">
                   <h2 class="header-menu-title">TV & Video</h2>
-                  <a class="dropdown-item" routerLink="/movies/in-theater">IMDB TV</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">Top Rated TV Shows</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">Most popular TV Shows</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">DVD & Bluray</a>
+                  <a class="dropdown-item" href="#">IMDB TV</a>
+                  <a class="dropdown-item" href="#">Top Rated TV Shows</a>
+                  <a class="dropdown-item" href="#">Most popular TV Shows</a>
+                  <a class="dropdown-item" href="#">DVD & Bluray</a>
 
                   <h2 class="header-menu-title">Special Features</h2>
-                  <a class="dropdown-item" routerLink="/movies/in-theater">Amazon Originals</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">Streaming Now</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">Horror Guide</a>
-                  <a class="dropdown-item" routerLink="/movies/coming-soon">IMDB Picks</a>
-
-
+                  <a class="dropdown-item" href="#">Amazon Originals</a>
+                  <a class="dropdown-item" href="#">Streaming Now</a>
+                  <a class="dropdown-item" href="#">Horror Guide</a>
+                  <a class="dropdown-item" href="#">IMDB Picks</a>
                 </div>
-
-
-
-
               </div>
 
             </div>
@@ -81,7 +76,7 @@
           <div class="dropdown header-menu" appDropdown #rr="appDropDown">
             <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
-              <a href="">Celebs</a>, Events & Photos
+              <a href="">Celebs</a>, <a href="#">Events</a> & <a href="#">Photos</a>
             </div>
             <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
               <a class="dropdown-item" href="#">Celebs</a>
@@ -109,7 +104,7 @@
           <div class="dropdown  header-menu header-menu-last" appDropdown #a="appDropDown">
             <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
-              Watchlist
+              <a href="#">Watchlist</a>
             </div>
             <div class="dropdown-menu" [ngClass]="{'show':a.isOpen}">
               <a class="dropdown-item" href="#">Your watchlist</a>

@@ -36,12 +36,12 @@ export class ShowtimeTheaterComponent implements OnInit {
       this.today = this.dateService.GetToday_YYYYMMDD();
 
     const location = this.locationService.getLocation();
-    console.log("load data", location);
+    // console.log("load data", location);
     this.service.getShowtimesTheater(location, this.today).subscribe((data) => {
 
       this.theaters = data.items;
       data.items.forEach(element => {
-        console.log("da", element.items.length);
+        // console.log("da", element.items.length);
         this.nTheater += element.items.length;
       });
 

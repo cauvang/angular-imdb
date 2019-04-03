@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ITrailer } from 'src/app/models/trailer';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { ISchedule } from 'src/app/models/schedule';
@@ -21,7 +23,7 @@ export class HomeComponent implements OnInit {
   public topNews: INews;
   public birthday: IBirthday[];
 
-  constructor(private service: HomePageService) {
+  constructor(private service: HomePageService, private router: Router) {
     this.trailers = [];
     this.schedulesThisWeek = [];
     this.schedulesNowPlaying = [];
@@ -43,15 +45,17 @@ export class HomeComponent implements OnInit {
     this.service.getArticles().subscribe((data) => { this.articles = data; });
 
     this.service.getNewsResponse().subscribe((data) => {
-
       this.news = data.items.slice(1, 5);
       this.topNews = data.items[0];
     });
 
     this.service.getBirthdayResponse().subscribe((data) => {
       this.birthday = data.items.slice(0, 5);
-      // console.log(this.birthday);
     });
+  }
+
+  onGetShowtimes() {
+    this.router.navigateByUrl("/showtimes/theater");
   }
 
 }

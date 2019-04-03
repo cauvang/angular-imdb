@@ -25,11 +25,7 @@ export class ShowtimeTitleComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.route.url.subscribe(url => {
-    //   const tmp = this.router.routerState.snapshot.url.split('/');
-    //   this.type = tmp[2];
-    //   console.log("type", this.type)
-    // });
+
     this.loadShowtimes();
   }
 

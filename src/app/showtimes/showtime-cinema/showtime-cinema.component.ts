@@ -23,6 +23,7 @@ export class ShowtimeCinemaComponent implements OnInit {
       this.reloadData();
     });
   }
+
   reloadData() {
     this.service.getShowtimesCinema(this.id).subscribe((data) => {
       this.theater = data;
