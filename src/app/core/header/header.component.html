@@ -2,7 +2,7 @@
   <div class="header-inner">
     <div class="row">
       <div class="col-md-2">
-        <a routerLink="">
+        <a routerLink="/">
           <img class="logo"
             src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png">
         </a>
@@ -86,7 +86,7 @@
           <div class="dropdown  header-menu" appDropdown #tt="appDropDown">
             <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
-              <a href="">News</a> & <a href="">Community</a>
+              <a routerLink="/news/top">News</a> & <a href="">Community</a>
             </div>
             <div class="dropdown-menu" [ngClass]="{'show':tt.isOpen}">
               <span class="dropdown-item-text text-uppercase">News</span>
