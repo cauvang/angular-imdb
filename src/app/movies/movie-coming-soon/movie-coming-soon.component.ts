@@ -15,13 +15,8 @@ export class MovieComingSoonComponent implements OnInit {
   private isLoading: boolean;
 
   constructor(private service: MoviesService, private route: ActivatedRoute, private router: Router) {
-    console.log(router);
-    // this.route.url.subscribe(url => {
-    //   this.loadList();
-    // });
     this.isLoading = false;
   }
-
 
   ngOnInit() {
     this.loadList();
@@ -31,14 +26,10 @@ export class MovieComingSoonComponent implements OnInit {
     this.data = [];
     this.isLoading = true;
     this.movieType = this.router.routerState.snapshot.url.split('/')[2];
-    // console.log(this.movieType);
-
-
 
     this.service.getMovies(this.movieType).subscribe((data) => {
       this.data = data;
       this.isLoading = false;
-
     });
   }
 

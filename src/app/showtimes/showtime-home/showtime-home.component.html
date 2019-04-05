@@ -3,19 +3,19 @@
     <div class="border rounded p-3">
 
 
-      <app-set-location></app-set-location>
+      <app-set-location (getLocation)="onLocationChange($event)"></app-set-location>
 
-      <app-weekday-select [type]="type"></app-weekday-select>
+      <app-weekday-select [type]="type" (dateChange)="onDateChange($event)"></app-weekday-select>
 
       <ul class="nav nav-tabs position-relative mt-3">
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" routerLinkActive="active"
-            routerLink="/showtimes/movies/{{location.country}}/{{location.postcode}}/{{today}}">Movies
+          <a class="nav-link font-weight-bold" [ngClass]="{'active': isActivatedTab('movies')}"
+            routerLink="/showtimes/movies/{{location.country}}/{{location.postcode}}/{{selectedDate}}">Movies
             ({{nMovie}}) </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" routerLinkActive="active"
-            routerLink="/showtimes/theater/{{location.country}}/{{location.postcode}}/{{today}}">Theater
+          <a class="nav-link font-weight-bold" [ngClass]="{'active': isActivatedTab('theater')}"
+            routerLink="/showtimes/theater/{{location.country}}/{{location.postcode}}/{{selectedDate}}">Theater
             ({{nTheater}})</a>
         </li>
         <li class="nav-item">
@@ -29,6 +29,9 @@
         </div>
       </ul>
       <router-outlet></router-outlet>
+
+
+
 
     </div>
   </div>

@@ -12,17 +12,19 @@ export class GetDateService {
         const dd = today.getDate();
         const mm = today.getMonth();
 
-        const ddmm = (dd < 10 ? "0" + dd : dd) + "-" + (mm < 9 ? "0" + (mm + 1) : (mm + 1));
-        return ddmm;
+        return (dd < 10 ? "0" + dd : dd) + "-" + (mm < 9 ? "0" + (mm + 1) : (mm + 1));
     }
 
     public GetToday_YYYYMMDD() {
         const today = new Date();
-        const dd = today.getDate();
-        const mm = today.getMonth();
-        const yyyy = today.getFullYear();
+        return this.GetDateFormat_YYYYMMDD(today);
+    }
 
-        const yyyymmdd = yyyy + "-" + (mm < 9 ? "0" + (mm + 1) : (mm + 1)) + '-' + (dd < 10 ? "0" + dd : dd);
-        return yyyymmdd;
+    public GetDateFormat_YYYYMMDD(date: Date) {
+        const dd = date.getDate();
+        const mm = date.getMonth();
+        const yyyy = date.getFullYear();
+
+        return yyyy + "-" + (mm < 9 ? "0" + (mm + 1) : (mm + 1)) + '-' + (dd < 10 ? "0" + dd : dd);
     }
 }

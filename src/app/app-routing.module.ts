@@ -35,7 +35,7 @@ const routes: Routes = [
     ]
   },
   { path: 'showtimes/title/:id', component: ShowtimeTitleComponent },
-  { path: 'showtimes/title/:id/:date', component: ShowtimeTitleComponent },
+  { path: 'showtimes/title/:id/:country/:zipcode/:date', component: ShowtimeTitleComponent },
   {
     path: 'showtimes', component: ShowtimeHomeComponent, children: [
       { path: 'movies', component: ShowtimeMovieComponent },
@@ -48,7 +48,10 @@ const routes: Routes = [
     ]
   },
   { path: 'showtimes/cinema/:id', component: ShowtimeCinemaComponent },
+  { path: 'showtimes/cinema/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
   { path: 'titles/:id', component: TitlesHomeComponent },
+  // { path: 'title/:id/:country/:zipcode/:date', component: TitlesHomeComponent },
+
   { path: 'chart/boxoffice', component: BoxofficeComponent },
   { path: 'chart/toptv', component: ToptvComponent },
 

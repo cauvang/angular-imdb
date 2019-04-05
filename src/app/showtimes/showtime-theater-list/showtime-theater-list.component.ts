@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IGroup } from 'src/app/models/showtimes';
+
+import { IGroup, ILocation } from 'src/app/models/showtimes';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-showtime-theater-list',
@@ -10,11 +12,12 @@ export class ShowtimeTheaterListComponent implements OnInit {
   @Input() data: IGroup[];
   @Input() nTheater: number;
   @Input() today: string;
+  private location: ILocation;
 
-  constructor() { }
+  constructor(private locationService: LocationService) { }
 
   ngOnInit() {
+    this.location = this.locationService.getLocation();
 
   }
-
 }

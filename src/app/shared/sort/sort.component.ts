@@ -59,14 +59,13 @@ export class SortComponent implements OnInit {
   sortDirection: string = "asc";
   sortDirectionTitle: string;
   data: [];
-  sortStr = {};
 
   constructor() {
   }
 
   ngOnInit() {
     this.data = this.dataset[this.datasetType];
-    this.sortBy = this.dataset[this.datasetType][0].value;//  "moviemeter";
+    this.sortBy = this.dataset[this.datasetType][0].value;
 
   }
 
@@ -88,12 +87,8 @@ export class SortComponent implements OnInit {
 
   private sortByType() {
     if (this.datasetType === "movie")
-      // this.sortStr = "this.sortBy + ',' + this.sortDirection";
-
       this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
     else if (this.datasetType === "cinema")
-      // this.sortStr = "this.sortBy + '&dir=' + this.sortDirection";
       this.sortChange.emit({ sort: this.sortBy, dir: this.sortDirection });
-    // this.sortChange.emit(this.sortStr);
   }
 }

@@ -24,7 +24,7 @@ export class SetLocationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getLocation.emit(JSON.stringify(this.location));
+    // this.getLocation.emit(JSON.stringify(this.location));
 
   }
   onChangeClick() {
@@ -37,8 +37,8 @@ export class SetLocationComponent implements OnInit {
 
     let url = this.router.routerState.snapshot.url;
     url = url.replace(/AR|AU|CA|CL|ES|FR|IT|MX|NZ|PT|UK|US/, this.location.country);
-    url = url.replace(/\d{4,}/, this.location.postcode);
-    this.getLocation.emit(JSON.stringify(this.location));
+    url = url.replace(/\/\d{4,}/, "/" + this.location.postcode);
+    this.getLocation.emit(this.location);
     this.router.navigateByUrl(url);// + '/' + this.location.country + '/' + this.location.postcode);
   }
 

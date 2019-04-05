@@ -18,18 +18,24 @@ input {
 
 
 .fa-times-circle {
-  // color: white;
+  color: Grey;
 
   &:hover {
-    background-color: red;
+    color: red;
   }
 }
 
 .selectedVal {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  font-size: 13px;
+  height: 24px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 
   border: 1px solid gray;
   padding-left: 2px;
   padding-right: 2px;
+  background-color: white;
+  color: grey;
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { IGetMovieResponse } from 'src/app/models/movies';
 import { MoviesService } from 'src/app/services/movies.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-theatre',
@@ -14,13 +15,8 @@ export class MovieTheatreComponent implements OnInit {
   private isLoading: boolean;
 
   constructor(private service: MoviesService, private route: ActivatedRoute, private router: Router) {
-    // console.log(router);
-    // this.route.url.subscribe(url => {
-    //   this.loadList();
-    // });
     this.isLoading = false;
   }
-
 
   ngOnInit() {
     this.loadList();
@@ -30,8 +26,6 @@ export class MovieTheatreComponent implements OnInit {
     this.data = [];
     this.isLoading = true;
     this.movieType = this.router.routerState.snapshot.url.split('/')[2];
-
-
 
     this.service.getMovies(this.movieType).subscribe((data) => {
       this.data = data;

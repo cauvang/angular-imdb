@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IMovie } from 'src/app/models/movies';
+import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { IGroup, ILocation } from 'src/app/models/showtimes';
-import { GetDateService } from 'src/app/services/getDate.service';
+import * as moment from "moment";
 
 @Component({
   selector: 'app-showtime-title',
@@ -16,24 +16,20 @@ export class ShowtimeTitleComponent implements OnInit {
   private title: IMovie;
   private groups: IGroup[];
   private nTheater = 0;
-  private today: string;
+  private selectedDate: string;
 
-  constructor(private router: Router, private service: ShowtimesService, private route: ActivatedRoute, private dateService: GetDateService) {
-    this.route.url.subscribe(url => {
-      this.loadShowtimes();
-    });
+  constructor(private router: Router, private service: ShowtimesService, private route: ActivatedRoute) {
+    this.route.url.subscribe(url => { this.loadShowtimes(); });
   }
 
   ngOnInit() {
-
     this.loadShowtimes();
   }
 
   loadShowtimes() {
-
-    this.route.params.subscribe((params: Params) => { this.today = params['date']; });
-    if (this.today === undefined) {
-      this.today = this.dateService.GetToday_YYYYMMDD();
+    this.route.params.subscribe((params: Params) => { this.selectedDate = params['date']; });
+    if (this.selectedDate === undefined) {
+      this.selectedDate = moment().format("YYYY-MM-DD");
     }
 
 
@@ -43,7 +39,7 @@ export class ShowtimeTitleComponent implements OnInit {
       postcode: '3030',
       country: 'AU'
     }
-    this.service.getShowtimesTitle(location, this.today, this.id).subscribe((data) => {
+    this.service.getShowtimesTitle(location, this.selectedDate, this.id).subscribe((data) => {
       this.title = data.item;
       this.groups = data.items;
       data.items.forEach(element => {
@@ -52,5 +48,8 @@ export class ShowtimeTitleComponent implements OnInit {
     });
   }
 
+  onDateChange(date: Date) {
+    this.selectedDate = moment(date).format("YYYY-MM-DD");
+  }
 
 }

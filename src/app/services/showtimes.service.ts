@@ -39,10 +39,9 @@ export class ShowtimesService {
     return this.http.get<ITitle>(url);
   }
 
-  public getShowtimesCinema(id: string, queryString: string = ""): Observable<ITheater> {
+  public getShowtimesCinema(location: ILocation, date: string, id: string, queryString: string = ""): Observable<ITheater> {
     let url = this.appConfig.rootURL + "showtimes/cinema/" + id;
-    url = this.getURL(url, null, null, queryString);
-    console.log("url", url)
+    url = this.getURL(url, location, date, queryString);
     return this.http.get<ITheater>(url);
   }
 

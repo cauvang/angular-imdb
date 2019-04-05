@@ -10,8 +10,8 @@
         <div class=" mt-2 mb-2 font15">{{theater.address.streetAddress}}, {{theater.address.addressLocality}}
           {{theater.address.addressRegion}} {{theater.address.postalCode}} | {{theater.address.telephone}}</div>
 
-        <div class="row  p-3 d-flex">
-          <span class="flex-grow-1">14 movies playing at this theater today, {{today|date:'EEEE, MMMM d'}}</span>
+        <div class="row  p-3 d-flex border-top">
+          <span class="flex-grow-1">14 movies playing at this theater today, {{selectedDate|date:'EEEE, MMMM d'}}</span>
           <app-sort datasetType="cinema" (sortChange)="onSortChange($event)"></app-sort>
         </div>
 

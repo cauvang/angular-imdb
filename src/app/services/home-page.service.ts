@@ -9,8 +9,7 @@ import { IGetNewsResponse } from '../models/news';
 import { IGetBirthdayResponse } from '../models/birthday';
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
-import { GetDateService } from './getDate.service';
-
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,7 @@ import { GetDateService } from './getDate.service';
 export class HomePageService {
   private appConfig: AppConfig;
 
-  constructor(private http: HttpClient, @Inject(APP_CONFIG) config: AppConfig, private service: GetDateService) {
+  constructor(private http: HttpClient, @Inject(APP_CONFIG) config: AppConfig) {
     this.appConfig = config;
   }
 
@@ -49,7 +48,7 @@ export class HomePageService {
   }
 
   public getBirthdayResponse(): Observable<IGetBirthdayResponse> {
-    const ddmm = this.service.GetToday_DDMM();
+    const ddmm = moment().format("DD-MM");
     return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/" + ddmm);
   }
 
