@@ -17,6 +17,7 @@ import { ShowtimeCinemaComponent } from './showtimes/showtime-cinema/showtime-ci
 import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
 import { BoxofficeComponent } from './charts/boxoffice/boxoffice.component';
 import { ToptvComponent } from './charts/toptv/toptv.component';
+import { CalendarComponent } from './calendar/calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -57,6 +58,7 @@ const routes: Routes = [
 
   { path: 'chart/boxoffice', component: BoxofficeComponent },
   { path: 'chart/toptv', component: ToptvComponent },
+
   { path: 'calendar', component: CalendarComponent }
 
 ];

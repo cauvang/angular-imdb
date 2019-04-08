@@ -2,7 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "./constants";
 
-$font11:font11;
+
 
 .font11 {
   font-size: 11px;
@@ -50,7 +50,7 @@ a {
 }
 
 .color-gold {
-  color: #664700;
+  color: #A58500; // #664700;
 }
 
 .color-grey {
@@ -96,4 +96,11 @@ a {
 
 .favourite-icon {
   width: 16px;
+}
+
+.border-style {
+  border-radius: 20px;
+  background-color: $grey;
+  padding: 15px;
+  margin-right: 1px;
 }
