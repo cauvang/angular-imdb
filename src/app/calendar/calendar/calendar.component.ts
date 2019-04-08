@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { ICalendar } from 'src/app/models/calendar';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-calendar',
@@ -9,11 +10,23 @@ import { ICalendar } from 'src/app/models/calendar';
 })
 export class CalendarComponent implements OnInit {
   private data: ICalendar;
+  private region: string = "US";
+  constructor(private service: CalendarService, private route: ActivatedRoute) {
+    this.route.params.subscribe(({ region }) => {
+      this.region = region || "US";
+      this.loadData();
+    })
+  }
+  public loadData() {
+    this.service.getCalendar(this.region).subscribe((data) => {
+      this.data = data;
+      window.scroll(0, 0);
+    });
 
-  constructor(private service: CalendarService) { }
-
+  }
   ngOnInit() {
-    this.service.getCalendar().subscribe((data) => { this.data = data; });
+    this.loadData();
+
   }
 
 }

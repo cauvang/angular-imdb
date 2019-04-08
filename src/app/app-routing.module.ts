@@ -59,8 +59,8 @@ const routes: Routes = [
   { path: 'chart/boxoffice', component: BoxofficeComponent },
   { path: 'chart/toptv', component: ToptvComponent },
 
-  { path: 'calendar', component: CalendarComponent }
-
+  { path: 'calendar', component: CalendarComponent },
+  { path: 'calendar/:region', component: CalendarComponent }
 ];
 
 @NgModule({
