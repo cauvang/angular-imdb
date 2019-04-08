@@ -7,18 +7,19 @@
 
   </div>
   <div class="col-md-4 border-left ">
-    <app-schedule title="Opening this week" viewAll="See more opening this week >>" [data]="schedulesThisWeek"
+    <app-schedule title="Opening this week" viewAll="See more opening this week" [data]="schedulesThisWeek"
       linkURL="/movies/in-theater">
     </app-schedule>
 
     <div class="border-bottom mb-3 mt-3">
-      <a routerLink="/showtimes/theater"><button class="btn btn-showTimes">Get Showtimes >></button></a>
+      <a routerLink="/showtimes/theater"><button class="btn btn-showTimes">Get Showtimes <i
+            class="fas fa-times-circle ml-2"></i></button></a>
     </div>
 
-    <app-schedule title="Now Playing (Box Office)" viewAll="See more box office results >>" [data]="schedulesNowPlaying"
+    <app-schedule title="Now Playing (Box Office)" viewAll="See more box office results" [data]="schedulesNowPlaying"
       linkURL="/chart/boxoffice"></app-schedule>
 
-    <app-schedule title="Coming soon" viewAll="See more coming soon >>" [data]="schedulesComingSoon"
+    <app-schedule title="Coming soon" viewAll="See more coming soon" [data]="schedulesComingSoon"
       linkURL="/movies/coming-soon"></app-schedule>
   </div>
 

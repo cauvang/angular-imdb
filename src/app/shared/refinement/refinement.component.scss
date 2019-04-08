@@ -8,14 +8,19 @@ input {
 
 .btn-search {
   background-color: #fcf3c2;
+  border-radius: 3px;
+  padding: 5px 8px;
+  border: 1px grey solid;
 
   &:hover {
-    border: 2px gold solid;
+    border: 1px gold solid;
 
   }
 }
 
-
+.refinebtn {
+  color: #007bff;
+}
 
 .fa-times-circle {
   color: Grey;

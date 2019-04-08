@@ -21,6 +21,8 @@ import { ToptvComponent } from './charts/toptv/toptv.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'trailers/:trailerType', component: TrailersComponent },
+  { path: 'trailers', component: TrailersComponent },
+
   {
     path: 'news', component: NewsHomeComponent, children: [
       { path: ':newsType', component: NewsListComponent },
@@ -48,13 +50,14 @@ const routes: Routes = [
     ]
   },
   { path: 'showtimes/cinema/:id', component: ShowtimeCinemaComponent },
+  { path: 'showtimes/cinema/:id/:country/:zipcode', component: ShowtimeCinemaComponent },
+
   { path: 'showtimes/cinema/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
-  { path: 'titles/:id', component: TitlesHomeComponent },
-  // { path: 'title/:id/:country/:zipcode/:date', component: TitlesHomeComponent },
+  { path: 'title/:id', component: TitlesHomeComponent },
 
   { path: 'chart/boxoffice', component: BoxofficeComponent },
   { path: 'chart/toptv', component: ToptvComponent },
-
+  { path: 'calendar', component: CalendarComponent }
 
 ];
 

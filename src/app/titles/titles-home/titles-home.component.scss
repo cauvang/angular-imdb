@@ -1,0 +1,22 @@
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+  //   padding-right: 5px;
+
+  &::after {
+    // padding-left: 5px;
+    content: '|';
+  }
+
+}
+
+
+.header-color {
+  color: silver;
+  margin-right: 5px;
+  margin-left: 5px;
+
+}

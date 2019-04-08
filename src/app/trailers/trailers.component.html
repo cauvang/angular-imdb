@@ -1,26 +1,23 @@
-<h4>Trailers</h4>
+<span class="trailer-header">Trailers</span>
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link" routerLinkActive="active" routerLink="/trailers/popular" aria-selected="true">{{
-      "Most
-      popular" |
-      uppercase }}</a>
+  <li class="nav-item ">
+    <a class="nav-link " routerLinkActive="active" routerLink="/trailers/popular" aria-selected="true"
+      [ngClass]="{'active': trailerType==='popular'}">
+      {{"Most popular" | uppercase }}</a>
+  </li>
+  <li class=" nav-item">
+    <a class="nav-link" routerLinkActive="active" routerLink="/trailers/recent" aria-selected="false">
+      {{ "Most recent" | uppercase }}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" routerLinkActive="active" routerLink="/trailers/recent" aria-selected="false">{{
-      "Most recent" |
-      uppercase }}</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLinkActive="active" routerLink="/trailers/tv" aria-selected="false">{{
-      "TV tonight" |
-      uppercase }}</a>
+    <a class="nav-link" routerLinkActive="active" routerLink="/trailers/tv" aria-selected="false">
+      {{"TV tonight" | uppercase }}</a>
   </li>
 </ul>
 <div class="d-flex flex-wrap ">
   <app-loading-icon [isLoading]="isLoading"></app-loading-icon>
   <div *ngFor="let item of trailers" class="m-2" style="width: 16.66%">
     <app-video-image [imageUrl]="item.posterUrl" [imageTitle]="item.description"></app-video-image>
-    <div class="text-center">{{item.titleName}}</div>
+    <div class="text-center"> <a routerLink="/title/{{item.titleId}}">{{item.titleName}}</a></div>
   </div>
 </div>

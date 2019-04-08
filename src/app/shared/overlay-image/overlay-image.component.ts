@@ -18,7 +18,6 @@ export class OverlayImageComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.overlayStyle = OverlayStyles.bottomIcon;
   }
 
 }

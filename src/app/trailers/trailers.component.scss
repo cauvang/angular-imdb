@@ -1,0 +1,21 @@
+.trailer-header {
+  font-size: 15px;
+  color: #333;
+  font-family: Verdana, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.nav-tabs {
+  border-bottom: 4px solid #dddddd;
+  padding: 0 12px;
+}
+
+.nav-link {
+  margin-bottom: -3px;
+}
+
+.nav-link.active {
+  border: 1px solid transparent;
+  border-bottom: 3px solid #555555;
+  background-color: #f8f8f8;
+}

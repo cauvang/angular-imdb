@@ -28,8 +28,16 @@ export class TrailersComponent implements OnInit {
   loadTrailers() {
     this.trailers = [];
     this.isLoading = true;
-    this.trailerType = this.route.snapshot.params['trailerType'];
-    this.service.getTrailers(this.trailerType).subscribe((data) => { this.trailers = data; this.isLoading = false });
+    const { trailerType = "popular" } = this.route.snapshot.params;
+
+    this.trailerType = trailerType;
+    console.log("trail1", this.trailerType)
+
+    this.service.getTrailers(this.trailerType).subscribe((data) => {
+      this.trailers = data;
+      this.isLoading = false;
+
+    });
 
   }
 }

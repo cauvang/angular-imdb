@@ -1,10 +1,11 @@
 <div class=" rounded bk-grey p-2 mt-2">
+  <i class="fas fa-angle-double-down refinebtn" (click)="onRefine()"></i>
   <button class="btn btn-link border-right" (click)="onRefine()">Refine</button>
   <span class="refinedList"> See movies by genre, rating, online ticketing, etc.</span>
   <div class="d-flex">
     <div *ngFor="let item of selectedValues" class="selectedVal  mr-2">
       {{item}}
-      <i class="fas fa-times-circle ml-2"></i>
+      <i class="fas fa-times-circle ml-2" (click)="onDeselect(item)"></i>
     </div>
   </div>
 </div>
@@ -14,7 +15,7 @@
       <div *ngIf="data!=null" class="nav flex-column  bk-grey">
         <div *ngFor="let item of data">
           <a class="nav-link p-2" aria-selected="true" [ngClass]="{'active': item.categoryName==selectedTab}"
-            (click)="onClick(item.categoryName)">{{item.categoryName}}</a>
+            (click)="onCategoryClick(item.categoryName)">{{item.categoryName}}</a>
         </div>
       </div>
     </div>
@@ -31,32 +32,34 @@
               <span>IMDb user rating (average)</span>
               <div>
                 <mat-form-field>
-                  <mat-select [(value)]="from" (selectionChange)="onGetRatingFromChanged($event)">
+                  <mat-select [(value)]="from" (selectionChange)="onGetRatingChanged($event)">
                     <mat-option *ngFor="let item of ratingInc" value="{{item}}">{{item}}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 to
                 <mat-form-field>
-                  <mat-select [(value)]="to" (selectionChange)="onGetRatingToChanged($event)">
+                  <mat-select [(value)]="to" (selectionChange)="onGetRatingChanged($event)">
                     <mat-option *ngFor="let item of ratingRev" value="{{item}}">{{item}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </div>
               <span>Number of votes</span>
               <div class="d-flex">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="fromVote">
                 <span class="p-2">to </span>
-                <input type="text" class="form-control">
-                <label title="Search" class=" p-1 ml-2 btn-search border"> >> </label>
+                <input type="text" class="form-control" [(ngModel)]="toVote">
+                <label title="Search" class="ml-2 btn-search" (click)="onVoteSearch()"> <i
+                    class="fas fa-angle-double-right"></i> </label>
               </div>
             </div>
             <div #releaseBlock *ngIf="item.searchKey==='release_date';else finallyBlock">
               <span>Release year or range</span>
               <div class="d-flex">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="fromRange">
                 <span class="p-2">to </span>
-                <input type="text" class="form-control">
-                <label title="Search" class=" p-1 ml-2 btn-search border"> >> </label>
+                <input type="text" class="form-control" [(ngModel)]="toRange">
+                <label title="Search" class=" p-1 ml-2 btn-search border" (click)="onRangeSearch()"> <i
+                    class="fas fa-angle-double-right"></i> </label>
               </div>
             </div>
             <div #finallyBlock *ngFor="let value of item.values" style="width: 50%">

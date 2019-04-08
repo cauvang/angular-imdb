@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./titles-home.component.scss']
 })
 export class TitlesHomeComponent implements OnInit {
+  private headers: string[] = ['Full cast and crew', 'Trivia', 'User reviews'];
 
   constructor() { }
 

@@ -19,6 +19,7 @@ import { ShowtimesModule } from './showtimes/showtimes.module';
 import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
 import { BoxofficeComponent } from './charts/boxoffice/boxoffice.component';
 import { ToptvComponent } from './charts/toptv/toptv.component';
+import { CalendarComponent } from './calendar/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ToptvComponent } from './charts/toptv/toptv.component';
     TitlesHomeComponent,
     BoxofficeComponent,
     ToptvComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,

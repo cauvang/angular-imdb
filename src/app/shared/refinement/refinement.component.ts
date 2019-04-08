@@ -9,14 +9,20 @@ import { Router } from '@angular/router';
 })
 export class RefinementComponent implements OnInit, OnChanges {
   @Input() data: IMetadata[];
-  private selectedTab: string;
   @Output() refineChange = new EventEmitter();
   ratingInc = [];
   ratingRev = [];
+
   from = "1";
-  fromStr = "";
   to = "10";
-  toStr = "";
+
+  fromVote = "";
+  toVote = "";
+
+  fromRange = "";
+  toRange = "";
+
+  private selectedTab: string;
   private bRefine: boolean;
 
   selectedValues: string[];
@@ -46,17 +52,38 @@ export class RefinementComponent implements OnInit, OnChanges {
       selectedValues = selectedValues.concat(element.values.filter(x => x.checked).map(x => x.name));
     });
 
-    if (this.fromStr != "" && this.toStr != "")
+
+    if (this.from !== "1" && this.to !== "10")
       selectedValues = selectedValues.concat(this.from + "-" + this.to + " IMDb user rating (average)");
-    else if (this.fromStr != "")
-      selectedValues = selectedValues.concat(this.fromStr);
-    else if (this.toStr != "")
-      selectedValues = selectedValues.concat(this.toStr);
+    else {
+      if (this.from !== "1")
+        selectedValues = selectedValues.concat("At least " + this.from + " IMDb user rating (average)");
+      else if (this.to !== "10")
+        selectedValues = selectedValues.concat("No more than " + this.to + " IMDb user rating (average)");
+    }
+
+    if (this.fromVote && this.toVote)
+      selectedValues = selectedValues.concat(this.fromVote + "-" + this.toVote + " Number of votes");
+    else {
+      if (this.fromVote)
+        selectedValues = selectedValues.concat("No more than " + this.fromVote + " Number of votes");
+      else if (this.toVote)
+        selectedValues = selectedValues.concat("At least " + this.toVote + " Number of votes");
+    }
+
+    if (this.fromRange && this.toRange)
+      selectedValues = selectedValues.concat(this.fromRange + "-" + this.toRange + " Release year or range");
+    else {
+      if (this.fromRange)
+        selectedValues = selectedValues.concat("No more than " + this.fromRange + " Release year or range");
+      else if (this.toRange)
+        selectedValues = selectedValues.concat("At least " + this.toRange + " Release year or range");
+    }
 
     this.selectedValues = selectedValues;
   }
 
-  onClick(catName: string) {
+  onCategoryClick(catName: string) {
     this.selectedTab = catName;
   }
 
@@ -82,29 +109,42 @@ export class RefinementComponent implements OnInit, OnChanges {
     this.refineChange.emit(this.catList);
   }
 
-  onGetRatingFromChanged(event) {
-    if (this.from === "1")
-      this.fromStr = "";
-    else
-      this.fromStr = "At least " + this.from + " IMDb user rating (average)";
-
-    let catStr = null;
-    if (this.from !== "1" || this.to !== "10")
-      catStr = (this.from === "1" ? "" : this.from) + '%2C' + (this.to === "10" ? "" : this.to);
-    this.catList['user_rating'] = catStr;
+  onGetRatingChanged(event) {
+    this.catList['user_rating'] = (this.from === "1" ? "" : this.from) + '%2C' + (this.to === "10" ? "" : this.to);
     this.refineChange.emit(this.catList);
   }
 
-  onGetRatingToChanged(event) {
-    if (this.to === "10")
-      this.toStr = "";
-    else
-      this.toStr = "No more than " + this.to + " IMDb user rating (average)";
-
-    let catStr = null;
-    if (this.from !== "1" || this.to !== "10")
-      catStr = (this.from === "1" ? "" : this.from) + '%2C' + (this.to === "10" ? "" : this.to);
-    this.catList['user_rating'] = catStr;
+  onVoteSearch() {
+    this.catList['num_votes'] = this.fromVote + ',' + this.toVote;
     this.refineChange.emit(this.catList);
+  }
+
+  onRangeSearch() {
+    this.catList['release_date'] = this.fromRange + ',' + this.toRange;
+    this.refineChange.emit(this.catList);
+  }
+
+  onDeselect(item: string) {
+    const index = this.selectedValues.indexOf(item);
+    if (index !== -1)
+      this.selectedValues.splice(index, 1);
+
+    this.data.forEach(element => {
+      // let valueString = this.catList[element.searchKey];
+      element.values.forEach(v => {
+        if (v.name === item) {
+          v.checked = false;
+          // console.log("gg", valueString, this.catList, element.searchKey, item)
+          // const indexx = valueString.indexOf(item);
+          // if (indexx !== -1)
+          //   valueString.splice(indexx, 1);
+          // this.catList[element.searchKey] = valueString;
+          // return;
+        }
+      })
+
+    });
+
+
   }
 }
