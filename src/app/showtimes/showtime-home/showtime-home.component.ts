@@ -77,7 +77,6 @@ export class ShowtimeHomeComponent implements OnInit {
     this.selectedDate = moment(date).format("YYYY-MM-DD");
   }
   onLocationChange(location: ILocation) {
-    console.log("locaitn", location)
     this.location.country = location.country;
     this.location.postcode = location.postcode;
   }

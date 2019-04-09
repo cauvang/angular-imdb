@@ -1,0 +1,56 @@
+<div class="row" *ngIf="data">
+  <div class="col-md-8 border-right">
+    <div class="d-flex border-bottom">
+      <div class="flex-grow-1">
+        <span>IMDb Charts</span>
+        <h3 class="color-light-grey">{{data.title}}</h3>
+        <span class="color-grey">{{data.subTitle}}</span>
+      </div>
+      <div>
+        <i class="fas fa-share-alt"></i>
+        <span>SHARE</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        Showing {{data.items.length}} Titles
+      </div>
+      <div class="col-md-4">
+        <app-sort datasetType="top-rated" (sortChange)="onSortChange($event)"></app-sort>
+      </div>
+    </div>
+    <div class="row color-grey font-weight-bold text-center">
+      <div class="col-md-7 ">
+        Rank & Title
+      </div>
+      <div class="col-md-2">
+        IMDb Rating
+      </div>
+      <div class="col-md-2">
+        Your Rating
+      </div>
+    </div>
+    <div class="row color-grey font-weight-bold mt-2" *ngFor="let item of data.items;let i=index"
+      [ngClass]="{'bk-grey': i%2===0, 'bk-white': i%2 ===1}">
+      <div class="col-md-7">
+        <span routerLink="/title/{{item.id}}"><img src="{{item.image.url}}"></span>
+        <span class="ml-3">{{i+1}}.
+          <a class="ml-2" routerLink="/title/{{item.id}}">{{item.name}}</a></span>
+        <span class="ml-2">({{item.year}})</span>
+      </div>
+      <div class="col-md-2 content-center font-weight-bold">
+        <span title="{{item.rating.text}}"> <i class="fas fa-star color-gold"></i>
+          {{item.rating.value}}</span>
+      </div>
+      <div class=" col-md-2 content-center">
+        <i class="far fa-star"></i>
+      </div>
+      <div class="col-md-1 content-center">
+        <img title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 border-left">
+    You Have Seen
+  </div>
+</div>

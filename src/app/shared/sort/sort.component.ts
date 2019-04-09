@@ -50,6 +50,28 @@ export class SortComponent implements OnInit {
         name: "Runtime",
         value: "runtime"
       }
+    ],
+    "top-rated": [
+      {
+        name: "Ranking",
+        value: "rk"
+      },
+      {
+        name: "IMDb Rating",
+        value: "ir"
+      },
+      {
+        name: "Release Date",
+        value: "us"
+      },
+      {
+        name: "Number of Ratings",
+        value: "nv"
+      },
+      {
+        name: "Your Rating",
+        value: "ur"
+      }
     ]
   };
   @Output() sortChange = new EventEmitter();

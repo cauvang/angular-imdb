@@ -18,8 +18,8 @@ import { ShowtimesService } from './services/showtimes.service';
 import { ShowtimesModule } from './showtimes/showtimes.module';
 import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
 import { BoxofficeComponent } from './charts/boxoffice/boxoffice.component';
-import { ToptvComponent } from './charts/toptv/toptv.component';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
+import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,8 @@ import { CalendarComponent } from './calendar/calendar/calendar.component';
     TrailersComponent,
     TitlesHomeComponent,
     BoxofficeComponent,
-    ToptvComponent,
     CalendarComponent,
+    ChartTopRatedComponent,
   ],
   imports: [
     BrowserModule,

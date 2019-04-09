@@ -16,8 +16,8 @@ import { ShowtimeTitleComponent } from './showtimes/showtime-title/showtime-titl
 import { ShowtimeCinemaComponent } from './showtimes/showtime-cinema/showtime-cinema.component';
 import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
 import { BoxofficeComponent } from './charts/boxoffice/boxoffice.component';
-import { ToptvComponent } from './charts/toptv/toptv.component';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
+import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -57,7 +57,12 @@ const routes: Routes = [
   { path: 'title/:id', component: TitlesHomeComponent },
 
   { path: 'chart/boxoffice', component: BoxofficeComponent },
-  { path: 'chart/toptv', component: ToptvComponent },
+
+  { path: 'chart/:chartType', component: ChartTopRatedComponent },
+  // { path: 'chart/toptv', component: ChartTopRatedComponent },
+  // { path: 'chart/top', component: ChartTopRatedComponent },
+  // { path: 'chart/moviemeter', component: ChartTopRatedComponent },
+  { path: 'india/top', component: ChartTopRatedComponent },
 
   { path: 'calendar', component: CalendarComponent },
   { path: 'calendar/:region', component: CalendarComponent }
