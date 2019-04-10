@@ -3,11 +3,16 @@
     <router-outlet></router-outlet>
   </div>
   <div class="col-md-4 p-3 ">
-    <app-news-abb [data]="otherNews.top" newsType="{{config.newsType.topNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
-    <app-news-abb [data]="otherNews.movie" newsType="{{config.newsType.movieNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
-    <app-news-abb [data]="otherNews.tv" newsType="{{config.newsType.tvNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
-    <app-news-abb [data]="otherNews.celebrity" newsType="{{config.newsType.celebNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
-    <app-news-abb [data]="otherNews.indie" newsType="{{config.newsType.indieNews}}" (routeChange)="onRouteChange($event)"></app-news-abb>
+    <app-news-abb [data]="otherNews.top" newsType="{{config.newsType.topNews}}" (routeChange)="onRouteChange($event)">
+    </app-news-abb>
+    <app-news-abb [data]="otherNews.movie" newsType="{{config.newsType.movieNews}}"
+      (routeChange)="onRouteChange($event)"></app-news-abb>
+    <app-news-abb [data]="otherNews.tv" newsType="{{config.newsType.tvNews}}" (routeChange)="onRouteChange($event)">
+    </app-news-abb>
+    <app-news-abb [data]="otherNews.celebrity" newsType="{{config.newsType.celebNews}}"
+      (routeChange)="onRouteChange($event)"></app-news-abb>
+    <app-news-abb [data]="otherNews.indie" newsType="{{config.newsType.indieNews}}"
+      (routeChange)="onRouteChange($event)"></app-news-abb>
 
   </div>
 
