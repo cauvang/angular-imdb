@@ -5,8 +5,8 @@ export interface ITopRated {
     subTitle: string;
     items: IChart[];
 }
-export interface IChart {
 
+export interface IChart {
     order: string;
     name: string;
     id: string;
