@@ -1,6 +1,7 @@
 .title {
   &-header {
     color: silver;
+    background: #333333;
   }
 
   &-nav {
@@ -21,8 +22,82 @@
 
     }
 
+    &-mega {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      background: #2A2A2A;
+
+      h3 {
+        font-size: 16px;
+        color: #fff;
+
+      }
+
+      &-items {
+        list-style-type: none;
+        font-weight: 300;
+        font-size: 13px;
+
+        .disabled {
+          color: #6b6b6b;
+        }
+
+        a {
+          &:hover {
+            color: #63c9ff;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
     &-sidebar {
       border-left: 4px solid #999;
+    }
+  }
+
+  &-info {
+    height: 100px;
+    background: #333333;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 15px;
+
+    img {
+      width: 46px;
+      margin-right: 25px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #fff;
+      display: inline;
+    }
+
+    .title-year {
+      font-size: 28px;
+      margin-left: 10px;
+    }
+
+    .watchlist-button {
+      float: left;
+    }
+
+    .sub-list {
+      list-style-type: none;
+
+      li {
+        float: left;
+        font-size: 13px;
+        margin-right: 15px;
+
+        &::after {
+          content: '|';
+          margin-left: 15px;
+          font-weight: 200;
+        }
+      }
     }
   }
 }

@@ -8,13 +8,86 @@
         <li> USER REVIEWS
         </li>
         <li>IMDbPro </li>
-        <li>MORE
-
-
+        <li *ngIf="toggleMegaMenu === false">
+          <a (click)="toggleMenuClick()">MORE <i class="fas fa-angle-double-down ml-1"></i></a>
         </li>
+        <li *ngIf="toggleMegaMenu === true">
+          <a (click)="toggleMenuClick()">LESS <i class="fas fa-angle-double-up ml-1"></i></a>
+        </li>
+
       </ul>
-      <div class="title-nav-mega">
-        lol
+      <div class="title-nav-mega row" *ngIf="toggleMegaMenu === true">
+        <div class="col-md-3">
+          <h3>DETAILS</h3>
+          <ul class="title-nav-mega-items">
+            <li><a>Full Cast and Crew</a></li>
+            <li><a>Release Dates</a></li>
+            <li><a>Official Sites</a></li>
+            <li><a>Company Credits</a></li>
+            <li><a>Filming & Production</a></li>
+            <li><a>Technical Specs</a></li>
+
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h3>STORYLINE</h3>
+          <ul class="title-nav-mega-items">
+            <li><a>Taglines</a></li>
+            <li><a>Plot Summary</a></li>
+            <li class="disabled"><a>Synopsis</a></li>
+            <li><a>Plot Keywords</a></li>
+            <li><a>Parents Guide</a></li>
+
+          </ul>
+          <h3 class=" mt-4">RELATED ITEMS</h3>
+          <ul class="title-nav-mega-items">
+            <li><a>News</a></li>
+            <li><a>External Sites</a></li>
+
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h3>OPINION</h3>
+          <ul class="title-nav-mega-items">
+            <li class="disabled"><a>Awards</a></li>
+            <li><a>FAQ</a></li>
+            <li><a>User Reviews</a></li>
+            <li><a>User Ratings</a></li>
+            <li><a>External Reviews</a></li>
+            <li><a>Metacritic Reviews</a></li>
+          </ul>
+          <h3 class="mt-4">PHOTO & VIDEO</h3>
+          <ul class="title-nav-mega-items">
+            <li><a>Photo Gallery</a></li>
+            <li><a>Trailers and Videos</a></li>
+          </ul>
+
+        </div>
+        <div class="col-md-3">
+          <h3>DID YOU KNOW?</h3>
+          <ul class="title-nav-mega-items">
+            <li><a>Trivia</a></li>
+            <li><a>Goofs</a></li>
+            <li><a>Crazy Credits</a></li>
+            <li><a>Quotes</a></li>
+            <li><a>Alternate Versions</a></li>
+            <li><a>Connections</a></li>
+            <li><a>Soundtracks</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="title-info">
+
+        <a class="watchlist-button"><img src="../../../assets/add-to-watchlist.png" /></a>
+        <div>
+          <h1 class="title-title">Title</h1> <span class="title-year">(2018)</span>
+          <ul class="sub-list">
+            <li>R</li>
+            <li>2h</li>
+            <li>Action, Drama, Comedy</li>
+            <li>12 April 2019 (USA)</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
