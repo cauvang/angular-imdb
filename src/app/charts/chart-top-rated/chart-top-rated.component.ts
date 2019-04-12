@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartsService } from 'src/app/services/charts.service';
 import { ITopRated } from 'src/app/models/chart';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-chart-top-rated',
@@ -12,22 +12,40 @@ export class ChartTopRatedComponent implements OnInit {
   private data: ITopRated;
   private chartType: string = "top";
 
-  constructor(private service: ChartsService, private route: ActivatedRoute) { }
+  constructor(private service: ChartsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.chartType = params["chartType"];
 
-      this.service.getCharts(this.chartType).subscribe((data) => {
-        this.data = data;
-      });
+      this.reloadData();
     })
 
   }
 
-  onSortChange() {
 
+  reloadData() {
+    const url = document.location.href;
+    let queryString = "";
+    if (url.indexOf("?"))
+      queryString = url.split('?')[1];
+    this.service.getCharts(this.chartType, queryString).subscribe((data) => {
+      this.data = data;
+    });
   }
 
+
+
+  onSortChange(sortBy: string) {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: { sort: sortBy },
+        queryParamsHandling: "merge"
+      });
+    this.reloadData();
+
+  }
 
 }

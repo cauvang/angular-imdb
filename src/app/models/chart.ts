@@ -4,6 +4,7 @@ export interface ITopRated {
     title: string;
     subTitle: string;
     items: IChart[];
+    quickLinks: ILink[];
 }
 
 export interface IChart {
@@ -28,4 +29,9 @@ export interface IRanking {
     value: string;
     velocity: string;
     up: boolean;
+}
+
+export interface ILink {
+    name: string;
+    url: string;
 }

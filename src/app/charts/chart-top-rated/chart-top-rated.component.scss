@@ -7,3 +7,46 @@
     width: 80%;
   }
 }
+
+.table-row {
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.hide-title {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.chart ul {
+  list-style-type: none;
+}
+
+.selected {
+  border-radius: 7px;
+  border: 1px solid #136CB2;
+  padding: 3px;
+  box-shadow: 0 0 3px;
+}
+
+.share-icon {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+
+  &:hover {
+    border-radius: 50%;
+    border: 1px grey solid;
+    background-color: lightgrey;
+
+  }
+}
+
+.fa-arrow-up {
+  color: green;
+}
+
+.fa-arrow-down {
+  color: red;
+}

@@ -108,9 +108,10 @@ export class SortComponent implements OnInit {
   }
 
   private sortByType() {
-    if (this.datasetType === "movie")
+    if (this.datasetType === "movie" || this.datasetType === "top-rated")
       this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
     else if (this.datasetType === "cinema")
       this.sortChange.emit({ sort: this.sortBy, dir: this.sortDirection });
+
   }
 }

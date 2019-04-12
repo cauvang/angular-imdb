@@ -7,7 +7,7 @@
         <span class="color-grey">{{data.subTitle}}</span>
       </div>
       <div>
-        <i class="fas fa-share-alt"></i>
+        <div class="mt-4 text-center share-icon color-grey"> <i class="fas fa-share-alt"></i></div>
         <span>SHARE</span>
       </div>
     </div>
@@ -30,16 +30,40 @@
         Your Rating
       </div>
     </div>
-    <div class="row color-grey font-weight-bold mt-2" *ngFor="let item of data.items;let i=index"
+    <div class="row color-grey font-weight-bold mt-2 table-row" *ngFor="let item of data.items;let i=index"
       [ngClass]="{'bk-grey': i%2===0, 'bk-white': i%2 ===1}">
       <div class="col-md-7">
-        <span routerLink="/title/{{item.id}}"><img src="{{item.image.url}}"></span>
-        <span class="ml-3">{{i+1}}.
-          <a class="ml-2" routerLink="/title/{{item.id}}">{{item.name}}</a></span>
-        <span class="ml-2">({{item.year}})</span>
+        <div class="float-left" routerLink="/title/{{item.id}}">
+          <img src="{{item.image.url}}"></div>
+        <div>
+          <div>
+            <a class="ml-2" routerLink="/title/{{item.id}}">{{item.name}}</a>
+            <span class="ml-2">({{item.year}})</span>
+          </div>
+          <div><span class="ml-3">{{item.ranking.value}}</span>
+
+            <span *ngIf="item.ranking.velocity;else VelocityNull">
+              (
+              <span *ngIf="item.ranking.up===true;else elseRanking">
+                <i class="fas fa-arrow-up"></i></span>
+              <ng-template #elseRanking>
+                <i class="fas fa-arrow-down"></i>
+              </ng-template>
+              <span class="ml-1">{{item.ranking.velocity}}</span>
+              )
+            </span>
+
+            <ng-template #VelocityNull>
+
+            </ng-template>
+
+
+          </div>
+        </div>
+
       </div>
       <div class="col-md-2 content-center font-weight-bold">
-        <span title="{{item.rating.text}}"> <i class="fas fa-star color-gold"></i>
+        <span *ngIf="item.rating.value" title="{{item.rating.text}}"> <i class="fas fa-star color-gold"></i>
           {{item.rating.value}}</span>
       </div>
       <div class=" col-md-2 content-center">
@@ -50,7 +74,33 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4 border-left">
-    You Have Seen
+  <div class="col-md-4 border-left ">
+    <div class=" border-bottom font18 mb-3">
+      <div class="mt-3 mb-3">You Have Seen</div>
+      <div>
+        <span class="font-weight-bold font21"> 0 </span> / {{data.items.length}} ( 0% )
+      </div>
+      <input type="checkbox">
+      <span class="ml-1 font13 hide-title">Hide titles I've seen</span>
+    </div>
+    <div class="border-bottom chart">
+      <span>IMDb Charts</span>
+      <ul class="mt-3 mb-3">
+        <li><a routerLinkActive="selected" routerLink="/chart/boxoffice">Box Office</a></li>
+        <li><a routerLinkActive="selected" routerLink="/chart/moviemeter">Most Popular Movies</a></li>
+        <li><a routerLinkActive="selected" routerLink="/chart/top">Top Rated Movies</a></li>
+        <li><a routerLinkActive="selected" routerLink="/chart/top-english-movies">Top Rated English Movies</a></li>
+        <li><a routerLinkActive="selected" routerLink="/chart/tvmeter">Most Popular TV</a></li>
+        <li><a routerLinkActive="selected" routerLink="/chart/toptv">Top Rated TV</a></li>
+        <li><a routerLinkActive="selected" routerLink="/india/top-rated-indian-movies">Top Rated Indian Movies</a></li>
+        <li><a routerLinkActive="selected" routerLink="/chart/bottom">Lowest Rated Movies</a></li>
+      </ul>
+    </div>
+    <div class="mt-3">
+      {{data.title}} by Genre
+      <div *ngFor="let item of data.quickLinks">
+        <a routerLink="{{item.url}}">{{item.name}} </a>
+      </div>
+    </div>
   </div>
 </div>
