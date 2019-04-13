@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./loading-icon.component.scss']
 })
 export class LoadingIconComponent implements OnInit {
-@Input() isLoading:boolean;
+@Input() isLoading: boolean;
 
   constructor() { }
 

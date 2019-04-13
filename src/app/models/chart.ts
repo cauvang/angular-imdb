@@ -34,4 +34,5 @@ export interface IRanking {
 export interface ILink {
     name: string;
     url: string;
+    genre: string;
 }

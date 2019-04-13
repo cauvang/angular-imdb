@@ -25,7 +25,7 @@ export class NewsDetailComponent implements OnInit {
   }
 
   loadNews() {
-    
+
     this.route.params.subscribe((params: Params) => { this.id = params['id']; });
 
     this.service.getNewsDetail(this.id).subscribe((data) => {

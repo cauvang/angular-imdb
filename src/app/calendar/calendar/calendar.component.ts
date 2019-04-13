@@ -10,12 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CalendarComponent implements OnInit {
   private data: ICalendar;
-  private region: string = "US";
+  private region = 'US';
   constructor(private service: CalendarService, private route: ActivatedRoute) {
     this.route.params.subscribe(({ region }) => {
-      this.region = region || "US";
+      this.region = region || 'US';
       this.loadData();
-    })
+    });
   }
   public loadData() {
     this.service.getCalendar(this.region).subscribe((data) => {

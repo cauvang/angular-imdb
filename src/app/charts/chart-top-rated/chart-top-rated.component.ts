@@ -10,31 +10,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ChartTopRatedComponent implements OnInit {
   private data: ITopRated;
-  private chartType: string = "top";
+  private chartType = 'top';
 
   constructor(private service: ChartsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.chartType = params["chartType"];
+      this.chartType = params['chartType'];
 
       this.reloadData();
-    })
+    });
 
   }
 
 
   reloadData() {
     const url = document.location.href;
-    let queryString = "";
-    if (url.indexOf("?"))
+    let queryString = '';
+    if (url.indexOf('?')) {
       queryString = url.split('?')[1];
+    }
     this.service.getCharts(this.chartType, queryString).subscribe((data) => {
       this.data = data;
     });
   }
 
-
+  onNavigate(item) {
+    console.log(item.genre);
+    this.router.navigateByUrl('/search/title?genres=', item.genre);
+  }
 
   onSortChange(sortBy: string) {
     this.router.navigate(
@@ -42,7 +46,7 @@ export class ChartTopRatedComponent implements OnInit {
       {
         relativeTo: this.route,
         queryParams: { sort: sortBy },
-        queryParamsHandling: "merge"
+        queryParamsHandling: 'merge'
       });
     this.reloadData();
 

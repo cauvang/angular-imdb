@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { ILocation } from 'src/app/models/showtimes';
 import { LocationService } from 'src/app/services/location.service';
-import * as moment from "moment";
+import * as moment from 'moment';
 
 
 @Component({
@@ -25,19 +25,20 @@ export class ShowtimeHomeComponent implements OnInit {
   ngOnInit() {
     this.route.url.subscribe(url => {
       const params = (this.route.firstChild.params as any)._value;
-      if (params["country"]) {
+      if (params['country']) {
         this.location = {
-          country: params["country"],
-          postcode: params["zipcode"]
+          country: params['country'],
+          postcode: params['zipcode']
         };
-      }
-      else
+      } else {
         this.location = this.locationService.getLocation();
+      }
 
-      if (params["date"])
-        this.selectedDate = params["date"];
-      else
-        this.selectedDate = moment().format("YYYY-MM-DD");
+      if (params['date']) {
+        this.selectedDate = params['date'];
+      } else {
+        this.selectedDate = moment().format('YYYY-MM-DD');
+      }
 
       this.type = this.router.routerState.snapshot.url.split('/')[2];
       this.loadData();
@@ -51,9 +52,10 @@ export class ShowtimeHomeComponent implements OnInit {
 
   loadData() {
     const url = document.location.href;
-    let queryString = "";
-    if (url.indexOf("?"))
+    let queryString = '';
+    if (url.indexOf('?')) {
       queryString = url.split('?')[1];
+    }
 
 
     this.nMovie = 0;
@@ -74,7 +76,7 @@ export class ShowtimeHomeComponent implements OnInit {
   }
 
   onDateChange(date: Date) {
-    this.selectedDate = moment(date).format("YYYY-MM-DD");
+    this.selectedDate = moment(date).format('YYYY-MM-DD');
   }
   onLocationChange(location: ILocation) {
     this.location.country = location.country;

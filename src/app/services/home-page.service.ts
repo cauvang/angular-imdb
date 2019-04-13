@@ -24,32 +24,32 @@ export class HomePageService {
 
 
   public getTopTrailers(): Observable<ITrailer[]> {
-    return this.http.get<ITrailer[]>(this.appConfig.rootURL + "trailers/top3");
+    return this.http.get<ITrailer[]>(this.appConfig.rootURL + 'trailers/top3');
   }
 
   public getOpeningThisWeekSchedule(): Observable<ISchedule[]> {
-    return this.http.get<ISchedule[]>(this.appConfig.rootURL + "schedules/open-this-week");
+    return this.http.get<ISchedule[]>(this.appConfig.rootURL + 'schedules/open-this-week');
   }
 
   public getNowPlayingSchedule(): Observable<ISchedule[]> {
-    return this.http.get<ISchedule[]>(this.appConfig.rootURL + "schedules/now-playing");
+    return this.http.get<ISchedule[]>(this.appConfig.rootURL + 'schedules/now-playing');
   }
 
   public getComingSoonSchedule(): Observable<ISchedule[]> {
-    return this.http.get<ISchedule[]>(this.appConfig.rootURL + "schedules/comming-soon");
+    return this.http.get<ISchedule[]>(this.appConfig.rootURL + 'schedules/comming-soon');
   }
 
   public getArticles(): Observable<IArticle[]> {
-    return this.http.get<IArticle[]>(this.appConfig.rootURL + "articles/home");
+    return this.http.get<IArticle[]>(this.appConfig.rootURL + 'articles/home');
   }
 
   public getNewsResponse(): Observable<IGetNewsResponse> {
-    return this.http.get<IGetNewsResponse>(this.appConfig.rootURL + "news/top");
+    return this.http.get<IGetNewsResponse>(this.appConfig.rootURL + 'news/top');
   }
 
   public getBirthdayResponse(): Observable<IGetBirthdayResponse> {
-    const ddmm = moment().format("DD-MM");
-    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + "name/birthday/" + ddmm);
+    const ddmm = moment().format('DD-MM');
+    return this.http.get<IGetBirthdayResponse>(this.appConfig.rootURL + 'name/birthday/' + ddmm);
   }
 
 }

@@ -20,11 +20,11 @@ export interface IGetTrailerResponse {
     starNames: string[];
     titleId: string;
     titleName: string;
-    titleNameWithYear: string; 
-    titleUrl: string; 
+    titleNameWithYear: string;
+    titleUrl: string;
     trailerLength: number;
     trailerName: string;
     videoId: string;
     videoUrl: string;
-    image:IImage;
+    image: IImage;
 }

@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IMovie } from 'src/app/models/movies';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { IGroup, ILocation } from 'src/app/models/showtimes';
-import * as moment from "moment";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-showtime-title',
@@ -29,16 +29,16 @@ export class ShowtimeTitleComponent implements OnInit {
   loadShowtimes() {
     this.route.params.subscribe((params: Params) => { this.selectedDate = params['date']; });
     if (this.selectedDate === undefined) {
-      this.selectedDate = moment().format("YYYY-MM-DD");
+      this.selectedDate = moment().format('YYYY-MM-DD');
     }
 
 
     this.route.params.subscribe((params: Params) => { this.id = params['id']; });
-    ///fixxxx
+    /// fixxxx
     const location: ILocation = {
       postcode: '3030',
       country: 'AU'
-    }
+    };
     this.service.getShowtimesTitle(location, this.selectedDate, this.id).subscribe((data) => {
       this.title = data.item;
       this.groups = data.items;
@@ -49,7 +49,7 @@ export class ShowtimeTitleComponent implements OnInit {
   }
 
   onDateChange(date: Date) {
-    this.selectedDate = moment(date).format("YYYY-MM-DD");
+    this.selectedDate = moment(date).format('YYYY-MM-DD');
   }
 
 }

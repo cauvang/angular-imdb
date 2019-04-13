@@ -18,9 +18,10 @@ export class ChartsService {
   }
 
   public getCharts(id: string, queryString: string): Observable<ITopRated> {
-    var url = this.appConfig.rootURL + "chart/" + id;
-    if (queryString != null)
-      url += "?" + queryString;//top?sort=rk,desc";
+    let url = this.appConfig.rootURL + 'chart/' + id;
+    if (queryString != null) {
+      url += '?' + queryString;
+    }// top?sort=rk,desc";
     return this.http.get<ITopRated>(url);
   }
 

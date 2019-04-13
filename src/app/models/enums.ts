@@ -1,9 +1,9 @@
 export enum OverlayStyles {
-    default = "default",
-    bottomIcon = "bottom"
+    default = 'default',
+    bottomIcon = 'bottom'
 }
 
 export enum MovieDisplayStyle {
-    default = "default",
-    row = "row"
+    default = 'default',
+    row = 'row'
 }

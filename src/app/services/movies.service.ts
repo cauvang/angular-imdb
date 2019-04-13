@@ -18,7 +18,7 @@ export class MoviesService {
   }
 
   public getMovies(movieType: string): Observable<IGetMovieResponse[]> {
-    return this.http.get<IGetMovieResponse[]>(this.appConfig.rootURL + "movie/" + movieType);
+    return this.http.get<IGetMovieResponse[]>(this.appConfig.rootURL + 'movie/' + movieType);
   }
 
 

@@ -113,7 +113,9 @@
     <div class="mt-3">
       {{data.title}} by Genre
       <div *ngFor="let item of data.quickLinks">
-        <a routerLink="/search/title/{{item.url}}">{{item.name}} </a>
+        <!-- <a routerLink="/search/title/?genres={{item.genre}}">{{item.name}} </a> -->
+        <a href="/search/title?genres={{item.genre}}" (click)="onNavigate(item)">{{item.name}} </a>
+
       </div>
     </div>
   </div>

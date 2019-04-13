@@ -23,11 +23,11 @@ export class ShowtimeCinemaComponent implements OnInit {
   ngOnInit() {
 
     this.route.params.subscribe((params: Params) => {
-      this.id = params["id"];
-      this.selectedDate = params["date"];
+      this.id = params['id'];
+      this.selectedDate = params['date'];
       this.location = {
-        country: params["country"],
-        postcode: params["zipcode"]
+        country: params['country'],
+        postcode: params['zipcode']
       };
       this.reloadData();
     });
@@ -35,9 +35,10 @@ export class ShowtimeCinemaComponent implements OnInit {
 
   reloadData() {
     const url = document.location.href;
-    let queryString = "";
-    if (url.indexOf("?"))
+    let queryString = '';
+    if (url.indexOf('?')) {
       queryString = url.split('?')[1];
+    }
     this.service.getShowtimesCinema(this.location, this.selectedDate, this.id, queryString).subscribe((data) => {
       this.theater = data;
     });
@@ -49,7 +50,7 @@ export class ShowtimeCinemaComponent implements OnInit {
       {
         relativeTo: this.route,
         queryParams: sortBy,
-        queryParamsHandling: "merge"
+        queryParamsHandling: 'merge'
       });
     this.reloadData();
   }

@@ -17,7 +17,7 @@ export class CalendarService {
   }
 
 
-  public getCalendar(region: string = "US"): Observable<ICalendar> {
-    return this.http.get<ICalendar>(this.appConfig.rootURL + "calendar/?region=" + region);
+  public getCalendar(region: string = 'US'): Observable<ICalendar> {
+    return this.http.get<ICalendar>(this.appConfig.rootURL + 'calendar/?region=' + region);
   }
 }

@@ -6,7 +6,7 @@ export class AppConfig {
         tvNews: string;
         celebNews: string;
         indieNews: string;
-    }
+    };
 
 
     rootURL: string;

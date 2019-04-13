@@ -14,7 +14,7 @@ import { IBirthday } from 'src/app/models/birthday';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public trailers: ITrailer[]
+  public trailers: ITrailer[];
   public schedulesThisWeek: ISchedule[];
   public schedulesNowPlaying: ISchedule[];
   public schedulesComingSoon: ISchedule[];
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
   }
 
   onGetShowtimes() {
-    this.router.navigateByUrl("/showtimes/theater");
+    this.router.navigateByUrl('/showtimes/theater');
   }
 
 }

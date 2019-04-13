@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, DoCheck, AfterContentChecked, EventEmitter } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
-import { ActivatedRoute, Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router';
 import { APP_CONFIG } from 'src/app/app.config';
 import { AppConfig } from 'src/app/models/constants';
 
@@ -16,7 +16,7 @@ export class NewsHomeComponent implements OnInit {
     tv: [],
     celebrity: [],
     indie: []
-  }
+  };
   private newsType: string;
   private config: AppConfig;
 

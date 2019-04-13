@@ -18,13 +18,14 @@ export class NewsService {
 
   constructor(private http: HttpClient, @Inject(APP_CONFIG) config: AppConfig) {
     this.appConfig = config;
-    this.newsURL = this.appConfig.rootURL + "news/";
+    this.newsURL = this.appConfig.rootURL + 'news/';
   }
 
   public getNewsList(newsType: string, token: string): Observable<IGetNewsResponse> {
-    var url = this.newsURL + newsType;
-    if (token != null)
-      url += "?token=" + token + "";
+    let url = this.newsURL + newsType;
+    if (token != null) {
+      url += '?token=' + token + '';
+    }
     return this.http.get<IGetNewsResponse>(url);
   }
 

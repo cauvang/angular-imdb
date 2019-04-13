@@ -43,7 +43,7 @@ export class NewsListComponent implements OnInit {
     });
 
 
-    this.service.getNewsList(this.newsType, "").subscribe((data) => {
+    this.service.getNewsList(this.newsType, '').subscribe((data) => {
       this.news = data.items;
       this.token = data.next;
       this.bLoadSuccess = true;

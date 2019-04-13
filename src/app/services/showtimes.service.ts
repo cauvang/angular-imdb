@@ -17,41 +17,46 @@ export class ShowtimesService {
   }
 
   public getShowtimesTheater(location: ILocation, date: string): Observable<IGetShowtimeTheaterResponse> {
-    var url = this.appConfig.rootURL + "showtimes";
-    if (location != null)
-      url += '/' + location.country + '/' + location.postcode;//AU/3026/
-    if (date != null)
-      url += '/' + date; //2019 - 03 - 13
+    let url = this.appConfig.rootURL + 'showtimes';
+    if (location != null) {
+      url += '/' + location.country + '/' + location.postcode;
+    }// AU/3026/
+    if (date != null) {
+      url += '/' + date;
+    } // 2019 - 03 - 13
     return this.http.get<IGetShowtimeTheaterResponse>(url);
   }
 
-  public getShowtimesMovie(location: ILocation, date: string, queryString: string = ""): Observable<IGetShowtimeMovieResponse> {
+  public getShowtimesMovie(location: ILocation, date: string, queryString: string = ''): Observable<IGetShowtimeMovieResponse> {
     {
-      let url = this.appConfig.rootURL + "showtimes/location";
+      let url = this.appConfig.rootURL + 'showtimes/location';
       url = this.getURL(url, location, date, queryString);
       return this.http.get<IGetShowtimeMovieResponse>(url);
     }
   }
 
   public getShowtimesTitle(location: ILocation, date: string, id: string): Observable<ITitle> {
-    let url = this.appConfig.rootURL + "showtimes/title/" + id;
+    let url = this.appConfig.rootURL + 'showtimes/title/' + id;
     url = this.getURL(url, location, date, null);
     return this.http.get<ITitle>(url);
   }
 
-  public getShowtimesCinema(location: ILocation, date: string, id: string, queryString: string = ""): Observable<ITheater> {
-    let url = this.appConfig.rootURL + "showtimes/cinema/" + id;
+  public getShowtimesCinema(location: ILocation, date: string, id: string, queryString: string = ''): Observable<ITheater> {
+    let url = this.appConfig.rootURL + 'showtimes/cinema/' + id;
     url = this.getURL(url, location, date, queryString);
     return this.http.get<ITheater>(url);
   }
 
-  private getURL(url: string, location: ILocation, date: string, queryString: string = "") {
-    if (location != null)
-      url += '/' + location.country + '/' + location.postcode;//AU/3026/
-    if (date != null)
-      url += '/' + date; //2019 - 03 - 13
-    if (queryString != null)
-      url += "?" + queryString;
+  private getURL(url: string, location: ILocation, date: string, queryString: string = '') {
+    if (location != null) {
+      url += '/' + location.country + '/' + location.postcode;
+    }// AU/3026/
+    if (date != null) {
+      url += '/' + date;
+    } // 2019 - 03 - 13
+    if (queryString != null) {
+      url += '?' + queryString;
+    }
     return url;
   }
 }

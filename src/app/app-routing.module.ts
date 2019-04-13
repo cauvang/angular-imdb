@@ -15,9 +15,9 @@ import { ShowtimeFavouriteComponent } from './showtimes/showtime-favourite/showt
 import { ShowtimeTitleComponent } from './showtimes/showtime-title/showtime-title.component';
 import { ShowtimeCinemaComponent } from './showtimes/showtime-cinema/showtime-cinema.component';
 import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
-import { BoxofficeComponent } from './charts/boxoffice/boxoffice.component';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
+import { SearchTitleComponent } from './search/search-title/search-title.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -60,7 +60,9 @@ const routes: Routes = [
   { path: 'india/top', component: ChartTopRatedComponent },
 
   { path: 'calendar', component: CalendarComponent },
-  { path: 'calendar/:region', component: CalendarComponent }
+  { path: 'calendar/:region', component: CalendarComponent },
+
+  { path: 'search/title', component: SearchTitleComponent }
 ];
 
 @NgModule({

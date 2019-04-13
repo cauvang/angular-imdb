@@ -5,7 +5,7 @@ import { IMetadata } from 'src/app/models/showtimes';
 import { ShowtimesService } from 'src/app/services/showtimes.service';
 import { IMovie } from 'src/app/models/movies';
 import { LocationService } from 'src/app/services/location.service';
-import * as moment from "moment";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-showtime-movie',
@@ -35,12 +35,14 @@ export class ShowtimeMovieComponent implements OnInit {
     this.route.params.subscribe((params: Params) => { this.selectedDate = params['date']; });
 
     const url = document.location.href;
-    let queryString = "";
-    if (url.indexOf("?"))
+    let queryString = '';
+    if (url.indexOf('?')) {
       queryString = url.split('?')[1];
+    }
 
-    if (this.selectedDate === undefined)
-      this.selectedDate = moment().format("YYYY-MM-DD");
+    if (this.selectedDate === undefined) {
+      this.selectedDate = moment().format('YYYY-MM-DD');
+    }
 
     const location = this.locationService.getLocation();
     this.service.getShowtimesMovie(location, this.selectedDate, queryString).subscribe((data) => {
@@ -57,7 +59,7 @@ export class ShowtimeMovieComponent implements OnInit {
       {
         relativeTo: this.route,
         queryParams: { sort: sortBy },
-        queryParamsHandling: "merge"
+        queryParamsHandling: 'merge'
       });
     this.loadMovies();
 
@@ -69,7 +71,7 @@ export class ShowtimeMovieComponent implements OnInit {
       {
         relativeTo: this.route,
         queryParams,
-        queryParamsHandling: "merge"
+        queryParamsHandling: 'merge'
       }).then(() => {
         this.loadMovies();
 

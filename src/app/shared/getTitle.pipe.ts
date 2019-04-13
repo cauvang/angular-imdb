@@ -4,13 +4,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class GetTitlePipe implements PipeTransform {
     transform(type: string) {
         const mapping = {
-            "tv": "TV",
-            "top": "Top",
-            "movie": "Movie",
-            "celebrity": "Celebrity",
-            "indie": "Indie",
+            'tv': 'TV',
+            'top': 'Top',
+            'movie': 'Movie',
+            'celebrity': 'Celebrity',
+            'indie': 'Indie',
 
-        }
+        };
         return mapping[type];
     }
 }

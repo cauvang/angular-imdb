@@ -3,11 +3,11 @@ import {Router, Event, NavigationEnd} from '@angular/router';
 
 @Directive({selector: '[appDropdown]', exportAs: 'appDropDown'})
 export class DropdownDirective {
-  constructor(private el : ElementRef, private router : Router, private renderer : Renderer2) {
+  constructor(private el: ElementRef, private router: Router, private renderer: Renderer2) {
     this
       .router
       .events
-      .subscribe((event : Event) => {
+      .subscribe((event: Event) => {
         if (event instanceof NavigationEnd) {
 
           this.isOpen = false;
@@ -30,4 +30,4 @@ export class DropdownDirective {
   }
 
 }
- 
+

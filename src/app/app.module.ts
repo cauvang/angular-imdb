@@ -19,6 +19,7 @@ import { ShowtimesModule } from './showtimes/showtimes.module';
 import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
+import { SearchTitleComponent } from './search/search-title/search-title.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated
     TitlesHomeComponent,
     CalendarComponent,
     ChartTopRatedComponent,
+    SearchTitleComponent,
   ],
   imports: [
     BrowserModule,

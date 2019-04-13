@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./video-image.component.scss']
 })
 export class VideoImageComponent implements OnInit {
-  private iconVideo = "https://m.media-amazon.com/images/G/01/IMDb/icon/play-button._CB318667375_.png";
-  private iconHover = "https://m.media-amazon.com/images/G/01/IMDb/icon/play-button-hover._CB318667374_.png";
+  private iconVideo = 'https://m.media-amazon.com/images/G/01/IMDb/icon/play-button._CB318667375_.png';
+  private iconHover = 'https://m.media-amazon.com/images/G/01/IMDb/icon/play-button-hover._CB318667374_.png';
   private playIcon;
 
   @Input() imageUrl: string;

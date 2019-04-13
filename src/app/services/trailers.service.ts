@@ -17,8 +17,8 @@ export class TrailersService {
   }
 
   public getTrailers(trailerType: string): Observable<IGetTrailerResponse[]> {
-    return this.http.get<IGetTrailerResponse[]>(this.appConfig.rootURL + "trailers?tabSection=" + trailerType);
+    return this.http.get<IGetTrailerResponse[]>(this.appConfig.rootURL + 'trailers?tabSection=' + trailerType);
   }
 
-  
+
 }
