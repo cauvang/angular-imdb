@@ -114,8 +114,13 @@
 .dropdown-menu {
   z-index: 11111;
   margin-top: 0px;
+  border-radius: 7px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  -webkit-box-shadow: 2px 2px 20px 0px rgba(61, 60, 61, 0.5);
+  -moz-box-shadow: 2px 2px 20px 0px rgba(61, 60, 61, 0.5);
+  box-shadow: 2px 2px 20px 0px rgba(61, 60, 61, 0.5),
+    -2px 2px 20px 0px rgba(61, 60, 61, 0.5);
 }
 
 .social-media-links {
