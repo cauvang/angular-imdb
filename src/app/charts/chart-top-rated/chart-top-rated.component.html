@@ -99,7 +99,7 @@
     <div class="mt-3">
       {{data.title}} by Genre
       <div *ngFor="let item of data.quickLinks">
-        <a routerLink="{{item.url}}">{{item.name}} </a>
+        <a routerLink="/search/title/{{item.url}}">{{item.name}} </a>
       </div>
     </div>
   </div>
