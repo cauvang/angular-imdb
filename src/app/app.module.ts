@@ -17,7 +17,6 @@ import { MoviesService } from './services/movies.service';
 import { ShowtimesService } from './services/showtimes.service';
 import { ShowtimesModule } from './showtimes/showtimes.module';
 import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
-import { BoxofficeComponent } from './charts/boxoffice/boxoffice.component';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
 
@@ -26,7 +25,6 @@ import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated
     AppComponent,
     TrailersComponent,
     TitlesHomeComponent,
-    BoxofficeComponent,
     CalendarComponent,
     ChartTopRatedComponent,
   ],

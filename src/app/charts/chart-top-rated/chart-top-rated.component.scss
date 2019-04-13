@@ -19,6 +19,12 @@
   }
 }
 
+.rank {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .chart ul {
   list-style-type: none;
 }

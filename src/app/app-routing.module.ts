@@ -56,12 +56,7 @@ const routes: Routes = [
   { path: 'showtimes/cinema/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
   { path: 'title/:id', component: TitlesHomeComponent },
 
-  { path: 'chart/boxoffice', component: BoxofficeComponent },
-
   { path: 'chart/:chartType', component: ChartTopRatedComponent },
-  // { path: 'chart/toptv', component: ChartTopRatedComponent },
-  // { path: 'chart/top', component: ChartTopRatedComponent },
-  // { path: 'chart/moviemeter', component: ChartTopRatedComponent },
   { path: 'india/top', component: ChartTopRatedComponent },
 
   { path: 'calendar', component: CalendarComponent },
