@@ -18,12 +18,7 @@ export class ShowtimesService {
 
   public getShowtimesTheater(location: ILocation, date: string): Observable<IGetShowtimeTheaterResponse> {
     let url = this.appConfig.rootURL + 'showtimes';
-    if (location != null) {
-      url += '/' + location.country + '/' + location.postcode;
-    }// AU/3026/
-    if (date != null) {
-      url += '/' + date;
-    } // 2019 - 03 - 13
+    url = this.getURL(url, location, date, null);
     return this.http.get<IGetShowtimeTheaterResponse>(url);
   }
 
@@ -48,15 +43,15 @@ export class ShowtimesService {
   }
 
   private getURL(url: string, location: ILocation, date: string, queryString: string = '') {
-    if (location != null) {
+    if (location != null) // AU/3026/
       url += '/' + location.country + '/' + location.postcode;
-    }// AU/3026/
-    if (date != null) {
+
+    if (date != null) // 2019 - 03 - 13
       url += '/' + date;
-    } // 2019 - 03 - 13
-    if (queryString != null) {
+
+    if (queryString != null)
       url += '?' + queryString;
-    }
+
     return url;
   }
 }

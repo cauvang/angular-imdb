@@ -17,7 +17,6 @@ export class ChartTopRatedComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.chartType = params['chartType'];
-
       this.reloadData();
     });
 
@@ -27,17 +26,19 @@ export class ChartTopRatedComponent implements OnInit {
   reloadData() {
     const url = document.location.href;
     let queryString = '';
-    if (url.indexOf('?')) {
+    if (url.indexOf('?'))
       queryString = url.split('?')[1];
-    }
-    this.service.getCharts(this.chartType, queryString).subscribe((data) => {
-      this.data = data;
-    });
+
+    this.service.getCharts(this.chartType, queryString).subscribe((data) => { this.data = data; });
   }
 
   onNavigate(item) {
-    console.log(item.genre);
-    this.router.navigateByUrl('/search/title?genres=', item.genre);
+    if (item.url.indexOf("/search/title") === 0)
+      this.router.navigateByUrl(item.url);
+    else
+      this.router.navigateByUrl('/search/title?genres=', item.genre);
+
+    return false;
   }
 
   onSortChange(sortBy: string) {
