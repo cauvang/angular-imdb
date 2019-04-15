@@ -9,4 +9,5 @@ export interface IArticle {
 export interface IImage {
     url: string;
     title: string;
+    viewerId: string;
 }

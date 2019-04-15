@@ -21,6 +21,9 @@ import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
 import { SearchTitleComponent } from './search/search-title/search-title.component';
 import { NameHomeComponent } from './name/name-home/name-home.component';
+import { GenresComponent } from './genres/genres.component';
+import { PagingComponent } from './search/paging/paging.component';
+import { SearchNameComponent } from './search/search-name/search-name.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { NameHomeComponent } from './name/name-home/name-home.component';
     ChartTopRatedComponent,
     SearchTitleComponent,
     NameHomeComponent,
+    GenresComponent,
+    PagingComponent,
+    SearchNameComponent,
   ],
   imports: [
     BrowserModule,

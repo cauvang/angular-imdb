@@ -27,6 +27,7 @@ export interface IMovie {
     rank: string;
     showtimes3D: string[];
     year: string;
+    role: string;
 }
 
 export interface IPerson {

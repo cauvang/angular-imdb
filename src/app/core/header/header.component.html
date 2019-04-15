@@ -56,8 +56,10 @@
                   <h2 class="header-menu-title">Charts & Trends</h2>
 
                   <a class="dropdown-item" routerLink="/chart/boxoffice">Box Offices</a>
-                  <a class="dropdown-item" href="#">Oscar Winners</a>
-                  <a class="dropdown-item" href="#">Most Popular By Genre</a>
+                  <a class="dropdown-item" routerLink="/search/title"
+                    [queryParams]="'/search/title?count=100&groups=oscar_best_picture_winners&sort=year,desc&ref_=nv_ch_osc'| toQueryObject">Oscar
+                    Winners</a>
+                  <a class="dropdown-item" routerLink="/feature/genre">Most Popular By Genre</a>
                 </div>
 
                 <div class="col-md-6">
@@ -83,8 +85,13 @@
               <a href="">Celebs</a>, <a href="#">Events</a> & <a href="#">Photos</a>
             </div>
             <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
-              <a class="dropdown-item" href="#">Celebs</a>
-              <a class="dropdown-item" href="#">Events</a>
+              <span class="dropdown-item-text text-uppercase">Celebs</span>
+              <a class="dropdown-item" routerLink="search/name"
+                [queryParams]="'/search/name?birth_monthday=04-15&refine=birth_monthday&ref_=nv_cel_brn?birth_monthday=04-15&refine=birth_monthday&ref_=nv_cel_brn'|toQueryObject">Born
+                Today</a>
+              <a class="dropdown-item" href="#">Celebrity News</a>
+              <span class="dropdown-item-text text-uppercase">Events</span>
+
             </div>
           </div>
           <div class="dropdown  header-menu" appDropdown #tt="appDropDown">

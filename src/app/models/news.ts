@@ -13,6 +13,7 @@ export interface INews {
     content: string;
     image: IImage;
     source: ISource;
+    name: string;
 }
 
 export interface ISource {

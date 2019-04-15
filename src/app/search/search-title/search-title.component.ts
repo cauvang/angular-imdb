@@ -24,7 +24,7 @@ export class SearchTitleComponent implements OnInit {
       .snapshot
       .url
       .split('?')[1];
-    //this.route.url.subscribe(url => { this.loadSearch(); });
+    this.route.queryParams.subscribe(params => { this.loadSearch(); })
   }
 
   ngOnInit() {
@@ -64,19 +64,6 @@ export class SearchTitleComponent implements OnInit {
       .navigateByUrl("/search/title?genres=action&view=" + view);
   }
 
-  onClickNext() {
-
-    this.router
-      .navigateByUrl(this.data.nextPage)
-      .then(() => {
-        this.loadSearch();
-      });
-  }
-
-  onClickPrev() {
-    this.router.navigateByUrl(this.data.prevPage).then(() => { this.loadSearch(); });
-    return false;
-  }
 
   onClickSort(item: ISorting) {
     console.log(item.url)

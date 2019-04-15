@@ -1,0 +1,30 @@
+<div class="row" *ngIf="data">
+  <div class="col-8 border-right ">
+    <h2 class="mt-2">Browse Popular Genres</h2>
+
+    <div class="d-flex flex-row border-bottom pb-3 mt-3" *ngFor="let genre of genres">
+      <div *ngFor="let item of genre" class="p-2">
+        <a routerLink="/search/title" [queryParams]="item.url| toQueryObject"><img class="w-100"
+            src="{{item.image.url}}"></a></div>
+    </div>
+
+    <div *ngFor="let i of [0,1,2]">
+      <app-link-list [header]="data.groupLinks[i].name" [data]="data.groupLinks[i].links" [columnNumber]="3">
+      </app-link-list>
+    </div>
+  </div>
+
+  <div class="col-4 border-left pl-4">
+
+    <div *ngFor="let i of [3,4,5,6]">
+      <app-link-list [header]="data.groupLinks[i].name" [data]="data.groupLinks[i].links" [columnNumber]="12">
+      </app-link-list>
+    </div>
+    <div class="mt-2">
+      <h5>Advanced Search</h5>
+      <span class="pb-3">For additional genre searches, please visit <a routerLink="/search/title">IMDb Advanced Title
+          Search</a></span>
+    </div>
+  </div>
+
+</div>

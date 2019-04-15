@@ -19,6 +19,8 @@ import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
 import { SearchTitleComponent } from './search/search-title/search-title.component';
 import { NameHomeComponent } from './name/name-home/name-home.component';
+import { GenresComponent } from './genres/genres.component';
+import { SearchNameComponent } from './search/search-name/search-name.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -64,7 +66,10 @@ const routes: Routes = [
   { path: 'calendar/:region', component: CalendarComponent },
 
   { path: 'search/title', component: SearchTitleComponent },
-  { path: 'name/:id', component: NameHomeComponent }
+  { path: 'search/name', component: SearchNameComponent },
+
+  { path: 'name/:id', component: NameHomeComponent },
+  { path: 'feature/genre', component: GenresComponent }
 ];
 
 @NgModule({

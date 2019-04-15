@@ -1,0 +1,10 @@
+<h5 class="mt-3 mb-3">{{header}}</h5>
+
+<div class="row border-bottom pb-3">
+
+  <div class="col-{{columnNumber}}" *ngFor="let item of data">
+
+    <a routerLink="/search/title" [queryParams]="item.url|toQueryObject">{{item.title}}</a>
+
+  </div>
+</div>
