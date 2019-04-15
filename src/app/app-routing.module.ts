@@ -18,6 +18,7 @@ import { TitlesHomeComponent } from './titles/titles-home/titles-home.component'
 import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
 import { SearchTitleComponent } from './search/search-title/search-title.component';
+import { NameHomeComponent } from './name/name-home/name-home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,7 +63,8 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'calendar/:region', component: CalendarComponent },
 
-  { path: 'search/title', component: SearchTitleComponent }
+  { path: 'search/title', component: SearchTitleComponent },
+  { path: 'name/:id', component: NameHomeComponent }
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ export interface ISearch {
     sorting: ISorting[];
     items: IPage[];
     nextPage: string;
-
+    prevPage: string;
 }
 
 export interface IQuery {
