@@ -21,6 +21,7 @@ import {ShowtimeTheaterNearComponent} from './showtime-theater-near/showtime-the
 import {RatingsComponent} from './ratings/ratings.component';
 import {FavouriteComponent} from './favourite/favourite.component';
 import {QueryStringPipe} from './query-string.pipe';
+import {CurrencyFormatPipe} from './currency-format.pipe';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import {QueryStringPipe} from './query-string.pipe';
     ShowtimeTheaterNearComponent,
     RatingsComponent,
     FavouriteComponent,
-    QueryStringPipe
+    QueryStringPipe,
+    CurrencyFormatPipe
   ],
   exports: [
     AppRoutingModule,
@@ -63,7 +65,8 @@ import {QueryStringPipe} from './query-string.pipe';
     ShowtimeMovieNearComponent,
     ShowtimeTheaterNearComponent,
     FavouriteComponent,
-    QueryStringPipe
+    QueryStringPipe,
+    CurrencyFormatPipe
 
   ]
 })

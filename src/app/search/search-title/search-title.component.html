@@ -35,7 +35,8 @@
       <div class="p-2 font11 w-100">
         <div class="d-flex ">
           <div class="flex-grow-1">
-            <div class="font15 font-weight-bold"> {{i+start}}. <a href="#">{{item.name}}</a> ({{item.year}})</div>
+            <div class="font15 font-weight-bold"> {{i + start}}. <a routerLink="/title/{{item.id}}">{{item.name}}</a>
+              ({{item.year}})</div>
             <div class="mt-1">
               <span *ngIf="item.certificate!==''">{{item.certificate}} | </span>
               <span *ngIf="item.runtime!==''">{{item.runtime}} | </span>
@@ -81,7 +82,7 @@
             <span class="color-black font-weight-bold">{{item.votes}}</span>
           </span>
           <span class="ml-2 mr-2" *ngIf="item.gross"> | Gross:
-            <span class="color-black font-weight-bold">{{item.gross}}</span>
+            <span class="color-black font-weight-bold">{{item.gross | currencyFormat}}</span>
           </span>
         </div>
       </div>
