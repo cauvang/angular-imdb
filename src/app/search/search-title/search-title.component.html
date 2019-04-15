@@ -23,7 +23,8 @@
       <ul class="ml-2">
         <li *ngFor="let item of data.sorting" class="splitVertical"
           [ngClass]="{'font-weight-bold': item.isCurrent===true}">
-          <a routerLink="{{item.url}}" (click)="onClickSort(item)">{{item.text}}
+          <a routerLink="/search/title" [queryParams]="item.url| toQueryObject"
+            (click)="onClickSort(item)">{{item.text}}
             <span *ngIf="item.isCurrent">
               <i [ngClass]="{'fa-caret-up': item.url.indexOf('asc')>0,'fa-caret-down':item.url.indexOf('desc')>0}"
                 class="fas"></i></span>
@@ -39,7 +40,11 @@
       <div class="p-2 font11 w-100">
         <div class="d-flex ">
           <div class="flex-grow-1">
+<<<<<<< HEAD
             <div class="font15 font-weight-bold"> {{i+start}}. <a routerLink="/title/{{item.id}}">{{item.name}}</a>
+=======
+            <div class="font15 font-weight-bold"> {{i + start}}. <a routerLink="/title/{{item.id}}">{{item.name}}</a>
+>>>>>>> 19e54d9cd51a0788cf580b3ad61fbe5e34a27392
               ({{item.year}})</div>
             <div class="mt-1">
               <span *ngIf="item.certificate!==''">{{item.certificate}} | </span>
@@ -86,7 +91,7 @@
             <span class="color-black font-weight-bold">{{item.votes}}</span>
           </span>
           <span class="ml-2 mr-2" *ngIf="item.gross"> | Gross:
-            <span class="color-black font-weight-bold">{{item.gross}}</span>
+            <span class="color-black font-weight-bold">{{item.gross | currencyFormat}}</span>
           </span>
         </div>
       </div>
