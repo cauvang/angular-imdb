@@ -3,94 +3,25 @@
 <div class="row" *ngIf="data">
   <div class="col-md-8 m-3 border rounded">
     <h3 class="mt-3">{{data.header}}</h3>
-    <div class="d-flex">
-      <div class="flex-grow-1">
-        <app-paging [start]="start" [end]="end" [totalItems]="data.totalItems" [prevPage]="data.prevPage"
-          [nextPage]="data.nextPage"></app-paging>
-      </div>
-      <div>View Mode:
-        <a href="/search/title?genres=action&view=simple">Compact</a>
-        |
-        <a href="/search/title?genres=action&view=advanced" class="font-weight-bold"
-          (click)="onViewClick('advanced')">Detailed</a>
-      </div>
-    </div>
-    <div class="sort-by mt-2">
-      <span class="float-left mr-2">Sort by:</span>
-      <ul class="ml-2">
-        <li *ngFor="let item of data.sorting" class="splitVertical"
-          [ngClass]="{'font-weight-bold': item.isCurrent===true}">
-          <a routerLink="/search/title" [queryParams]="item.url| toQueryObject"
-            (click)="onClickSort(item)">{{item.text}}
-            <span *ngIf="item.isCurrent">
-              <i [ngClass]="{'fa-caret-up': item.url.indexOf('asc')>0,'fa-caret-down':item.url.indexOf('desc')>0}"
-                class="fas"></i></span>
-          </a></li>
-      </ul>
-    </div>
+
+    <app-paging [start]="start" [end]="end" [totalItems]="data.totalItems" [prevPage]="data.prevPage"
+      [nextPage]="data.nextPage"></app-paging>
+
+
+    <app-sort-navigation [data]="data.sorting" type="/search/name"></app-sort-navigation>
 
     <div class="mt-3 d-flex flex-row" *ngFor="let item of data.items;let i=index"
       [ngClass]="{'bk-grey': i%2===0,'bk-white':i%2===1}">
       <div class="p-2">
         <img src="{{item.image.url}}">
       </div>
-      <div class="p-2 font11 w-100">
-        <div class="d-flex ">
-          <div class="flex-grow-1">
-            <div class="font15 font-weight-bold"> {{i+start}}. <a routerLink="/title/{{item.id}}">{{item.name}}</a>
-              ({{item.year}})</div>
-            <div class="mt-1">
-              <span *ngIf="item.certificate!==''">{{item.certificate}} | </span>
-              <span *ngIf="item.runtime!==''">{{item.runtime}} | </span>
-              <span>{{item.genres}}</span>
-            </div>
-          </div>
-          <div><img class="wish-list" title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png">
-          </div>
-        </div>
+      <div class="p-2 font13">
+        <div class="font15 font-weight-bold"> {{item.index}} <a routerLink="/title/{{item.id}}">{{item.name}}</a> </div>
+        <div class="mt-1">{{item.movie.cast}} | <a routerLink="/title/{{item.movie.id}}">{{item.movie.name}}</a></div>
 
-        <div class="mt-1">
-          <span class="font-weight-bold color-black"><i class="fas fa-star color-gold "></i>
-            {{item.contentRating}}</span>
-          <span class="ml-3"><i class="far fa-star"></i> Rate this</span>
-          <span class="m-2 d-block" *ngIf="data.metascore">
-            <span class="d-inline metascore"> {{data.metascore}}</span>
-            <span>Metascore </span>
-          </span>
-        </div>
-
-        <div class="mt-1">{{item.shortDescription}}</div>
-
-        <div class="mt-1">
-          <div *ngIf="item.directors.length!=0" class="float-left">
-            <span class="float-left">Directors:</span>
-            <ul class="ml-2 float-left">
-              <li *ngFor="let director of item.directors" class="splitComma"><a class="font-weight-bold"
-                  routerLink="/name/{{director.id}}">{{director.name}}</a></li>
-            </ul>
-            <span class="ml-2 mr-2  ">|</span>
-          </div>
-          <div *ngIf="item.actors">
-            <span class="float-left mr-2"> Stars:</span>
-            <ul class="ml-2">
-              <li *ngFor="let star of item.actors" class="splitComma"><a class="font-weight-bold"
-                  routerLink="/name/{{star.id}}">{{star.name}}</a></li>
-            </ul>
-
-          </div>
-        </div>
-
-        <div class="mt-1">
-          <span *ngIf="item.votes">Votes:
-            <span class="color-black font-weight-bold">{{item.votes}}</span>
-          </span>
-          <span class="ml-2 mr-2" *ngIf="item.gross"> | Gross:
-            <span class="color-black font-weight-bold">{{item.gross | currencyFormat}}</span>
-          </span>
-        </div>
+        <div class="mt-1" innerHTML={{item.description}}></div>
       </div>
     </div>
-
     <app-paging [start]="start" [end]="end" [totalItems]="data.totalItems" [prevPage]="data.prevPage"
       [nextPage]="data.nextPage"></app-paging>
   </div>

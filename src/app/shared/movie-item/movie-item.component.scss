@@ -20,19 +20,3 @@ li {
     content: '';
   }
 }
-
-.splitComma {
-  &::after {
-    content: ',';
-  }
-
-
-}
-
-.splitVertical {
-  &::after {
-    content: '|';
-  }
-
-
-}

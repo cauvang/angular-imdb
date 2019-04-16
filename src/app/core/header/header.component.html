@@ -82,15 +82,45 @@
           <div class="dropdown header-menu" appDropdown #rr="appDropDown">
             <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
-              <a href="">Celebs</a>, <a href="#">Events</a> & <a href="#">Photos</a>
+              <a routerLink="/search/name" [queryParams]="{gender: 'male,female', ref_:'nv_tp_cel'}">Celebs</a>, <a
+                href="#">Events</a> & <a href="#">Photos</a>
             </div>
             <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
-              <span class="dropdown-item-text text-uppercase">Celebs</span>
-              <a class="dropdown-item" routerLink="search/name"
-                [queryParams]="'/search/name?birth_monthday=04-15&refine=birth_monthday&ref_=nv_cel_brn?birth_monthday=04-15&refine=birth_monthday&ref_=nv_cel_brn'|toQueryObject">Born
-                Today</a>
-              <a class="dropdown-item" href="#">Celebrity News</a>
-              <span class="dropdown-item-text text-uppercase">Events</span>
+
+              <div class="header-menu-popup p-3 row">
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">Celebs</h2>
+                  <a class="dropdown-item" routerLink="search/name" [queryParams]=todayBirthdayQueryParams>Born
+                    Today</a>
+                  <a class="dropdown-item" routerLink="/news/celebrity">Celebrity News</a>
+                  <a class="dropdown-item" routerLink="/search/name"
+                    [queryParams]="{gender: 'male,female', ref_:'nv_tp_cel'}">Most Popular Celebs</a>
+
+                  <h2 class=" header-menu-title">Photos</h2>
+
+                  <a class="dropdown-item" routerLink="/chart/boxoffice">Latest Stills</a>
+                  <a class="dropdown-item" routerLink="/chart/boxoffice">Latest Posters</a>
+                  <a class="dropdown-item" routerLink="/feature/genre">Photo we love</a>
+                </div>
+
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">Events</h2>
+                  <a class="dropdown-item" routerLink="/tv">Awards Central</a>
+                  <a class="dropdown-item" routerLink="/chart/toptv">Festival Central</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Oscars</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Golden Globes</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Sundance</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Cannes</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">San Diego Comic-Con</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Emmy Awards</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Venice Film Festival</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Toronto Film Festival</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Tribeca</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">LA Film Festival</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">All Events</a>
+
+                </div>
+              </div>
 
             </div>
           </div>

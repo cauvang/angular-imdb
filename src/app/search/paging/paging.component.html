@@ -1,5 +1,5 @@
 {{start}}-{{end}} of {{totalItems}} titles.
-<span *ngIf="prevPage"> | <a routerLink="/search/title" [queryParams]="prevPage|toQueryObject">
+<span *ngIf="prevPage"> | <a routerLink="{{type}}" [queryParams]="prevPage|toQueryObject">
     <i class="fas fa-angle-double-left"></i> Prev </a> </span>
-<span *ngIf="nextPage"> | <a routerLink="/search/title" [queryParams]="nextPage|toQueryObject">
+<span *ngIf="nextPage"> | <a routerLink="{{type}}" [queryParams]="nextPage|toQueryObject">
     Next <i class="fas fa-angle-double-right"></i></a> </span>

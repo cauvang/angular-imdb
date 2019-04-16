@@ -33,6 +33,8 @@ export interface IMovie {
 export interface IPerson {
     name: string;
     id: string;
+    description: string;
+    image: IImage;
 }
 
 export interface IId {

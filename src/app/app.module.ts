@@ -24,6 +24,7 @@ import { NameHomeComponent } from './name/name-home/name-home.component';
 import { GenresComponent } from './genres/genres.component';
 import { PagingComponent } from './search/paging/paging.component';
 import { SearchNameComponent } from './search/search-name/search-name.component';
+import { SortNavigationComponent } from './search/sort-navigation/sort-navigation.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SearchNameComponent } from './search/search-name/search-name.component'
     GenresComponent,
     PagingComponent,
     SearchNameComponent,
+    SortNavigationComponent,
   ],
   imports: [
     BrowserModule,

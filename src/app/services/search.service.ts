@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
-import { ISearch } from '../models/search';
+import { ISearchResult, ISearchName, ISearchTitle } from '../models/search';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +16,16 @@ export class SearchService {
     this.appConfig = config;
   }
 
-
-
-  public getSearchResult(keysearch: string): Observable<ISearch> {
+  public getSearchTitle(keysearch: string): Observable<ISearchResult<ISearchTitle>> {
     let url = this.appConfig.rootURL + 'search/title?' + keysearch;
 
-    return this.http.get<ISearch>(url);
+    return this.http.get<ISearchResult<ISearchTitle>>(url);
   }
 
+  public getSearchName(keysearch: string): Observable<ISearchResult<ISearchName>> {
+    let url = this.appConfig.rootURL + 'search/name?' + keysearch;
+
+    return this.http.get<ISearchResult<ISearchName>>(url);
+  }
 }
 

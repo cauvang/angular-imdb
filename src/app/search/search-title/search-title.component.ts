@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { SearchService } from 'src/app/services/search.service';
-import { ISearch, ISorting } from 'src/app/models/search';
+import { ISearchTitle, ISorting, ISearchResult } from 'src/app/models/search';
 
 @Component({
   selector: 'app-search-title',
   templateUrl: './search-title.component.html',
   styleUrls: ['./search-title.component.scss']
 })
-@Component({ selector: 'app-search-title', templateUrl: './search-title.component.html', styleUrls: ['./search-title.component.scss'] })
+
 export class SearchTitleComponent implements OnInit {
   private searchType: string;
-  private data: ISearch;
+  private data: ISearchResult<ISearchTitle>;
   private start: number;
   private end: number;
   private isLoading: boolean;
@@ -35,7 +35,7 @@ export class SearchTitleComponent implements OnInit {
     this.isLoading = true;
 
     this.searchType = this.router.routerState.snapshot.url.split('?')[1];
-    this.service.getSearchResult(this.searchType).subscribe((data) => {
+    this.service.getSearchTitle(this.searchType).subscribe((data) => {
       this.data = data;
       this.start = parseInt(data.query.start || "1");
       const end = this.start + parseInt(data.query.count) - 1;
@@ -51,7 +51,7 @@ export class SearchTitleComponent implements OnInit {
       .split('?')[1];
     this
       .service
-      .getSearchResult(this.searchType)
+      .getSearchTitle(this.searchType)
       .subscribe((data) => {
         this.data = data;
         this.start = parseInt(data.query.start || "1");
@@ -65,15 +65,5 @@ export class SearchTitleComponent implements OnInit {
   }
 
 
-  onClickSort(item: ISorting) {
-    console.log(item.url)
-    this
-      .router
-      .navigateByUrl(item.url)
-      .then(() => {
-        this.loadSearch();
-      });
 
-    return false;
-  }
 }

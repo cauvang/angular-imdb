@@ -11,19 +11,7 @@ ul {
   }
 }
 
-.splitComma {
-  &::after {
-    content: ',';
-    padding-right: 3px;
-  }
-}
 
-.splitVertical {
-  &::after {
-    content: '|';
-    padding: 0px 3px;
-  }
-}
 
 .wish-list {
   width: 25px;

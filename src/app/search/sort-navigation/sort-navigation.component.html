@@ -1,0 +1,11 @@
+<div class="mt-2">
+  <span class="float-left mr-2">Sort by:</span>
+  <ul class="ml-2">
+    <li *ngFor="let item of data" class="splitVertical" [ngClass]="{'font-weight-bold': item.isCurrent===true}">
+      <a routerLink="{{type}}" [queryParams]="item.url| toQueryObject">{{item.text}}
+        <span *ngIf="item.isCurrent">
+          <i [ngClass]="{'fa-caret-up': item.url.indexOf('asc')>0,'fa-caret-down':item.url.indexOf('desc')>0}"
+            class="fas"></i></span>
+      </a></li>
+  </ul>
+</div>
