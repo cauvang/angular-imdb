@@ -137,3 +137,17 @@ dir {
     padding: 0px 3px;
   }
 }
+
+.metascore {
+  padding: 3px;
+  margin-right: 3px;
+  color: #fff;
+
+  &-green {
+    background-color: #61c74f;
+  }
+
+  &-gold {
+    background-color: #ffcc33;
+  }
+}

@@ -3,7 +3,7 @@
 <div class="border mt-2 bk-trans">
   <div class="d-flex">
     <span class="flex-grow-1"> {{nMovie}} movies playing near you today, {{selectedDate|date:'EEEE, MMMM d'}}</span>
-    <app-sort datasetType="movie" (sortChange)="onSortChange($event)"></app-sort>
+    <app-sort-dropdown datasetType="movie" (sortChange)="onSortChange($event)"></app-sort-dropdown>
   </div>
   <div class="d-flex flex-wrap">
     <div *ngFor="let item of movies" class="m-2" style="width: 22%">

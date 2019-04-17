@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-sort',
-  templateUrl: './sort.component.html',
-  styleUrls: ['./sort.component.scss']
+  selector: 'app-sort-dropdown',
+  templateUrl: './sort-dropdown.component.html',
+  styleUrls: ['./sort-dropdown.component.scss']
 })
-export class SortComponent implements OnInit {
+export class SortDropdownComponent implements OnInit {
   private dataset = {
     "movie": [
       {

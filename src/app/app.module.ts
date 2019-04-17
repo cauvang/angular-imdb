@@ -19,12 +19,10 @@ import { ShowtimesModule } from './showtimes/showtimes.module';
 import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
-import { SearchTitleComponent } from './search/search-title/search-title.component';
 import { NameHomeComponent } from './name/name-home/name-home.component';
-import { GenresComponent } from './genres/genres.component';
-import { PagingComponent } from './search/paging/paging.component';
-import { SearchNameComponent } from './search/search-name/search-name.component';
-import { SortNavigationComponent } from './search/sort-navigation/sort-navigation.component';
+import { SearchModule } from './search/search.module';
+import { GenreModule } from './genre/genre.module';
+import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +31,8 @@ import { SortNavigationComponent } from './search/sort-navigation/sort-navigatio
     TitlesHomeComponent,
     CalendarComponent,
     ChartTopRatedComponent,
-    SearchTitleComponent,
     NameHomeComponent,
-    GenresComponent,
-    PagingComponent,
-    SearchNameComponent,
-    SortNavigationComponent,
+    PhotoHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +44,8 @@ import { SortNavigationComponent } from './search/sort-navigation/sort-navigatio
     NewsModule,
     MoviesModule,
     ShowtimesModule,
+    SearchModule,
+    GenreModule
   ],
   providers: [HomePageService, NewsService, MoviesService, ShowtimesService,
     { provide: APP_CONFIG, useValue: APP_CONFIG_VALUE }

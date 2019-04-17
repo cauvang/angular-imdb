@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RecentViewsComponent } from './recent-views/recent-views.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -16,10 +17,10 @@ import { AppRoutingModule } from '../app-routing.module';
     ],
     imports: [
         SharedModule,
-        AppRoutingModule
+        AppRoutingModule,
+        CommonModule
     ],
     exports: [
-        AppRoutingModule,
         HeaderComponent,
         RecentViewsComponent,
         FooterComponent

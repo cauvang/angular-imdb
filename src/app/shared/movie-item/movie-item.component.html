@@ -15,7 +15,7 @@
       <app-ratings [data]="data.ratingValue"></app-ratings>
     </div>
     <div class="m-2 d-block" *ngIf="data.metascore!=''">
-      <span class="d-inline metascore"> {{data.metascore}}</span>
+      <span class="d-inline metascore-green"> {{data.metascore}}</span>
       <span>Metascore </span>
     </div>
     <div innerHTML="{{data.description}}"></div>

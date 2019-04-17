@@ -15,6 +15,10 @@ import { ShowtimeDisplayComponent } from './showtime-display/showtime-display.co
 import { ShowtimeTheaterListComponent } from './showtime-theater-list/showtime-theater-list.component';
 import { ShowtimeCinemaComponent } from './showtime-cinema/showtime-cinema.component';
 import { SetLocationComponent } from './set-location/set-location.component';
+import { ImagePopoverComponent } from './image-popover/image-popover.component';
+import { WeekdaySelectComponent } from './weekday-select/weekday-select.component';
+import { RefinementComponent } from './refinement/refinement.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
     declarations: [
@@ -27,7 +31,11 @@ import { SetLocationComponent } from './set-location/set-location.component';
         ShowtimeTitleComponent,
         ShowtimeDisplayComponent,
         ShowtimeCinemaComponent,
-        SetLocationComponent
+        SetLocationComponent,
+        ImagePopoverComponent,
+        WeekdaySelectComponent,
+        RefinementComponent,
+
     ],
     imports: [
         AppRoutingModule,
@@ -35,9 +43,10 @@ import { SetLocationComponent } from './set-location/set-location.component';
         CommonModule,
         CoreModule,
         SharedModule,
+        MatSelectModule,
+
     ],
     exports: [
-        AppRoutingModule,
         ShowtimeHomeComponent,
         ShowtimeMovieComponent,
         ShowtimeTheaterComponent,
@@ -45,7 +54,10 @@ import { SetLocationComponent } from './set-location/set-location.component';
         ShowtimeTheaterItemComponent,
         ShowtimeTitleComponent,
         ShowtimeCinemaComponent,
-        SetLocationComponent
+        SetLocationComponent,
+        ImagePopoverComponent,
+        WeekdaySelectComponent,
+        RefinementComponent,
     ],
 
 })

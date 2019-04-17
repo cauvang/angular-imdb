@@ -12,7 +12,7 @@
 
         <div class="row  p-3 d-flex border-top">
           <span class="flex-grow-1">14 movies playing at this theater today, {{selectedDate|date:'EEEE, MMMM d'}}</span>
-          <app-sort datasetType="cinema" (sortChange)="onSortChange($event)"></app-sort>
+          <app-sort-dropdown datasetType="cinema" (sortChange)="onSortChange($event)"></app-sort-dropdown>
         </div>
 
         <div *ngFor="let movie of theater.movies; let i=index" class="overflow-auto"

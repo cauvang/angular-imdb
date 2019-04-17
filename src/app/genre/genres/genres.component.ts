@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GenresService } from '../services/genres.service';
-import { IGenreResponse, IGenre } from '../models/genre';
+import { IGenreResponse, IGenre } from 'src/app/models/genre';
+import { GenresService } from 'src/app/services/genres.service';
 
 @Component({
   selector: 'app-genres',
@@ -21,7 +21,6 @@ export class GenresComponent implements OnInit {
       for (let i = 0; i < 4; i++)
         this.genres.push(data.genres.splice(0, 3));
 
-      console.log(this.genres);
     });
   }
 

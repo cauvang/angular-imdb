@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SortComponent } from './sort.component';
+import { PhotoHomeComponent } from './photo-home.component';
 
-describe('SortComponent', () => {
-  let component: SortComponent;
-  let fixture: ComponentFixture<SortComponent>;
+describe('PhotoHomeComponent', () => {
+  let component: PhotoHomeComponent;
+  let fixture: ComponentFixture<PhotoHomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SortComponent ]
+      declarations: [ PhotoHomeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SortComponent);
+    fixture = TestBed.createComponent(PhotoHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
