@@ -14,7 +14,7 @@ export class PhotoHomeComponent implements OnInit {
   private id: string;
   private header: string;
   private pages: number[];
-  private currentPage: number;
+  private queryParams: any;
 
   constructor(private route: ActivatedRoute, private service: PhotoService, private router: Router) {
     this.route.params.subscribe((params: Params) => {
@@ -26,7 +26,7 @@ export class PhotoHomeComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(queryParams => {
       console.log("queryParams", queryParams);
-      this.currentPage = queryParams["page"];
+      this.queryParams = queryParams;
       this.loadData();
     });
 
@@ -34,7 +34,7 @@ export class PhotoHomeComponent implements OnInit {
   }
 
   private loadData() {
-    this.service.getPhotos(this.id, this.currentPage).subscribe(data => {
+    this.service.getPhotos(this.id, this.queryParams).subscribe(data => {
       this.data = data;
 
       const pageList = [];

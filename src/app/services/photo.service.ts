@@ -16,11 +16,13 @@ export class PhotoService {
     this.appConfig = config;
   }
 
-  public getPhotos(id: string, currentPage: number): Observable<IPhoto> {
-    let url = this.appConfig.rootURL + 'gallery/' + id;
-    if (currentPage)
-      url += '?page=' + currentPage;
+  public getPhotos(id: string, query: any): Observable<IPhoto> {
+    let url = this.appConfig.rootURL + 'gallery/' + id + "?1=1";
+    if (query.page)
+      url += '&page=' + query.page + "&";
 
+    if (query.refine)
+      url += '&refine=' + query.refine;
     return this.http.get<IPhoto>(url);
   }
 
