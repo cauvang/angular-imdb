@@ -1,0 +1,7 @@
+.page-link {
+  &.current {
+    cursor: default;
+    background: #999;
+    color: black;
+  }
+}

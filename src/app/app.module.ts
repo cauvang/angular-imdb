@@ -23,6 +23,7 @@ import { NameHomeComponent } from './name/name-home/name-home.component';
 import { SearchModule } from './search/search.module';
 import { GenreModule } from './genre/genre.module';
 import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
+import { PagingNumberComponent } from './photos/paging-number/paging-number.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
     ChartTopRatedComponent,
     NameHomeComponent,
     PhotoHomeComponent,
+    PagingNumberComponent,
   ],
   imports: [
     BrowserModule,

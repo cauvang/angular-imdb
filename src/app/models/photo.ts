@@ -4,7 +4,7 @@ export interface IPhoto {
     display: string;
     totalCount: number;
     pageSize: number;
-    currentPage: string;
+    currentPage: number;
     totalPages: number;
     items: IGallery[];
     filters: IFilter[];
