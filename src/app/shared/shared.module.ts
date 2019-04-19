@@ -8,7 +8,7 @@ import { ShareWidgetComponent } from './share-widget/share-widget.component';
 import { CustomDateFormatPipe } from './custom-date-format.pipe';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from '../app-routing.module';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { ShowtimeMovieNearComponent } from './showtime-movie-near/showtime-movie-near.component';
@@ -26,7 +26,7 @@ import { OverlayImageComponent } from './overlay-image/overlay-image.component';
     CommonModule,
     FormsModule,
     MatSelectModule,
-    //  BrowserAnimationsModule
+    BrowserAnimationsModule
   ],
   declarations: [
     DropdownDirective,

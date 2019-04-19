@@ -2,9 +2,11 @@
   <ul class="pagination">
     <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
     <li *ngFor="let ipage of pages" class="page-item">
-      <span class="page-link color-gold current" *ngIf="currentPageNumber == ipage.toString()">{{currentPage}}</span>
-      <a class="page-link" *ngIf="currentPageNumber != ipage.toString()" routerLink="/gallery/{{id}}"
-        [queryParams]="{page: ipage}">{{ipage}}</a></li>
-    <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+      <span *ngIf="currentPage == ipage" class="page-link current">{{currentPage}}</span>
+
+      <a *ngIf="currentPage !== ipage" class="page-link" routerLink="/gallery/{{id}}"
+        [queryParams]="getQuery(ipage)">{{ipage}}</a>
+
+      <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
   </ul>
 </nav>

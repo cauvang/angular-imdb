@@ -40,23 +40,6 @@ export class SearchNameComponent implements OnInit {
       const end = this.start + parseInt(data.query.count) - 1;
       this.end = end > data.totalItems ? data.totalItems : end;
       this.isLoading = false;
-      console.log("start", data.query.start, end)
     });
-    this.searchType = this
-      .router
-      .routerState
-      .snapshot
-      .url
-      .split('?')[1];
-    this
-      .service
-      .getSearchName(this.searchType)
-      .subscribe((data) => {
-        this.data = data;
-        this.start = parseInt(data.query.start || "1");
-        this.end = this.start + parseInt(data.query.count) - 1;
-      });
   }
-
-
 }

@@ -7,6 +7,8 @@ import * as moment from 'moment';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  private findText: string;
+  private findSelected: string;
 
   private todayBirthdayQueryParams: {
     birth_monthday: string;
@@ -23,4 +25,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onFindClick(item: any) {
+    console.log("find", this.findText, item);
+  }
 }

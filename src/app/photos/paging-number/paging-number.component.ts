@@ -8,12 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PagingNumberComponent implements OnInit {
   @Input() id: string;
   @Input() pages: number[];
-  @Input() currentPage: number | string;
+  @Input() currentPage: number;
+  @Input() extraParams: any;
+
   constructor() { }
 
   ngOnInit() {
   }
-
-  ngOnChanges(): void {
+  getQuery(page: number) {
+    return {
+      ...this.extraParams, page
+    }
   }
 }

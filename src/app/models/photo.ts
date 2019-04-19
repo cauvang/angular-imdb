@@ -8,7 +8,7 @@ export interface IPhoto {
     totalPages: number;
     items: IGallery[];
     filters: IFilter[];
-
+    seeMore: ISeeMore;
 }
 
 export interface IGallery {
@@ -27,4 +27,9 @@ export interface IType {
     name: string;
     refine: string;
     count: string;
+    url: string;
+}
+export interface ISeeMore {
+    text: string;
+    url: string;
 }

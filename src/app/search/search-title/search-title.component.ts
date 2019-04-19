@@ -18,12 +18,7 @@ export class SearchTitleComponent implements OnInit {
   private isLoading: boolean;
 
   constructor(private service: SearchService, private route: ActivatedRoute, private router: Router) {
-    this.searchType = this
-      .router
-      .routerState
-      .snapshot
-      .url
-      .split('?')[1];
+    this.searchType = this.router.routerState.snapshot.url.split('?')[1];
     this.route.queryParams.subscribe(params => { this.loadSearch(); })
   }
 
@@ -43,20 +38,6 @@ export class SearchTitleComponent implements OnInit {
       this.isLoading = false;
 
     });
-    this.searchType = this
-      .router
-      .routerState
-      .snapshot
-      .url
-      .split('?')[1];
-    this
-      .service
-      .getSearchTitle(this.searchType)
-      .subscribe((data) => {
-        this.data = data;
-        this.start = parseInt(data.query.start || "1");
-        this.end = this.start + parseInt(data.query.count) - 1;
-      });
   }
   onViewClick(view: string) {
     this

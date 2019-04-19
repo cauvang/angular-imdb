@@ -22,6 +22,7 @@ import { NameHomeComponent } from './name/name-home/name-home.component';
 import { SearchNameComponent } from './search/search-name/search-name.component';
 import { GenresComponent } from './genre/genres/genres.component';
 import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
+import { FindHomeComponent } from './find/find-home/find-home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -70,9 +71,14 @@ const routes: Routes = [
   { path: 'search/name', component: SearchNameComponent },
 
   { path: 'name/:id', component: NameHomeComponent },
+  // { path: 'name/:id'/mediaindex, component: NameHomeComponent },
+
   { path: 'feature/genre', component: GenresComponent },
+
   { path: 'gallery/:id', component: PhotoHomeComponent },
   // {path:'gallery/:id/mediaviewer/:id',component:}
+
+  { path: 'find', component: FindHomeComponent }
 ];
 
 @NgModule({
