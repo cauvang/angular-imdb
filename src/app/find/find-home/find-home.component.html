@@ -1,3 +1,25 @@
-<p>
-  find-home works!
-</p>
+<div class="row">
+  <div class="col-8 ml-3 mb-3 border rounded" *ngIf="data">
+    <div class="mt-3">Results for <span class="font-weight-bold">'{{queryParams.q}}'</span></div>
+    <div *ngIf="!displayAll; else displayBlock">
+      Search category: All {{data.results[0].header}}
+    </div>
+    <ng-template #displayBlock>
+      <div class="color-grey font11 float-left mr-2">Jump to:</div>
+      <ul class="font11">
+        <li *ngFor="let result of data.results"><a href="/find?q={{queryParams.q}}&s=all#{{result.header}}"
+            class="splitVertical">{{result.header}}</a>
+        </li>
+      </ul>
+    </ng-template>
+
+    <div id="#header" *ngFor="let result of data.results">
+      <a name="{{result.header}}"></a>
+      <app-find-abb [result]="result" [displayAll]="displayAll"></app-find-abb>
+    </div>
+  </div>
+
+
+
+  <div class="col-4"></div>
+</div>

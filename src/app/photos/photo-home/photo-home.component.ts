@@ -15,7 +15,6 @@ export class PhotoHomeComponent implements OnInit {
   private header: string;
   private pages: number[];
   private queryParams: any;
-  private refine: string;
   private currentPage: number;
 
   constructor(private route: ActivatedRoute, private service: PhotoService, private router: Router) {
@@ -30,7 +29,6 @@ export class PhotoHomeComponent implements OnInit {
 
     this.route.queryParams.subscribe(queryParams => {
       this.queryParams = queryParams;
-      this.refine = queryParams.refine;
       this.loadData();
     });
 

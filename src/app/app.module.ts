@@ -25,7 +25,6 @@ import { GenreModule } from './genre/genre.module';
 import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
 import { PagingNumberComponent } from './photos/paging-number/paging-number.component';
 import { FindHomeComponent } from './find/find-home/find-home.component';
-import { FindListComponent } from './find/find-list/find-list.component';
 import { FindAbbComponent } from './find/find-abb/find-abb.component';
 
 @NgModule({
@@ -39,7 +38,6 @@ import { FindAbbComponent } from './find/find-abb/find-abb.component';
     PhotoHomeComponent,
     PagingNumberComponent,
     FindHomeComponent,
-    FindListComponent,
     FindAbbComponent,
   ],
   imports: [

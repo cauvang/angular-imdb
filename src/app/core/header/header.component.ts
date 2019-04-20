@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +8,16 @@ import * as moment from 'moment';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  private findText: string;
-  private findSelected: string;
+  private qParam: string;
+  private sParam: string;
+  private findSelected = "All";
 
   private todayBirthdayQueryParams: {
     birth_monthday: string;
     refine: string;
   }
 
-  constructor() {
+  constructor(private router: Router) {
     this.todayBirthdayQueryParams = {
       birth_monthday: moment().format("MM-DD"),
       refine: "birth_monthday"
@@ -25,7 +27,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  onFindClick(item: any) {
-    console.log("find", this.findText, item);
+  onFindClick() {
+    if (this.qParam)
+      this.router.navigateByUrl("/find?q=" + this.qParam + "&s=" + this.sParam);
+  }
+
+  onClickDropdown(s: string, findSelected: string) {
+    this.findSelected = findSelected;
+    this.sParam = s;
+
   }
 }

@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class FindHomeComponent implements OnInit {
   private data: IFinder;
   private queryParams: any;
+  private displayAll: boolean;
 
   constructor(private service: FindService, private route: ActivatedRoute) {
 
@@ -19,6 +20,10 @@ export class FindHomeComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(queryParams => {
       this.queryParams = queryParams;
+      if (queryParams.s == "all")
+        this.displayAll = true;
+      else this.displayAll = false;
+
       this.LoadFindResult();
     });
   }
@@ -27,4 +32,5 @@ export class FindHomeComponent implements OnInit {
     this.service.getFindResult(this.queryParams).subscribe(data => { this.data = data; });
 
   }
+
 }

@@ -1,3 +1,24 @@
-<p>
-  find-abb works!
-</p>
+<div class="d-flex mt-3 mb-2">
+  <div class="flex-grow-1">
+    <h5 class="color-gold font-weight-bold">{{result.header}}</h5>
+  </div>
+  <div *ngIf="!displayAll">
+    View: <a href="#">Exact title matches</a>
+  </div>
+</div>
+
+<div class="pt-2 pb-2 " *ngFor="let item of result.items;let i=index"
+  [ngClass]="{'bk-grey': i%2===0, 'bk-white': i%2 ===1}">
+  <img *ngIf="item.image" class="mr-2" src="{{item.image.url}}">
+  <a class="ml-2 mr-2" routerLink="/title/{{item.id}}">{{item.name}}</a>
+  <span innerHTML="{{item.text}}"></span>
+</div>
+
+<div *ngIf="displayAll" class="p-2 border rounded-bottom bk-grey">
+  View:
+  <a href="#">More title matches</a>
+  <!-- find?q={{item.name}}&s=tt&ref_=fn_al_tt_mr -->
+  or
+  <a href="#">Exact title matches</a>
+  <!-- find?q=oscar&s=tt&exact=true&ref_=fn_al_tt_ex -->
+</div>
