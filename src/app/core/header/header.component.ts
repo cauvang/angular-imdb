@@ -22,6 +22,8 @@ export class HeaderComponent implements OnInit {
       birth_monthday: moment().format("MM-DD"),
       refine: "birth_monthday"
     }
+
+    this.sParam = "all";
   }
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class HeaderComponent implements OnInit {
   onFindClick() {
     if (this.qParam)
       this.router.navigateByUrl("/find?q=" + this.qParam + "&s=" + this.sParam);
+
   }
 
   onClickDropdown(s: string, findSelected: string) {

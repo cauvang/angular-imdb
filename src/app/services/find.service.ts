@@ -22,6 +22,8 @@ export class FindService {
       url += 'q=' + query.q;
     if (query.s)
       url += '&s=' + query.s;
+    if (query.exact)
+      url += '&exact=true';
     return this.http.get<IFinder>(url);
   }
 }

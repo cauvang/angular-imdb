@@ -1,7 +1,12 @@
 ul {
   list-style-type: none;
 
-  li {
+  &.font11 li {
     display: inline;
   }
+
+}
+
+.subType {
+  padding-left: 10px;
 }

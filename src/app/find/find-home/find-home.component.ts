@@ -14,7 +14,7 @@ export class FindHomeComponent implements OnInit {
   private displayAll: boolean;
 
   constructor(private service: FindService, private route: ActivatedRoute) {
-
+    this.displayAll = true;
   }
 
   ngOnInit() {
@@ -29,8 +29,11 @@ export class FindHomeComponent implements OnInit {
   }
 
   private LoadFindResult() {
-    this.service.getFindResult(this.queryParams).subscribe(data => { this.data = data; });
+    this.service.getFindResult(this.queryParams).subscribe(data => {
+      this.data = data;
+    });
 
   }
+
 
 }
