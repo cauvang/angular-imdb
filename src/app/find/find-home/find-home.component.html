@@ -1,47 +1,54 @@
 <div class="row ">
-  <div class="col-7 m-3 border rounded bk-grey" *ngIf="data">
-    <div *ngIf="!displayAll && data.results[0]; else displayBlock">
-      <div class="mt-3">Displaying {{data.results[0].items.length}} results for <span
-          class="font-weight-bold">'{{queryParams.q}}'</span></div>
+  <div class="col-8 p-3">
+    <div class="border rounded bk-body" *ngIf="data">
+      <div *ngIf="!displayAll && data.results[0]; else displayBlock">
+        <div class="p-3 font18">Displaying {{data.results[0].items.length}} results for <span
+            class="font-weight-bold">'{{queryParams.q}}'</span></div>
 
-      <div class="font15"><span class="color-grey">Search category: </span>
-        <span>All {{data.results[0].header}}</span></div>
-    </div>
-    <ng-template #displayBlock>
-      <div class="mt-3">Results for <span class="font-weight-bold">'{{queryParams.q}}'</span></div>
-      <div class="color-grey font11 float-left mr-2">Jump to:</div>
-      <ul class="font11">
-        <li *ngFor="let result of data.results"><a href="/find?q={{queryParams.q}}&s=all#{{result.header}}"
-            class="splitVertical">{{result.header}}</a>
-        </li>
-      </ul>
-    </ng-template>
+        <div class="font15 pl-3"><span class="color-grey">Search category: </span>
+          <span>All {{data.results[0].header}}</span></div>
+      </div>
+      <ng-template #displayBlock>
+        <div class="p-2">Results for <span class="font-weight-bold">'{{queryParams.q}}'</span></div>
+        <div class="pl-2 color-grey font11 float-left mr-2">Jump to:</div>
+        <ul class="pl-2 font11">
+          <li *ngFor="let result of data.results"><a href="/find?q={{queryParams.q}}&s=all#{{result.header}}"
+              class="splitVertical">{{result.header}}</a>
+          </li>
+        </ul>
+      </ng-template>
 
-    <div *ngFor="let result of data.results">
-      <a name="{{result.header}}"></a>
-      <app-find-abb [result]="result" [displayAll]="displayAll"></app-find-abb>
+      <div *ngFor="let result of data.results">
+        <a name="{{result.header}}"></a>
+        <app-find-abb [result]="result" [displayAll]="displayAll"></app-find-abb>
+      </div>
     </div>
   </div>
 
-
-  <div class="col-4 m-3 font15">
+  <div class="col-4 p-3 font15">
     <div class="p-2 border rounded">
       <div class="color-gold font-weight-bold">Category Search</div>
       <div>Search for {{queryParams.q}} within a specific category:</div>
       <ul>
 
-        <li> <a>All</a></li>
-        <li> <a routerLink="/find?q=aaa&s=nm&ref_=fn_nm">Name</a> (actor, writer, director, etc)</li>
-        <li> <a routerLink="/find?q=aaa&s=tt&ref_=fn_tt">Title </a>(movie, TV, video game)</li>
-        <li> <a class="subType" routerLink="/find?q=aaa&s=tt&ttype=ft&ref_=fn_ft">Movie</a></li>
-        <li> <a class="subType" routerLink="/find?q=aaa&s=tt&ttype=tv&ref_=fn_tv">TV</a></li>
-        <li><a class="subType" routerLink="/find?q=aaa&s=tt&ttype=ep&ref_=fn_ep">TV Episode</a></li>
-        <li><a routerLink="/find?q=aaa&s=tt&ttype=vg&ref_=fn_vg">Video Game</a></li>
-        <li><a routerLink="/find?q=aaa&s=co&ref_=fn_co">Company</a></li>
-        <li><a routerLink="/find?q=aaa&s=kw&ref_=fn_kw">Keyword</a></li>
-        <li><a routerLink="/search/title-text?plot=aaa&ref_=fn_pl"> Plot Summaries</a></li>
-        <li><a routerLink="/search/name-text?bio=aaa&ref_=fn_bi">Biographies</a></li>
-        <li><a routerLink="/search/title-text?quotes=aaa&ref_=fn_qu">Quotes</a></li>
+        <li> <a routerLink="/find" [queryParams]="{q:queryParams.q,s:'all',ref_:'fn_al'}">All</a></li>
+        <li> <a routerLink="/find" [queryParams]="{q:queryParams.q,s:'nm',ref_:'fn_nm'}">Name</a> (actor, writer,
+          director, etc)</li>
+        <li> <a routerLink="/find" [queryParams]="{q:queryParams.q,s:'tt',ref_:'fn_tt'}">Title </a>(movie, TV, video
+          game)</li>
+        <li> <a class="subType" routerLink="/find"
+            [queryParams]="{q:queryParams.q,s:'tt',ttype:'ft',ref_:'fn_ft'}">Movie</a></li>
+        <li> <a class="subType" routerLink="/find"
+            [queryParams]="{q:queryParams.q,s:'tt',ttype:'tv',ref_:'fn_tv'}">TV</a></li>
+        <li><a class="subType" routerLink="/find" [queryParams]="{q:queryParams.q,s:'tt',ttype:'ep',ref_:'fn_ep'}">TV
+            Episode</a></li>
+        <li><a routerLink="/find" [queryParams]="{q:queryParams.q,s:'tt',ttype:'vg',ref_:'fn_vg'}">Video Game</a> </li>
+        <li><a routerLink="/find" [queryParams]="{q:queryParams.q,s:'co',ref_:'fn_co'}">Company</a></li>
+        <li><a routerLink="/find" [queryParams]="{q:queryParams.q,s:'kw',ref_:'fn_kw'}">Keyword</a></li>
+        <li><a routerLink="/search/title-text" [queryParams]="{plot:queryParams.q,ref_:'fn_pl'}"> Plot Summaries</a>
+        </li>
+        <li><a routerLink="/search/name-text" [queryParams]="{bio:queryParams.q,ref_:'fn_bi'}">Biographies</a> </li>
+        <li><a routerLink="/search/title-text" [queryParams]="{quotes:queryParams.q,ref_:'fn_qu'}">Quotes</a> </li>
       </ul>
     </div>
 
@@ -52,18 +59,23 @@
 
       <div class="font-weight-bold">Search</div>
       <ul>
-        <li><a routerLink="/search/title?ref_=fn_asr_tt">Advanced Title Search</a></li>
-        <li><a routerLink="/search/name?ref_=fn_asr_nm">Advanced Name Search</a></li>
-        <li><a routerLink="/search/common?ref_=fn_asr_co">Collaborations</a></li>
-        <li><a routerLink="/search?ref_=fn_asr_to">Topics</a></li>
+        <li><a routerLink="/search/title" [queryParams]="'/search/title?ref_=fn_asr_tt'|toQueryObject">Advanced Title
+            Search</a></li>
+        <li><a routerLink="/search/name" [queryParams]="'/search/name?ref_=fn_asr_nm'|toQueryObject">Advanced Name
+            Search</a></li>
+        <li><a routerLink="/search/common"
+            [queryParams]="'/search/common?ref_=fn_asr_co'|toQueryObject">Collaborations</a></li>
+        <li><a routerLink="/search" [queryParams]="'/search/?ref_=fn_asr_to'|toQueryObject">Topics</a></li>
       </ul>
       <div class="font-weight-bold"> Browse</div>
       <ul>
-        <li><a routerLink="/feature/genre?ref_=fn_asr_ge">Genre</a></li>
-        <li><a routerLink="/search/keyword?ref_=fn_asr_kw">Keyword</a></li>
+        <li><a routerLink="/feature/genre" [queryParams]="'/feature/genre?ref_=fn_asr_ge'|toQueryObject">Genre</a></li>
+        <li><a routerLink="/search/keyword">Keyword</a>
+        </li>
       </ul>
-      <div class="mt-3"><a routerLink="/registration/signin?ref_=fn_ad">Log in</a> to enable adult titles/names in your
-        searches.</div>
+      <div class="mt-3"><a routerLink="/registration/signin"
+          [queryParams]="'/registration/signin?ref_=fn_ad'|toQueryObject">Log in</a> to enable adult titles/names in
+        your searches.</div>
     </div>
   </div>
 </div>

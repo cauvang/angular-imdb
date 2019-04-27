@@ -33,10 +33,7 @@ export class NewsHomeComponent implements OnInit {
 
 
   ngOnInit() {
-
-    // this.route.params.subscribe((params: Params) => { this.newsType = params['newsType']; });
     this.newsType = this.route.snapshot.firstChild.params['newsType'];
-
     this.loadList();
   }
 

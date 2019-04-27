@@ -16,9 +16,7 @@ export class TrailersComponent implements OnInit {
   constructor(private service: TrailersService, private route: ActivatedRoute) {
     this.trailerType = 'popular';
     this.isLoading = false;
-    this.route.url.subscribe(url => {
-      this.loadTrailers();
-    });
+    this.route.url.subscribe(url => { this.loadTrailers(); });
   }
 
   ngOnInit() {
@@ -31,7 +29,6 @@ export class TrailersComponent implements OnInit {
     const { trailerType = 'popular' } = this.route.snapshot.params;
 
     this.trailerType = trailerType;
-    console.log('trail1', this.trailerType);
 
     this.service.getTrailers(this.trailerType).subscribe((data) => {
       this.trailers = data;

@@ -1,7 +1,6 @@
 import { IImage } from './article';
 import { IMovie } from './movies';
 import { INews } from './news';
-import { InitialStyles } from '@angular/core/src/render3/interfaces/styling';
 import { ILink } from './chart';
 
 export interface IName {

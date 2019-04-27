@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class RefinementComponent implements OnInit, OnChanges {
   @Input() data: IMetadata[];
+  @Input() bSearchMode: boolean;
+
   @Output() refineChange = new EventEmitter();
   ratingInc = [];
   ratingRev = [];
@@ -98,14 +100,16 @@ export class RefinementComponent implements OnInit, OnChanges {
     const query = this.data.map(d => {
       let valueString = "";
       const list = d.values.filter(t => t.checked).map(v => {
-        valueString += v.name + ",";
-        return v.name;
+        valueString += v.id + ",";
+
+        return v.id;
       });
       if (valueString[valueString.length - 1] == ',') {
         valueString = valueString.substr(0, valueString.length - 1);
       }
       this.catList[d.searchKey] = valueString !== "" ? valueString : null;
     })
+    console.log("check", this.catList);
     this.refineChange.emit(this.catList);
   }
 

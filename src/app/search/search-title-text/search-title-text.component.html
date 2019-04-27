@@ -1,0 +1,14 @@
+<app-loading-icon [isLoading]="isLoading"></app-loading-icon>
+
+<div class="row" *ngIf="data">
+  <div class="col-md-8 m-3 border rounded">
+    <h4 class="mt-3 font-weight-bold">{{data.header}}</h4>
+    <app-paging [start]="start" [end]="end" [totalItems]="totalItem" [prevPage]="data.prevPage"
+      [nextPage]="data.nextPage"></app-paging>
+
+    <app-search-item [data]="data.items" [start]="start" searchType="title-text"></app-search-item>
+
+    <app-paging [start]="start" [end]="end" [totalItems]="totalItem" [prevPage]="data.prevPage"
+      [nextPage]="data.nextPage"></app-paging>
+  </div>
+</div>

@@ -16,8 +16,6 @@ import { SharedModule } from '../shared/shared.module';
         SharedModule
     ],
     exports: [
-        GenresComponent,
-        LinkListComponent
     ]
 })
 export class GenreModule { }

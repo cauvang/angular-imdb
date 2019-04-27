@@ -17,7 +17,6 @@ import { ShowtimeCinemaComponent } from './showtime-cinema/showtime-cinema.compo
 import { SetLocationComponent } from './set-location/set-location.component';
 import { ImagePopoverComponent } from './image-popover/image-popover.component';
 import { WeekdaySelectComponent } from './weekday-select/weekday-select.component';
-import { RefinementComponent } from './refinement/refinement.component';
 import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { MatSelectModule } from '@angular/material/select';
         SetLocationComponent,
         ImagePopoverComponent,
         WeekdaySelectComponent,
-        RefinementComponent,
 
     ],
     imports: [
@@ -47,17 +45,7 @@ import { MatSelectModule } from '@angular/material/select';
 
     ],
     exports: [
-        ShowtimeHomeComponent,
-        ShowtimeMovieComponent,
-        ShowtimeTheaterComponent,
-        ShowtimeTheaterListComponent,
-        ShowtimeTheaterItemComponent,
-        ShowtimeTitleComponent,
-        ShowtimeCinemaComponent,
-        SetLocationComponent,
-        ImagePopoverComponent,
-        WeekdaySelectComponent,
-        RefinementComponent,
+
     ],
 
 })

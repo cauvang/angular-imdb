@@ -12,11 +12,22 @@ export class FindAbbComponent implements OnInit {
   @Input() displayAll: boolean;
   queryParams: any;
 
+
+  queryType = {
+    Names: 'name',
+    Titles: 'title',
+    Companies: 'title?companies',
+    Keywords: 'keyword?keywords'
+  };
+
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(queryParams => {
       this.queryParams = queryParams;
     });
+
   }
+
 }

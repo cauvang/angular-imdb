@@ -16,7 +16,6 @@ import { MoviesModule } from './movies/movies.module';
 import { MoviesService } from './services/movies.service';
 import { ShowtimesService } from './services/showtimes.service';
 import { ShowtimesModule } from './showtimes/showtimes.module';
-import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
 import { NameHomeComponent } from './name/name-home/name-home.component';
@@ -26,12 +25,16 @@ import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
 import { PagingNumberComponent } from './photos/paging-number/paging-number.component';
 import { FindHomeComponent } from './find/find-home/find-home.component';
 import { FindAbbComponent } from './find/find-abb/find-abb.component';
+import { TitlePlotsummaryComponent } from './titles/title-plotsummary/title-plotsummary.component';
+import { TitleHomeComponent } from './titles/title-home/title-home.component';
+import { NameBioComponent } from './name/name-bio/name-bio.component';
+import { NameMediaIndexComponent } from './name/name-media-index/name-media-index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrailersComponent,
-    TitlesHomeComponent,
+    TitleHomeComponent,
     CalendarComponent,
     ChartTopRatedComponent,
     NameHomeComponent,
@@ -39,6 +42,9 @@ import { FindAbbComponent } from './find/find-abb/find-abb.component';
     PagingNumberComponent,
     FindHomeComponent,
     FindAbbComponent,
+    TitlePlotsummaryComponent,
+    NameBioComponent,
+    NameMediaIndexComponent,
   ],
   imports: [
     BrowserModule,

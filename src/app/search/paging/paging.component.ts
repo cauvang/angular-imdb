@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paging',
   templateUrl: './paging.component.html',
   styleUrls: ['./paging.component.scss']
 })
-export class PagingComponent implements OnInit, OnChanges {
+export class PagingComponent implements OnInit {
   @Input() start: number;
   @Input() end: number;
 
@@ -14,16 +15,12 @@ export class PagingComponent implements OnInit, OnChanges {
   @Input() totalItems: number;
   private type = "";
 
-  constructor() { }
+  constructor(private router: Router) {
+    this.type = this.router.routerState.snapshot.url.split('?')[0];
+  }
 
   ngOnInit() {
   }
 
-  ngOnChanges() {
-    if (this.nextPage)
-      this.type = this.nextPage.split("?")[0];
-    else
-      this.type = this.prevPage.split("?")[0];
 
-  }
 }

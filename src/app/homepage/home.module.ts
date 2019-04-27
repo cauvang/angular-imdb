@@ -29,13 +29,6 @@ import { SharedModule } from '../shared/shared.module';
         SharedModule
     ],
     exports: [
-        AppRoutingModule,
-        HomeComponent,
-        TrailerComponent,
-        NewsComponent,
-        ScheduleComponent,
-        ArticlesComponent,
-        BirthdayComponent,
     ],
 
 })

@@ -1,0 +1,29 @@
+.wish-list {
+  height: 34px;
+  width: 25x;
+
+  &-corner {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+
+  }
+}
+
+ul {
+  list-style-type: none;
+
+  & li {
+    display: inline;
+
+
+    &:last-child::after {
+      content: '';
+    }
+  }
+}
+
+.image {
+  width: 67px;
+  height: 98px;
+}

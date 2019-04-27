@@ -22,10 +22,7 @@ import { SharedModule } from '../shared/shared.module';
         SharedModule,
     ],
     exports: [
-        AppRoutingModule,
-        MovieHomeComponent,
-        MovieTheatreComponent,
-        MovieComingSoonComponent
+
     ],
 })
 export class MoviesModule { }

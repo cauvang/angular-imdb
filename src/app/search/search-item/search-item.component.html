@@ -1,0 +1,68 @@
+<div class="mt-3 d-flex flex-row" *ngFor="let item of data;let i=index"
+  [ngClass]="{'bk-grey': i%2===0,'bk-white':i%2===1}">
+  <div class="p-2">
+    <img class="image" src="{{item.image.url}}">
+  </div>
+  <div class="p-2 font13 w-100">
+    <div class="d-flex ">
+      <div class="flex-grow-1">
+        <div class="font15 font-weight-bold"> {{i+start}}. <a routerLink="/title/{{item.id}}">{{item.name}}</a>
+          {{item.year}}</div>
+        <div class="mt-1">
+          <span *ngIf="item.certificate!==''">{{item.certificate}} | </span>
+          <span *ngIf="item.runtime!==''">{{item.runtime}} | </span>
+          <span>{{item.genres}}</span>
+        </div>
+      </div>
+      <div><img class="wish-list" title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png">
+      </div>
+    </div>
+
+    <div class="mt-1" *ngIf="item.contentRating">
+      <span class="font-weight-bold color-black"><i class="fas fa-star color-gold "></i>
+        {{item.contentRating}}</span>
+      <span class="ml-3"><i class="far fa-star"></i> Rate this</span>
+      <span class="m-2 d-block" *ngIf="data.metascore">
+        <span class="d-inline metascore-green"> {{data.metascore}}</span>
+        <span>Metascore </span>
+      </span>
+    </div>
+
+    <span *ngIf="searchType=='title'">
+      <div class="mt-1" innerHTML="{{item.shortDescription}}"></div>
+      <div class="mt-1">
+        <div *ngIf="item.directors.length!=0" class="float-left">
+          <span class="float-left">Directors:</span>
+          <ul class="ml-2 float-left">
+            <li *ngFor="let director of item.directors" class="splitComma"><a class="font-weight-bold"
+                routerLink="/name/{{director.id}}">{{director.name}}</a></li>
+          </ul>
+          <span class="ml-2 mr-2">|</span>
+        </div>
+        <div *ngIf="item.actors">
+          <span class="float-left mr-2"> Stars:</span>
+          <ul class="ml-2">
+            <li *ngFor="let star of item.actors" class="splitComma"><a class="font-weight-bold"
+                routerLink="/name/{{star.id}}">{{star.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-1">
+        <span *ngIf="item.votes">Votes:
+          <span class="color-black font-weight-bold">{{item.votes|valueFormat}}</span>
+        </span>
+        <span class="ml-2 mr-2" *ngIf="item.gross"> | Gross:
+          <span class="color-black font-weight-bold">{{item.gross | currencyFormat}}</span>
+        </span>
+      </div>
+    </span>
+
+    <span *ngIf="searchType=='title-text'">
+      <div><a href="#">{{item.resultType}}</a></div>
+      <div class="border-bottom pt-2 pb-2" *ngFor="let content of item.resultContent">
+        <span>{{content}}</span>
+      </div>
+      <a routerLink="/title/{{item.id}}/plotsummary">See All <i class="fas fa-angle-double-right ml-2"></i></a>
+    </span>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { ISchedule } from 'src/app/models/schedule';
 import { IArticle } from 'src/app/models/article';
 import { INews } from 'src/app/models/news';
 import { IBirthday } from 'src/app/models/birthday';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -22,15 +23,16 @@ export class HomeComponent implements OnInit {
   public news: INews[];
   public topNews: INews;
   public birthday: IBirthday[];
+  private birthdayToday: string;
 
   constructor(private service: HomePageService, private router: Router) {
-    this.trailers = [];
-    this.schedulesThisWeek = [];
-    this.schedulesNowPlaying = [];
-    this.schedulesComingSoon = [];
-    this.articles = [];
-    this.news = [];
-    this.birthday = [];
+    // this.trailers = [];
+    // this.schedulesThisWeek = [];
+    // this.schedulesNowPlaying = [];
+    // this.schedulesComingSoon = [];
+    // this.articles = [];
+    // this.news = [];
+    // this.birthday = [];
   }
 
   ngOnInit() {
@@ -49,7 +51,8 @@ export class HomeComponent implements OnInit {
       this.topNews = data.items[0];
     });
 
-    this.service.getBirthdayResponse().subscribe((data) => {
+    this.birthdayToday = moment().format('MM-DD');
+    this.service.getBirthdayResponse(this.birthdayToday).subscribe((data) => {
       this.birthday = data.items.slice(0, 5);
     });
   }

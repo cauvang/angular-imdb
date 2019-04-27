@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { HomeComponent } from './homepage/home/home.component';
 import { NewsHomeComponent } from './news/news-home/news-home.component';
 import { TrailersComponent } from './trailers/trailers.component';
@@ -14,7 +15,7 @@ import { ShowtimeTheaterComponent } from './showtimes/showtime-theater/showtime-
 import { ShowtimeFavouriteComponent } from './showtimes/showtime-favourite/showtime-favourite.component';
 import { ShowtimeTitleComponent } from './showtimes/showtime-title/showtime-title.component';
 import { ShowtimeCinemaComponent } from './showtimes/showtime-cinema/showtime-cinema.component';
-import { TitlesHomeComponent } from './titles/titles-home/titles-home.component';
+import { TitleHomeComponent } from './titles/title-home/title-home.component';
 import { CalendarComponent } from './calendar/calendar/calendar.component';
 import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated.component';
 import { SearchTitleComponent } from './search/search-title/search-title.component';
@@ -23,6 +24,12 @@ import { SearchNameComponent } from './search/search-name/search-name.component'
 import { GenresComponent } from './genre/genres/genres.component';
 import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
 import { FindHomeComponent } from './find/find-home/find-home.component';
+import { SearchKeywordRoutingComponent } from './search/search-keyword-routing/search-keyword-routing.component';
+import { SearchTitleTextComponent } from './search/search-title-text/search-title-text.component';
+import { TitlePlotsummaryComponent } from './titles/title-plotsummary/title-plotsummary.component';
+import { SearchNameTextComponent } from './search/search-name-text/search-name-text.component';
+import { NameBioComponent } from './name/name-bio/name-bio.component';
+import { NameMediaIndexComponent } from './name/name-media-index/name-media-index.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -59,7 +66,12 @@ const routes: Routes = [
   { path: 'showtimes/cinema/:id/:country/:zipcode', component: ShowtimeCinemaComponent },
 
   { path: 'showtimes/cinema/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
-  { path: 'title/:id', component: TitlesHomeComponent },
+
+  {
+    path: 'title/:id', component: TitleHomeComponent, children: [
+      { path: 'plotsummary', component: TitlePlotsummaryComponent },
+    ]
+  },
 
   { path: 'chart/:chartType', component: ChartTopRatedComponent },
   { path: 'india/top', component: ChartTopRatedComponent },
@@ -68,10 +80,20 @@ const routes: Routes = [
   { path: 'calendar/:region', component: CalendarComponent },
 
   { path: 'search/title', component: SearchTitleComponent },
+  { path: 'search/title-text', component: SearchTitleTextComponent },
   { path: 'search/name', component: SearchNameComponent },
+  { path: 'search/name-text', component: SearchNameTextComponent },
 
-  { path: 'name/:id', component: NameHomeComponent },
-  // { path: 'name/:id'/mediaindex, component: NameHomeComponent },
+  { path: 'search/keyword', component: SearchKeywordRoutingComponent },
+
+
+  {
+    path: 'name/:id', component: NameHomeComponent, children: [
+      { path: 'bio', component: NameBioComponent },
+      { path: 'mediaindex', component: NameMediaIndexComponent },
+    ]
+  },
+
 
   { path: 'feature/genre', component: GenresComponent },
 
@@ -83,6 +105,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
 })
 export class AppRoutingModule { }

@@ -1,0 +1,37 @@
+<div class="mt-3 d-flex flex-row" *ngFor="let item of data;let i=index"
+  [ngClass]="{'bk-grey': i%2===0,'bk-white':i%2===1}">
+
+  <div class="p-2">
+    <img *ngIf="item.image!==null" src="{{item.image.url}}">
+    <img *ngIf="item.image===null" src="../../../assets/no-picture.png">
+
+  </div>
+  <div class="p-2 font13">
+    <div class="font15 font-weight-bold">
+      {{item.index}}
+      <a routerLink="/name/{{item.id}}">{{item.name}}</a>
+    </div>
+
+
+    <span *ngIf="searchType=='name'">
+      <div class="mt-1">
+        {{item.movie.cast}} |
+        <a routerLink="/title/{{item.movie.id}}">{{item.movie.name}}</a>
+      </div>
+
+      <div class="mt-1" innerHTML={{item.description}}></div>
+    </span>
+
+    <span *ngIf="searchType=='name-text'">
+      <div class="mt-1">
+        {{item.relatedItem.role}} |
+        <a routerLink="/title/{{item.relatedItem.id}}">{{item.relatedItem.name}}</a>
+      </div>
+
+      <div class="mt-3"><a routerLink="/name/{{item.id}}/bio">{{item.resultType}}</a></div>
+      <div class="mt-1 border-bottom pt-2 pb-2" *ngFor="let content of item.resultContent" innerHTML={{content}}>
+      </div>
+    </span>
+
+  </div>
+</div>

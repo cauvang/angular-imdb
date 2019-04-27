@@ -1,13 +1,14 @@
 <div class="row  mt-3 p-3">
-  <div class=" mt-2"> <a href="#" class="no-link title  ">Born Today</a></div>
+  <div class=" mt-2"> <a routerLink="/search/name" [queryParams]="{refine:'birth_monthday',birth_monthday:today}"
+      class="no-link title  ">Born Today</a></div>
 
   <table class="table-borderless">
     <th *ngFor="let item of data">
       <tr>
         <img src="{{item.image.url}}">
       </tr>
-      <tr>
-        <a href="#" class="font13">{{item.name}}</a>
+      <tr class="text-center">
+        <a routerLink="/name/{{item.id}}" class="font13">{{item.name}}</a>
       </tr>
     </th>
   </table>

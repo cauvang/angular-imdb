@@ -13,6 +13,7 @@ export interface IMetadata {
 }
 
 export interface IValue {
+    id: string;
     name: string;
     count: number;
     checked: boolean;

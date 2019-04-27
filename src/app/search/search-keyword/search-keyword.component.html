@@ -1,0 +1,25 @@
+<app-loading-icon [isLoading]="isLoading"></app-loading-icon>
+
+<div class="row" *ngIf="data">
+  <div class="col-8 p-3">
+    <div class="border rounded">
+      <h4 class="p-2 font-weight-bold">{{data.header}}</h4>
+      <app-refinement [data]="data.metadata" [bSearchMode]=true (refineChange)="onRefineChange($event)">
+      </app-refinement>
+      <div class="d-flex">
+        <div class="flex-grow-1">
+          <app-paging [start]="data.fromCount" [end]="data.toCount" [totalItems]="data.totalDisplay"
+            [prevPage]="data.prevPage" [nextPage]="data.nextPage"></app-paging>
+        </div>
+        <app-sort-dropdown datasetType="search" (sortChange)="onSortChange($event)"></app-sort-dropdown>
+      </div>
+
+      <app-search-item [data]="data.items" [start]="data.fromCount" searchType="title"></app-search-item>
+
+      <app-paging [start]="data.fromCount" [end]="data.toCount" [totalItems]="data.totalDisplay"
+        [prevPage]="data.prevPage" [nextPage]="data.nextPage"></app-paging>
+
+    </div>
+
+  </div>
+</div>

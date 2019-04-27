@@ -11,8 +11,7 @@
       <div class="col-md-6">
         <div class="row">
           <div class="input-group">
-            <input type="text" [(ngModel)]="qParam" value="{{qParam}"
-             class="form-control font13"
+            <input type="text" [(ngModel)]="qParam" value="{{qParam}}" class="form-control font13"
               placeholder="Find Movies, TV shows, Celebrities and more ...">
             <div class="input-group-append">
               <div class="dropdown" appDropdown #r="appDropDown">
@@ -21,173 +20,174 @@
                   {{findSelected}}
                 </button>
                 <div class=" dropdown-menu" [ngClass]="{'show':r.isOpen}">
-            <span class="dropdown-item" (click)="onClickDropdown('all', 'All')">All</span>
-            <span class="dropdown-item" (click)="onClickDropdown('tt', 'Titles')">Titles</span>
-            <span class="dropdown-item" (click)="onClickDropdown('ep','TV Episodes')">TV Episodes</span>
-            <span class="dropdown-item" (click)="onClickDropdown('nm','Name')">Name</span>
-            <span class="dropdown-item" (click)="onClickDropdown('co','Companies')">Companies</span>
-            <span class="dropdown-item" (click)="onClickDropdown('kw','Keywords')">Keywords</span>
-            <span class="dropdown-item" (click)="onClickDropdown('ad','All')">Advanced Search</span>
+                  <span class="dropdown-item" (click)="onClickDropdown('all', 'All')">All</span>
+                  <span class="dropdown-item" (click)="onClickDropdown('tt', 'Titles')">Titles</span>
+                  <span class="dropdown-item" (click)="onClickDropdown('ep','TV Episodes')">TV Episodes</span>
+                  <span class="dropdown-item" (click)="onClickDropdown('nm','Name')">Name</span>
+                  <span class="dropdown-item" (click)="onClickDropdown('co','Companies')">Companies</span>
+                  <span class="dropdown-item" (click)="onClickDropdown('kw','Keywords')">Keywords</span>
+                  <span class="dropdown-item" (click)="onClickDropdown('ad','All')">Advanced Search</span>
+                </div>
+              </div>
+
+              <button type="button" class="btn  bg-gold" (click)="onFindClick()"> <i class=" fas fa-search"></i>
+              </button>
+            </div>
           </div>
         </div>
 
-        <button type="button" class="btn  bg-gold" (click)="onFindClick()"> <i class=" fas fa-search"></i> </button>
-      </div>
-    </div>
-  </div>
+        <div class="row">
+          <div class="dropdown header-menu font13" appDropdown #t="appDropDown">
+            <div class="dropdown-toggle font13 header-menu-button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <a routerLink="/movies/in-theater">Movies</a>, <a routerLink="/char/toptv">TV </a>& <a
+                routerLink="/showtimes/theater">Showtimes</a>
+            </div>
+            <div class="dropdown-menu" [ngClass]="{'show':t.isOpen}">
+              <div class="header-menu-popup p-3 row">
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">Movies</h2>
+                  <a class="dropdown-item" routerLink="/movies/in-theater">In Theaters</a>
+                  <a class="dropdown-item" routerLink="/showtimes/movies">Showtimes and Tickets</a>
+                  <a class="dropdown-item" routerLink="/trailers">Latest Trailers</a>
+                  <a class="dropdown-item" routerLink="/movies/coming-soon">Coming Soon</a>
+                  <a class="dropdown-item" routerLink="/calendar">Release Calendar</a>
+                  <a class="dropdown-item" routerLink="/chart/top">Top Rated Movies</a>
+                  <a class="dropdown-item" routerLink="/india/top">Top Rated India Movies</a>
+                  <a class="dropdown-item" routerLink="/chart/moviemeter">Most Popular Movies</a>
 
-  <div class="row">
-    <div class="dropdown header-menu font13" appDropdown #t="appDropDown">
-      <div class="dropdown-toggle font13 header-menu-button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        <a routerLink="/movies/in-theater">Movies</a>, <a routerLink="/char/toptv">TV </a>& <a
-          routerLink="/showtimes/theater">Showtimes</a>
-      </div>
-      <div class="dropdown-menu" [ngClass]="{'show':t.isOpen}">
-        <div class="header-menu-popup p-3 row">
-          <div class="col-md-6">
-            <h2 class="header-menu-title">Movies</h2>
-            <a class="dropdown-item" routerLink="/movies/in-theater">In Theaters</a>
-            <a class="dropdown-item" routerLink="/showtimes/movies">Showtimes and Tickets</a>
-            <a class="dropdown-item" routerLink="/trailers">Latest Trailers</a>
-            <a class="dropdown-item" routerLink="/movies/coming-soon">Coming Soon</a>
-            <a class="dropdown-item" routerLink="/calendar">Release Calendar</a>
-            <a class="dropdown-item" routerLink="/chart/top">Top Rated Movies</a>
-            <a class="dropdown-item" routerLink="/india/top">Top Rated India Movies</a>
-            <a class="dropdown-item" routerLink="/chart/moviemeter">Most Popular Movies</a>
+                  <h2 class="header-menu-title">Charts & Trends</h2>
+                  <a class="dropdown-item" routerLink="/chart/boxoffice">Box Offices</a>
+                  <a class="dropdown-item" routerLink="/search/title"
+                    [queryParams]="'/search/title?count=100&groups=oscar_best_picture_winners&sort=year,desc&ref_=nv_ch_osc'| toQueryObject">Oscar
+                    Winners</a>
+                  <a class="dropdown-item" routerLink="/feature/genre">Most Popular By Genre</a>
+                </div>
 
-            <h2 class="header-menu-title">Charts & Trends</h2>
-            <a class="dropdown-item" routerLink="/chart/boxoffice">Box Offices</a>
-            <a class="dropdown-item" routerLink="/search/title"
-              [queryParams]="'/search/title?count=100&groups=oscar_best_picture_winners&sort=year,desc&ref_=nv_ch_osc'| toQueryObject">Oscar
-              Winners</a>
-            <a class="dropdown-item" routerLink="/feature/genre">Most Popular By Genre</a>
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">TV & Video</h2>
+                  <a class="dropdown-item" routerLink="/tv">IMDB TV</a>
+                  <a class="dropdown-item" routerLink="/chart/toptv">Top Rated TV Shows</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Most popular TV Shows</a>
+                  <a class="dropdown-item" href="#">DVD & Bluray</a>
+
+                  <h2 class="header-menu-title">Special Features</h2>
+                  <a class="dropdown-item" href="#">Amazon Originals</a>
+                  <a class="dropdown-item" href="#">Streaming Now</a>
+                  <a class="dropdown-item" href="#">Horror Guide</a>
+                  <a class="dropdown-item" href="#">IMDB Picks</a>
+                </div>
+              </div>
+
+            </div>
           </div>
 
-          <div class="col-md-6">
-            <h2 class="header-menu-title">TV & Video</h2>
-            <a class="dropdown-item" routerLink="/tv">IMDB TV</a>
-            <a class="dropdown-item" routerLink="/chart/toptv">Top Rated TV Shows</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Most popular TV Shows</a>
-            <a class="dropdown-item" href="#">DVD & Bluray</a>
+          <div class="dropdown header-menu" appDropdown #rr="appDropDown">
+            <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <a routerLink="/search/name" [queryParams]="{gender: 'male,female', ref_:'nv_tp_cel'}">Celebs</a>, <a
+                href="#">Events</a> & <a href="#">Photos</a>
+            </div>
+            <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
+              <div class="header-menu-popup p-3 row">
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">Celebs</h2>
+                  <a class="dropdown-item" routerLink="search/name" [queryParams]=todayBirthdayQueryParams>Born
+                    Today</a>
+                  <a class="dropdown-item" routerLink="/news/celebrity">Celebrity News</a>
+                  <a class="dropdown-item" routerLink="/search/name"
+                    [queryParams]="{gender: 'male,female', ref_:'nv_tp_cel'}">Most Popular Celebs</a>
 
-            <h2 class="header-menu-title">Special Features</h2>
-            <a class="dropdown-item" href="#">Amazon Originals</a>
-            <a class="dropdown-item" href="#">Streaming Now</a>
-            <a class="dropdown-item" href="#">Horror Guide</a>
-            <a class="dropdown-item" href="#">IMDB Picks</a>
+                  <h2 class=" header-menu-title">Photos</h2>
+                  <a class="dropdown-item" routerLink="/gallery/rg1859820288">Latest Stills</a>
+                  <a class="dropdown-item" routerLink="/gallery/rg1624939264">Latest Posters</a>
+                  <a class="dropdown-item" routerLink="/gallery/rg1641716480">Photo we love</a>
+                </div>
+
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">Events</h2>
+                  <a class="dropdown-item" routerLink="/tv">Awards Central</a>
+                  <a class="dropdown-item" routerLink="/chart/toptv">Festival Central</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Oscars</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Golden Globes</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Sundance</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Cannes</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">San Diego Comic-Con</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Emmy Awards</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Venice Film Festival</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Toronto Film Festival</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">Tribeca</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">LA Film Festival</a>
+                  <a class="dropdown-item" routerLink="/chart/tvmeter">All Events</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="dropdown  header-menu" appDropdown #tt="appDropDown">
+            <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <a routerLink="/news/top">News</a> & <a href="">Community</a>
+            </div>
+            <div class="dropdown-menu" [ngClass]="{'show':tt.isOpen}">
+              <div class="header-menu-popup p-3 row">
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">News</h2>
+                  <a class="dropdown-item" routerLink="news/top">Top News</a>
+                  <a class="dropdown-item" routerLink="news/movie">Movie News</a>
+                  <a class="dropdown-item" routerLink="news/tv">TV News</a>
+                  <a class="dropdown-item" routerLink="news/celebrity">Celebrity News</a>
+                  <a class="dropdown-item" routerLink="news/indie">Indie News</a>
+
+                  <h2 class="header-menu-title">Community</h2>
+                  <a class="dropdown-item" routerLink="/">Contributor Zone</a>
+                  <a class="dropdown-item" routerLink="/">Poll</a>
+                </div>
+
+                <div class="col-md-6">
+                  <h2 class="header-menu-title">Latest Headlines</h2>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="dropdown  header-menu header-menu-last" appDropdown #a="appDropDown">
+            <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <a href="#">Watchlist</a>
+            </div>
+            <div class="dropdown-menu" [ngClass]="{'show':a.isOpen}">
+              <a class="dropdown-item" href="#">Your watchlist</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="dropdown float-left" appDropdown #b="appDropDown">
+          <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="dropdown-toggle font13" src="/assets/imdb-pro.png" />
+          </button>
+          <div class="dropdown-menu" [ngClass]="{'show':b.isOpen}">
+            <a class="dropdown-item" href="#">Your watchlist</a>
           </div>
         </div>
 
+        <ul class="social-media-links font13">
+          <li class="spacer"></li>
+          <li class=""><a href="help">Help</a></li>
+          <li class="spacer"></li>
+          <li class=""><a href="help"><i class="fab fa-facebook"></i> </a> </li>
+          <li class=""><a href="help"><i class="fab fa-instagram"></i></a></li>
+          <li class=""><a href="help"><i class="fab fa-twitch"></i></a></li>
+          <li class=""><a href="help"><i class="fab fa-twitter"></i></a></li>
+          <li class=""><a href="help"><i class="fab fa-youtube"></i></a></li>
+
+        </ul>
       </div>
     </div>
-
-    <div class="dropdown header-menu" appDropdown #rr="appDropDown">
-      <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        <a routerLink="/search/name" [queryParams]="{gender: 'male,female', ref_:'nv_tp_cel'}">Celebs</a>, <a
-          href="#">Events</a> & <a href="#">Photos</a>
-      </div>
-      <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
-        <div class="header-menu-popup p-3 row">
-          <div class="col-md-6">
-            <h2 class="header-menu-title">Celebs</h2>
-            <a class="dropdown-item" routerLink="search/name" [queryParams]=todayBirthdayQueryParams>Born
-              Today</a>
-            <a class="dropdown-item" routerLink="/news/celebrity">Celebrity News</a>
-            <a class="dropdown-item" routerLink="/search/name"
-              [queryParams]="{gender: 'male,female', ref_:'nv_tp_cel'}">Most Popular Celebs</a>
-
-            <h2 class=" header-menu-title">Photos</h2>
-            <a class="dropdown-item" routerLink="/gallery/rg1859820288">Latest Stills</a>
-            <a class="dropdown-item" routerLink="/gallery/rg1624939264">Latest Posters</a>
-            <a class="dropdown-item" routerLink="/gallery/rg1641716480">Photo we love</a>
-          </div>
-
-          <div class="col-md-6">
-            <h2 class="header-menu-title">Events</h2>
-            <a class="dropdown-item" routerLink="/tv">Awards Central</a>
-            <a class="dropdown-item" routerLink="/chart/toptv">Festival Central</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Oscars</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Golden Globes</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Sundance</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Cannes</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">San Diego Comic-Con</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Emmy Awards</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Venice Film Festival</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Toronto Film Festival</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">Tribeca</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">LA Film Festival</a>
-            <a class="dropdown-item" routerLink="/chart/tvmeter">All Events</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="dropdown  header-menu" appDropdown #tt="appDropDown">
-      <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        <a routerLink="/news/top">News</a> & <a href="">Community</a>
-      </div>
-      <div class="dropdown-menu" [ngClass]="{'show':tt.isOpen}">
-        <div class="header-menu-popup p-3 row">
-          <div class="col-md-6">
-            <h2 class="header-menu-title">News</h2>
-            <a class="dropdown-item" routerLink="news/top">Top News</a>
-            <a class="dropdown-item" routerLink="news/movie">Movie News</a>
-            <a class="dropdown-item" routerLink="news/tv">TV News</a>
-            <a class="dropdown-item" routerLink="news/celebrity">Celebrity News</a>
-            <a class="dropdown-item" routerLink="news/indie">Indie News</a>
-
-            <h2 class="header-menu-title">Community</h2>
-            <a class="dropdown-item" routerLink="/">Contributor Zone</a>
-            <a class="dropdown-item" routerLink="/">Poll</a>
-          </div>
-
-          <div class="col-md-6">
-            <h2 class="header-menu-title">Latest Headlines</h2>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="dropdown  header-menu header-menu-last" appDropdown #a="appDropDown">
-      <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        <a href="#">Watchlist</a>
-      </div>
-      <div class="dropdown-menu" [ngClass]="{'show':a.isOpen}">
-        <a class="dropdown-item" href="#">Your watchlist</a>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="dropdown float-left" appDropdown #b="appDropDown">
-      <button class="btn  dropdown-toggle font13" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        <img class="dropdown-toggle font13" src="/assets/imdb-pro.png" />
-      </button>
-      <div class="dropdown-menu" [ngClass]="{'show':b.isOpen}">
-        <a class="dropdown-item" href="#">Your watchlist</a>
-      </div>
-    </div>
-
-    <ul class="social-media-links font13">
-      <li class="spacer"></li>
-      <li class=""><a href="help">Help</a></li>
-      <li class="spacer"></li>
-      <li class=""><a href="help"><i class="fab fa-facebook"></i> </a> </li>
-      <li class=""><a href="help"><i class="fab fa-instagram"></i></a></li>
-      <li class=""><a href="help"><i class="fab fa-twitch"></i></a></li>
-      <li class=""><a href="help"><i class="fab fa-twitter"></i></a></li>
-      <li class=""><a href="help"><i class="fab fa-youtube"></i></a></li>
-
-    </ul>
-  </div>
-  </div>
   </div>
 </nav>

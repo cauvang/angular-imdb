@@ -37,7 +37,6 @@ export class NewsListComponent implements OnInit {
   loadList() {
     this.news = [];
 
-    // this.newsType = this.route.snapshot.params['newsType'];
     this.route.params.subscribe((params: Params) => {
       this.newsType = params['newsType'];
     });

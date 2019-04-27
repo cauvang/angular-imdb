@@ -72,6 +72,36 @@ export class SortDropdownComponent implements OnInit {
         name: "Your Rating",
         value: "ur"
       }
+    ],
+    "search": [
+      {
+        name: "Popularity",
+        value: "moviemeter"
+      },
+      {
+        name: "Alphabetical",
+        value: "alpha"
+      },
+      {
+        name: "IMDb Rating",
+        value: "user_rating"
+      },
+      {
+        name: "Number of Votes",
+        value: "num_votes"
+      },
+      {
+        name: "Release Date",
+        value: "release_date"
+      },
+      {
+        name: "Runtime",
+        value: "runtime"
+      },
+      {
+        name: "Year",
+        value: "year"
+      },
     ]
   };
   @Output() sortChange = new EventEmitter();
@@ -108,7 +138,7 @@ export class SortDropdownComponent implements OnInit {
   }
 
   private sortByType() {
-    if (this.datasetType === "movie" || this.datasetType === "top-rated")
+    if (this.datasetType === "movie" || this.datasetType === "top-rated" || this.datasetType === "search")
       this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
     else if (this.datasetType === "cinema")
       this.sortChange.emit({ sort: this.sortBy, dir: this.sortDirection });

@@ -9,10 +9,7 @@ import { IImage } from 'src/app/models/article';
 })
 export class BirthdayComponent implements OnInit {
   @Input() data: IBirthday[];
-  @Input() name: string;
-  @Input() id: string;
-  @Input() description: string;
-  @Input() image: IImage;
+  @Input() today: string;
 
   constructor() { }
 

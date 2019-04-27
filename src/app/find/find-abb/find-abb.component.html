@@ -1,8 +1,8 @@
 <div class="d-flex mt-3 mb-2 font15">
   <div class="flex-grow-1 ">
-    <h5 class="color-gold font15 font-weight-bold">{{result.header}}</h5>
+    <h5 class="pl-3 color-gold font18 font-weight-bold">{{result.header}}</h5>
   </div>
-  <div *ngIf="!displayAll">
+  <div class="pr-3" *ngIf="!displayAll">
     View:
     <a *ngIf="!queryParams.exact" routerLink="/find"
       [queryParams]="{q:queryParams.q,s:'tt',exact:'true',ref_:'fn_tt_ex'}" class="font15">Exact title matches</a>
@@ -11,14 +11,25 @@
   </div>
 </div>
 
-<div class="pt-2 pb-2 font15" *ngFor="let item of result.items;let i=index"
+<div class="ml-2 mr-2 p-2 font15" *ngFor="let item of result.items;let i=index"
   [ngClass]="{'bk-grey': i%2===0, 'bk-white': i%2 ===1}">
   <img *ngIf="item.image" class="mr-2" src="{{item.image.url}}">
-  <a class="ml-2 mr-2 font15" routerLink="/title/{{item.id}}">{{item.name}}</a>
+
+  <a *ngIf="result.header==='Keywords';else companyBlock" class="ml-2 mr-2 font15" routerLink="/search/keyword"
+    [queryParams]="{keywords:item.name}">{{item.name}}</a>
+  <ng-template #companyBlock>
+    <a *ngIf="result.header==='Companies';else elseBlock" class="ml-2 mr-2 font15" routerLink="/search/title"
+      [queryParams]="{companies:item.id}">{{item.name}}</a>
+  </ng-template>
+  <ng-template #elseBlock>
+    <a *ngIf="result.header!=='Keywords'" class="ml-2 mr-2 font15"
+      routerLink="/{{queryType[result.header]}}/{{item.id}}">{{item.name}}</a>
+  </ng-template>
+
   <span innerHTML="{{item.text}}"></span>
 </div>
 
-<div *ngIf="displayAll" class="p-2 border rounded-bottom bk-grey">
+<div *ngIf="displayAll" class="m-2 p-2 rounded-bottom bk-grey">
   View:
   <a routerLink="/find" [queryParams]="{q: queryParams.q, s:'tt', ref_:'fn_al_tt_mr'}" class="font15">More
     title matches</a>
