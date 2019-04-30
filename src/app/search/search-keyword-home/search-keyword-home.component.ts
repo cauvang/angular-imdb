@@ -22,6 +22,6 @@ export class SearchKeywordHomeComponent implements OnInit {
   }
 
   private onGo() {
-    this.router.navigateByUrl("/find?s=kw&q=" + this.keyword)
+    this.router.navigateByUrl('/find?s=kw&q=' + this.keyword);
   }
 }

@@ -17,32 +17,32 @@ export class SearchService {
   }
 
   public getSearchTitle(keysearch: string): Observable<ISearchResult<ISearchTitle>> {
-    let url = this.appConfig.rootURL + 'search/title?' + keysearch;
+    const url = this.appConfig.rootURL + 'search/title?' + keysearch;
     return this.http.get<ISearchResult<ISearchTitle>>(url);
   }
 
   public getSearchTitleText(keysearch: string): Observable<ISearchResult<ISearchTitle>> {
-    let url = this.appConfig.rootURL + 'search/title-text?' + keysearch;
+    const url = this.appConfig.rootURL + 'search/title-text?' + keysearch;
     return this.http.get<ISearchResult<ISearchTitle>>(url);
   }
 
   public getSearchName(keysearch: string): Observable<ISearchResult<ISearchName>> {
-    let url = this.appConfig.rootURL + 'search/name?' + keysearch;
+    const url = this.appConfig.rootURL + 'search/name?' + keysearch;
     return this.http.get<ISearchResult<ISearchName>>(url);
   }
 
   public getSearchNameText(keysearch: string): Observable<ISearchResult<ISearchName>> {
-    let url = this.appConfig.rootURL + 'search/name-text?' + keysearch;
+    const url = this.appConfig.rootURL + 'search/name-text?' + keysearch;
     return this.http.get<ISearchResult<ISearchName>>(url);
   }
 
   public getSearchKeywordList(): Observable<string[]> {
-    let url = this.appConfig.rootURL + 'search/keywords';
+    const url = this.appConfig.rootURL + 'search/keywords';
     return this.http.get<string[]>(url);
   }
 
   public getSearchKeyword(keysearch: string): Observable<ISearchKeyword> {
-    let url = this.appConfig.rootURL + 'search/keyword?' + keysearch;
+    const url = this.appConfig.rootURL + 'search/keyword?' + keysearch;
     return this.http.get<ISearchKeyword>(url);
   }
 }

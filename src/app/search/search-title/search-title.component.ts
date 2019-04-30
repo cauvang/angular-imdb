@@ -17,9 +17,13 @@ export class SearchTitleComponent implements OnInit {
   private end: number;
   private isLoading: boolean;
   private totalItem: number;
+  private url: string;
 
   constructor(private service: SearchService, private route: ActivatedRoute, private router: Router) {
-    this.route.queryParams.subscribe(params => { this.loadSearch(); })
+    this.route.queryParams.subscribe(params => {
+      this.url = this.router.url;
+      this.loadSearch();
+    });
   }
 
   ngOnInit() {
@@ -32,8 +36,8 @@ export class SearchTitleComponent implements OnInit {
     this.searchType = this.router.routerState.snapshot.url.split('?')[1];
     this.service.getSearchTitle(this.searchType).subscribe((data) => {
       this.data = data;
-      this.start = parseInt(data.query.start || "1");
-      const end = this.start + parseInt(data.query.count) - 1;
+      this.start = parseInt(data.query.start || '1', 10);
+      const end = this.start + parseInt(data.query.count, 10) - 1;
       this.end = end > data.totalItems ? data.totalItems : end;
       this.totalItem = data.totalItems;
       if (data.totalPages === 1) {
@@ -46,9 +50,7 @@ export class SearchTitleComponent implements OnInit {
     });
   }
   onViewClick(view: string) {
-    this
-      .router
-      .navigateByUrl("/search/title?genres=action&view=" + view);
+    this.router.navigateByUrl(this.url + '&view=' + view);
   }
 
 

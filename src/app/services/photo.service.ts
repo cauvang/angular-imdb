@@ -17,12 +17,14 @@ export class PhotoService {
   }
 
   public getPhotos(id: string, query: any): Observable<IPhoto> {
-    let url = this.appConfig.rootURL + 'gallery/' + id + "?1=1";
-    if (query.page)
-      url += '&page=' + query.page + "&";
+    let url = this.appConfig.rootURL + 'gallery/' + id + '?1=1';
+    if (query.page) {
+      url += '&page=' + query.page + '&';
+    }
 
-    if (query.refine)
+    if (query.refine) {
       url += '&refine=' + query.refine;
+    }
     return this.http.get<IPhoto>(url);
   }
 

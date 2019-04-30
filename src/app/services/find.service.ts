@@ -18,12 +18,15 @@ export class FindService {
 
   public getFindResult(query: any): Observable<IFinder> {
     let url = this.appConfig.rootURL + 'find?';
-    if (query.q)
+    if (query.q) {
       url += 'q=' + query.q;
-    if (query.s)
+    }
+    if (query.s) {
       url += '&s=' + query.s;
-    if (query.exact)
+    }
+    if (query.exact) {
       url += '&exact=true';
+    }
     return this.http.get<IFinder>(url);
   }
 }

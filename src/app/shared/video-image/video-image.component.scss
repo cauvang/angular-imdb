@@ -1,7 +1,7 @@
-.article-icon {
-  left: 80px;
-  top: 80px;
-}
+// .article-icon {
+//   left: 80px;
+//   top: 80px;
+// }
 
 .icon-wrap {
   position: absolute;
@@ -10,4 +10,15 @@
   bottom: 0;
   width: 100%;
   justify-content: center;
+}
+
+.caption {
+  bottom: 0;
+  color: silver;
+  font-size: 11px;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+
 }

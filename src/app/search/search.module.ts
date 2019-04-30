@@ -11,25 +11,25 @@ import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { SearchKeywordHomeComponent } from './search-keyword-home/search-keyword-home.component';
 import { SearchKeywordComponent } from './search-keyword/search-keyword.component';
-import { SearchItemComponent } from './search-item/search-item.component';
 import { SearchKeywordRoutingComponent } from './search-keyword-routing/search-keyword-routing.component';
 import { SearchTitleTextComponent } from './search-title-text/search-title-text.component';
 import { SearchNameTextComponent } from './search-name-text/search-name-text.component';
-import { SearchItemNameComponent } from './search-item-name/search-item-name.component';
+import { SearchNameItemComponent } from './search-name-item/search-name-item.component';
+import { SearchTitleItemComponent } from './search-title-item/search-title-item.component';
 
 @NgModule({
     declarations: [
-        SearchNameComponent,
-        SearchTitleComponent,
         SortNavigationComponent,
         PagingComponent,
         SearchKeywordHomeComponent,
         SearchKeywordComponent,
-        SearchItemComponent,
         SearchKeywordRoutingComponent,
+        SearchTitleComponent,
         SearchTitleTextComponent,
+        SearchTitleItemComponent,
+        SearchNameComponent,
         SearchNameTextComponent,
-        SearchItemNameComponent
+        SearchNameItemComponent
     ],
     imports: [
         AppRoutingModule,

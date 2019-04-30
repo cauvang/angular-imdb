@@ -18,8 +18,9 @@ export class ShowtimeTheaterItemComponent implements OnInit {
   }
 
   getClass() {
-    if (this.overlayStyle == OverlayStyles.bottomIcon)
-      return { large: true }
+    if (this.overlayStyle === OverlayStyles.bottomIcon) {
+      return { large: true };
+    }
     return { large: false };
   }
 }

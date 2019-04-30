@@ -6,6 +6,7 @@ export interface ITrailer {
     subTitle: string;
     title: string;
     videoId: string;
+    id: string;
 }
 
 export interface IGetTrailerResponse {

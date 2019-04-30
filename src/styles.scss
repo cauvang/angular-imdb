@@ -139,11 +139,15 @@ dir {
 }
 
 .metascore {
-  padding: 3px;
-  margin-right: 3px;
+  padding: 1px 4px;
   color: #fff;
+  margin-right: 3px;
+
 
   &-green {
+    margin-right: 3px;
+    padding: 1px 4px;
+    color: #fff;
     background-color: #61c74f;
   }
 

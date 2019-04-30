@@ -10,21 +10,7 @@
 
     <app-sort-navigation [data]="data.sorting" type="/search/name"></app-sort-navigation>
 
-    <!-- <div class="mt-3 d-flex flex-row" *ngFor="let item of data.items;let i=index"
-      [ngClass]="{'bk-grey': i%2===0,'bk-white':i%2===1}">
-      <div class="p-2">
-        <img src="{{item.image.url}}">
-      </div>
-      <div class="p-2 font13">
-        <div class="font15 font-weight-bold"> {{item.index}} 
-          <a routerLink="/name/{{item.id}}">{{item.name}}</a> </div>
-        <div class="mt-1">{{item.movie.cast}} | <a routerLink="/title/{{item.movie.id}}">{{item.movie.name}}</a></div>
-
-        <div class="mt-1" innerHTML={{item.description}}></div>
-      </div>
-    </div> -->
-
-    <app-search-item-name [data]="data.items" [start]="start" searchType="name"></app-search-item-name>
+    <app-search-name-item [data]="data.items" [start]="start" searchType="name"></app-search-name-item>
 
     <app-paging [start]="start" [end]="end" [totalItems]="data.totalItems" [prevPage]="data.prevPage"
       [nextPage]="data.nextPage"></app-paging>

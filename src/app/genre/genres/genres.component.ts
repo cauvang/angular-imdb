@@ -18,8 +18,9 @@ export class GenresComponent implements OnInit {
   ngOnInit() {
     this.service.getGenres().subscribe(data => {
       this.data = data;
-      for (let i = 0; i < 4; i++)
+      for (let i = 0; i < 4; i++) {
         this.genres.push(data.genres.splice(0, 3));
+      }
 
     });
   }

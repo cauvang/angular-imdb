@@ -18,13 +18,13 @@
       </div>
     </div>
 
-    <div class="mt-1" *ngIf="item.contentRating">
+    <div class="mt-1 d-block" *ngIf="item.contentRating">
       <span class="font-weight-bold color-black"><i class="fas fa-star color-gold "></i>
         {{item.contentRating}}</span>
       <span class="ml-3"><i class="far fa-star"></i> Rate this</span>
-      <span class="m-2 d-block" *ngIf="data.metascore">
-        <span class="d-inline metascore-green"> {{data.metascore}}</span>
-        <span>Metascore </span>
+      <span class="ml-5 " *ngIf="item.metascore">
+        <span class="metascore-green"> {{item.metascore}}</span>
+        <span class="ml-3">Metascore </span>
       </span>
     </div>
 

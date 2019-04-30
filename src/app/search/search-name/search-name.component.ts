@@ -19,7 +19,7 @@ export class SearchNameComponent implements OnInit {
 
   constructor(private service: SearchService, private route: ActivatedRoute, private router: Router) {
     this.searchType = this.router.routerState.snapshot.url.split('?')[1];
-    this.route.queryParams.subscribe(params => { this.loadSearch(); })
+    this.route.queryParams.subscribe(params => { this.loadSearch(); });
   }
 
   ngOnInit() {
@@ -32,8 +32,8 @@ export class SearchNameComponent implements OnInit {
     this.searchType = this.router.routerState.snapshot.url.split('?')[1];
     this.service.getSearchName(this.searchType).subscribe((data) => {
       this.data = data;
-      this.start = parseInt(data.query.start || "1");
-      const end = this.start + parseInt(data.query.count) - 1;
+      this.start = parseInt(data.query.start || '1', 10);
+      const end = this.start + parseInt(data.query.count, 10) - 1;
       this.end = end > data.totalItems ? data.totalItems : end;
       this.totalItem = data.totalItems;
       if (data.totalPages === 1) {

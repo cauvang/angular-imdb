@@ -8,10 +8,10 @@ export class CustomDateFormatPipe implements PipeTransform {
 
   transform(value: Date, args?: any): any {
     const mDate = moment(value);
-    if (args === "ddd" && value.getDate() === (new Date().getDate())) {
-      return "Today";
+    if (args === 'ddd' && value.getDate() === (new Date().getDate())) {
+      return 'Today';
     }
-    return mDate.format(args || "L");
+    return mDate.format(args || 'L');
   }
 
 }

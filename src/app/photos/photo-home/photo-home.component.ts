@@ -40,8 +40,9 @@ export class PhotoHomeComponent implements OnInit {
       this.data = data;
 
       const pageList = [];
-      for (let i = 1; i <= data.totalPages; i++)
+      for (let i = 1; i <= data.totalPages; i++) {
         pageList.push(i);
+      }
       this.pages = pageList;
       this.currentPage = data.currentPage;
 
@@ -49,8 +50,8 @@ export class PhotoHomeComponent implements OnInit {
   }
 
   private getHeader(id: string) {
-    if (id === "rg1859820288") return "Latest Stills";
-    if (id === "rg1624939264") return "Latest Posters";
-    if (id === "rg1641716480") return "Photos We Love";
+    if (id === 'rg1859820288') { return 'Latest Stills'; }
+    if (id === 'rg1624939264') { return 'Latest Posters'; }
+    if (id === 'rg1641716480') { return 'Photos We Love'; }
   }
 }

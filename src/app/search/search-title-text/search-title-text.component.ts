@@ -18,7 +18,7 @@ export class SearchTitleTextComponent implements OnInit {
   private totalItem: number;
 
   constructor(private service: SearchService, private route: ActivatedRoute, private router: Router) {
-    this.route.queryParams.subscribe(params => { this.loadSearch(); })
+    this.route.queryParams.subscribe(params => { this.loadSearch(); });
   }
 
   ngOnInit() {

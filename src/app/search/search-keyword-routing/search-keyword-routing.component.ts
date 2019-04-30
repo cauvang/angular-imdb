@@ -17,7 +17,7 @@ export class SearchKeywordRoutingComponent implements OnInit {
 
   ngOnInit() {
     const b = this.router.routerState.snapshot.url.split('?');
-    this.hasParam = b.length == 2 ? true : false;
+    this.hasParam = b.length === 2 ? true : false;
   }
 
 }

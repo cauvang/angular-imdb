@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
-import { IGetShowtimeMovieResponse, IGetShowtimeTheaterResponse, ITitle, ILocation, ITheater } from '../models/showtimes';
+import { IGetShowtimeMovieResponse, IGetShowtimeTheaterResponse, IShowtimeTitle, ILocation, ITheater } from '../models/showtimes';
 
 @Injectable({
   providedIn: 'root'
@@ -30,10 +30,10 @@ export class ShowtimesService {
     }
   }
 
-  public getShowtimesTitle(location: ILocation, date: string, id: string): Observable<ITitle> {
+  public getShowtimesTitle(location: ILocation, date: string, id: string): Observable<IShowtimeTitle> {
     let url = this.appConfig.rootURL + 'showtimes/title/' + id;
     url = this.getURL(url, location, date, null);
-    return this.http.get<ITitle>(url);
+    return this.http.get<IShowtimeTitle>(url);
   }
 
   public getShowtimesCinema(location: ILocation, date: string, id: string, queryString: string = ''): Observable<ITheater> {
@@ -43,14 +43,17 @@ export class ShowtimesService {
   }
 
   private getURL(url: string, location: ILocation, date: string, queryString: string = '') {
-    if (location != null) // AU/3026/
+    if (location != null) { // AU/3026/
       url += '/' + location.country + '/' + location.postcode;
+    }
 
-    if (date != null) // 2019 - 03 - 13
+    if (date != null) { // 2019 - 03 - 13
       url += '/' + date;
+    }
 
-    if (queryString != null)
+    if (queryString != null) {
       url += '?' + queryString;
+    }
 
     return url;
   }

@@ -5,4 +5,12 @@
     <img src="{{playIcon}}" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" />
   </div>
 
+  <div *ngIf="caption" class="caption">
+    <div class="float-left">
+      {{caption.length}} | Trailer
+    </div>
+    <div class="float-right">
+      {{caption.videoCounts}} | {{caption.imageCounts}}
+    </div>
+  </div>
 </div>

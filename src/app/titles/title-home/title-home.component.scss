@@ -58,15 +58,13 @@
   }
 
   &-info {
-    height: 100px;
+    height: 120px;
     background: #333333;
     margin-left: -15px;
     margin-right: -15px;
-    padding: 15px;
 
-    img {
+    .wish-list {
       width: 46px;
-      margin-right: 25px;
     }
 
     h1 {
@@ -80,15 +78,12 @@
       margin-left: 10px;
     }
 
-    .watchlist-button {
-      float: left;
-    }
-
     .sub-list {
       list-style-type: none;
 
       li {
-        float: left;
+        display: inline;
+        // float: left;
         font-size: 13px;
         margin-right: 15px;
 
@@ -99,5 +94,25 @@
         }
       }
     }
+
+    .rating-value {
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .fas,
+    .far {
+      font-weight: 900;
+      font-size: 25px;
+      padding-top: 8px;
+    }
+
+    .vertical-align {
+      font-size: 40px;
+      padding: 0 5px;
+    }
   }
+
+
 }

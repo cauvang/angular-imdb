@@ -19,7 +19,7 @@ export interface IGallery {
 }
 
 export interface IFilter {
-    filterType: "string";
+    filterType: 'string';
     items: IType[];
 }
 

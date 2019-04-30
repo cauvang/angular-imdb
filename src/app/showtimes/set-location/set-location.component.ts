@@ -11,10 +11,10 @@ import { LocationService } from 'src/app/services/location.service';
 })
 export class SetLocationComponent implements OnInit {
   private location: ILocation = {
-    postcode: "3030",
-    country: "AU"
-  }
-  private countryList: string[] = ["AR", "AU", "CA", "CL", "ES", "FR", "IT", "MX", "NZ", "PT", "UK", "US"];
+    postcode: '3030',
+    country: 'AU'
+  };
+  private countryList: string[] = ['AR', 'AU', 'CA', 'CL', 'ES', 'FR', 'IT', 'MX', 'NZ', 'PT', 'UK', 'US'];
   public bChange = false;
   @Output() getLocation = new EventEmitter();
 
@@ -37,9 +37,9 @@ export class SetLocationComponent implements OnInit {
 
     let url = this.router.routerState.snapshot.url;
     url = url.replace(/AR|AU|CA|CL|ES|FR|IT|MX|NZ|PT|UK|US/, this.location.country);
-    url = url.replace(/\/\d{4,}/, "/" + this.location.postcode);
+    url = url.replace(/\/\d{4,}/, '/' + this.location.postcode);
     this.getLocation.emit(this.location);
-    this.router.navigateByUrl(url);// + '/' + this.location.country + '/' + this.location.postcode);
+    this.router.navigateByUrl(url); // + '/' + this.location.country + '/' + this.location.postcode);
   }
 
   onCancel() {

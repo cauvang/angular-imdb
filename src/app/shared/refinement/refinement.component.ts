@@ -15,14 +15,14 @@ export class RefinementComponent implements OnInit, OnChanges {
   ratingInc = [];
   ratingRev = [];
 
-  from = "1";
-  to = "10";
+  from = '1';
+  to = '10';
 
-  fromVote = "";
-  toVote = "";
+  fromVote = '';
+  toVote = '';
 
-  fromRange = "";
-  toRange = "";
+  fromRange = '';
+  toRange = '';
 
   private selectedTab: string;
   private bRefine: boolean;
@@ -46,8 +46,9 @@ export class RefinementComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
 
-    if (this.data.length > 0 && this.selectedTab == null)
+    if (this.data.length > 0 && this.selectedTab == null) {
       this.selectedTab = this.data[0].categoryName;
+    }
 
     let selectedValues = [];
     this.data.forEach(element => {
@@ -55,31 +56,34 @@ export class RefinementComponent implements OnInit, OnChanges {
     });
 
 
-    if (this.from !== "1" && this.to !== "10")
-      selectedValues = selectedValues.concat(this.from + "-" + this.to + " IMDb user rating (average)");
-    else {
-      if (this.from !== "1")
-        selectedValues = selectedValues.concat("At least " + this.from + " IMDb user rating (average)");
-      else if (this.to !== "10")
-        selectedValues = selectedValues.concat("No more than " + this.to + " IMDb user rating (average)");
+    if (this.from !== '1' && this.to !== '10') {
+      selectedValues = selectedValues.concat(this.from + '-' + this.to + ' IMDb user rating (average)');
+    } else {
+      if (this.from !== '1') {
+        selectedValues = selectedValues.concat('At least ' + this.from + ' IMDb user rating (average)');
+      } else if (this.to !== '10') {
+        selectedValues = selectedValues.concat('No more than ' + this.to + ' IMDb user rating (average)');
+      }
     }
 
-    if (this.fromVote && this.toVote)
-      selectedValues = selectedValues.concat(this.fromVote + "-" + this.toVote + " Number of votes");
-    else {
-      if (this.fromVote)
-        selectedValues = selectedValues.concat("No more than " + this.fromVote + " Number of votes");
-      else if (this.toVote)
-        selectedValues = selectedValues.concat("At least " + this.toVote + " Number of votes");
+    if (this.fromVote && this.toVote) {
+      selectedValues = selectedValues.concat(this.fromVote + '-' + this.toVote + ' Number of votes');
+    } else {
+      if (this.fromVote) {
+        selectedValues = selectedValues.concat('No more than ' + this.fromVote + ' Number of votes');
+      } else if (this.toVote) {
+        selectedValues = selectedValues.concat('At least ' + this.toVote + ' Number of votes');
+      }
     }
 
-    if (this.fromRange && this.toRange)
-      selectedValues = selectedValues.concat(this.fromRange + "-" + this.toRange + " Release year or range");
-    else {
-      if (this.fromRange)
-        selectedValues = selectedValues.concat("No more than " + this.fromRange + " Release year or range");
-      else if (this.toRange)
-        selectedValues = selectedValues.concat("At least " + this.toRange + " Release year or range");
+    if (this.fromRange && this.toRange) {
+      selectedValues = selectedValues.concat(this.fromRange + '-' + this.toRange + ' Release year or range');
+    } else {
+      if (this.fromRange) {
+        selectedValues = selectedValues.concat('No more than ' + this.fromRange + ' Release year or range');
+      } else if (this.toRange) {
+        selectedValues = selectedValues.concat('At least ' + this.toRange + ' Release year or range');
+      }
     }
 
     this.selectedValues = selectedValues;
@@ -90,31 +94,31 @@ export class RefinementComponent implements OnInit, OnChanges {
   }
 
   onRefine() {
-    if (this.bRefine == false)
+    if (this.bRefine === false) {
       this.bRefine = true;
-    else
+    } else {
       this.bRefine = false;
+    }
   }
 
   onChecked(catName: string, value: string) {
     const query = this.data.map(d => {
-      let valueString = "";
+      let valueString = '';
       const list = d.values.filter(t => t.checked).map(v => {
-        valueString += v.id + ",";
+        valueString += v.id + ',';
 
         return v.id;
       });
-      if (valueString[valueString.length - 1] == ',') {
+      if (valueString[valueString.length - 1] === ',') {
         valueString = valueString.substr(0, valueString.length - 1);
       }
-      this.catList[d.searchKey] = valueString !== "" ? valueString : null;
-    })
-    console.log("check", this.catList);
+      this.catList[d.searchKey] = valueString !== '' ? valueString : null;
+    });
     this.refineChange.emit(this.catList);
   }
 
   onGetRatingChanged(event) {
-    this.catList['user_rating'] = (this.from === "1" ? "" : this.from) + '%2C' + (this.to === "10" ? "" : this.to);
+    this.catList['user_rating'] = (this.from === '1' ? '' : this.from) + '%2C' + (this.to === '10' ? '' : this.to);
     this.refineChange.emit(this.catList);
   }
 
@@ -130,8 +134,9 @@ export class RefinementComponent implements OnInit, OnChanges {
 
   onDeselect(item: string) {
     const index = this.selectedValues.indexOf(item);
-    if (index !== -1)
+    if (index !== -1) {
       this.selectedValues.splice(index, 1);
+    }
 
     this.data.forEach(element => {
       // let valueString = this.catList[element.searchKey];
@@ -145,7 +150,7 @@ export class RefinementComponent implements OnInit, OnChanges {
           // this.catList[element.searchKey] = valueString;
           // return;
         }
-      })
+      });
 
     });
 

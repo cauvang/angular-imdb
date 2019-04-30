@@ -13,14 +13,14 @@ export interface ISearchResult<T> {
     nextPage: string;
     prevPage: string;
     prevLink: string; ///
-    nextLink: string;///
+    nextLink: string; ///
 
     start: number;
     to: number;
 }
 
 export interface IQuery {
-    [x: string]: string
+    [x: string]: string;
 }
 
 export interface ISorting {
@@ -67,7 +67,7 @@ export interface ICastMovie {
     name: string;
     id: string;
 
-    role: string;///
+    role: string; ///
 }
 
 export interface ISearchKeyword {

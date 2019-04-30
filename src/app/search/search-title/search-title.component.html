@@ -9,16 +9,15 @@
           [nextPage]="data.nextPage"></app-paging>
       </div>
       <div>View Mode:
-        <a href="/search/title?genres=action&view=simple">Compact</a>
+        <a href="{{url}}&view=simple" (click)="onViewClick('simple')">Compact</a>
         |
-        <a href="/search/title?genres=action&view=advanced" class="font-weight-bold"
-          (click)="onViewClick('advanced')">Detailed</a>
+        <a href="{{url}}&view=advanced" class="font-weight-bold" (click)="onViewClick('advanced')">Detailed</a>
       </div>
     </div>
 
     <app-sort-navigation [data]="data.sorting" type="/search/title"></app-sort-navigation>
 
-    <app-search-item [data]="data.items" [start]="start" searchType="title"></app-search-item>
+    <app-search-title-item [data]="data.items" [start]="start" searchType="title"></app-search-title-item>
 
     <app-paging [start]="start" [end]="end" [totalItems]="totalItem" [prevPage]="data.prevPage"
       [nextPage]="data.nextPage"></app-paging>

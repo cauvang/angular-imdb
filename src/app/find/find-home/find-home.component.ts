@@ -20,9 +20,9 @@ export class FindHomeComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(queryParams => {
       this.queryParams = queryParams;
-      if (queryParams.s == "all")
+      if (queryParams.s === 'all') {
         this.displayAll = true;
-      else this.displayAll = false;
+      } else { this.displayAll = false; }
 
       this.LoadFindResult();
     });

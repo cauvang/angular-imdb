@@ -7,22 +7,22 @@ import { MovieHomeComponent } from './movie-home/movie-home.component';
 import { MovieTheatreComponent } from './movie-theatre/movie-theatre.component';
 import { MovieComingSoonComponent } from './movie-coming-soon/movie-coming-soon.component';
 import { SharedModule } from '../shared/shared.module';
+import { ShowtimesModule } from '../showtimes/showtimes.module';
 
 
 @NgModule({
     declarations: [
         MovieHomeComponent,
         MovieTheatreComponent,
-        MovieComingSoonComponent
+        MovieComingSoonComponent,
     ],
     imports: [
         AppRoutingModule,
         CommonModule,
         CoreModule,
         SharedModule,
+        ShowtimesModule
     ],
-    exports: [
 
-    ],
 })
 export class MoviesModule { }

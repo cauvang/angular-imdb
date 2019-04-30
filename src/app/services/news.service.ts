@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IGetNewsResponse, iNewsDetail } from '../models/news';
+import { IGetNewsResponse, INewsDetail } from '../models/news';
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
 
@@ -33,8 +33,8 @@ export class NewsService {
     return this.http.get<IGetNewsResponse>(this.newsURL + newsType);
   }
 
-  public getNewsDetail(id: string): Observable<iNewsDetail> {
-    return this.http.get<iNewsDetail>(this.newsURL +  id);
+  public getNewsDetail(id: string): Observable<INewsDetail> {
+    return this.http.get<INewsDetail>(this.newsURL + id);
   }
 
 }

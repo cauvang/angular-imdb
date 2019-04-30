@@ -25,16 +25,15 @@ import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
 import { PagingNumberComponent } from './photos/paging-number/paging-number.component';
 import { FindHomeComponent } from './find/find-home/find-home.component';
 import { FindAbbComponent } from './find/find-abb/find-abb.component';
-import { TitlePlotsummaryComponent } from './titles/title-plotsummary/title-plotsummary.component';
-import { TitleHomeComponent } from './titles/title-home/title-home.component';
 import { NameBioComponent } from './name/name-bio/name-bio.component';
 import { NameMediaIndexComponent } from './name/name-media-index/name-media-index.component';
+import { TitlesModule } from './titles/titles.module';
+import { TitlesService } from './services/titles.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrailersComponent,
-    TitleHomeComponent,
     CalendarComponent,
     ChartTopRatedComponent,
     NameHomeComponent,
@@ -42,7 +41,6 @@ import { NameMediaIndexComponent } from './name/name-media-index/name-media-inde
     PagingNumberComponent,
     FindHomeComponent,
     FindAbbComponent,
-    TitlePlotsummaryComponent,
     NameBioComponent,
     NameMediaIndexComponent,
   ],
@@ -57,9 +55,10 @@ import { NameMediaIndexComponent } from './name/name-media-index/name-media-inde
     MoviesModule,
     ShowtimesModule,
     SearchModule,
-    GenreModule
+    GenreModule,
+    TitlesModule
   ],
-  providers: [HomePageService, NewsService, MoviesService, ShowtimesService,
+  providers: [HomePageService, NewsService, MoviesService, ShowtimesService, TitlesService,
     { provide: APP_CONFIG, useValue: APP_CONFIG_VALUE }
   ],
   bootstrap: [AppComponent]

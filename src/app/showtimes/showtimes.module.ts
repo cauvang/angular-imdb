@@ -18,6 +18,7 @@ import { SetLocationComponent } from './set-location/set-location.component';
 import { ImagePopoverComponent } from './image-popover/image-popover.component';
 import { WeekdaySelectComponent } from './weekday-select/weekday-select.component';
 import { MatSelectModule } from '@angular/material/select';
+import { FavouriteComponent } from './favourite/favourite.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
         SetLocationComponent,
         ImagePopoverComponent,
         WeekdaySelectComponent,
-
+        FavouriteComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -42,11 +43,8 @@ import { MatSelectModule } from '@angular/material/select';
         CoreModule,
         SharedModule,
         MatSelectModule,
-
     ],
-    exports: [
 
-    ],
 
 })
 export class ShowtimesModule { }

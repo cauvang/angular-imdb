@@ -3,8 +3,8 @@
     <div class="title-header">
       <ul class="title-nav">
         <li>FULL CAST AND CREW</li>
-        <li> TRIVIA</li>
-        <li> USER REVIEWS </li>
+        <li>TRIVIA</li>
+        <li>USER REVIEWS </li>
         <li>IMDbPro </li>
         <li *ngIf="toggleMegaMenu === false">
           <a (click)="toggleMenuClick()">MORE <i class="fas fa-angle-double-down ml-1"></i></a>
@@ -12,7 +12,7 @@
         <li *ngIf="toggleMegaMenu === true">
           <a (click)="toggleMenuClick()">LESS <i class="fas fa-angle-double-up ml-1"></i></a>
         </li>
-
+        <li>SHARE </li>
       </ul>
       <div class="title-nav-mega row" *ngIf="toggleMegaMenu === true">
         <div class="col-md-3">
@@ -74,18 +74,48 @@
           </ul>
         </div>
       </div>
-      <div class="title-info">
 
-        <a class="watchlist-button"><img src="../../../assets/add-to-watchlist.png" /></a>
-        <div>
-          <h1 class="title-title">Title</h1> <span class="title-year">(2018)</span>
+      <div class="row title-info" *ngIf="data">
+        <div class="col-1">
+          <img title="Click to add to watchlist" class="wish-list" src="../../../assets/add-to-watchlist.png" />
+        </div>
+        <div class="col-5">
+          <h1>{{data.name}}</h1>
+          <span class="title-year"><a class="color-white" href="/year/{{data.year}}">({{data.year}})</a></span>
           <ul class="sub-list">
-            <li>R</li>
-            <li>2h</li>
-            <li>Action, Drama, Comedy</li>
-            <li>12 April 2019 (USA)</li>
+            <li>{{data.contentRating}}</li>
+            <li>{{data.length}}</li>
+            <li>{{data.generes}}</li>
+            <li>{{data.datePublished}}</li>
           </ul>
         </div>
+        <div class="col-6 font11 rating-wrapper d-flex flex-row align-items-top">
+          <div class="d-flex flex-row imdbRating ">
+            <i class="fas fa-star  color-gold"></i>
+            <div>
+              <span class="rating-value">{{data.ratingValue}}</span>
+              <span>/10</span>
+              <div>
+                <a class="color-white" href="/title/{{data.id}}/ratings">{{data.ratingCount|valueFormat}}</a>
+              </div>
+            </div>
+          </div>
+          <span class="vertical-align">|</span>
+          <div>
+            <i class="far fa-star "></i>
+            <span class="font15 pt-2">Rate This</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row bk-black" *ngIf="data">
+      <div class="col-4">
+        <img title="{{data.image.title}}" src="{{data.image.url}}">
+      </div>
+      <div class="col-8">
+        <app-video-image [imageUrl]="data.trailer.image.url" [imageTitle]="data.trailer.image.title"
+          [caption]="this.caption"></app-video-image>
       </div>
     </div>
   </div>

@@ -1,8 +1,8 @@
 import { IImage } from './article';
 export interface IGenre {
-    image: IImage,
+    image: IImage;
     url: string;
-    title: string
+    title: string;
 }
 export interface IGenreResponse {
     genres: IGenre[];

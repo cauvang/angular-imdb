@@ -10,28 +10,29 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   private qParam: string;
   private sParam: string;
-  private findSelected = "All";
+  private findSelected = 'All';
 
   private todayBirthdayQueryParams: {
     birth_monthday: string;
     refine: string;
-  }
+  };
 
   constructor(private router: Router) {
     this.todayBirthdayQueryParams = {
-      birth_monthday: moment().format("MM-DD"),
-      refine: "birth_monthday"
-    }
+      birth_monthday: moment().format('MM-DD'),
+      refine: 'birth_monthday'
+    };
 
-    this.sParam = "all";
+    this.sParam = 'all';
   }
 
   ngOnInit() {
   }
 
   onFindClick() {
-    if (this.qParam)
-      this.router.navigateByUrl("/find?q=" + this.qParam + "&s=" + this.sParam);
+    if (this.qParam) {
+      this.router.navigateByUrl('/find?q=' + this.qParam + '&s=' + this.sParam);
+    }
 
   }
 

@@ -11,8 +11,8 @@
         <li *ngFor="let item of data.generes" class="pr-1 splitVertical">{{item}} </li>
       </ul>
     </div>
-    <div *ngIf="data.ratingValue" class="rounded">
-      <app-ratings [data]="data.ratingValue"></app-ratings>
+    <div *ngIf="data.rating" class="rounded">
+      <app-ratings [data]="data.rating"></app-ratings>
     </div>
     <div class="m-2 d-block" *ngIf="data.metascore!=''">
       <span class="d-inline metascore-green"> {{data.metascore}}</span>

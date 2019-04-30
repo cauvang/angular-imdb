@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ISearchName } from 'src/app/models/search';
 
 @Component({
-  selector: 'app-search-item-name',
-  templateUrl: './search-item-name.component.html',
-  styleUrls: ['./search-item-name.component.scss']
+  selector: 'app-search-name-item',
+  templateUrl: './search-name-item.component.html',
+  styleUrls: ['./search-name-item.component.scss']
 })
-export class SearchItemNameComponent implements OnInit {
+export class SearchNameItemComponent implements OnInit {
   @Input() data: ISearchName[];
   @Input() start: number;
   @Input() searchType: string;

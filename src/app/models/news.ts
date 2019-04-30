@@ -21,7 +21,7 @@ export interface ISource {
     url: string;
 }
 
-export interface iNewsDetail {
+export interface INewsDetail {
     item: INews;
     similarNews: ISimilar[];
 }

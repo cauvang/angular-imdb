@@ -26,18 +26,19 @@ export class ChartTopRatedComponent implements OnInit {
   reloadData() {
     const url = document.location.href;
     let queryString = '';
-    if (url.indexOf('?'))
+    if (url.indexOf('?')) {
       queryString = url.split('?')[1];
+    }
 
     this.service.getCharts(this.chartType, queryString).subscribe((data) => { this.data = data; });
   }
 
   onNavigate(item) {
-    if (item.url.indexOf("/search/title") === 0)
+    if (item.url.indexOf('/search/title') === 0) {
       this.router.navigateByUrl(item.url);
-    else
+    } else {
       this.router.navigateByUrl('/search/title?genres=', item.genre);
-
+    }
     return false;
   }
 

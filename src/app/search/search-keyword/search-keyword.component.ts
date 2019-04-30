@@ -34,7 +34,7 @@ export class SearchKeywordComponent implements OnInit {
   }
 
   onRefineChange(queryParams) {
-    console.log("aa", queryParams)
+    console.log('aa', queryParams);
     this.router.navigate(
       [],
       {

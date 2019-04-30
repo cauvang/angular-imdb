@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { DropdownDirective } from './dropdown.directive';
@@ -15,7 +15,6 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
 import { ShowtimeMovieNearComponent } from './showtime-movie-near/showtime-movie-near.component';
 import { ShowtimeTheaterNearComponent } from './showtime-theater-near/showtime-theater-near.component';
 import { RatingsComponent } from './ratings/ratings.component';
-import { FavouriteComponent } from './favourite/favourite.component';
 import { QueryStringPipe } from './query-string.pipe';
 import { CurrencyFormatPipe } from './currency-format.pipe';
 import { SortDropdownComponent } from './sort-dropdown/sort-dropdown.component';
@@ -44,7 +43,6 @@ import { ValueFormatPipe } from './value-format.pipe';
     ShowtimeMovieNearComponent,
     ShowtimeTheaterNearComponent,
     RatingsComponent,
-    FavouriteComponent,
     QueryStringPipe,
     CurrencyFormatPipe,
     OverlayImageComponent,
@@ -64,7 +62,6 @@ import { ValueFormatPipe } from './value-format.pipe';
     MovieItemComponent,
     ShowtimeMovieNearComponent,
     ShowtimeTheaterNearComponent,
-    FavouriteComponent,
     QueryStringPipe,
     CurrencyFormatPipe,
     RatingsComponent,

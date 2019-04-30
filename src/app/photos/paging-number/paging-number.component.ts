@@ -18,6 +18,6 @@ export class PagingNumberComponent implements OnInit {
   getQuery(page: number) {
     return {
       ...this.extraParams, page
-    }
+    };
   }
 }

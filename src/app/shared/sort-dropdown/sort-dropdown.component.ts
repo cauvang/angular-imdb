@@ -7,108 +7,108 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class SortDropdownComponent implements OnInit {
   private dataset = {
-    "movie": [
+    'movie': [
       {
-        name: "Popularity",
-        value: "moviemeter"
+        name: 'Popularity',
+        value: 'moviemeter'
       },
       {
-        name: "Alphabetical",
-        value: "alpha"
+        name: 'Alphabetical',
+        value: 'alpha'
       },
       {
-        name: "IMDb Rating",
-        value: "user_rating"
+        name: 'IMDb Rating',
+        value: 'user_rating'
       },
       {
-        name: "Release Date",
-        value: "release_date"
+        name: 'Release Date',
+        value: 'release_date'
       },
       {
-        name: "Runtime",
-        value: "runtime"
+        name: 'Runtime',
+        value: 'runtime'
       }
     ],
-    "cinema": [
+    'cinema': [
       {
-        name: "Popularity",
-        value: "movieMeter"
+        name: 'Popularity',
+        value: 'movieMeter'
       },
       {
-        name: "Title",
-        value: "title"
+        name: 'Title',
+        value: 'title'
       },
       {
-        name: "User Rating",
-        value: "userRating"
+        name: 'User Rating',
+        value: 'userRating'
       },
       {
-        name: "Release Date",
-        value: "releaseDate"
+        name: 'Release Date',
+        value: 'releaseDate'
       },
       {
-        name: "Runtime",
-        value: "runtime"
+        name: 'Runtime',
+        value: 'runtime'
       }
     ],
-    "top-rated": [
+    'top-rated': [
       {
-        name: "Ranking",
-        value: "rk"
+        name: 'Ranking',
+        value: 'rk'
       },
       {
-        name: "IMDb Rating",
-        value: "ir"
+        name: 'IMDb Rating',
+        value: 'ir'
       },
       {
-        name: "Release Date",
-        value: "us"
+        name: 'Release Date',
+        value: 'us'
       },
       {
-        name: "Number of Ratings",
-        value: "nv"
+        name: 'Number of Ratings',
+        value: 'nv'
       },
       {
-        name: "Your Rating",
-        value: "ur"
+        name: 'Your Rating',
+        value: 'ur'
       }
     ],
-    "search": [
+    'search': [
       {
-        name: "Popularity",
-        value: "moviemeter"
+        name: 'Popularity',
+        value: 'moviemeter'
       },
       {
-        name: "Alphabetical",
-        value: "alpha"
+        name: 'Alphabetical',
+        value: 'alpha'
       },
       {
-        name: "IMDb Rating",
-        value: "user_rating"
+        name: 'IMDb Rating',
+        value: 'user_rating'
       },
       {
-        name: "Number of Votes",
-        value: "num_votes"
+        name: 'Number of Votes',
+        value: 'num_votes'
       },
       {
-        name: "Release Date",
-        value: "release_date"
+        name: 'Release Date',
+        value: 'release_date'
       },
       {
-        name: "Runtime",
-        value: "runtime"
+        name: 'Runtime',
+        value: 'runtime'
       },
       {
-        name: "Year",
-        value: "year"
+        name: 'Year',
+        value: 'year'
       },
     ]
   };
   @Output() sortChange = new EventEmitter();
   @Input() datasetType: string;
 
-  sortBy = "moviemeter";
-  sortDirection: string = "asc";
+  sortBy = 'moviemeter';
+  sortDirection = 'asc';
   sortDirectionTitle: string;
   data: [];
 
@@ -126,22 +126,22 @@ export class SortDropdownComponent implements OnInit {
   }
 
   onSortDirectionClick() {
-    if (this.sortDirection === "asc") {
-      this.sortDirection = "desc";
-      this.sortDirectionTitle = "Descending order";
-    }
-    else {
-      this.sortDirection = "asc";
-      this.sortDirectionTitle = "Ascending order";
+    if (this.sortDirection === 'asc') {
+      this.sortDirection = 'desc';
+      this.sortDirectionTitle = 'Descending order';
+    } else {
+      this.sortDirection = 'asc';
+      this.sortDirectionTitle = 'Ascending order';
     }
     this.sortByType();
   }
 
   private sortByType() {
-    if (this.datasetType === "movie" || this.datasetType === "top-rated" || this.datasetType === "search")
+    if (this.datasetType === 'movie' || this.datasetType === 'top-rated' || this.datasetType === 'search') {
       this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
-    else if (this.datasetType === "cinema")
+    } else if (this.datasetType === 'cinema') {
       this.sortChange.emit({ sort: this.sortBy, dir: this.sortDirection });
+         }
 
   }
 }

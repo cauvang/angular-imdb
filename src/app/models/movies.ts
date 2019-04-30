@@ -1,4 +1,5 @@
 import { IImage } from './article';
+import { ITrailer } from './trailer';
 
 export interface IGetMovieResponse {
     name: string;
@@ -10,11 +11,11 @@ export interface IMovie {
     description: string;
     poster: IImage;
     certImage: IImage;
-    generes: string[];
+    genere: string[];
     directors: IPerson[];
     stars: IPerson[];
     length: string;
-    trailer: IId;
+    trailer: ITrailer;
     metascore: string;
     id: string;
     certRating: string;
@@ -28,6 +29,8 @@ export interface IMovie {
     showtimes3D: string[];
     year: string;
     role: string;
+
+
 }
 
 export interface IPerson {
@@ -37,8 +40,6 @@ export interface IPerson {
     image: IImage;
 }
 
-export interface IId {
-    id: string;
-}
+
 
 

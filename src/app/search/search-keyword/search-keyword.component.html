@@ -8,13 +8,13 @@
       </app-refinement>
       <div class="d-flex">
         <div class="flex-grow-1">
-          <app-paging [start]="data.fromCount" [end]="data.toCount" [totalItems]="data.totalDisplay"
+          <app-paging [start]="data.fromCount" [end]="data.toCount" [totalItems]="data.totalCount"
             [prevPage]="data.prevPage" [nextPage]="data.nextPage"></app-paging>
         </div>
         <app-sort-dropdown datasetType="search" (sortChange)="onSortChange($event)"></app-sort-dropdown>
       </div>
 
-      <app-search-item [data]="data.items" [start]="data.fromCount" searchType="title"></app-search-item>
+      <app-search-title-item [data]="data.items" [start]="data.fromCount" searchType="title"></app-search-title-item>
 
       <app-paging [start]="data.fromCount" [end]="data.toCount" [totalItems]="data.totalDisplay"
         [prevPage]="data.prevPage" [nextPage]="data.nextPage"></app-paging>

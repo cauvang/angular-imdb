@@ -47,7 +47,7 @@ export interface IAddress {
     address: string;
 }
 
-export interface ITitle {
+export interface IShowtimeTitle {
     item: IMovie;
     items: IGroup[];
 }

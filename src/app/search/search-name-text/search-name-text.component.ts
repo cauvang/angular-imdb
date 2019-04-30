@@ -19,7 +19,7 @@ export class SearchNameTextComponent implements OnInit {
 
   constructor(private service: SearchService, private route: ActivatedRoute, private router: Router) {
     this.searchType = this.router.routerState.snapshot.url.split('?')[1];
-    this.route.queryParams.subscribe(params => { this.loadSearch(); })
+    this.route.queryParams.subscribe(params => { this.loadSearch(); });
   }
 
   ngOnInit() {

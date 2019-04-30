@@ -13,7 +13,7 @@ export class PagingComponent implements OnInit {
   @Input() prevPage: string;
   @Input() nextPage: string;
   @Input() totalItems: number;
-  private type = "";
+  private type = '';
 
   constructor(private router: Router) {
     this.type = this.router.routerState.snapshot.url.split('?')[0];

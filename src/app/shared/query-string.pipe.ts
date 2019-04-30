@@ -3,7 +3,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 @Pipe({name: 'toQueryObject'})
 export class QueryStringPipe implements PipeTransform {
 
-  transform(value : string, args?: any) : any {
+  transform(value: string, args?: any): any {
     const splitArr = value
       .split('?')[1]
       .split('&');
