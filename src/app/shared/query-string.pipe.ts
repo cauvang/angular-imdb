@@ -1,6 +1,6 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'toQueryObject'})
+@Pipe({ name: 'toQueryObject' })
 export class QueryStringPipe implements PipeTransform {
 
   transform(value: string, args?: any): any {

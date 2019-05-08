@@ -56,8 +56,7 @@
                   <input type="text" class="form-control" [(ngModel)]="fromVote">
                   <span class="p-2">to </span>
                   <input type="text" class="form-control" [(ngModel)]="toVote">
-                  <label title="Search" class="ml-2 btn-search" (click)="onVoteSearch()"> <i
-                      class="fas fa-angle-double-right"></i> </label>
+                  <label title="Search" class="ml-2 btn-search" (click)="onVoteSearch()"> » </label>
                 </div>
               </div>
               <div class="pl-3" #releaseBlock *ngIf="item.searchKey==='release_date';else finallyBlock">
@@ -66,8 +65,7 @@
                   <input type="text" class="form-control" [(ngModel)]="fromRange">
                   <span class="p-2">to </span>
                   <input type="text" class="form-control" [(ngModel)]="toRange">
-                  <label title="Search" class=" p-1 ml-2 btn-search border" (click)="onRangeSearch()"> <i
-                      class="fas fa-angle-double-right"></i> </label>
+                  <label title="Search" class=" p-1 ml-2 btn-search border" (click)="onRangeSearch()"> » </label>
                 </div>
               </div>
               <div #finallyBlock *ngFor="let value of item.values" style="width: 50%">

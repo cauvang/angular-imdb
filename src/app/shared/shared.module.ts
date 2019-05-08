@@ -21,6 +21,7 @@ import { SortDropdownComponent } from './sort-dropdown/sort-dropdown.component';
 import { OverlayImageComponent } from './overlay-image/overlay-image.component';
 import { RefinementComponent } from './refinement/refinement.component';
 import { ValueFormatPipe } from './value-format.pipe';
+import { StringDisplayComponent } from './string-display/string-display.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { ValueFormatPipe } from './value-format.pipe';
     OverlayImageComponent,
     RefinementComponent,
     ValueFormatPipe,
+    StringDisplayComponent,
 
 
   ],
@@ -67,8 +69,8 @@ import { ValueFormatPipe } from './value-format.pipe';
     RatingsComponent,
     OverlayImageComponent,
     RefinementComponent,
-    ValueFormatPipe
-
+    ValueFormatPipe,
+    StringDisplayComponent,
   ]
 })
 export class SharedModule { }

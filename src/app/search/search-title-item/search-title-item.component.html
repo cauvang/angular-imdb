@@ -32,19 +32,13 @@
       <div class="mt-1" innerHTML="{{item.shortDescription}}"></div>
       <div class="mt-1">
         <div *ngIf="item.directors.length!=0" class="float-left">
-          <span class="float-left">Directors:</span>
-          <ul class="ml-2 float-left">
-            <li *ngFor="let director of item.directors" class="splitComma"><a class="font-weight-bold"
-                routerLink="/name/{{director.id}}">{{director.name}}</a></li>
-          </ul>
+          <app-string-display title="Directors" [data]="item.directors" splitType="splitComma" stringName="name">
+          </app-string-display>
           <span class="ml-2 mr-2">|</span>
         </div>
         <div *ngIf="item.actors">
-          <span class="float-left mr-2"> Stars:</span>
-          <ul class="ml-2">
-            <li *ngFor="let star of item.actors" class="splitComma"><a class="font-weight-bold"
-                routerLink="/name/{{star.id}}">{{star.name}}</a></li>
-          </ul>
+          <app-string-display title="Stars" [data]="item.actors" splitType="splitComma" stringName="name">
+          </app-string-display>
         </div>
       </div>
       <div class="mt-1">
@@ -62,7 +56,7 @@
       <div class="border-bottom pt-2 pb-2" *ngFor="let content of item.resultContent">
         <span>{{content}}</span>
       </div>
-      <a routerLink="/title/{{item.id}}/plotsummary">See All <i class="fas fa-angle-double-right ml-2"></i></a>
+      <a routerLink="/title/{{item.id}}/plotsummary">See All »</a>
     </span>
   </div>
 </div>

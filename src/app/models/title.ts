@@ -5,13 +5,14 @@ import { IVideo } from './name';
 import { ITrailer } from './trailer';
 
 export interface ITitle extends IMovie {
-    genres: string;
+    genres: string[];
+    genre: string;
     contentRating: string;
     trailer: ITrailer;
     datePublished: string;
     storyline: string;
     plotAuthor: string;
-    keywords: string;
+    keywords: string[];
     quotes: string;
     trivia: string;
     goofs: string;
@@ -24,18 +25,17 @@ export interface ITitle extends IMovie {
     popularity: string;
     popularityVelocity: number;
     velocityDown: boolean;
-    videoCounts: string;
-    imageCounts: string;
+    videoCounts: number;
+    imageCounts: number;
     awards: string;
     creators: IPerson[];
     topReview: IReview;
     videos: IVideo;
-    images: IImage[]; //
     casts: ICast[];
     relatedNews: INews[];
-    editorialList: ICast[];
-    userList: ICast[];
-    userPolls: ICast[];
+    editorialList: IUser[];
+    userList: IUser[];
+    userPolls: IPerson[];
     featuredList: IArticle;
 }
 
@@ -48,11 +48,15 @@ export interface IReview {
     // reviewRating //worstRating bestRating ratingValue
 }
 
-export interface ICast {
-    image: IImage;
-    name: string;
-    id: string;
+export interface ICast extends IPerson {
+    character: ICharacter[];
+}
+
+export interface ICharacter {
     characterName: string;
     characterId: string;
+}
+
+export interface IUser extends IPerson {
     meta: string;
 }

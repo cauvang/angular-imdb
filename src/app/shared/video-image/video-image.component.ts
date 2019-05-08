@@ -12,8 +12,7 @@ export class VideoImageComponent implements OnInit {
 
   @Input() imageUrl: string;
   @Input() imageTitle: string;
-  @Input() caption: {};// = "85 VIDEOS";
-  // @Input() imageCounts = "441 IMAGES";
+  @Input() caption: {};
 
   constructor() {
     this.playIcon = this.iconVideo;

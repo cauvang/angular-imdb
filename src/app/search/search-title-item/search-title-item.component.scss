@@ -10,19 +10,6 @@
   }
 }
 
-ul {
-  list-style-type: none;
-
-  & li {
-    display: inline;
-
-
-    &:last-child::after {
-      content: '';
-    }
-  }
-}
-
 .image {
   width: 67px;
   height: 98px;

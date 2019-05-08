@@ -138,6 +138,13 @@ dir {
   }
 }
 
+.splitSlash {
+  &::after {
+    content: '/';
+    padding: 0px 3px;
+  }
+}
+
 .metascore {
   padding: 1px 4px;
   color: #fff;

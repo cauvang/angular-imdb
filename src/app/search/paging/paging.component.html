@@ -3,7 +3,7 @@
   <span *ngIf="start!==null">{{start}}-{{end}} of {{totalItems|valueFormat}} titles</span>
 
   <span *ngIf="prevPage"> | <a routerLink="{{type}}" [queryParams]="prevPage|toQueryObject">
-      <i class="fas fa-angle-double-left"></i> Prev </a> </span>
+      « Prev </a> </span>
   <span *ngIf="nextPage"> | <a routerLink="{{type}}" [queryParams]="nextPage|toQueryObject">
-      Next <i class="fas fa-angle-double-right"></i></a> </span>
+      Next »</a> </span>
 </div>

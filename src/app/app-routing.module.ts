@@ -30,6 +30,10 @@ import { TitlePlotsummaryComponent } from './titles/title-plotsummary/title-plot
 import { SearchNameTextComponent } from './search/search-name-text/search-name-text.component';
 import { NameBioComponent } from './name/name-bio/name-bio.component';
 import { NameMediaIndexComponent } from './name/name-media-index/name-media-index.component';
+import { TitleCreditsComponent } from './titles/title-credits/title-credits.component';
+import { TitleReviewComponent } from './titles/title-review/title-review.component';
+import { TitleExternalReviewComponent } from './titles/title-external-review/title-external-review.component';
+import { TitleCriticReviewComponent } from './titles/title-critic-review/title-critic-review.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -64,11 +68,14 @@ const routes: Routes = [
   },
   { path: 'showtimes/cinema/:id', component: ShowtimeCinemaComponent },
   { path: 'showtimes/cinema/:id/:country/:zipcode', component: ShowtimeCinemaComponent },
-
   { path: 'showtimes/cinema/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
 
   {
     path: 'title/:id', component: TitleHomeComponent, children: [
+      { path: 'fullcredits', component: TitleCreditsComponent },
+      { path: 'criticreviews', component: TitleCriticReviewComponent },
+      { path: 'reviews', component: TitleReviewComponent },
+      { path: 'externalreviews', component: TitleExternalReviewComponent },
       { path: 'plotsummary', component: TitlePlotsummaryComponent },
     ]
   },

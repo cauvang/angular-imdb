@@ -1,0 +1,16 @@
+<span *ngIf="title" class="font-weight-bold color-grey">{{title}}:</span>
+
+<ul class="d-inline font13">
+  <li *ngFor="let item of data" class="{{splitType}} pl-1">
+    <a *ngIf="stringName==='name'" routerLink="/name/{{item.id}}"> {{item.name}} </a>
+    <span *ngIf="stringName==='generes'" class="pl-1">{{item}}</span>
+
+    <a *ngIf="stringName==='character' && item.characterId!=null"
+      routerLink="{{routerLink}}/characters/{{item.characterId}}">
+      {{item.characterName}}</a>
+    <span *ngIf="stringName==='character' && item.characterId===null"> {{item.characterName}}</span>
+
+    <a *ngIf="stringName===undefined" routerLink="{{routerLink}}" [queryParams]="getParam(item)">
+      {{item}} </a>
+  </li>
+</ul>

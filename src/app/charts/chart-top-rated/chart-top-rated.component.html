@@ -35,7 +35,7 @@
     <div class="row color-grey font-weight-bold mt-2 table-row" *ngFor="let item of data.items;let i=index"
       [ngClass]="{'bk-grey': i%2===0, 'bk-white': i%2 ===1}">
       <ng-container *ngIf="data.title ==='Top Box Office (US)'; else elseTemplate">
-        <div class="rank" routerLink="/title/{{item.id}}" class="col-md-5">
+        <div class="col-md-5 rank" routerLink="/title/{{item.id}}">
           <img src="{{item.image.url}}">
           <a class="ml-2 " routerLink="/title/{{item.id}}">{{item.name}}</a>
         </div>
@@ -81,7 +81,6 @@
           <i class="far fa-star"></i>
         </div>
       </ng-template>
-
 
       <div class="col-md-1 content-center">
         <img title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png">

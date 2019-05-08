@@ -3,13 +3,15 @@
     <img src="{{data.poster.url}}" title="{{data.poster.title}}">
   </div>
   <div class="col-9 font11">
-    <h4><a href="#">{{data.name}}</a></h4>
+    <h4><a routerLink="/title/{{data.id}}">{{data.name}}</a></h4>
+    <!-- href -->
     <div class="m-2" *ngIf="data.certImage">
       <img class="d-inline" src="{{data.certImage.url}}">
       <div class="d-inline"> {{data.length}} - </div>
-      <ul class="d-inline " *ngIf="data.generes">
-        <li *ngFor="let item of data.generes" class="pr-1 splitVertical">{{item}} </li>
-      </ul>
+      <div *ngIf="data.generes">
+        <app-string-display [data]="data.generes" splitType="splitVertical" stringName="generes"></app-string-display>
+      </div>
+
     </div>
     <div *ngIf="data.rating" class="rounded">
       <app-ratings [data]="data.rating"></app-ratings>
@@ -20,23 +22,14 @@
     </div>
     <div innerHTML="{{data.description}}"></div>
     <div *ngIf="data.directors">
-      <span class="font-weight-bold d-inline-flex" *ngIf="data.directors.length>1 ;else elseBlock">Directors:</span>
-      <ng-template #elseBlock>
-        <span class="font-weight-bold">Director:</span>
-      </ng-template>
-      <ul class="d-inline-flex pl-2">
-        <li *ngFor="let item of data.directors" class="splitVertical">
-          <a href="#" class="pl-1 "> {{item.name}} </a>
-        </li>
-      </ul>
+      <app-string-display *ngIf="data.directors.length>1" title="Directors" [data]="data.directors"
+        splitType="splitVertical" stringName="name"></app-string-display>
+      <app-string-display *ngIf="data.directors.length===1" title="Director" [data]="data.directors"
+        splitType="splitVertical" stringName="name"> </app-string-display>
     </div>
     <div *ngIf="data.stars">
-      <span class="font-weight-bold d-inline-flex">Stars: </span>
-      <ul class="d-inline-flex pl-2">
-        <li *ngFor="let item of data.stars" class="splitComma">
-          <a href="#" class="pl-1 "> {{item.name}} </a>
-        </li>
-      </ul>
+      <app-string-display title="Stars" [data]="data.stars" splitType="splitComma" stringName="name">
+      </app-string-display>
     </div>
     <div *ngIf="boxOffice">
       <span class="font-weight-bold d-inline-flex">Stars: </span>
