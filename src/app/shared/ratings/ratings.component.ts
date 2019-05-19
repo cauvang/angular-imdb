@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { RatingModule } from "ngx-rating";
 
 @Component({
   selector: 'app-ratings',
@@ -6,9 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./ratings.component.scss']
 })
 export class RatingsComponent implements OnInit {
-  @Input() data: number;
 
-  constructor() { }
+  @Input() starsCount: number;
+
+  constructor() {
+
+  }
 
   ngOnInit() {
   }

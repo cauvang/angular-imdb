@@ -2,15 +2,15 @@
   <div class="col-md-8 title-content border-right">
     <div class="row title-header">
       <ul class="title-nav">
-        <li><a routerLink="/title/{{data.id}}/fullcredits">FULL CAST AND CREW</a></li>
-        <li><a routerLink="/title/{{data.id}}/trivia">TRIVIA</a></li>
-        <li><a routerLink="/title/{{data.id}}/reviews">USER REVIEWS </a></li>
-        <li><a href="https://pro.imdb.com/title/{{data.id}}">IMDbPro </a></li>
+        <li><a class="color-white" routerLink="/title/{{data.id}}/fullcredits">FULL CAST AND CREW</a></li>
+        <li><a class="color-white" routerLink="/title/{{data.id}}/trivia">TRIVIA</a></li>
+        <li><a class="color-white" routerLink="/title/{{data.id}}/reviews">USER REVIEWS </a></li>
+        <li><a class="color-white" href="https://pro.imdb.com/title/{{data.id}}">IMDbPro </a></li>
         <li *ngIf="toggleMegaMenu === false">
-          <a (click)="toggleMenuClick()">MORE <i class="fas fa-angle-double-down ml-1"></i></a>
+          <a (click)="toggleMenuClick()">MORE <i class="color-grey fas fa-angle-double-down ml-1"></i></a>
         </li>
         <li *ngIf="toggleMegaMenu === true">
-          <a (click)="toggleMenuClick()">LESS <i class="fas fa-angle-double-up ml-1"></i></a>
+          <a (click)="toggleMenuClick()">LESS <i class="color-grey fas fa-angle-double-up ml-1"></i></a>
         </li>
         <li>SHARE </li>
       </ul>
@@ -18,59 +18,58 @@
         <div class="col-md-3">
           <h3>DETAILS</h3>
           <ul class="title-nav-mega-items">
-            <li><a routerLink="/title/{{data.id}}/fullcredits">Full Cast and Crew</a></li>
-            <li><a routerLink="/title/{{data.id}}/releaseinfo">Release Dates</a></li>
-            <li><a routerLink="/title/{{data.id}}/officialsites">Official Sites</a></li>
-            <li><a routerLink="/title/{{data.id}}/companycredits ">Company Credits</a></li>
-            <li><a routerLink="/title/{{data.id}}/locations">Filming & Production</a></li>
-            <li><a routerLink="/title/{{data.id}}/technical">Technical Specs</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/fullcredits">Full Cast and Crew</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/releaseinfo">Release Dates</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/officialsites">Official Sites</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/companycredits ">Company Credits</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/locations">Filming & Production</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/technical">Technical Specs</a></li>
 
           </ul>
         </div>
         <div class="col-md-3">
           <h3>STORYLINE</h3>
           <ul class="title-nav-mega-items">
-            <li><a routerLink="/title/{{data.id}}/taglines">Taglines</a></li>
-            <li><a routerLink="/title/{{data.id}}/plotsummary">Plot Summary</a></li>
-            <li class="disabled"><a routerLink="/title/{{data.id}}/synopsis">Synopsis</a></li>
-            <li><a routerLink="/title/{{data.id}}/keyword">Plot Keywords</a></li>
-            <li><a routerLink="/title/{{data.id}}/parentalguide">Parents Guide</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/taglines">Taglines</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/plotsummary">Plot Summary</a></li>
+            <li class="disabled"><a class="color-white" routerLink="/title/{{data.id}}/synopsis">Synopsis</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/keyword">Plot Keywords</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/parentalguide">Parents Guide</a></li>
 
           </ul>
           <h3 class=" mt-4">RELATED ITEMS</h3>
           <ul class="title-nav-mega-items">
-            <li><a routerLink="/title/{{data.id}}/news">News</a></li>
-            <li><a routerLink="/title/{{data.id}}/externalsites">External Sites</a></li>
-
+            <li><a class="color-white" routerLink="/title/{{data.id}}/news">News</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/externalsites">External Sites</a></li>
           </ul>
         </div>
         <div class="col-md-3">
           <h3>OPINION</h3>
           <ul class="title-nav-mega-items">
-            <li class="disabled"><a routerLink="/title/{{data.id}}/awards">Awards</a></li>
-            <li><a routerLink="/title/{{data.id}}/faq">FAQ</a></li>
-            <li><a routerLink="/title/{{data.id}}/reviews">User Reviews</a></li>
-            <li><a routerLink="/title/{{data.id}}/ratings">User Ratings</a></li>
-            <li><a routerLink="/title/{{data.id}}/externalreviews">External Reviews</a></li>
-            <li><a routerLink="/title/{{data.id}}/criticreviews">Metacritic Reviews</a></li>
+            <li class="disabled"><a class="color-white" routerLink="/title/{{data.id}}/awards">Awards</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/faq">FAQ</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/reviews">User Reviews</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/ratings">User Ratings</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/externalreviews">External Reviews</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/criticreviews">Metacritic Reviews</a></li>
           </ul>
           <h3 class="mt-4">PHOTO & VIDEO</h3>
           <ul class="title-nav-mega-items">
-            <li><a routerLink="/title/{{data.id}}/mediaindex">Photo Gallery</a></li>
-            <li><a routerLink="/title/{{data.id}}/videogallery">Trailers and Videos</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/mediaindex">Photo Gallery</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/videogallery">Trailers and Videos</a></li>
           </ul>
 
         </div>
         <div class="col-md-3">
           <h3>DID YOU KNOW?</h3>
           <ul class="title-nav-mega-items">
-            <li><a routerLink="/title/{{data.id}}/trivia">Trivia</a></li>
-            <li><a routerLink="/title/{{data.id}}/goofs">Goofs</a></li>
-            <li><a routerLink="/title/{{data.id}}/crazycredits">Crazy Credits</a></li>
-            <li><a routerLink="/title/{{data.id}}/quotes">Quotes</a></li>
-            <li><a routerLink="/title/{{data.id}}/alternateversions ">Alternate Versions</a></li>
-            <li><a routerLink="/title/{{data.id}}/movieconnections">Connections</a></li>
-            <li><a routerLink="/title/{{data.id}}/soundtrack">Soundtracks</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/trivia">Trivia</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/goofs">Goofs</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/crazycredits">Crazy Credits</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/quotes">Quotes</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/alternateversions ">Alternate Versions</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/movieconnections">Connections</a></li>
+            <li><a class="color-white" routerLink="/title/{{data.id}}/soundtrack">Soundtracks</a></li>
           </ul>
         </div>
       </div>
@@ -81,7 +80,8 @@
         </div>
         <div class="title-info-detail">
           <h1>{{data.name}}</h1>
-          <span class="title-year"><a class="color-white" href="/year/{{data.year}}">({{data.year}})</a></span>
+          <span class="title-year">
+            <a class="color-grey" href="/year/{{data.year}}">({{data.year}})</a></span>
         </div>
 
         <div class="rating-wrapper">
@@ -90,7 +90,7 @@
             <div>
               <span class="rating-value">{{data.ratingValue}}</span>
               <span>/10</span>
-              <div>
+              <div class="rating-count">
                 <a class="color-white font11" href="/title/{{data.id}}/ratings">{{data.ratingCount|valueFormat}}</a>
               </div>
             </div>
@@ -101,12 +101,14 @@
             <span class="font15 pt-2">Rate This</span>
           </div>
         </div>
-        <ul class="sub-list mt-3">
-          <li>{{data.contentRating}}</li>
-          <li>{{data.length}}</li>
-          <li>{{data.genre}}</li>
-          <li>{{data.datePublished}}</li>
-        </ul>
+        <div>
+          <ul class="sub-list mt-3">
+            <li>{{data.contentRating}}</li>
+            <li>{{data.length}}</li>
+            <li>{{data.genre}}</li>
+            <li>{{data.datePublished}}</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -142,7 +144,7 @@
         | <a routerLink="/title/{{data.id}}/fullcredits"> See full cast & crew »</a>
       </div>
       <div class="pl-3 w-100">
-        <button title="Click to add to watchlist" type="button " class="btn-watchlist" (click)="OnLoad()">+ Add to
+        <button title="Click to add to watchlist" class="btn-watchlist" (click)="OnLoad()">+ Add to
           Watchlist</button>
       </div>
       <div class="w-100 font13">
@@ -195,8 +197,9 @@
 
     <div class="row p-3">
       <h2>Videos</h2>
-      <div *ngFor="let item of data.videos">
-        <img src="{{item.poster.url}}">
+      <div class="ml-1 lr-1" *ngFor="let item of data.videos">
+        <a routerLink="/title/{{data.id}}/videoplayer/{{item.id}}">
+          <img src="{{item.poster.url}}"></a>
       </div>
       <div class="pt-3">
         <a routerLink="/title/{{data.id}}/videogallery"> See all {{data.videoCounts}} videos »</a>
@@ -206,7 +209,8 @@
     <div class="row p-3">
       <h2>Photos</h2>
       <div class="ml-1 lr-1" *ngFor="let item of data.images">
-        <img title="{{item.title}}" src="{{item.url}}">
+        <a routerLink="/title/{{data.id}}/mediaviewer/{{item.viewerId}}"><img title="{{item.title}}"
+            src="{{item.url}}"></a>
       </div>
       <div class="pt-3">
         <a routerLink="/title/{{data.id}}/mediaindex">See all {{data.imageCounts}} photos »</a>
@@ -215,6 +219,43 @@
 
     <div class="row p-3">
       <h2>More Like This</h2>
+      <div class="col-5">
+        <div><a *ngFor="let item of similarTitles" routerLink="/title/{{item.id}}">
+            <img class="title-img" src="{{item.image.url}}" title="{{item.image.title}}"
+              (mouseover)="onMouseOver(item)"></a>
+        </div>
+        <div class="text-center font13 mt-2">
+          <span class="pag pag-disabled mr-2" [ngClass]="{'pag-disabled': PrevDisabled}" (click)="onPrevPag()">◄ Prev
+            6</span>
+          <span class="pag" [ngClass]="{'pag-disabled': PrevDisabled===false}" (click)="onNextPag()">Next 6 ►</span>
+        </div>
+      </div>
+      <div class="col-7 selected-title" *ngIf="selectedTitle">
+        <div class="selected-title-image">
+          <div> <a routerLink="/title/{{selectedTitle.id}}"> <img src="{{selectedTitle.image.url}}"
+                title="{{selectedTitle.image.title}}"></a></div>
+          <div><button class="btn-watchlist">Add to Watchlist</button></div>
+          <div> <button class="btn-next" (click)="onNext()">Next »</button></div>
+        </div>
+        <div class="selected-title-body">
+          <div>
+            <a class="font-weight-bold" routerLink="/title/{{selectedTitle.id}}">{{selectedTitle.name}}</a>
+            <span class="color-grey">{{selectedTitle.year}}</span>
+          </div>
+          <div>
+            <span>{{data.contentRating}}</span>
+            <app-string-display splitType="splitVertical" [data]="selectedTitle.genres"> </app-string-display>
+          </div>
+          <app-ratings [starsCount]="selectedTitle.rateValue"></app-ratings>
+          <div class="mt-1">{{selectedTitle.description}}</div>
+          <br />
+          <app-string-display title="Directors" splitType="splitVertical" [data]="selectedTitle.directors">
+          </app-string-display>
+          <app-string-display title="Stars" splitType="splitVertical" [data]="selectedTitle.stars">
+          </app-string-display>
+
+        </div>
+      </div>
     </div>
 
     <div class="row p-3">
@@ -222,20 +263,7 @@
       <h2>Cast</h2>
       <div class="w-100">Cast overview, first billed only:</div>
 
-      <div class="row w-100 mt-2 " *ngFor="let item of data.casts;let i=index"
-        [ngClass]="{'bk-grey': i%2===0, 'bk-white': i%2 ===1}">
-        <div class="col-5">
-          <a routerLink="/name/{{item.id}}"><img title="{{item.image.title}}" src="{{item.image.url}}"></a>
-          <a class="ml-2 " routerLink="/name/{{item.id}}">{{item.name}}</a>
-        </div>
-        <div class="col-2 text-center align-self-center">
-          ...
-        </div>
-        <div class=" col-5 text-center align-self-center">
-          <app-string-display [data]="item.characters" splitType="splitSlash" stringName="character"
-            routerLink="/title/{{data.id}}"></app-string-display>
-        </div>
-      </div>
+      <app-casts class="w-100" [data]="data.casts"></app-casts>
       <div class="fullcast">
         <a routerLink="/title/{{data.id}}/fullcredits">See full cast »</a> </div>
       <div> <a routerLink="/title/{{data.id}}"> View production, box office, & company info on IMDbPro </a></div>
@@ -282,7 +310,7 @@
       </div>
     </div>
 
-    <div class="row  p-3" innerHTML="{{data.details}}"> </div>
+    <div class="row details p-3" innerHTML="{{data.details}}"> </div>
 
     <div class="row p-3">
       <span class="rightcornerlink"> <a href="/register/login">Edit</a></span>
@@ -291,47 +319,50 @@
         <span class="font-weight-bold color-grey">Trivia</span>
         <div innerHTML="{{data.trivia}}"></div>
       </div>
-      <div class="border-top pt-2 pb-2">
+      <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Goofs</span>
           <div innerHTML="{{data.goofs}}"></div>
         </div>
       </div>
-      <div class="border-top pt-2 pb-2">
+      <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Crazy Credits</span>
           <div innerHTML="{{data.crazyCredits}}"></div>
         </div>
       </div>
-      <div class="border-top pt-2 pb-2">
+      <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Alternate Versions</span>
-          <!-- <div innerHTML="{{data.goofs}}"></div> -->
+          <div innerHTML="{{data.alternativeVersions}}"></div>
         </div>
       </div>
-      <div class="border-top pt-2 pb-2">
+      <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Connections</span>
-          <div innerHTML=" {{data.connections}}"></div>
+          <div innerHTML="{{data.connections}}"></div>
         </div>
       </div>
-      <div class="border-top pt-2 pb-2">
+      <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Sound Tracks</span>
-          <div innerHTML=" {{data.soundtracks}}"></div>
+          <div innerHTML="{{data.soundtracks}}"></div>
         </div>
       </div>
-
-
     </div>
 
     <div class="row p-3">
       <h2>Frequently Asked Questions</h2>
-      <div *ngFor="let item of data.faqs;let i=index" [ngClass]="{'bk-grey': i%2===0,'bk-white':i%2==1}">
-        <span class="font-weight-bold mr-2">Q:</span>
-        <a routerLink="/title/{{data.id}}/faq?ref_=tt_faq_2#{{item.id}}">{{item.title}}</a>
+      <div *ngIf="data.faqs.length === 0;else elseBlock">
+        <a routerLink="/title/{{data.id}}/faq?ref_=tt_faq_sm">This FAQ is empty. Add the first question.</a>
       </div>
-      <div><a routerLink="/title/{{data.id}}/faq?ref_=tt_faq_sm">See more »</a></div>
+      <ng-template #elseBlock>
+        <div *ngFor="let item of data.faqs;let i=index" [ngClass]="{'bk-grey': i%2===0,'bk-white':i%2==1}">
+          <span class="font-weight-bold mr-2">Q:</span>
+          <a routerLink="/title/{{data.id}}/faq?ref_=tt_faq_2#{{item.id}}">{{item.title}}</a>
+        </div>
+        <div><a routerLink="/title/{{data.id}}/faq?ref_=tt_faq_sm">See more »</a></div>
+      </ng-template>
     </div>
 
     <div class="row p-3">
@@ -423,8 +454,8 @@
       <div> Want to share IMDb's rating on your own site? Use the HTML below.</div>
       <div>
         <i class="fas fa-angle-double-down"></i>
-        <a class="ml-1 mr-3" routerLink="/plugins?titleId={{data.id}}">Show HTML</a>
-        <a routerLink="/plugins?titleId={{data.id}}">View more styles</a>
+        <a class="ml-1 mr-3" routerLink="/plugins" [queryParams]="{titleId:data.id}">Show HTML</a>
+        <a routerLink="/plugins" [queryParams]="{titleId:data.id}">View more styles</a>
       </div>
     </div>
 

@@ -19,6 +19,7 @@ export interface ITitle extends IMovie {
     details: string;
     soundtracks: string;
     crazyCredits: string;
+    alternativeVersions: string;
     connections: string;
     userReviews: string;
     externalReviews: string;
@@ -31,16 +32,16 @@ export interface ITitle extends IMovie {
     creators: IPerson[];
     topReview: IReview;
     videos: IVideo;
-    casts: ICast[];
+    casts: IDetail[];
     relatedNews: INews[];
     editorialList: IUser[];
     userList: IUser[];
     userPolls: IPerson[];
     featuredList: IArticle;
+    similarTitles: ITitle[];
 }
 
 export interface IReview {
-    // itemReviewed.url
     dateCreated: string;
     inLanguage: string;
     name: string;
@@ -48,8 +49,13 @@ export interface IReview {
     // reviewRating //worstRating bestRating ratingValue
 }
 
-export interface ICast extends IPerson {
-    character: ICharacter[];
+export interface IDetail extends IPerson {
+    characters: ICharacter[];
+    //credit
+    credit: string;
+    //trivia
+    interestingCount: string;
+    text: string;
 }
 
 export interface ICharacter {
@@ -59,4 +65,27 @@ export interface ICharacter {
 
 export interface IUser extends IPerson {
     meta: string;
+}
+
+export interface ITitleDetail {
+    item: ITitle;
+    items: IDetailList[];
+}
+
+export interface IDetailList {
+    name: string;
+    items: IDetail[];
+}
+
+
+
+export interface IMenuList {
+    name: string;
+    items: IMenu[];
+}
+
+export interface IMenu {
+    name: string;
+    url: string;
+    noData: boolean;
 }

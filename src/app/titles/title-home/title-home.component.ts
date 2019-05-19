@@ -21,10 +21,14 @@ export class TitleHomeComponent implements OnInit {
     length: number
   };
   private today: string;
+  private similarTitles: ITitle[];
+  private selectedTitle: ITitle;
+  private PrevDisabled: boolean;
 
   constructor(private service: TitlesService, private route: ActivatedRoute) {
     this.route.params.subscribe((params: Params) => { this.id = params['id']; });
     this.today = moment().format("YYYY-MM-DD");
+    this.PrevDisabled = true;
   }
 
   ngOnInit() {
@@ -36,10 +40,41 @@ export class TitleHomeComponent implements OnInit {
         length: 1.06
       };
 
+      this.similarTitles = data.similarTitles.slice(0, 6);
+      this.selectedTitle = this.similarTitles[0];
     });
   }
 
   toggleMenuClick() {
     this.toggleMegaMenu = !this.toggleMegaMenu;
+  }
+
+  onPrevPag() {
+    this.PrevDisabled = true;
+    this.similarTitles = this.data.similarTitles.slice(0, 6);
+    this.selectedTitle = this.similarTitles[0];
+
+  }
+
+  onNextPag() {
+    this.PrevDisabled = false;
+    this.similarTitles = this.data.similarTitles.slice(6, 12);
+    this.selectedTitle = this.similarTitles[0];
+
+  }
+
+  onMouseOver(item: ITitle) {
+    this.selectedTitle = item;
+  }
+
+  onNext() {
+    const ind = this.similarTitles.indexOf(this.selectedTitle);
+    if (ind < 5)
+      this.selectedTitle = this.similarTitles[ind + 1];
+    else {
+      if (this.PrevDisabled) {
+        this.onNextPag();
+      }
+    }
   }
 }

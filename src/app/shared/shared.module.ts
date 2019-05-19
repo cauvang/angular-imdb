@@ -22,6 +22,7 @@ import { OverlayImageComponent } from './overlay-image/overlay-image.component';
 import { RefinementComponent } from './refinement/refinement.component';
 import { ValueFormatPipe } from './value-format.pipe';
 import { StringDisplayComponent } from './string-display/string-display.component';
+import { RatingModule } from 'ngx-rating';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { StringDisplayComponent } from './string-display/string-display.componen
     FormsModule,
     MatSelectModule,
     BrowserAnimationsModule,
-
+    RatingModule
   ],
   declarations: [
     DropdownDirective,

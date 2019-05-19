@@ -1,0 +1,36 @@
+.header {
+  & img {
+    height: 98px;
+    width: 67px;
+  }
+
+  & .title {
+    margin-left: 80px;
+    // font-size: 13px;
+
+    &-name {
+      font-size: 20px;
+    }
+
+    &-type {
+      font-size: 27px;
+    }
+  }
+
+  & .rightcornerlink {
+    position: absolute;
+    right: 25px;
+    padding-left: 5px;
+    font-size: 11px;
+  }
+}
+
+.selected {
+  color: black;
+  border: 1px grey solid;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}

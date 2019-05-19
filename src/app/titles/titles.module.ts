@@ -11,6 +11,10 @@ import { TitleCreditsComponent } from './title-credits/title-credits.component';
 import { TitleReviewComponent } from './title-review/title-review.component';
 import { TitleCriticReviewComponent } from './title-critic-review/title-critic-review.component';
 import { TitleExternalReviewComponent } from './title-external-review/title-external-review.component';
+import { TitleHomepageComponent } from './title-homepage/title-homepage.component';
+import { CastsComponent } from './casts/casts.component';
+import { SeeAlsoComponent } from './see-also/see-also.component';
+import { ContributeComponent } from './contribute/contribute.component';
 
 @NgModule({
     declarations: [
@@ -19,14 +23,17 @@ import { TitleExternalReviewComponent } from './title-external-review/title-exte
         TitleCreditsComponent,
         TitleReviewComponent,
         TitleCriticReviewComponent,
-        TitleExternalReviewComponent
+        TitleExternalReviewComponent,
+        TitleHomepageComponent,
+        CastsComponent,
+        SeeAlsoComponent,
+        ContributeComponent
     ],
     imports: [
         AppRoutingModule,
         CoreModule,
         CommonModule,
         FormsModule,
-
         SharedModule
     ],
     providers: [

@@ -34,6 +34,7 @@ import { TitleCreditsComponent } from './titles/title-credits/title-credits.comp
 import { TitleReviewComponent } from './titles/title-review/title-review.component';
 import { TitleExternalReviewComponent } from './titles/title-external-review/title-external-review.component';
 import { TitleCriticReviewComponent } from './titles/title-critic-review/title-critic-review.component';
+import { TitleHomepageComponent } from './titles/title-homepage/title-homepage.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -71,7 +72,8 @@ const routes: Routes = [
   { path: 'showtimes/cinema/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
 
   {
-    path: 'title/:id', component: TitleHomeComponent, children: [
+    path: 'title/:id', component: TitleHomepageComponent, children: [
+      { path: '', component: TitleHomeComponent },
       { path: 'fullcredits', component: TitleCreditsComponent },
       { path: 'criticreviews', component: TitleCriticReviewComponent },
       { path: 'reviews', component: TitleReviewComponent },
@@ -90,7 +92,6 @@ const routes: Routes = [
   { path: 'search/title-text', component: SearchTitleTextComponent },
   { path: 'search/name', component: SearchNameComponent },
   { path: 'search/name-text', component: SearchNameTextComponent },
-
   { path: 'search/keyword', component: SearchKeywordRoutingComponent },
 
 

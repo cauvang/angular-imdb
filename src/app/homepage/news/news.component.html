@@ -2,7 +2,7 @@
   integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 
-<div class="row mt-3 p-3 d-flex">
+<div class="row mt-2 p-3 d-flex">
   <h4 class="flex-grow-1">Top News</h4>
   <ul class="font-weight-bold">
     <li><a routerLink="/news/movie">Movie News</a></li>
@@ -11,12 +11,12 @@
   </ul>
 </div>
 
-<div class="row mt-3 p-3  border-bottom">
+<div class="row pl-3 border-bottom">
   <div *ngIf="topData!=null" class="font15 row">
     <div class="col-md-2">
       <img srcset="{{topData.image.url}}">
     </div>
-    <div class="col-md-10 ">
+    <div class="col-md-10">
       <a routerLink="{{'/news/detail/' + topData.id }}">{{topData.title}}</a>
       <div>{{topData.date}} | {{topData.source.name}}</div>
       <div class="overflow-hidden mt-2 news-content" innerHTML="{{topData.content}}"> </div>

@@ -1,0 +1,49 @@
+<app-title-home *ngIf="isTitleHome"></app-title-home>
+
+<div class="row" *ngIf="!isTitleHome && data">
+  <div class="col-8 p-3 ">
+    <div class="p-3 border rounded header">
+      <div class="mb-2">
+        <span class="rightcornerlink"> <a href="/register/login">Edit</a></span>
+        <a class="float-left mr-2" routerLink="/title/{{data.id}}"> <img src="{{data.image.url}}"></a>
+        <div class="title">
+          <div>
+            <a class="title-name" routerLink="/title/{{data.id}}">{{data.name}}</a>
+            <span class="color-grey ml-1">({{data.year}})</span>
+          </div>
+          <div class="title-type">{{titleType}}</div>
+          <div class="border rounded">
+            <a class="p-1 mt-2 mb-2" href="https://pro.imdb.com/title/{{id}}">See agents for this cast & crew on
+              IMDbPro
+            </a>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-see-also [data]="seeAlso"></app-see-also>
+    <app-contribute></app-contribute>
+
+  </div>
+
+  <div class="col-4 p-3">
+    <div class="p-3 border rounded bk-grey ">
+      <div class="p-3 font-weight-bold">
+        <a routerLink="/title/{{id}}"> {{data.name}}</a>
+      </div>
+      <div class="border-top p-2" *ngFor="let submenu of displayedMenu">
+        <div class="font-weight-bold">{{ submenu.name | titlecase}}</div>
+        <div *ngFor="let item of submenu.items">
+          <a routerLinkActive="selected" [routerLink]="item.url">{{item.name}}</a>
+        </div>
+      </div>
+      <button (click)="onExploreMore()" [ngClass]="{'hidden': !bHidden}" class="btn btn-link p-2 font-weight-bold"> <i
+          class="fas fa-angle-double-down mr-1"></i>Explore More</button>
+      <button (click)="onShowLess()" [ngClass]="{'hidden': bHidden}" class="btn btn-link p-2 font-weight-bold"> <i
+          class="fas fa-angle-double-up mr-1"></i>Show Less</button>
+
+    </div>
+
+  </div>
+</div>

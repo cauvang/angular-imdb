@@ -14,7 +14,7 @@
 
     </div>
     <div *ngIf="data.rating" class="rounded">
-      <app-ratings [data]="data.rating"></app-ratings>
+      <app-ratings [starsCount]="data.rating"></app-ratings>
     </div>
     <div class="m-2 d-block" *ngIf="data.metascore!=''">
       <span class="d-inline metascore-green"> {{data.metascore}}</span>

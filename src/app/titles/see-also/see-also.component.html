@@ -1,0 +1,9 @@
+<div class="mt-2 mb-2 p-3 border rounded">
+  <h2> See also</h2>
+  <ul>
+    <li *ngFor="let item of data" class="splitVertical pl-1">
+      <a class="font13" [routerLink]="item.url">{{item.name}}</a>
+
+    </li>
+  </ul>
+</div>

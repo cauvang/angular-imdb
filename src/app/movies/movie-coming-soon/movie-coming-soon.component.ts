@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IGetMovieResponse } from 'src/app/models/movies';
 import { MoviesService } from 'src/app/services/movies.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-coming-soon',
@@ -14,7 +14,7 @@ export class MovieComingSoonComponent implements OnInit {
   private movieType: string;
   private isLoading: boolean;
 
-  constructor(private service: MoviesService, private route: ActivatedRoute, private router: Router) {
+  constructor(private service: MoviesService, private router: Router) {
     this.isLoading = false;
   }
 

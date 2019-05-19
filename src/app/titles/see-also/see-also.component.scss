@@ -1,0 +1,20 @@
+h2 {
+  color: #664700;
+  font-size: 24px;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+li {
+  display: inline;
+
+  &:last-child::after {
+    // content: '';
+    display: none;
+  }
+}

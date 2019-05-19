@@ -1,3 +1,16 @@
-<p>
-  title-credits works!
-</p>
+<div *ngFor="let detailList of data">
+  <div class="header">
+    <h4 class="dataHeaderWithBorder">{{detailList.name}}</h4>
+    <div *ngIf="isCast(detailList.name);else elseBlock">
+      <app-casts class="w-100" [data]="detailList.items"></app-casts>
+    </div>
+    <ng-template #elseBlock>
+      <div class="row" *ngFor="let item of detailList.items">
+        <div class="col-3"> <a routerLink="/name/{{item.id}}">{{item.name}}</a></div>
+        <div class="col-2" *ngIf="item.credit">...</div>
+        <div class="col-7">{{item.credit}}</div>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

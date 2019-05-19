@@ -2,8 +2,7 @@
   &-content {
     border-right: 2px solid #999;
 
-    & h2,
-    h3 {
+    & h2 {
       width: 100%;
       font-size: 24px;
       padding-top: 15px;
@@ -37,13 +36,15 @@
     }
 
     &-mega {
-      padding-top: 30px;
+      padding-top: 15px;
       padding-bottom: 30px;
       background: #2A2A2A;
       margin-left: 0px;
+      width: 100%;
 
-      h3 {
-        font-size: 16px;
+      & h3 {
+        font-size: 13px;
+        font-weight: bold;
         color: #fff;
 
       }
@@ -77,13 +78,13 @@
     padding: 1rem;
 
     .wish-list {
-      width: 45px;
+      width: 38px;
       float: left;
 
     }
 
     &-detail {
-      width: 40%;
+      width: 48%;
       float: left;
       margin-left: 1rem;
 
@@ -105,11 +106,11 @@
       li {
         display: inline;
         font-size: 13px;
-        margin-right: 15px;
+        padding-right: 5px;
 
         &::after {
           content: '|';
-          margin-left: 15px;
+          padding-left: 5px;
           font-weight: 200;
         }
       }
@@ -121,6 +122,10 @@
         display: flex;
         flex-direction: row;
         align-items: flex-start;
+      }
+
+      &-count {
+        margin-top: -14px;
       }
 
       &-value {
@@ -149,9 +154,12 @@
 
 .btn {
   &-watchlist {
+    margin-top: 5px;
     background-color: #0091EA;
     color: white;
-    width: 50%;
+    width: 250px;
+    height: 36px;
+    border: none;
   }
 
   &-primary {
@@ -245,6 +253,11 @@
   }
 }
 
+// .no-img {
+//   width: 32px;
+//   height: 44pxl
+// }
+
 .imdbRatingStyle {
   background-color: #fff;
   border: 1px solid #666;
@@ -256,5 +269,70 @@
 
 .fa-angle-double-down {
   color: #136CB2;
+}
 
+.title-img {
+  width: 85x;
+  height: 130px;
+  padding: 3px;
+}
+
+.selected-title {
+  font-size: 13px;
+
+  &-image {
+    width: 33%;
+    float: left;
+  }
+
+  &-body {
+    float: right;
+    width: 65%;
+  }
+
+  & .btn-watchlist {
+    background-color: #f3ce00;
+    border: 1px darkgoldenrod solid;
+    border-radius: 5px;
+    border-color: #D5AB55 #c93 #c93 #D5AB55;
+    background: -webkit-linear-gradient(top, #fefcea 0%, #f3ce00 100%);
+    width: 100%;
+    font-size: 13px;
+    color: black;
+    height: 29px;
+    margin-bottom: 4px;
+  }
+
+  & .btn-next {
+    width: 100%;
+    font-size: 13px;
+    height: 29px;
+
+    border-radius: 5px;
+    background: -webkit-linear-gradient(top, #faf8f1 0%, #ece2c6 100%);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E0E0E0 #C0C0C0 #C0C0C0 #E0E0E0;
+    background-color: #ECE2C6;
+  }
+}
+
+.pag {
+  color: #136CB2;
+  cursor: pointer;
+  line-height: 13px;
+  // position: absolute;
+
+
+  &-disabled {
+    color: #ccc;
+    cursor: pointer;
+  }
+}
+
+.details h3 {
+  font-size: 20px;
+  width: 100%;
+  border-top: 1px #dee2e6 solid;
+  padding-top: 5px;
 }
