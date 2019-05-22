@@ -35,6 +35,11 @@ import { TitleReviewComponent } from './titles/title-review/title-review.compone
 import { TitleExternalReviewComponent } from './titles/title-external-review/title-external-review.component';
 import { TitleCriticReviewComponent } from './titles/title-critic-review/title-critic-review.component';
 import { TitleHomepageComponent } from './titles/title-homepage/title-homepage.component';
+import { ListsComponent } from './lists/lists.component';
+import { TitleReleaseinfoComponent } from './titles/title-releaseinfo/title-releaseinfo.component';
+import { TitleTriviaComponent } from './titles/title-trivia/title-trivia.component';
+import { TitleGoofsComponent } from './titles/title-goofs/title-goofs.component';
+import { TitleVideosComponent } from './titles/title-videos/title-videos.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -75,6 +80,13 @@ const routes: Routes = [
     path: 'title/:id', component: TitleHomepageComponent, children: [
       { path: '', component: TitleHomeComponent },
       { path: 'fullcredits', component: TitleCreditsComponent },
+      { path: 'releaseinfo', component: TitleReleaseinfoComponent },
+
+      { path: 'trivia', component: TitleTriviaComponent },
+      { path: 'goofs', component: TitleGoofsComponent },
+
+      { path: 'videogallery', component: TitleVideosComponent },
+
       { path: 'criticreviews', component: TitleCriticReviewComponent },
       { path: 'reviews', component: TitleReviewComponent },
       { path: 'externalreviews', component: TitleExternalReviewComponent },
@@ -102,6 +114,7 @@ const routes: Routes = [
     ]
   },
 
+  { path: 'list/:id', component: ListsComponent },
 
   { path: 'feature/genre', component: GenresComponent },
 

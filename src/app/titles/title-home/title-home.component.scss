@@ -206,14 +206,6 @@
   padding: 3px;
 }
 
-.rightcornerlink {
-  position: absolute;
-  right: 20px;
-  border-left: 1px dotted #ccc;
-  padding-left: 5px;
-  padding-top: 15px;
-}
-
 
 
 .inline {
@@ -232,31 +224,6 @@
   font-weight: normal;
 }
 
-.list {
-  &-name {
-    margin: 4px 0 0 96px;
-    font-size: 13px;
-  }
-
-  &-meta {
-    font-size: 11px;
-    color: #666;
-    margin: 12px 0 5px 96px;
-  }
-
-  &-user {
-    padding-bottom: 15px;
-  }
-
-  &-poll {
-    padding-bottom: 72px;
-  }
-}
-
-// .no-img {
-//   width: 32px;
-//   height: 44pxl
-// }
 
 .imdbRatingStyle {
   background-color: #fff;

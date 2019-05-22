@@ -1,0 +1,20 @@
+.list {
+  &-user {
+    // padding-bottom: 15px;
+    margin: 0 2px;
+  }
+
+  &-name {
+    // padding: 0;
+    font-size: 13px;
+  }
+
+  &-meta {
+    font-size: 11px;
+    color: #666;
+  }
+}
+
+.col-3 {
+  padding: 0px;
+}

@@ -3,6 +3,7 @@ import { IArticle, IImage } from './article';
 import { INews } from './news';
 import { IVideo } from './name';
 import { ITrailer } from './trailer';
+import { IRating } from './chart';
 
 export interface ITitle extends IMovie {
     genres: string[];
@@ -42,13 +43,19 @@ export interface ITitle extends IMovie {
 }
 
 export interface IReview {
+    author: IPerson;
     dateCreated: string;
     inLanguage: string;
     name: string;
     reviewBody: string;
-    // reviewRating //worstRating bestRating ratingValue
+    reviewRating: IReviewRating;
 }
 
+export interface IReviewRating {
+    worstRating: string;
+    bestRating: string;
+    ratingValue: string;
+}
 export interface IDetail extends IPerson {
     characters: ICharacter[];
     //credit
@@ -56,6 +63,14 @@ export interface IDetail extends IPerson {
     //trivia
     interestingCount: string;
     text: string;
+    //releaseinfo
+    regionName: string;
+    regionId: string;
+    releaseDate: string;
+    attributes: string;
+    //video
+    thumbnail: string;
+    title: string;
 }
 
 export interface ICharacter {
@@ -77,7 +92,10 @@ export interface IDetailList {
     items: IDetail[];
 }
 
-
+export interface ITitleMenu {
+    items: IMenuList[];
+    userList: IUser[];
+}
 
 export interface IMenuList {
     name: string;

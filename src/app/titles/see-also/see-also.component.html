@@ -2,7 +2,7 @@
   <h2> See also</h2>
   <ul>
     <li *ngFor="let item of data" class="splitVertical pl-1">
-      <a class="font13" [routerLink]="item.url">{{item.name}}</a>
+      <a class="font13" [routerLink]="item.url|queryUrl" [queryParams]="item.url| toQueryObject">{{item.name}}</a>
 
     </li>
   </ul>

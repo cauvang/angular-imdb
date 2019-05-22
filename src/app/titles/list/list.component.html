@@ -1,0 +1,11 @@
+<div class="row  pt-2 list-user" *ngFor="let item of data;let i=index"
+  [ngClass]="{'bk-white': i%2===0, 'bk-grey':i%2===1}">
+  <div class="col-3">
+    <a routerLink="/{{link}}/{{item.id}}">
+      <img src="{{item.image.url}}" title="{{item.image.title}}"></a>
+  </div>
+  <div class="col-9">
+    <div class="list-name"> <a routerLink="/{{link}}/{{item.id}}">{{item.name}}</a></div>
+    <div class="list-meta" innerHTML="{{item.meta}}"></div>
+  </div>
+</div>

@@ -128,22 +128,22 @@
       <div title="In Theaters">In 37 theaters near 3030 AU [change]</div>
     </div>
 
-    <div class="row pt-3">
-      <div class="pl-3"> {{data.description}}</div>
-      <div class="pl-3" *ngIf="data.directors">
+    <div class="row pt-3 pl-3">
+      <div class="w-100"> {{data.description}}</div>
+      <div class="w-100" *ngIf="data.directors">
         <app-string-display title="Directors" [data]="data.directors" splitType="splitComma" stringName="name">
         </app-string-display>
       </div>
-      <div class="pl-3" *ngIf="data.creators">
+      <div class="w-100" *ngIf="data.creators">
         <app-string-display title="Writers" [data]="data.creators" splitType="splitComma" stringName="name">
         </app-string-display>
       </div>
-      <div class="pl-3" *ngIf="data.stars">
+      <div class="w-100" *ngIf="data.stars">
         <app-string-display title="Stars" [data]="data.stars" splitType="splitComma" stringName="name">
         </app-string-display>
         | <a routerLink="/title/{{data.id}}/fullcredits"> See full cast & crew »</a>
       </div>
-      <div class="pl-3 w-100">
+      <div class=" w-100">
         <button title="Click to add to watchlist" class="btn-watchlist" (click)="OnLoad()">+ Add to
           Watchlist</button>
       </div>
@@ -217,7 +217,7 @@
       </div>
     </div>
 
-    <div class="row p-3">
+    <div class="row p-3" *ngIf="similarTitles">
       <h2>More Like This</h2>
       <div class="col-5">
         <div><a *ngFor="let item of similarTitles" routerLink="/title/{{item.id}}">
@@ -259,7 +259,7 @@
     </div>
 
     <div class="row p-3">
-      <span class="rightcornerlink"> <a href="/register/login">Edit</a></span>
+      <span class="rightcornerlink "> <a href="/register/login">Edit</a></span>
       <h2>Cast</h2>
       <div class="w-100">Cast overview, first billed only:</div>
 
@@ -270,7 +270,7 @@
     </div>
 
     <div class="row  p-3">
-      <span class="rightcornerlink"> <a href="/register/login">Edit</a></span>
+      <span class="rightcornerlink "> <a href="/register/login">Edit</a></span>
       <h2>Storyline</h2>
 
       <div class="pt-2"> {{data.storyline}} </div>
@@ -367,6 +367,28 @@
 
     <div class="row p-3">
       <h2>User Reviews</h2>
+      <div class="w-100">
+        <app-ratings *ngIf="data.topReview.reviewRating" class="float-left"
+          [starsCount]="data.topReview.reviewRating.ratingValue"></app-ratings>
+        <span class="ml-2 font-weight-bold"> {{data.topReview.name}}</span>
+      </div>
+      <div class="font11 w-100">
+        {{data.topReview.dateCreated}}
+        | by
+        <a href="#">{{data.topReview.author.name}}</a> - <a href="#">See all my reviews</a>
+      </div>
+      <div class="pt-2 pb-2">{{data.topReview.reviewBody}}</div>
+      <div class="border-top pt-2 pb-2">
+        89 of 308 people found this review helpful. Was this review helpful to you?
+        <button class="mr-1 bk-yellow">Yes</button>
+        <button class="bk-yellow"> No</button>
+        | <a routerLink="/registration/signin?u=/title/{{data.id}}/&ref_=tt_urv">Report this</a>
+      </div>
+      <div>
+        <a routerLink="/registration/signin?u=/title/{{data.id}}/&ref_=tt_urv">Review this title</a>
+        |
+        <a routerLink="/title/{{data.id}}/reviews">See all 10 user reviews »</a>
+      </div>
     </div>
 
     <div class="row p-3">
@@ -411,30 +433,14 @@
     <div class="border-top pt-3 pb-3">
       <h5>Editorial Lists</h5>
       <span>Related lists from IMDb editors</span>
-      <div class="list-user" *ngFor="let item of data.editorialList;let i=index"
-        [ngClass]="{'bk-white': i%2===0, 'bk-grey':i%2===1}">
-        <div class="float-left">
-          <a routerLink="/list/{{item.id}}">
-            <img src="{{item.image.url}}" title="{{item.image.title}}"></a>
-        </div>
-        <div class="list-name"> <a routerLink="/list/{{item.id}}">{{item.name}}</a></div>
-        <div class="list-meta" innerHTML="{{item.meta}}"></div>
-      </div>
+      <app-list [data]="data.editorialList" link="list"></app-list>
     </div>
 
     <div class="border-top pt-3 pb-3">
       <span class="rightcornerlink pt-2"> <a routerLink="/list/create">Create a list »</a></span>
       <h5>User Lists</h5>
       <span>Related lists from IMDb users</span>
-      <div class="list-user" *ngFor="let item of data.userList;let i=index"
-        [ngClass]="{'bk-white': i%2===0, 'bk-grey':i%2===1}">
-        <div class="float-left">
-          <a routerLink="/list/{{item.id}}">
-            <img src="{{item.image.url}}" title="{{item.image.title}}"></a>
-        </div>
-        <div class="list-name"> <a routerLink="/list/{{item.id}}">{{item.name}}</a></div>
-        <div class="list-meta" innerHTML="{{item.meta}}"></div>
-      </div>
+      <app-list [data]="data.userList" link="list"></app-list>
       <div class="border-top pt-2 pb-2">
         <a routerLink="/list/{{data.id}}">See all related lists »</a>
       </div>
@@ -461,14 +467,8 @@
 
     <div class="border-top pt-3 pb-3">
       <h5 class="font18">User Polls</h5>
-      <div class="list-poll" *ngFor="let item of data.userPolls;let i=index"
-        [ngClass]="{'bk-white': i%2===0, 'bk-grey':i%2===1}">
-        <div class="float-left">
-          <a routerLink="/poll/{{item.id}}">
-            <img src="{{item.image.url}}" title="{{item.image.title}}"></a>
-        </div>
-        <div class="list-name"> <a routerLink="/poll/{{item.id}}">{{item.name}}</a></div>
-      </div>
+
+      <app-list [data]="data.userPolls" link="poll"></app-list>
       <div class="border-top border-bottom pt-2 pb-2">
         <a routerLink="/poll">See more polls »</a>
       </div>

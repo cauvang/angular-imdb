@@ -1,5 +1,7 @@
 
 export class AppConfig {
+    rootURL: string;
+
     newsType: {
         topNews: string;
         movieNews: string;
@@ -7,8 +9,4 @@ export class AppConfig {
         celebNews: string;
         indieNews: string;
     };
-
-
-    rootURL: string;
-
 }

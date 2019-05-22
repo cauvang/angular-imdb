@@ -39,7 +39,6 @@ export class TitleHomeComponent implements OnInit {
         imageCounts: data.imageCounts,
         length: 1.06
       };
-
       this.similarTitles = data.similarTitles.slice(0, 6);
       this.selectedTitle = this.similarTitles[0];
     });

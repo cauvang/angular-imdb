@@ -15,6 +15,11 @@ import { TitleHomepageComponent } from './title-homepage/title-homepage.componen
 import { CastsComponent } from './casts/casts.component';
 import { SeeAlsoComponent } from './see-also/see-also.component';
 import { ContributeComponent } from './contribute/contribute.component';
+import { ListComponent } from './list/list.component';
+import { TitleReleaseinfoComponent } from './title-releaseinfo/title-releaseinfo.component';
+import { TitleTriviaComponent } from './title-trivia/title-trivia.component';
+import { TitleGoofsComponent } from './title-goofs/title-goofs.component';
+import { TitleVideosComponent } from './title-videos/title-videos.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +32,12 @@ import { ContributeComponent } from './contribute/contribute.component';
         TitleHomepageComponent,
         CastsComponent,
         SeeAlsoComponent,
-        ContributeComponent
+        ContributeComponent,
+        ListComponent,
+        TitleReleaseinfoComponent,
+        TitleTriviaComponent,
+        TitleGoofsComponent,
+        TitleVideosComponent
     ],
     imports: [
         AppRoutingModule,

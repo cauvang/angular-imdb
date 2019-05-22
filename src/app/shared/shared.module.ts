@@ -23,6 +23,7 @@ import { RefinementComponent } from './refinement/refinement.component';
 import { ValueFormatPipe } from './value-format.pipe';
 import { StringDisplayComponent } from './string-display/string-display.component';
 import { RatingModule } from 'ngx-rating';
+import { QueryUrlPipe } from './query-url.pipe';
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import { RatingModule } from 'ngx-rating';
     RefinementComponent,
     ValueFormatPipe,
     StringDisplayComponent,
+    QueryUrlPipe,
 
 
   ],
@@ -72,6 +74,7 @@ import { RatingModule } from 'ngx-rating';
     RefinementComponent,
     ValueFormatPipe,
     StringDisplayComponent,
+    QueryUrlPipe,
   ]
 })
 export class SharedModule { }

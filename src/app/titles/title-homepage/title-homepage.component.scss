@@ -5,8 +5,7 @@
   }
 
   & .title {
-    margin-left: 80px;
-    // font-size: 13px;
+    // margin-left: 80px;
 
     &-name {
       font-size: 20px;
@@ -16,21 +15,25 @@
       font-size: 27px;
     }
   }
-
-  & .rightcornerlink {
-    position: absolute;
-    right: 25px;
-    padding-left: 5px;
-    font-size: 11px;
-  }
 }
+
+
 
 .selected {
   color: black;
   border: 1px grey solid;
   border-radius: 5px;
+  padding: 3px;
 }
 
 .hidden {
   display: none;
+}
+
+.fa-facebook-square {
+  color: cornflowerblue;
+}
+
+.fa-twitter {
+  color: cyan;
 }

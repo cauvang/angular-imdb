@@ -1,0 +1,8 @@
+@import "./../../../constants";
+
+.alert {
+  border-radius: 5px;
+  border: 1px solid $light_yellow;
+  background-color: $light_yellow;
+  padding: 3px;
+}

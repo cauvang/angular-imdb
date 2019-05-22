@@ -29,6 +29,7 @@ import { NameBioComponent } from './name/name-bio/name-bio.component';
 import { NameMediaIndexComponent } from './name/name-media-index/name-media-index.component';
 import { TitlesModule } from './titles/titles.module';
 import { TitlesService } from './services/titles.service';
+import { ListsComponent } from './lists/lists.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TitlesService } from './services/titles.service';
     FindAbbComponent,
     NameBioComponent,
     NameMediaIndexComponent,
+    ListsComponent,
   ],
   imports: [
     BrowserModule,

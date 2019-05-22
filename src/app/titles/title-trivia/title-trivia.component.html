@@ -1,0 +1,32 @@
+<div *ngIf="data">
+  <div>Showing all {{nTotal}} items</div>
+  <div>
+    <span class="color-grey">Jump to: </span>
+    <a href="/title/{{id}}/trivia#{{data[1].name}}">{{data[1].name}}</a>
+    <span class="color-grey ml-1">({{data[1].items.length}})</span>
+  </div>
+
+
+  <div *ngFor="let detailList of data">
+    <div class="title-header">
+      <h4 class="dataHeaderWithBorder" *ngIf="detailList.name!==''">
+        <a name="{{detailList.name}}">{{detailList.name}}</a>
+      </h4>
+
+      <div *ngIf="detailList.name==='Spoilers'" class="alert">
+        <i class="mr-1 color-gold fas fa-exclamation-triangle"></i>
+        The trivia items below may give away important plot points.
+      </div>
+      <div class="mt-1 p-1" *ngFor="let item of detailList.items;let i=index"
+        [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
+        <div>{{item.text}}</div>
+        <div class="color-grey pt-2 font13">
+          <a routerLink="/title/{{id}}/trivia" [queryParams]="{item:item.id}">{{item.interestingCount}}</a>
+          <span class="ml-1 mr-1"> |</span>
+          <a routerLink="/title/{{id}}/trivia" [queryParams]="{item:item.id}">Share this</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

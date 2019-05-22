@@ -24,8 +24,7 @@ export class NewsHomeComponent implements OnInit {
     private router: Router) {
     this.config = config;
     this.route.url.subscribe(url => {
-      const tmp = router.routerState.snapshot.url.split('/');
-      this.newsType = tmp[2];
+      this.newsType = router.routerState.snapshot.url.split('/')[2];
       this.loadList();
     });
   }

@@ -83,7 +83,7 @@ a {
 }
 
 .bk-yellow {
-  background-color: lightyellow;
+  background-color: $light-yellow;
 }
 
 .bk-gold {
@@ -161,4 +161,53 @@ dir {
   &-gold {
     background-color: #ffcc33;
   }
+}
+
+
+
+.title-header {
+  margin-top: 18px;
+  font-size: 15px;
+
+  & h4 {
+    color: #666666;
+    margin: 0.35em 0 0.25em;
+    padding: 0;
+
+    &.dataHeaderWithBorder {
+      line-height: 2.6em;
+
+      &:before {
+        margin-top: 1.6em;
+        margin-bottom: -1.5em;
+      }
+    }
+  }
+}
+
+
+.dataHeaderWithBorder {
+  display: inline;
+  background-color: #FFFFFF;
+
+
+  &:before {
+    content: "";
+    border-bottom: 1px dotted #CCC;
+    width: 100%;
+    float: left;
+
+  }
+}
+
+.rightcornerlink {
+  position: absolute;
+  right: 25px;
+  padding-left: 5px;
+  padding-top: 15px;
+  font-size: 11px;
+
+
+  border-left: 1px dotted #ccc;
+
 }

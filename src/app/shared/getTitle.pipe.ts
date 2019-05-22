@@ -10,6 +10,12 @@ export class GetTitlePipe implements PipeTransform {
             'celebrity': 'Celebrity',
             'indie': 'Indie',
 
+            'fullcredits': "Full Cast and Crew",
+            'releaseinfo': "Release Info",
+            'officialsites': "External Sites",
+            'companycredits': "Company Credits",
+            'locations': "Filming & Production",
+            'technical': "Technical Specifications"
         };
         return mapping[type];
     }
