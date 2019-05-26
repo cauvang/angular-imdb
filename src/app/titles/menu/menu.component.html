@@ -1,0 +1,19 @@
+<div class="p-2 border rounded bk-grey ">
+  <div class="font-weight-bold">
+    <a routerLink="/title/{{id}}"> {{name}}</a>
+  </div>
+
+  <div class="border-top p-2" *ngFor="let submenu of displayedMenu">
+    <div class="font-weight-bold">{{ submenu.name}}</div>
+    <div *ngFor="let item of submenu.items">
+      <a [ngClass]="{'color-grey': item.disabled}" routerLinkActive="selected"
+        [routerLink]="item.url|queryUrl">{{item.name}}</a>
+      <!-- [queryParams]="item.url| toQueryObject" -->
+    </div>
+  </div>
+
+  <button (click)="onExploreMore()" [ngClass]="{'hidden': !bHidden}" class="btn btn-link p-2 font-weight-bold"> <i
+      class="fas fa-angle-double-down mr-1"></i>Explore More</button>
+  <button (click)="onShowLess()" [ngClass]="{'hidden': bHidden}" class="btn btn-link p-2 font-weight-bold"> <i
+      class="fas fa-angle-double-up mr-1"></i>Show Less</button>
+</div>

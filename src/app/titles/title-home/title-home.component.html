@@ -84,7 +84,7 @@
             <a class="color-grey" href="/year/{{data.year}}">({{data.year}})</a></span>
         </div>
 
-        <div class="rating-wrapper">
+        <div class="rating-wrapper mb-5">
           <div class="d-flex flex-row imdbRating ">
             <i class="fas fa-star  color-gold"></i>
             <div>
@@ -436,14 +436,8 @@
       <app-list [data]="data.editorialList" link="list"></app-list>
     </div>
 
-    <div class="border-top pt-3 pb-3">
-      <span class="rightcornerlink pt-2"> <a routerLink="/list/create">Create a list »</a></span>
-      <h5>User Lists</h5>
-      <span>Related lists from IMDb users</span>
-      <app-list [data]="data.userList" link="list"></app-list>
-      <div class="border-top pt-2 pb-2">
-        <a routerLink="/list/{{data.id}}">See all related lists »</a>
-      </div>
+    <div class="border-top">
+      <app-user-list [data]="data.userList" [id]="id" link="list"></app-user-list>
     </div>
 
     <div class="border-top pt-3 pb-3">
@@ -467,9 +461,8 @@
 
     <div class="border-top pt-3 pb-3">
       <h5 class="font18">User Polls</h5>
-
       <app-list [data]="data.userPolls" link="poll"></app-list>
-      <div class="border-top border-bottom pt-2 pb-2">
+      <div class="border-top border-bottom mt-2 pt-2 pb-2">
         <a routerLink="/poll">See more polls »</a>
       </div>
     </div>

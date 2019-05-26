@@ -30,16 +30,20 @@ import { TitlePlotsummaryComponent } from './titles/title-plotsummary/title-plot
 import { SearchNameTextComponent } from './search/search-name-text/search-name-text.component';
 import { NameBioComponent } from './name/name-bio/name-bio.component';
 import { NameMediaIndexComponent } from './name/name-media-index/name-media-index.component';
-import { TitleCreditsComponent } from './titles/title-credits/title-credits.component';
 import { TitleReviewComponent } from './titles/title-review/title-review.component';
 import { TitleExternalReviewComponent } from './titles/title-external-review/title-external-review.component';
 import { TitleCriticReviewComponent } from './titles/title-critic-review/title-critic-review.component';
 import { TitleHomepageComponent } from './titles/title-homepage/title-homepage.component';
 import { ListsComponent } from './lists/lists.component';
-import { TitleReleaseinfoComponent } from './titles/title-releaseinfo/title-releaseinfo.component';
-import { TitleTriviaComponent } from './titles/title-trivia/title-trivia.component';
-import { TitleGoofsComponent } from './titles/title-goofs/title-goofs.component';
 import { TitleVideosComponent } from './titles/title-videos/title-videos.component';
+import { TitleDetailsFullCreditsComponent } from './titles/title-details-full-credits/title-details-full-credits.component';
+import { TitleDetailsReleaseinfoComponent } from './titles/title-details-release-info/title-details-release-info.component';
+import { TitleDetailsCompanyCreditsComponent } from './titles/title-details-company-credits/title-details-company-credits.component';
+import { TitleDetailsExternalSitesComponent } from './titles/title-details-external-sites/title-details-external-sites.component';
+import { TitleDetailsTechnicalComponent } from './titles/title-details-technical/title-details-technical.component';
+import { TitleDetailsLocationsComponent } from './titles/title-details-locations/title-details-locations.component';
+import { TitleKnowGoofsComponent } from './titles/title-know-goofs/title-know-goofs.component';
+import { TitleKnowTriviaComponent } from './titles/title-know-trivia/title-know-trivia.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -79,11 +83,15 @@ const routes: Routes = [
   {
     path: 'title/:id', component: TitleHomepageComponent, children: [
       { path: '', component: TitleHomeComponent },
-      { path: 'fullcredits', component: TitleCreditsComponent },
-      { path: 'releaseinfo', component: TitleReleaseinfoComponent },
+      { path: 'fullcredits', component: TitleDetailsFullCreditsComponent },
+      { path: 'releaseinfo', component: TitleDetailsReleaseinfoComponent },
+      { path: 'officialsites', component: TitleDetailsExternalSitesComponent },
+      { path: 'companycredits', component: TitleDetailsCompanyCreditsComponent },
+      { path: 'technical', component: TitleDetailsTechnicalComponent },
+      { path: 'locations', component: TitleDetailsLocationsComponent },
 
-      { path: 'trivia', component: TitleTriviaComponent },
-      { path: 'goofs', component: TitleGoofsComponent },
+      { path: 'trivia', component: TitleKnowTriviaComponent },
+      { path: 'goofs', component: TitleKnowGoofsComponent },
 
       { path: 'videogallery', component: TitleVideosComponent },
 

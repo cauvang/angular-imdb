@@ -3,7 +3,7 @@ import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ITitle, ITitleDetail, ITitleMenu } from '../models/title';
+import { ITitle, ITitleType } from '../models/title';
 import { IList } from '../models/list';
 
 @Injectable({
@@ -20,19 +20,16 @@ export class TitlesService {
     return this.http.get<ITitle>(this.appConfig.rootURL + 'title/' + id);
   }
 
-  public getTitle_Menu(id: string): Observable<ITitleMenu> {
-    return this.http.get<ITitleMenu>(this.appConfig.rootURL + 'title/' + id + '/menu');
-
+  public getTitleDetail(id: string, type: string): Observable<ITitleType> {
+    return this.http.get<ITitleType>(this.appConfig.rootURL + 'title/' + id + '/' + type);
   }
+
+
 
   public getList(id: string, page: number): Observable<IList> {
     return this.http.get<IList>(this.appConfig.rootURL + 'title/' + id + '/lists?page=' + page);
   }
 
-  public getTitleDetail(id: string, detail: string): Observable<ITitleDetail> {
-    return this.http.get<ITitleDetail>(this.appConfig.rootURL + 'title/' + id + '/' + detail);
-
-  }
 
 
 }

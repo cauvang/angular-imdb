@@ -12,8 +12,8 @@
         <div class="p-2">Results for <span class="font-weight-bold">'{{queryParams.q}}'</span></div>
         <div class="pl-2 color-grey font11 float-left mr-2">Jump to:</div>
         <ul class="pl-2 font11">
-          <li *ngFor="let result of data.results"><a href="/find?q={{queryParams.q}}&s=all#{{result.header}}"
-              class="splitVertical">{{result.header}}</a>
+          <li *ngFor="let result of data.results">
+            <a href="/find?q={{queryParams.q}}&s=all#{{result.header}}" class="splitVertical">{{result.header}}</a>
           </li>
         </ul>
       </ng-template>

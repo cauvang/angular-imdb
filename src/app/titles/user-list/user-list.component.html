@@ -1,0 +1,13 @@
+<div class="p-2">
+  <span class="rightcornerlink pt-2">
+    <a routerLink="/list/create">Create a list »</a>
+  </span>
+  <h5>User Lists</h5>
+  <span>Related lists from IMDb users</span>
+
+  <app-list [data]="data" link="list"></app-list>
+
+  <div class="border-top pt-2 pb-2 mt-2">
+    <a routerLink="/list/{{id}}">See all related lists »</a>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div *ngIf="data">
+  <app-jump-to [data]="data" [nTotal]="nTotal" url="/title/{{id}}/companycredits"></app-jump-to>
+
+  <div *ngFor="let detailList of data">
+    <div class="title-header">
+      <h4 class="dataHeaderWithBorder" *ngIf="detailList.name!==''">
+        <a name="{{detailList.name}}">{{detailList.name}}</a>
+      </h4>
+
+      <div class="p-1" *ngFor="let item of detailList.items">
+        <a routerLink="/company/{{item.id}}">{{item.name}}</a>
+        <span class="ml-1">{{item.text}}</span>
+      </div>
+    </div>
+  </div>
+
+</div>

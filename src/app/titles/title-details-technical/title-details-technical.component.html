@@ -1,0 +1,9 @@
+<div *ngIf="data">
+  Showing all {{data.length}} technical specifications
+  <div class="row ml-1 mr-1 p-2" *ngFor="let item of data;let i=index"
+    [ngClass]="{'bk-grey': i%2===0,'bk-white':i%2===1}">
+    <div class="col-4">{{item.name}}</div>
+    <div class="col-8" innerHTML="{{item.value}}"></div>
+  </div>
+
+</div>

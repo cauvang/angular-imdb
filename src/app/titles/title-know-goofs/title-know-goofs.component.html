@@ -1,0 +1,22 @@
+<div *ngIf="data">
+  <app-jump-to [data]="data" [nTotal]="nTotal" url="/title/{{id}}/goofs"></app-jump-to>
+
+  <div *ngFor="let detailList of data">
+    <div class="title-header">
+      <h4 class="dataHeaderWithBorder">
+        <a name="{{detailList.name}}">{{detailList.name}}</a>
+      </h4>
+
+      <div class="p-2 mt-1 text" *ngFor="let item of detailList.items;let i=index"
+        [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
+        <div class="p-2">{{item.text}}</div>
+        <div class="p-2 font13">
+          <a class="color-grey" routerLink="/title/{{id}}/goofs"
+            [queryParams]="{item:item.id}">{{item.interestingCount}}</a>
+          <span class="ml-1 mr-1 color-grey"> |</span>
+          <a class="color-grey" routerLink="/title/{{id}}/goofs" [queryParams]="{item:item.id}">Share this</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

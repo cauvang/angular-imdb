@@ -1,0 +1,11 @@
+@import "../../../constants";
+
+.text:hover {
+  background-color: $light_yellow;
+
+  & a {
+    color: $blue !important;
+
+  }
+
+}

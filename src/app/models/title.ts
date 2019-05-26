@@ -3,7 +3,6 @@ import { IArticle, IImage } from './article';
 import { INews } from './news';
 import { IVideo } from './name';
 import { ITrailer } from './trailer';
-import { IRating } from './chart';
 
 export interface ITitle extends IMovie {
     genres: string[];
@@ -60,7 +59,7 @@ export interface IDetail extends IPerson {
     characters: ICharacter[];
     //credit
     credit: string;
-    //trivia
+    //trivia ; goofs
     interestingCount: string;
     text: string;
     //releaseinfo
@@ -68,6 +67,14 @@ export interface IDetail extends IPerson {
     regionId: string;
     releaseDate: string;
     attributes: string;
+    //companycredits
+    //externalsites
+    url: string;
+    //technical
+    value: string;
+    //locations
+    interesting: string;
+    subText: string;
     //video
     thumbnail: string;
     title: string;
@@ -82,19 +89,35 @@ export interface IUser extends IPerson {
     meta: string;
 }
 
-export interface ITitleDetail {
-    item: ITitle;
+export interface ITitleType {
+    item: ITitleDetail;
     items: IDetailList[];
+    userList: IUser[];
+    seeAlso: IUrl[];
+}
+export interface ITitleDetail {
+    name: string;
+    subTitle: string;
+    id: string;
+    image: IImage;
+    year: string;
+    menus: IMenuList[];
 }
 
 export interface IDetailList {
     name: string;
+    items: IGroupDetail[];
+}
+
+export interface IGroupDetail {
+    name: string;
     items: IDetail[];
 }
 
-export interface ITitleMenu {
-    items: IMenuList[];
-    userList: IUser[];
+export interface IUrl {
+    name: string;
+    url: string;
+    key: string;
 }
 
 export interface IMenuList {
@@ -105,5 +128,6 @@ export interface IMenuList {
 export interface IMenu {
     name: string;
     url: string;
-    noData: boolean;
+    key: string;
+    disabled: boolean;
 }
