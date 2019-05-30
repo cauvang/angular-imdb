@@ -75,9 +75,13 @@ export interface IDetail extends IPerson {
     //locations
     interesting: string;
     subText: string;
+    //movieconnections
+    year: string;
     //video
     thumbnail: string;
     title: string;
+    //plot summary
+    author: string;
 }
 
 export interface ICharacter {

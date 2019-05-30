@@ -21,8 +21,6 @@ import { ChartTopRatedComponent } from './charts/chart-top-rated/chart-top-rated
 import { NameHomeComponent } from './name/name-home/name-home.component';
 import { SearchModule } from './search/search.module';
 import { GenreModule } from './genre/genre.module';
-import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
-import { PagingNumberComponent } from './photos/paging-number/paging-number.component';
 import { FindHomeComponent } from './find/find-home/find-home.component';
 import { FindAbbComponent } from './find/find-abb/find-abb.component';
 import { NameBioComponent } from './name/name-bio/name-bio.component';
@@ -30,6 +28,7 @@ import { NameMediaIndexComponent } from './name/name-media-index/name-media-inde
 import { TitlesModule } from './titles/titles.module';
 import { TitlesService } from './services/titles.service';
 import { ListsComponent } from './lists/lists.component';
+import { PhotosModule } from './photos/photos.module';
 
 @NgModule({
   declarations: [
@@ -38,8 +37,6 @@ import { ListsComponent } from './lists/lists.component';
     CalendarComponent,
     ChartTopRatedComponent,
     NameHomeComponent,
-    PhotoHomeComponent,
-    PagingNumberComponent,
     FindHomeComponent,
     FindAbbComponent,
     NameBioComponent,
@@ -58,7 +55,8 @@ import { ListsComponent } from './lists/lists.component';
     ShowtimesModule,
     SearchModule,
     GenreModule,
-    TitlesModule
+    TitlesModule,
+    PhotosModule
   ],
   providers: [HomePageService, NewsService, MoviesService, ShowtimesService, TitlesService,
     { provide: APP_CONFIG, useValue: APP_CONFIG_VALUE }

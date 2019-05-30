@@ -1,4 +1,5 @@
 import { IImage } from './article';
+import { ITitleDetail } from './title';
 
 export interface IPhoto {
     display: string;
@@ -9,6 +10,11 @@ export interface IPhoto {
     items: IGallery[];
     filters: IFilter[];
     seeMore: ISeeMore;
+    header: string;
+    currentFilter: string;
+
+    item: ITitleDetail;
+    storyline: string;
 }
 
 export interface IGallery {

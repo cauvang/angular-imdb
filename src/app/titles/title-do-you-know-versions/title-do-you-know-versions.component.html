@@ -1,0 +1,6 @@
+<div *ngIf="data">
+  <div>Showing all {{data.length}} items</div>
+  <div class="mt-1 p-1" *ngFor="let item of data;let i=index" [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
+    {{item}}
+  </div>
+</div>

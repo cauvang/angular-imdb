@@ -102,6 +102,16 @@ export class SortDropdownComponent implements OnInit {
         name: 'Year',
         value: 'year'
       },
+    ],
+    'plot': [
+      {
+        name: 'Relevance',
+        value: 'relevance'
+      },
+      {
+        name: 'Alphabetical',
+        value: 'alpha'
+      },
     ]
   };
   @Output() sortChange = new EventEmitter();
@@ -137,11 +147,18 @@ export class SortDropdownComponent implements OnInit {
   }
 
   private sortByType() {
-    if (this.datasetType === 'movie' || this.datasetType === 'top-rated' || this.datasetType === 'search') {
-      this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
-    } else if (this.datasetType === 'cinema') {
-      this.sortChange.emit({ sort: this.sortBy, dir: this.sortDirection });
-         }
+
+    switch (this.datasetType) {
+      case 'movie':
+      case 'top-rated':
+      case 'search':
+      case 'plot':
+        this.sortChange.emit(this.sortBy + ',' + this.sortDirection);
+        break;
+      case 'cinema':
+        this.sortChange.emit({ sort: this.sortBy, dir: this.sortDirection });
+        break;
+    }
 
   }
 }

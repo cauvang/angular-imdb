@@ -21,12 +21,14 @@ export class TitleHomepageComponent implements OnInit {
       const urls = router.routerState.snapshot.url.split("/");
       this.isTitleHome = urls.length === 3;
       this.id = urls[2];
-      if (!this.isTitleHome)
-        this.titleType = urls[3] === 'officialsites' ? "externalsites" : urls[3];
+      if (!this.isTitleHome) {
+        this.titleType = urls[3].split('#')[0];
+        this.titleType === 'officialsites' ? "externalsites" : this.titleType;
+        this.service.getTitleDetail(this.id, this.titleType).subscribe(data => {
+          this.data = data;
+        });
+      }
 
-      this.service.getTitleDetail(this.id, this.titleType).subscribe(data => {
-        this.data = data;
-      });
     });
   }
 

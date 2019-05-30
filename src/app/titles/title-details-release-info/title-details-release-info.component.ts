@@ -13,7 +13,6 @@ export class TitleDetailsReleaseinfoComponent implements OnInit {
 
   private data: IDetailList[];
   private id: string;
-  private nTotal = 0;
 
   constructor(private service: TitlesService, private router: Router) {
     this.id = this.router.routerState.snapshot.url.split('/')[2];
@@ -22,7 +21,6 @@ export class TitleDetailsReleaseinfoComponent implements OnInit {
   ngOnInit() {
     this.service.getTitleDetail(this.id, 'releaseinfo').subscribe(data => {
       this.data = data.items;
-      data.items.forEach(element => { this.nTotal += element.items.length; });
     });
   }
 

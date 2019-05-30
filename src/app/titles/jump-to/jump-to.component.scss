@@ -4,11 +4,6 @@ ul {
   & li {
     display: inline;
 
-    &::after {
-      content: '|';
-      padding: 0px 3px;
-    }
-
     &:last-child::after {
       content: '';
     }

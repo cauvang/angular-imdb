@@ -1,8 +1,8 @@
 <div>Showing all {{nTotal}} items</div>
-<div>
+<div *ngIf="data.length!=1">
   <span class="color-grey float-left mr-2">Jump to: </span>
   <ul>
-    <li *ngFor="let item of data" [ngClass]="{'splitVertical': item.name!=''}">
+    <li *ngFor="let item of data" [ngClass]="{'splitVertical': item.name!==''}">
       <a href="{{url}}#{{item.name}}">{{item.name}}</a>
       <span *ngIf="item.name!=''" class="color-grey ml-1">({{item.items.length}})</span>
     </li>

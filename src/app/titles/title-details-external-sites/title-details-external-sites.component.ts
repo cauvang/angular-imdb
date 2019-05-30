@@ -12,18 +12,11 @@ export class TitleDetailsExternalSitesComponent implements OnInit {
 
   private data: IDetailList[];
   private id: string;
-  private nTotal = 0;
 
   constructor(private service: TitlesService, private router: Router) {
-    console.log("eewfw");
     this.id = this.router.routerState.snapshot.url.split('/')[2];
-    console.log("dee", this.id)
 
-    this.service.getTitleDetail(this.id, 'externalsites').subscribe(data => {
-      this.data = data.items;
-      data.items.forEach(element => { this.nTotal += element.items.length; });
-      console.log("d", this.data)
-    });
+    this.service.getTitleDetail(this.id, 'externalsites').subscribe(data => { this.data = data.items; });
   }
 
   ngOnInit() {

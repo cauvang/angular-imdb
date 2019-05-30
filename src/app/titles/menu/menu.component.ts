@@ -21,11 +21,13 @@ export class MenuComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   ngOnChanges(): void {
     this.selectedMenu = this.data.find(x => {
-      return x.items.some(item => item.url.includes(this.titleType))
+      return x.items.some(
+        item => item.url.includes(this.titleType))
     });
     this.unselectedMenu = this.data.filter(x => x.name != this.selectedMenu.name);
     this.displayedMenu = [this.selectedMenu, ...[]];

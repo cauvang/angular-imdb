@@ -1,4 +1,4 @@
-<div>Sort by:</div>
+<span class="mr-1">Sort by:</span>
 <mat-form-field>
   <mat-select [(value)]="sortBy" (selectionChange)="onSortByChanged($event)">
     <mat-option *ngFor="let item of data" value="{{item.value}}">{{item.name}}</mat-option>
@@ -6,6 +6,7 @@
 </mat-form-field>
 
 <span class="border mr-1 p-2 bk-grey" title={{sortDirectionTitle}} (click)="onSortDirectionClick()">
-  <span> <i class="fas fa-long-arrow-alt-down color-grey" [ngClass]="{'color-grey': sortDirection=='desc'}"></i></span>
+  <span>
+    <i class="fas fa-long-arrow-alt-down color-grey" [ngClass]="{'color-grey': sortDirection=='desc'}"></i></span>
   <i class="fas fa-long-arrow-alt-up " [ngClass]="{'color-grey': sortDirection=='asc'}"></i>
 </span>

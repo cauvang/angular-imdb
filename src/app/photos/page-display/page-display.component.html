@@ -1,0 +1,11 @@
+<div class="d-flex">
+  <div class="flex-grow-1"> {{data.display}} </div>
+  <!-- <app-paging-number [id]="id" [pages]="pages" [currentPage]="data.currentPage" [extraParams]="queryParams">
+  </app-paging-number>-->
+
+  <pagination class="mt-3" [totalItems]=data.totalCount [(ngModel)]="data.currentPage" [maxSize]=data.totalPages
+    [itemsPerPage]=data.pageSize (pageChanged)="pageChanged($event)" previousText="« Prev" nextText="Next »">
+  </pagination>
+
+
+</div>
