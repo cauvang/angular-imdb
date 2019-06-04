@@ -1,0 +1,21 @@
+@import "./../../../constants";
+
+
+
+.text:hover {
+  background-color: $light_yellow;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  //   justify-content: space-between;
+  //   flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  width: 50%;
+}

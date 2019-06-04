@@ -7,10 +7,15 @@
       <span class="color-grey ml-1">{{data.year}}</span>
     </div>
     <div class="title-type">{{data.subTitle}}</div>
+    <div *ngIf="currentFilter">
+      <a routerLink="/title/{{data.id}}/mediaindex">All > </a>
+      <span class="font-weight-bold"> {{currentFilter}}</span>
+    </div>
     <div class="border rounded" *ngIf="data.subTitle==='Full Cast & Crew'">
       <a class="p-1 mt-2 mb-2" href="https://pro.imdb.com/title/{{data.id}}">See agents for this cast & crew on
         IMDbPro
       </a>
     </div>
+
   </div>
 </div>

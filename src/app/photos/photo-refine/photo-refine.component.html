@@ -1,0 +1,14 @@
+<div class="p-2 border rounded bk-grey">
+  <h5 class="font-weight-bold color-gold">Refine All Photos By</h5>
+  <div class="mt-3" *ngFor="let filter of data.filters">
+    <span class="font-weight-bold">{{filter.filterType}}</span>
+    <ul>
+      <li *ngFor="let item of filter.items">
+        <a *ngIf="item.refine" routerLink="{{url}}" [queryParams]="{refine:item.refine}">{{item.name}} </a>
+        <span *ngIf="item.count">({{item.count}})</span>
+        <span *ngIf="!item.refine && !item.url">{{item.name}}</span>
+        <a *ngIf="item.url" routerLink="{{url}}">{{item.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

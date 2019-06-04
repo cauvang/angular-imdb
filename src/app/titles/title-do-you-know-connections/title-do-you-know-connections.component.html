@@ -1,0 +1,29 @@
+<div *ngIf="data">
+  <app-jump-to [data]="data" url="/title/{{id}}/{{titleType}}"></app-jump-to>
+
+  <div *ngFor="let detailList of data">
+    <div *ngIf="detailList.name==='Synopsis'">
+      <h4 class="color-gold">Spoilers</h4>
+      <div class="alert">
+        <i class="mr-1 color-gold fas fa-exclamation-triangle"></i>
+        The synopsis below may give away important plot points.
+      </div>
+    </div>
+
+    <div class="titleData-header">
+      <h4 class="dataHeaderWithBorder" *ngIf="detailList.name!==''">
+        <a name="{{detailList.name}}">{{detailList.name}}</a>
+      </h4>
+
+      <div class="mt-1 p-1" *ngFor="let item of detailList.items;let i=index"
+        [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
+        <div>
+          <a routerLink="/title/{{item.id}}">{{item.name}}</a>
+          <span class="ml-1 mr-1 ">{{item.year}}</span>
+        </div>
+        <div>{{item.text}}</div>
+        <a routerLink="/search/title?plot_author={{item.author}}">{{item.author}}</a>
+      </div>
+    </div>
+  </div>
+</div>

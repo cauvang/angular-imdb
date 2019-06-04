@@ -1,8 +1,8 @@
 <div *ngIf="data">
-  <app-jump-to [data]="data" [nTotal]="nTotal" url="/title/{{id}}/releaseinfo"></app-jump-to>
+  <app-jump-to [data]="data" url="/title/{{id}}/releaseinfo"></app-jump-to>
 
   <div *ngFor="let detailList of data">
-    <div class="title-header">
+    <div class="titleData-header">
       <h4 class="dataHeaderWithBorder">
         <a name="{{detailList.name}}">{{detailList.name}}</a>
       </h4>

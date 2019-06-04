@@ -1,0 +1,27 @@
+<div class="row" *ngIf="data">
+  <div class="col-8 p-3 ">
+    <div class="p-3 border rounded ">
+      <app-title-header [data]="data.item" [currentFilter]="data.currentFilter"></app-title-header>
+
+      <app-photo-display [data]="data" type="title" [id]="id" [queryParams]="queryParams" [isVideoGallery]=false>
+      </app-photo-display>
+    </div>
+    <div class="p-3 mt-3 border rounded">
+      <h2 class="color-gold">Storyline</h2>
+      <div class="pt-2"> {{data.storyline}} </div>
+      <div class="pt-2 pb-2  w-100">
+        <a routerLink="/title/{{data.item.id}}/plotsummary">Plot Summary</a>
+        <span class="color-grey ml-3 mr-3">|</span>
+        <a routerLink="/title/{{data.item.id}}/videogallery">Trailers & Videos</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4 p-3">
+    <app-photo-refine [data]="data"></app-photo-refine>
+    <app-menu [data]="data.item.menus" [name]="data.item.name" [id]="data.item.id" titleType="mediaindex">
+    </app-menu>
+    <app-share [data]="data.item"></app-share>
+
+  </div>
+</div>

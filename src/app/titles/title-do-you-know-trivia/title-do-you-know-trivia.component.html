@@ -1,24 +1,26 @@
 <div *ngIf="data">
-  <app-jump-to [data]="data" [nTotal]="nTotal" url="/title/{{id}}/trivia"></app-jump-to>
+  <app-jump-to [data]="data" url="/title/{{id}}/{{titleType}}"></app-jump-to>
 
   <div *ngFor="let detailList of data">
-    <div class="title-header">
+    <div class="titleData-header">
       <h4 class="dataHeaderWithBorder" *ngIf="detailList.name!==''">
         <a name="{{detailList.name}}">{{detailList.name}}</a>
       </h4>
 
       <div *ngIf="detailList.name==='Spoilers'" class="alert">
         <i class="mr-1 color-gold fas fa-exclamation-triangle"></i>
-        The trivia items below may give away important plot points.
+        The {{titleType}} items below may give away important plot points.
       </div>
+
       <div class="mt-1 p-1 text" *ngFor="let item of detailList.items;let i=index"
         [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
-        <div>{{item.text}}</div>
+        <div *ngIf="isHTML" innerHTML="{{item.text}}"> </div>
+        <div *ngIf="!isHTML">{{item.text}}</div>
         <div class="pt-2 font13">
-          <a class="color-grey" routerLink="/title/{{id}}/trivia"
+          <a class="color-grey" routerLink="/title/{{id}}/{{titleType}}"
             [queryParams]="{item:item.id}">{{item.interestingCount}}</a>
           <span class="ml-1 mr-1 color-grey"> |</span>
-          <a class="color-grey" routerLink="/title/{{id}}/trivia" [queryParams]="{item:item.id}">Share this</a>
+          <a class="color-grey" routerLink="/title/{{id}}/{{titleType}}" [queryParams]="{item:item.id}">Share this</a>
 
         </div>
       </div>

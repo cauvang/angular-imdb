@@ -1,6 +1,6 @@
 <div *ngIf="data">
   <div *ngFor="let detailList of data.items">
-    <div class="title-header">
+    <div class="titleData-header">
       <h4 class="dataHeaderWithBorder">{{detailList.name}}</h4>
       <div *ngIf="isCast(detailList.name);else elseBlock">
         <app-casts class="w-100" [data]="detailList.items"></app-casts>

@@ -26,7 +26,6 @@ import { PhotoHomeComponent } from './photos/photo-home/photo-home.component';
 import { FindHomeComponent } from './find/find-home/find-home.component';
 import { SearchKeywordRoutingComponent } from './search/search-keyword-routing/search-keyword-routing.component';
 import { SearchTitleTextComponent } from './search/search-title-text/search-title-text.component';
-import { TitlePlotsummaryComponent } from './titles/title-plotsummary/title-plotsummary.component';
 import { SearchNameTextComponent } from './search/search-name-text/search-name-text.component';
 import { NameBioComponent } from './name/name-bio/name-bio.component';
 import { NameMediaIndexComponent } from './name/name-media-index/name-media-index.component';
@@ -35,15 +34,18 @@ import { TitleExternalReviewComponent } from './titles/title-external-review/tit
 import { TitleCriticReviewComponent } from './titles/title-critic-review/title-critic-review.component';
 import { TitleHomepageComponent } from './titles/title-homepage/title-homepage.component';
 import { ListsComponent } from './lists/lists.component';
-import { TitleVideosComponent } from './titles/title-videos/title-videos.component';
 import { TitleDetailsFullCreditsComponent } from './titles/title-details-full-credits/title-details-full-credits.component';
 import { TitleDetailsReleaseinfoComponent } from './titles/title-details-release-info/title-details-release-info.component';
 import { TitleDetailsCompanyCreditsComponent } from './titles/title-details-company-credits/title-details-company-credits.component';
 import { TitleDetailsExternalSitesComponent } from './titles/title-details-external-sites/title-details-external-sites.component';
 import { TitleDetailsTechnicalComponent } from './titles/title-details-technical/title-details-technical.component';
 import { TitleDetailsLocationsComponent } from './titles/title-details-locations/title-details-locations.component';
-import { TitleKnowGoofsComponent } from './titles/title-know-goofs/title-know-goofs.component';
-import { TitleKnowTriviaComponent } from './titles/title-know-trivia/title-know-trivia.component';
+import { TitleDoYouKnowTriviaComponent } from './titles/title-do-you-know-trivia/title-do-you-know-trivia.component';
+import { TitleDoYouKnowVersionsComponent } from './titles/title-do-you-know-versions/title-do-you-know-versions.component';
+import { TitleDoYouKnowConnectionsComponent } from './titles/title-do-you-know-connections/title-do-you-know-connections.component';
+import { TitleStorylineKeywordsComponent } from './titles/title-storyline-keywords/title-storyline-keywords.component';
+import { TitlePhotoVideoVideosComponent } from './titles/title-photo-video-videos/title-photo-video-videos.component';
+import { TitlePhotoVideoPhotosComponent } from './titles/title-photo-video-photos/title-photo-video-photos.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -90,17 +92,25 @@ const routes: Routes = [
       { path: 'technical', component: TitleDetailsTechnicalComponent },
       { path: 'locations', component: TitleDetailsLocationsComponent },
 
-      { path: 'trivia', component: TitleKnowTriviaComponent },
-      { path: 'goofs', component: TitleKnowGoofsComponent },
+      { path: 'trivia', component: TitleDoYouKnowTriviaComponent },
+      { path: 'goofs', component: TitleDoYouKnowTriviaComponent },
+      { path: 'crazycredits', component: TitleDoYouKnowTriviaComponent },
+      { path: 'quotes', component: TitleDoYouKnowTriviaComponent },
+      { path: 'alternateversions', component: TitleDoYouKnowVersionsComponent },
+      { path: 'movieconnections', component: TitleDoYouKnowConnectionsComponent },
 
-      { path: 'videogallery', component: TitleVideosComponent },
+      { path: 'taglines', component: TitleDoYouKnowVersionsComponent },
+      { path: 'plotsummary', component: TitleDoYouKnowConnectionsComponent },
+      { path: 'keywords', component: TitleStorylineKeywordsComponent },
+
 
       { path: 'criticreviews', component: TitleCriticReviewComponent },
       { path: 'reviews', component: TitleReviewComponent },
       { path: 'externalreviews', component: TitleExternalReviewComponent },
-      { path: 'plotsummary', component: TitlePlotsummaryComponent },
     ]
   },
+  { path: 'title/:id/mediaindex', component: TitlePhotoVideoPhotosComponent },
+  { path: 'title/:id/videogallery', component: TitlePhotoVideoVideosComponent },
 
   { path: 'chart/:chartType', component: ChartTopRatedComponent },
   { path: 'india/top', component: ChartTopRatedComponent },

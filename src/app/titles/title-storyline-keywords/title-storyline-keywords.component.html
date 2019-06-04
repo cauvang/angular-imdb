@@ -1,0 +1,16 @@
+<div *ngIf="data">
+
+  <div class="d-flex">
+    <div class="flex-grow-1">Showing all {{data.length}} plot keywords </div>
+    <app-sort-dropdown datasetType="plot" (sortChange)="onSortChange($event)"></app-sort-dropdown>
+  </div>
+
+  <ul>
+    <li class="mt-1 p-2 text" *ngFor="let detailList of data;let i=index"
+      [ngClass]="{'bk-grey': i%2===0,'bk-white':i%2===1}">
+      <div><a routerLink="/search/keyword" [queryParams]="{keywords:detailList.keywords}">{{detailList.text}}</a></div>
+      <div class="pt-2 pb-2 color-grey font13">{{detailList.interestingCount}}</div>
+    </li>
+  </ul>
+
+</div>

@@ -1,5 +1,5 @@
 <div class="pl-3 font13">
-  <span *ngIf="start===n ull">{{totalItems|valueFormat}} titles</span>
+  <span *ngIf="start===null">{{totalItems|valueFormat}} titles</span>
   <span *ngIf="start!==null">{{start}}-{{end}} of {{totalItems|valueFormat}} titles</span>
 
   <span *ngIf="prevPage"> | <a routerLink="{{type}}" [queryParams]="prevPage|toQueryObject">

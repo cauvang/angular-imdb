@@ -8,7 +8,7 @@ import { ITitleDetail } from 'src/app/models/title';
 })
 export class HeaderComponent implements OnInit {
   @Input() data: ITitleDetail;
-
+  @Input() currentFilter: string;
   constructor() { }
 
   ngOnInit() {

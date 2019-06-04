@@ -1,4 +1,4 @@
-<div class="p-2 border rounded bk-grey ">
+<div class="mt-2 p-2 border rounded bk-grey" *ngIf="displayedMenu">
   <div class="font-weight-bold">
     <a routerLink="/title/{{id}}"> {{name}}</a>
   </div>
@@ -8,7 +8,6 @@
     <div *ngFor="let item of submenu.items">
       <a [ngClass]="{'color-grey': item.disabled}" routerLinkActive="selected"
         [routerLink]="item.url|queryUrl">{{item.name}}</a>
-      <!-- [queryParams]="item.url| toQueryObject" -->
     </div>
   </div>
 

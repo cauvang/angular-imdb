@@ -50,6 +50,7 @@ a {
   color: #136CB2;
 }
 
+
 .color-gold {
   color: #A58500; // #664700;
 }
@@ -94,13 +95,14 @@ a {
   background-color: transparent;
 }
 
-.link-right {
-  position: absolute;
-  right: 0;
-}
 
 .border-dotted {
   border-top: 1px dotted black;
+  margin: 0 3px;
+}
+
+.w-33 {
+  width: 32%;
 }
 
 .favourite-icon {
@@ -165,7 +167,7 @@ dir {
 
 
 
-.title-header {
+.titleData-header {
   // margin-top: 18px;
   font-size: 15px;
 
@@ -200,14 +202,16 @@ dir {
   }
 }
 
+.link-right {
+  position: absolute;
+  right: 0;
+}
+
 .rightcornerlink {
   position: absolute;
   right: 25px;
   padding-left: 5px;
   padding-top: 15px;
   font-size: 11px;
-
-
   border-left: 1px dotted #ccc;
-
 }

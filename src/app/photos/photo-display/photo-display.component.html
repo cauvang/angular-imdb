@@ -1,0 +1,30 @@
+<app-page-display [data]="data"></app-page-display>
+
+<div *ngIf="isVideoGallery;else elseBlock">
+  <div class="d-flex flex-wrap  mt-1">
+    <div class="w-33 p-1 mt-1 border-dotted" *ngFor="let item of data.items">
+      <a routerLink="/videoplayer/{{item.id}}">
+        <img class="w-100" src="{{item.image.url}}">
+        <div class="font11 color-black">{{item.title}}</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <div class="d-flex flex-wrap  mt-1">
+    <div class="p-2" *ngFor="let item of data.items">
+      <a routerLink="/{{type}}/{{item.galleryId}}/mediaviewer/{{item.viewerId}}">
+        <img title="{{item.image.title}}" src="{{item.image.url}}">
+      </a>
+    </div>
+  </div>
+</ng-template>
+
+
+<div class="mt-3">
+  <app-page-display [data]="data" [id]="id" [queryParams]="queryParams"></app-page-display>
+
+  <!-- <a *ngIf="data.seeMore && data.seeMore.url" routerLink="/name/{{queryParams.refine}}/mediaindex"
+    [queryParams]="data.seeMore.url|toQueryObject">{{data.seeMore.text}}</a> -->
+</div>
