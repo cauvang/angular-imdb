@@ -19,11 +19,13 @@ export class ShowtimeTitleComponent implements OnInit {
   private selectedDate: string;
 
   constructor(private router: Router, private service: ShowtimesService, private route: ActivatedRoute) {
-    this.route.url.subscribe(url => { this.loadShowtimes(); });
+    // this.route.url.subscribe(url => { this.loadShowtimes(); });
   }
 
   ngOnInit() {
-    this.loadShowtimes();
+    this.route.url.subscribe(url => { this.loadShowtimes(); });
+
+    // this.loadShowtimes();
   }
 
   loadShowtimes() {

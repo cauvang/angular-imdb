@@ -19,7 +19,7 @@
     <div class="col-md-10">
       <a routerLink="{{'/news/detail/' + topData.id }}">{{topData.title}}</a>
       <div>{{topData.date}} | {{topData.source.name}}</div>
-      <div class="overflow-hidden mt-2 news-content" innerHTML="{{topData.content}}"> </div>
+      <div class="overflow-hidden mt-2 news-content" innerHTML="{{topData.content}}" appRouteDirective> </div>
       <span>... <a routerLink="{{'/news/detail/' + topData.id }}">See more »</a></span>
 
     </div>

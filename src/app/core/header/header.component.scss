@@ -7,6 +7,10 @@
   margin-right: -15px;
   padding: 0px;
 
+  .search-box {
+    height: 38px;
+  }
+
   &-inner {
     background: $dark;
     margin-top: 15px;
@@ -20,7 +24,7 @@
 
     &-button {
       height: 48px;
-
+      white-space: normal;
       padding: 5px 25px;
       color: #fff;
 
@@ -30,10 +34,10 @@
 
       &:hover {
         background: linear-gradient(to bottom,
-          rgba(51, 51, 51, 0) 3%,
-          #333 15%,
-          #505050 50%,
-          #333 85%);
+            rgba(51, 51, 51, 0) 3%,
+            #333 15%,
+            #505050 50%,
+            #333 85%);
       }
     }
 
@@ -41,10 +45,10 @@
       content: "";
       width: 1px;
       background: linear-gradient(to bottom,
-        rgba(51, 51, 51, 0) 3%,
-        #333 15%,
-        #727272 50%,
-        #232323 85%);
+          rgba(51, 51, 51, 0) 3%,
+          #333 15%,
+          #727272 50%,
+          #232323 85%);
       height: 46px;
       display: inline-block;
       position: absolute;
@@ -56,10 +60,10 @@
       top: 0;
       right: 0;
       background: linear-gradient(to bottom,
-        rgba(51, 51, 51, 0) 3%,
-        #333 15%,
-        #727272 50%,
-        #232323 85%);
+          rgba(51, 51, 51, 0) 3%,
+          #333 15%,
+          #727272 50%,
+          #232323 85%);
       height: 46px;
       display: inline-block;
       position: absolute;

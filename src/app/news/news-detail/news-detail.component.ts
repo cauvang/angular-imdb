@@ -15,13 +15,13 @@ export class NewsDetailComponent implements OnInit {
   private similarNews: ISimilar[];
 
   constructor(private service: NewsService, private route: ActivatedRoute) {
-    this.route.url.subscribe(url => {
-      this.loadNews();
-    });
+    // this.route.url.subscribe(url => { this.loadNews(); });
   }
 
   ngOnInit() {
-    this.loadNews();
+    this.route.url.subscribe(url => { this.loadNews(); });
+
+    // this.loadNews();
   }
 
   loadNews() {

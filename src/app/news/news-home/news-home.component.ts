@@ -23,17 +23,21 @@ export class NewsHomeComponent implements OnInit {
   constructor(private service: NewsService, private route: ActivatedRoute, @Inject(APP_CONFIG) config: AppConfig,
     private router: Router) {
     this.config = config;
-    this.route.url.subscribe(url => {
-      this.newsType = router.routerState.snapshot.url.split('/')[2];
-      this.loadList();
-    });
+    // this.route.url.subscribe(url => {
+    //   this.newsType = router.routerState.snapshot.url.split('/')[2];
+    //   this.loadList();
+    // });
   }
 
 
 
   ngOnInit() {
-    this.newsType = this.route.snapshot.firstChild.params['newsType'];
-    this.loadList();
+    this.route.url.subscribe(url => {
+      this.newsType = this.router.routerState.snapshot.url.split('/')[2];
+      this.loadList();
+    });
+    // this.newsType = this.route.snapshot.firstChild.params['newsType'];
+    // this.loadList();
   }
 
   onRouteChange(type: string) {

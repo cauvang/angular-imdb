@@ -18,16 +18,23 @@ export class PhotoHomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.url.subscribe(url => { this.loadData(); });
+
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
+      this.loadData();
+
     });
 
     this.route.queryParams.subscribe(queryParams => {
       this.queryParams = queryParams;
+      this.loadData();
+    });
+  }
 
-      this.service.getPhotos(this.id, this.queryParams).subscribe(data => {
-        this.data = data;
-      });
+  loadData() {
+    this.service.getPhotos(this.id, this.queryParams).subscribe(data => {
+      this.data = data;
     });
   }
 }

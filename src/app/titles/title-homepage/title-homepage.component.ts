@@ -23,7 +23,10 @@ export class TitleHomepageComponent implements OnInit {
       this.id = urls[2];
       if (!this.isTitleHome) {
         this.titleType = urls[3].split('#')[0];
-        this.titleType === 'officialsites' ? "externalsites" : this.titleType;
+        if (this.titleType === "officialsites")
+          this.titleType = "externalsites";
+        // this.titleType === "officialsites" ? "externalsites" : this.titleType;
+        // console.log(this.titleType)
         this.service.getTitleDetail(this.id, this.titleType).subscribe(data => {
           this.data = data;
         });

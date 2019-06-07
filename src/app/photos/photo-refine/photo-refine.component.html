@@ -4,10 +4,11 @@
     <span class="font-weight-bold">{{filter.filterType}}</span>
     <ul>
       <li *ngFor="let item of filter.items">
-        <a *ngIf="item.refine" routerLink="{{url}}" [queryParams]="{refine:item.refine}">{{item.name}} </a>
+        <a *ngIf="item.refine" [routerLink]="url|queryUrl" [queryParams]="{refine:item.refine}">{{item.name}} </a>
         <span *ngIf="item.count">({{item.count}})</span>
+
         <span *ngIf="!item.refine && !item.url">{{item.name}}</span>
-        <a *ngIf="item.url" routerLink="{{url}}">{{item.name}}</a>
+        <a *ngIf="item.url" [routerLink]="item.url|queryUrl" [queryParams]="item.url| toQueryObject">{{item.name}}</a>
       </li>
     </ul>
   </div>

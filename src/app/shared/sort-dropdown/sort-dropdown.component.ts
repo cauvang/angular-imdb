@@ -112,6 +112,20 @@ export class SortDropdownComponent implements OnInit {
         name: 'Alphabetical',
         value: 'alpha'
       },
+    ],
+    'video': [
+      {
+        name: 'Date',
+        value: 'date'
+      },
+      {
+        name: 'Duration',
+        value: 'duration'
+      },
+      {
+        name: 'Expiration Date',
+        value: 'expiration'
+      },
     ]
   };
   @Output() sortChange = new EventEmitter();

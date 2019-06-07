@@ -19,8 +19,18 @@ export class TitleDoYouKnowTriviaComponent implements OnInit {
     const urls = this.router.routerState.snapshot.url.split('/');
     this.id = urls[2];
     this.titleType = urls[3];
-    if (this.titleType === "quotes" || this.titleType === "crazycredits")
-      this.isHTML = true;
+    switch (this.titleType) {
+      case "quotes":
+      case "crazycredits":
+      case "soundtrack":
+        this.isHTML = true;
+        break;
+      default:
+        this.isHTML = false;
+        break;
+    }
+    // if (this.titleType === "quotes" || this.titleType === "crazycredits")
+    // this.isHTML = true;
   }
 
   ngOnInit() {

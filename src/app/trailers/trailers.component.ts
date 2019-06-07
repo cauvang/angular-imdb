@@ -16,11 +16,13 @@ export class TrailersComponent implements OnInit {
   constructor(private service: TrailersService, private route: ActivatedRoute) {
     this.trailerType = 'popular';
     this.isLoading = false;
-    this.route.url.subscribe(url => { this.loadTrailers(); });
+    // this.route.url.subscribe(url => { this.loadTrailers(); });
   }
 
   ngOnInit() {
-    this.loadTrailers();
+    this.route.url.subscribe(url => { this.loadTrailers(); });
+
+    // this.loadTrailers();
   }
 
   loadTrailers() {

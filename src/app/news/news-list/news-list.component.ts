@@ -23,15 +23,15 @@ export class NewsListComponent implements OnInit {
   constructor(private service: NewsService, private route: ActivatedRoute, @Inject(APP_CONFIG) config: AppConfig) {
     this.config = config;
 
-    this.route.url.subscribe(url => {
-      this.loadList();
-    });
+    // this.route.url.subscribe(url => {      this.loadList();    });
 
   }
 
 
   ngOnInit() {
-    this.loadList();
+    this.route.url.subscribe(url => { this.loadList(); });
+
+    // this.loadList();
   }
 
   loadList() {

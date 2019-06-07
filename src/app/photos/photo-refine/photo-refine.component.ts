@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IPhoto } from 'src/app/models/photo';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-photo-refine',

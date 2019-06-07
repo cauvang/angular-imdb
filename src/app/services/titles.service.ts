@@ -27,12 +27,14 @@ export class TitlesService {
 
   public getTitlePhoto(id: string, type: string, query: any): Observable<IPhoto> {
     let url = this.appConfig.rootURL + 'title/' + id + '/' + type + '?1=1';
-    if (query.page) {
-      url += '&page=' + query.page + '&';
-    }
+    if (query) {
+      if (query.page) {
+        url += '&page=' + query.page + '&';
+      }
 
-    if (query.refine) {
-      url += '&refine=' + query.refine;
+      if (query.refine) {
+        url += '&refine=' + query.refine;
+      }
     }
 
     return this.http.get<IPhoto>(url);

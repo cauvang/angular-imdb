@@ -14,9 +14,9 @@
 
       <div class="mt-1 p-1 text" *ngFor="let item of detailList.items;let i=index"
         [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
-        <div *ngIf="isHTML" innerHTML="{{item.text}}"> </div>
+        <div *ngIf="isHTML" innerHTML="{{item.text}}" appRouteDirective> </div>
         <div *ngIf="!isHTML">{{item.text}}</div>
-        <div class="pt-2 font13">
+        <div class="pt-2 font13" *ngIf="titleType!=='soundtrack'">
           <a class="color-grey" routerLink="/title/{{id}}/{{titleType}}"
             [queryParams]="{item:item.id}">{{item.interestingCount}}</a>
           <span class="ml-1 mr-1 color-grey"> |</span>

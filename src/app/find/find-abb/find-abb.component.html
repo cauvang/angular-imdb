@@ -26,7 +26,7 @@
       routerLink="/{{queryType[result.header]}}/{{item.id}}">{{item.name}}</a>
   </ng-template>
 
-  <span innerHTML="{{item.text}}"></span>
+  <span innerHTML="{{item.text}}" appRouteDirective></span>
 </div>
 
 <div *ngIf="displayAll" class="m-2 p-2 rounded-bottom bk-grey">

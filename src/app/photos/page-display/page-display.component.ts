@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination/ngx-bootstrap-pagination';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IPhoto } from 'src/app/models/photo';
 
 @Component({
@@ -14,33 +13,34 @@ export class PageDisplayComponent implements OnInit {
 
   private url: string;
   private pages: number[];
+  private display: string;
 
-  constructor(private router: Router) {
-    this.url = router.routerState.snapshot.url.split('?')[0];
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.url = router.routerState.snapshot.url;
+
+    if (this.queryParams === undefined)
+      route.queryParams.subscribe(params => { this.queryParams = params; });
   }
 
   ngOnInit() {
+    this.initPages();
+    this.display = this.data.display.split('\n')[0];
+  }
+  ngOnChanges() {
+    this.initPages();
+    this.display = this.data.display.split('\n')[0];
+
+
+  }
+  getQuery(page: number) {
+    return { ...this.queryParams, page };
+  };
+
+  initPages() {
     const pageList = [];
     for (let i = 1; i <= this.data.totalPages; i++) {
       pageList.push(i);
     }
     this.pages = pageList;
-    console.log("Data", this.data, this.pages);
-
   }
-
-  // ngOnChanges(): void {
-  //   console.log("bb", this.queryParams)
-  //   const pageList = [];
-  //   for (let i = 1; i <= this.data.totalPages; i++) {
-  //     pageList.push(i);
-  //   }
-  //   this.pages = pageList;
-
-  // }
-
-  getQuery(page: number) {
-    const a = { ...this.queryParams, page };
-    return a;
-  };
 }

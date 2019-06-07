@@ -310,43 +310,43 @@
       </div>
     </div>
 
-    <div class="row details p-3" innerHTML="{{data.details}}"> </div>
+    <div class="row details p-3" innerHTML="{{data.details}} appRouteDirective" appRouteDirective> </div>
 
     <div class="row p-3">
       <span class="rightcornerlink"> <a href="/register/login">Edit</a></span>
       <h2>Did you know?</h2>
       <div class="pb-2">
         <span class="font-weight-bold color-grey">Trivia</span>
-        <div innerHTML="{{data.trivia}}"></div>
+        <div innerHTML="{{data.trivia}}" appRouteDirective></div>
       </div>
       <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Goofs</span>
-          <div innerHTML="{{data.goofs}}"></div>
+          <div innerHTML="{{data.goofs}}" appRouteDirective></div>
         </div>
       </div>
       <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Crazy Credits</span>
-          <div innerHTML="{{data.crazyCredits}}"></div>
+          <div innerHTML="{{data.crazyCredits}}" appRouteDirective></div>
         </div>
       </div>
       <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Alternate Versions</span>
-          <div innerHTML="{{data.alternativeVersions}}"></div>
+          <div innerHTML="{{data.alternativeVersions}}" appRouteDirective></div>
         </div>
       </div>
       <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Connections</span>
-          <div innerHTML="{{data.connections}}"></div>
+          <div innerHTML="{{data.connections}}" appRouteDirective></div>
         </div>
       </div>
       <div class="border-top pt-2 pb-2 w-100">
         <div>
           <span class="font-weight-bold color-grey">Sound Tracks</span>
-          <div innerHTML="{{data.soundtracks}}"></div>
+          <div innerHTML="{{data.soundtracks}}" appRouteDirective></div>
         </div>
       </div>
     </div>
@@ -416,7 +416,7 @@
         <app-video-image [imageUrl]="data.featuredList.image.url" [imageTitle]="data.featuredList.image.title">
         </app-video-image>
       </a>
-      <div class="pt-2" innerHTML="{{data.featuredList.content}}"></div>
+      <div class="pt-2" innerHTML="{{data.featuredList.content}}" appRouteDirective></div>
     </div>
 
     <div class="border-top pt-3 pb-3">

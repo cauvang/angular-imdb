@@ -20,7 +20,7 @@
       <span class="d-inline metascore-green"> {{data.metascore}}</span>
       <span>Metascore </span>
     </div>
-    <div innerHTML="{{data.description}}"></div>
+    <div innerHTML="{{data.description}}" appRouteDirective></div>
     <div *ngIf="data.directors">
       <app-string-display *ngIf="data.directors.length>1" title="Directors" [data]="data.directors"
         splitType="splitVertical" stringName="name"></app-string-display>

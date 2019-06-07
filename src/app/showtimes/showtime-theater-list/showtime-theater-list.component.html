@@ -7,7 +7,7 @@
         routerLink="/showtimes/cinema/{{item.id}}/{{location.country}}/{{location.postcode}}/{{today}}">{{item.name}}</a>
       <img class="favourite-icon" src="../../../assets/favourite.png" />
 
-      <div class="font11" innerHTML="{{item.address.address}}"></div>
+      <div class="font11" innerHTML="{{item.address.address}}" appRouteDirective></div>
       <div *ngIf="item.movies;else elseBlock">
         <div *ngFor="let movie of item.movies" class="overflow-auto">
           <app-showtime-theater-item [data]="movie" overlayStyle="default"

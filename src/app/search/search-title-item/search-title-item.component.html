@@ -29,7 +29,7 @@
     </div>
 
     <span *ngIf="searchType=='title'">
-      <div class="mt-1" innerHTML="{{item.shortDescription}}"></div>
+      <div class="mt-1" innerHTML="{{item.shortDescription}}" appRouteDirective></div>
       <div class="mt-1">
         <div *ngIf="item.directors.length!=0" class="float-left">
           <app-string-display title="Directors" [data]="item.directors" splitType="splitComma" stringName="name">

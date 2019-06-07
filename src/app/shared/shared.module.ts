@@ -24,6 +24,7 @@ import { ValueFormatPipe } from './value-format.pipe';
 import { StringDisplayComponent } from './string-display/string-display.component';
 import { RatingModule } from 'ngx-rating';
 import { QueryUrlPipe } from './query-url.pipe';
+import { RouteDirective } from './route.directive';
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import { QueryUrlPipe } from './query-url.pipe';
     ValueFormatPipe,
     StringDisplayComponent,
     QueryUrlPipe,
+    RouteDirective,
 
 
   ],
@@ -75,6 +77,7 @@ import { QueryUrlPipe } from './query-url.pipe';
     ValueFormatPipe,
     StringDisplayComponent,
     QueryUrlPipe,
+    RouteDirective
   ]
 })
 export class SharedModule { }

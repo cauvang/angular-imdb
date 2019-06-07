@@ -1,4 +1,11 @@
-<app-page-display [data]="data"></app-page-display>
+<div class="d-flex">
+  <div class="flex-fill">
+    <app-page-display [data]="data"></app-page-display>
+  </div>
+  <div *ngIf="isVideoGallery" class="flex-fill ml-5">
+    <app-sort-dropdown datasetType="video"></app-sort-dropdown>
+  </div>
+</div>
 
 <div *ngIf="isVideoGallery;else elseBlock">
   <div class="d-flex flex-wrap  mt-1">

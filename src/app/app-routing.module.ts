@@ -98,6 +98,7 @@ const routes: Routes = [
       { path: 'quotes', component: TitleDoYouKnowTriviaComponent },
       { path: 'alternateversions', component: TitleDoYouKnowVersionsComponent },
       { path: 'movieconnections', component: TitleDoYouKnowConnectionsComponent },
+      { path: 'soundtrack', component: TitleDoYouKnowTriviaComponent },
 
       { path: 'taglines', component: TitleDoYouKnowVersionsComponent },
       { path: 'plotsummary', component: TitleDoYouKnowConnectionsComponent },
