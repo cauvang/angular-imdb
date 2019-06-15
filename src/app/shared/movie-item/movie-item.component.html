@@ -2,13 +2,13 @@
   <div class="col-3" *ngIf="data.poster">
     <img src="{{data.poster.url}}" title="{{data.poster.title}}">
   </div>
-  <div class="col-9 font11">
+  <div class="col-9 font13">
     <h4><a routerLink="/title/{{data.id}}">{{data.name}}</a></h4>
     <!-- href -->
     <div class="m-2" *ngIf="data.certImage">
       <img class="d-inline" src="{{data.certImage.url}}">
       <div class="d-inline"> {{data.length}} - </div>
-      <div *ngIf="data.generes">
+      <div class="d-inline" *ngIf="data.generes">
         <app-string-display [data]="data.generes" splitType="splitVertical" stringName="generes"></app-string-display>
       </div>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
-import { IMetadata } from 'src/app/models/showtimes';
+import { IMetadata, ILocation } from 'src/app/models/showtimes';
 import { Router } from '@angular/router';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-refinement',
@@ -30,9 +31,10 @@ export class RefinementComponent implements OnInit, OnChanges {
   selectedValues: string[];
   catList = {};
 
+  private location: ILocation;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: LocationService) {
     for (let index = 1; index <= 10; index += 0.1) {
       this.ratingInc.push(Math.round(index * 10) / 10);
     }
@@ -42,6 +44,8 @@ export class RefinementComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.location = this.service.getLocation();
+    console.log(this.data)
   }
 
   ngOnChanges() {

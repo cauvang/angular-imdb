@@ -41,7 +41,7 @@ export class SearchTitleComponent implements OnInit {
       this.end = end > data.totalItems ? data.totalItems : end;
       this.totalItem = data.totalItems;
       if (data.totalPages === 1) {
-        this.start = null;
+        // this.start = null;
         this.end = null;
       }
 

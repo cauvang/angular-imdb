@@ -69,18 +69,24 @@ const routes: Routes = [
   { path: 'showtimes/title/:id/:country/:zipcode/:date', component: ShowtimeTitleComponent },
   {
     path: 'showtimes', component: ShowtimeHomeComponent, children: [
-      { path: 'movies', component: ShowtimeMovieComponent },
-      { path: 'movies/:country/:zipcode/:date', component: ShowtimeMovieComponent },
+      // { path: 'movies', component: ShowtimeMovieComponent },
+      // { path: 'movies/:country/:zipcode/:date', component: ShowtimeMovieComponent },
+      { path: 'location/:country/:zipcode/:date', component: ShowtimeMovieComponent },
+      { path: 'location/:country/:zipcode', component: ShowtimeMovieComponent },
 
       { path: 'theater', component: ShowtimeTheaterComponent },
-      { path: 'theater/:country/:zipcode/:date', component: ShowtimeTheaterComponent },
+      // { path: 'theater/:country/:zipcode/:date', component: ShowtimeTheaterComponent },
+
+      { path: ':country/:zipcode', component: ShowtimeTheaterComponent },
+      { path: ':country/:zipcode/:date', component: ShowtimeTheaterComponent },
 
       { path: 'favourite', component: ShowtimeFavouriteComponent },
     ]
   },
   { path: 'showtimes/cinema/:id', component: ShowtimeCinemaComponent },
-  { path: 'showtimes/cinema/:id/:country/:zipcode', component: ShowtimeCinemaComponent },
-  { path: 'showtimes/cinema/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
+  { path: 'showtimes/cinema/:country/:id/:country/:zipcode', component: ShowtimeCinemaComponent },
+  { path: 'showtimes/cinema/:country/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
+
 
   {
     path: 'title/:id', component: TitleHomepageComponent, children: [

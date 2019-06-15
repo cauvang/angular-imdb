@@ -8,11 +8,6 @@ import { IImage, IArticle } from 'src/app/models/article';
 })
 export class ArticlesComponent implements OnInit {
   @Input() data: IArticle[];
-  @Input() videoId: string;
-  @Input() listId: string;
-  @Input() images: IImage;
-  @Input() title: string;
-  @Input() content: string;
 
   constructor() { }
 

@@ -9,7 +9,7 @@ import { IPhoto } from 'src/app/models/photo';
 })
 export class PageDisplayComponent implements OnInit {
   @Input() data: IPhoto;
-  @Input() queryParams: any;
+  private queryParams: any;
 
   private url: string;
   private pages: number[];
@@ -18,8 +18,8 @@ export class PageDisplayComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {
     this.url = router.routerState.snapshot.url;
 
-    if (this.queryParams === undefined)
-      route.queryParams.subscribe(params => { this.queryParams = params; });
+    // if (this.queryParams === undefined)
+    route.queryParams.subscribe(params => { this.queryParams = params; });
   }
 
   ngOnInit() {

@@ -25,21 +25,15 @@ export class TitlesService {
     return this.http.get<ITitleType>(this.appConfig.rootURL + 'title/' + id + '/' + type);
   }
 
-  public getTitlePhoto(id: string, type: string, query: any): Observable<IPhoto> {
-    let url = this.appConfig.rootURL + 'title/' + id + '/' + type + '?1=1';
-    if (query) {
-      if (query.page) {
-        url += '&page=' + query.page + '&';
-      }
 
-      if (query.refine) {
-        url += '&refine=' + query.refine;
-      }
+  public getTitlePhoto(id: string, type: string, queryString: string): Observable<IPhoto> {
+    let url = this.appConfig.rootURL + 'title/' + id + '/' + type;// + '?1=1';
+
+    if (queryString != null) {
+      url += '?' + queryString;
     }
-
     return this.http.get<IPhoto>(url);
   }
-
 
 
   public getList(id: string, page: number): Observable<IList> {

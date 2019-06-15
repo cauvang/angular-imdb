@@ -17,17 +17,6 @@ export class TitlePhotoVideoPhotosComponent implements OnInit {
   constructor(private router: Router, private service: TitlesService, private route: ActivatedRoute) {
     this.id = this.router.routerState.snapshot.url.split('/')[2];
 
-    // this.route.url.subscribe(url => {
-    //   this.loadData();
-    //   console.log("home", this.data, url)
-    // });
-
-    // this.route.params.subscribe((params: Params) => {
-    //   this.id = params['id'];
-    //   this.loadData();
-
-    // });
-
     this.route.queryParams.subscribe(queryParams => {
       this.queryParams = queryParams;
       this.loadData();
@@ -40,7 +29,12 @@ export class TitlePhotoVideoPhotosComponent implements OnInit {
   ngOnInit() { }
 
   loadData() {
-    this.service.getTitlePhoto(this.id, "mediaindex", this.queryParams).subscribe(data => {
+    const url = document.location.href;
+    let queryString = '';
+    if (url.indexOf('?')) {
+      queryString = url.split('?')[1];
+    }
+    this.service.getTitlePhoto(this.id, "mediaindex", queryString).subscribe(data => {
       this.data = data;
     });
   }

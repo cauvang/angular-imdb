@@ -1,10 +1,10 @@
 <div class="row mt-2 border-bottom p-3" *ngFor="let item of data">
 
-  <a href="#" class="no-link title mb-2 ">{{item.title}}</a>
+  <a routerLink="/list/{{item.listId}}/videoplayer/{{item.videoId}}" class="no-link title mb-2 ">{{item.title}}</a>
 
   <app-video-image [imageUrl]="item.images[0].url" [imageTitle]="item.images[0].title" class="w-100"></app-video-image>
 
   <div class="mt-3">{{item.content}}</div>
 
-  <a href="#" class="mt-3 mb-3">Watch our video »</a>
+  <a routerLink="/list/{{item.listId}}/videoplayer/{{item.videoId}}" class="mt-3 mb-3">Watch now »</a>
 </div>

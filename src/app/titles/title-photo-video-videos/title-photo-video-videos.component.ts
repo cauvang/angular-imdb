@@ -18,13 +18,33 @@ export class TitlePhotoVideoVideosComponent implements OnInit {
 
     this.route.queryParams.subscribe(queryParams => {
       this.queryParams = queryParams;
-      this.service.getTitlePhoto(this.id, "videogallery", this.queryParams).subscribe(data => {
-        this.data = data;
-      });
+      this.loadData();
     });
   }
 
   ngOnInit() {
   }
 
+  loadData() {
+    const url = document.location.href;
+    let queryString = '';
+    if (url.indexOf('?')) {
+      queryString = url.split('?')[1];
+    }
+
+    this.service.getTitlePhoto(this.id, "videogallery", queryString).subscribe(data => {
+
+      this.data = data;
+    });
+  }
+
+  onSortChange(sortBy) {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: sortBy,
+        queryParamsHandling: 'merge'
+      });
+  }
 }

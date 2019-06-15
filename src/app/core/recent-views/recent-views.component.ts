@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recent-views.component.scss']
 })
 export class RecentViewsComponent implements OnInit {
+  private link: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.link = document.location.href;
   }
 
 }

@@ -2,7 +2,7 @@
   <div class="col-8 p-3 ">
     <div class="p-3 border rounded ">
       <app-title-header [data]="data.item"></app-title-header>
-      <app-photo-display [data]="data" type="title" [id]="id" [queryParams]="queryParams" [isVideoGallery]=true>
+      <app-photo-display [data]="data" type="title" [isVideoGallery]=true (sortChange)="onSortChange($event)">
       </app-photo-display>
     </div>
 

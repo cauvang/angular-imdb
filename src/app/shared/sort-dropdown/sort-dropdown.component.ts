@@ -172,6 +172,9 @@ export class SortDropdownComponent implements OnInit {
       case 'cinema':
         this.sortChange.emit({ sort: this.sortBy, dir: this.sortDirection });
         break;
+      case 'video':
+        this.sortChange.emit({ sort: this.sortBy, sortDir: this.sortDirection });
+        break; ``
     }
 
   }

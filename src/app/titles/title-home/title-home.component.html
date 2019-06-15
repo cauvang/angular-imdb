@@ -187,7 +187,8 @@
       <h2>Can't Get Enough Marvel?</h2>
       <div>IMDb has 'Avengers' and the whole Marvel Cinematic Universe covered with all the latest clips, interviews,
         and in-depth info.</div>
-      <a href="#">Check out our Marvel video playlist »</a>
+      <a routerLink="/list/{{data.trailer.listId}}/videoplayer/{{data.trailer.videoId}}">Check out our Marvel video
+        playlist »</a>
     </div>
 
     <div class="row border-top border-bottom bk-yellow p-3">
@@ -375,7 +376,8 @@
       <div class="font11 w-100">
         {{data.topReview.dateCreated}}
         | by
-        <a href="#">{{data.topReview.author.name}}</a> - <a href="#">See all my reviews</a>
+        <a routerLink="/user/90995926">{{data.topReview.author.name}}</a> - <a routerLink="/user/90995926">See all my
+          reviews</a>
       </div>
       <div class="pt-2 pb-2">{{data.topReview.reviewBody}}</div>
       <div class="border-top pt-2 pb-2">

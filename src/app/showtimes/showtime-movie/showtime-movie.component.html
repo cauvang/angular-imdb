@@ -1,7 +1,8 @@
-<app-refinement [data]="data.metadata" [bSearchMode]=false (refineChange)="onRefineChange($event)"></app-refinement>
+<app-refinement *ngIf="data" [data]="data.metadata" [bSearchMode]=false (refineChange)="onRefineChange($event)">
+</app-refinement>
 
-<div class="border mt-2 bk-trans">
-  <div class="d-flex">
+<div *ngIf="data" class=" mt-2 bk-trans">
+  <div class="d-flex ml-2">
     <span class="flex-grow-1"> {{data.totalCount}} movies playing near you today,
       {{selectedDate|date:'EEEE, MMMM d'}}</span>
     <app-sort-dropdown datasetType="movie" (sortChange)="onSortChange($event)"></app-sort-dropdown>
@@ -11,6 +12,7 @@
       <app-image-popover [data]="item" *ngIf="data.items.length>0"></app-image-popover>
     </div>
   </div>
-  <div class="font11 mt-3">Movie showtimes data provided by <a href="#">Webedia Entertainment</a> and is subject to
+  <div class="font11 mt-3">Movie showtimes data provided by <a
+      href="https://www.webediamoviespro.com/#get-listed">Webedia Entertainment</a> and is subject to
     change</div>
 </div>

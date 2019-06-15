@@ -48,7 +48,7 @@
                 <div class="col-md-6">
                   <h2 class="header-menu-title">Movies</h2>
                   <a class="dropdown-item" routerLink="/movies/in-theater">In Theaters</a>
-                  <a class="dropdown-item" routerLink="/showtimes/movies">Showtimes and Tickets</a>
+                  <a class="dropdown-item" routerLink="/showtimes/theater">Showtimes and Tickets</a>
                   <a class="dropdown-item" routerLink="/trailers">Latest Trailers</a>
                   <a class="dropdown-item" routerLink="/movies/coming-soon">Coming Soon</a>
                   <a class="dropdown-item" routerLink="/calendar">Release Calendar</a>
@@ -69,13 +69,14 @@
                   <a class="dropdown-item" routerLink="/tv">IMDB TV</a>
                   <a class="dropdown-item" routerLink="/chart/toptv">Top Rated TV Shows</a>
                   <a class="dropdown-item" routerLink="/chart/tvmeter">Most popular TV Shows</a>
-                  <a class="dropdown-item" href="#">DVD & Bluray</a>
+                  <a class="dropdown-item" routerLink="/sections/dvd">DVD & Bluray</a>
 
                   <h2 class="header-menu-title">Special Features</h2>
-                  <a class="dropdown-item" href="#">Amazon Originals</a>
-                  <a class="dropdown-item" href="#">Streaming Now</a>
-                  <a class="dropdown-item" href="#">Horror Guide</a>
-                  <a class="dropdown-item" href="#">IMDB Picks</a>
+                  <a class="dropdown-item" routerLink="/amazon-originals">Amazon Originals</a>
+                  <a class="dropdown-item" routerLink="/streaming">Streaming Now</a>
+                  <a class="dropdown-item" routerLink="/scary-good">Horror Guide</a>
+                  <a class="dropdown-item" routerLink="/imdbpicks">IMDB Picks</a>
+                  <a class="dropdown-item" routerLink="/originals">IMDB Original Series</a>
                 </div>
               </div>
 
@@ -86,7 +87,7 @@
             <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <a routerLink="/search/name" [queryParams]="{gender: 'male,female', ref_:'nv_tp_cel'}">Celebs</a>, <a
-                href="#">Events</a> & <a href="#">Photos</a>
+                routerLink="/awards-central">Events</a> & <a routerLink="/gallery/rg1859820288">Photos</a>
             </div>
             <div class="dropdown-menu" [ngClass]="{'show':rr.isOpen}">
               <div class="header-menu-popup p-3 row">
@@ -141,8 +142,8 @@
                   <a class="dropdown-item" routerLink="news/indie">Indie News</a>
 
                   <h2 class="header-menu-title">Community</h2>
-                  <a class="dropdown-item" routerLink="/">Contributor Zone</a>
-                  <a class="dropdown-item" routerLink="/">Poll</a>
+                  <a class="dropdown-item" routerLink="/czone">Contributor Zone</a>
+                  <a class="dropdown-item" routerLink="/poll">Poll</a>
                 </div>
 
                 <div class="col-md-6">
@@ -156,10 +157,10 @@
           <div class="dropdown  header-menu header-menu-last" appDropdown #a="appDropDown">
             <div class="dropdown-toggle font13 header-menu-button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
-              <a href="#">Watchlist</a>
+              <a routerLink="/list/watchlist">Watchlist</a>
             </div>
             <div class="dropdown-menu" [ngClass]="{'show':a.isOpen}">
-              <a class="dropdown-item" href="#">Your watchlist</a>
+              <h2 class="header-menu-title">Your watchlist</h2>
             </div>
           </div>
         </div>
@@ -172,19 +173,18 @@
             <img class="dropdown-toggle font13" src="/assets/imdb-pro.png" />
           </button>
           <div class="dropdown-menu" [ngClass]="{'show':b.isOpen}">
-            <a class="dropdown-item" href="#">Your watchlist</a>
           </div>
         </div>
 
         <ul class="social-media-links font13">
           <li class="spacer"></li>
-          <li class=""><a href="help">Help</a></li>
+          <li><a href="https://help.imdb.com/imdb">Help</a></li>
           <li class="spacer"></li>
-          <li class=""><a href="help"><i class="fab fa-facebook"></i> </a> </li>
-          <li class=""><a href="help"><i class="fab fa-instagram"></i></a></li>
-          <li class=""><a href="help"><i class="fab fa-twitch"></i></a></li>
-          <li class=""><a href="help"><i class="fab fa-twitter"></i></a></li>
-          <li class=""><a href="help"><i class="fab fa-youtube"></i></a></li>
+          <li><i class="fab fa-facebook"></i> </li>
+          <li><i class="fab fa-instagram"></i></li>
+          <li><i class="fab fa-twitch"></i></li>
+          <li><i class="fab fa-twitter"></i></li>
+          <li><i class="fab fa-youtube"></i></li>
 
         </ul>
       </div>

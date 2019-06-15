@@ -45,4 +45,6 @@ export class MenuComponent implements OnInit {
     this.displayedMenu = [this.selectedMenu, ...[]];
 
   }
+
+
 }

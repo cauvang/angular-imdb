@@ -73,3 +73,9 @@ input {
   border-bottom: 1px solid #ddd;
   padding: 5px;
 }
+
+.genre {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

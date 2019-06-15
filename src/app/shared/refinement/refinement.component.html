@@ -1,4 +1,4 @@
-<div class="bk-grey m-3">
+<div class="bk-grey mt-3">
   <div class="faceter-header" [ngClass]="{'open': bRefine}">
     <div>
       <i *ngIf="!bRefine" class="fas fa-angle-double-down refinebtn" (click)="onRefine()"></i>
@@ -30,13 +30,15 @@
       <div class="col-9 bk-white">
         <div class="tab-content overflow-auto" style="max-height:236px">
           <div *ngFor="let item of data">
-            <div *ngIf="item.categoryName === selectedTab" class="pt-3 d-flex flex-wrap flex-row">
-              <div *ngIf="item.searchKey==='tickets_theaters';else ratingBlock">
-                <input type="radio">
-                <label>In Favourite Theaters</label>
-                <a href="#" class="border-top">Reset</a>
+            <div *ngIf="item.categoryName === selectedTab" class="pt-3">
+              <div class="pl-3" *ngIf="item.searchKey==='tickets_theaters'">
+                <input type="radio" class="d-inline">
+                <label class="d-inline">In Favourite Theaters</label>
+                <div class="border-top pl-3">
+                  <a routerLink="/showtimes/location/{{location.country}}/{{location.postcode}}">Reset</a>
+                </div>
               </div>
-              <div class="pl-3" #ratingBlock *ngIf="item.searchKey === 'imdb_rating';else releaseBlock">
+              <div class="pl-3" *ngIf="item.searchKey === 'imdb_rating'">
                 <span>IMDb user rating (average)</span>
                 <div>
                   <mat-form-field>
@@ -59,7 +61,7 @@
                   <label title="Search" class="ml-2 btn-search" (click)="onVoteSearch()"> » </label>
                 </div>
               </div>
-              <div class="pl-3" #releaseBlock *ngIf="item.searchKey==='release_date';else finallyBlock">
+              <div class="pl-3" *ngIf="item.searchKey==='release_date'">
                 <span>Release year or range</span>
                 <div class="d-flex">
                   <input type="text" class="form-control" [(ngModel)]="fromRange">
@@ -68,9 +70,12 @@
                   <label title="Search" class=" p-1 ml-2 btn-search border" (click)="onRangeSearch()"> » </label>
                 </div>
               </div>
-              <div #finallyBlock *ngFor="let value of item.values" style="width: 50%">
-                <input type="checkbox" [(ngModel)]="value.checked" (change)="onChecked(item.categoryName, value.name)">
-                <span>{{value.name}} ({{value.count}})</span>
+              <div class="genre" *ngIf="item.searchKey==='genres' || item.searchKey==='certificates'">
+                <div *ngFor="let value of item.values" style="width:50%">
+                  <input type="checkbox" [(ngModel)]="value.checked"
+                    (change)="onChecked(item.categoryName, value.name)">
+                  <span>{{value.name}} ({{value.count}})</span>
+                </div>
               </div>
             </div>
           </div>

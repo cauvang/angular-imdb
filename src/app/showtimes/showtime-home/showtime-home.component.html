@@ -33,7 +33,7 @@
     <div *ngIf="type!='favourite'">
       <app-favourite></app-favourite>
     </div>
-    <div *ngIf="type!='movies'">
+    <div *ngIf="type!='movies' && type!='location'">
       <app-showtime-movie-near nMovieDisplayed="12" movieDisplayStyle="default"> </app-showtime-movie-near>
     </div>
     <div *ngIf="type!='theater'">
