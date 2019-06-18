@@ -45,7 +45,6 @@ export class RefinementComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.location = this.service.getLocation();
-    console.log(this.data)
   }
 
   ngOnChanges() {

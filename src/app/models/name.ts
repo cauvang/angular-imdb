@@ -7,7 +7,8 @@ export interface IName {
     id: string;
     name: string;
     bio: string;
-    poster: IImage;
+    heroImage: IImage;
+    heroVideo: IVideo;
     bornOn: string;
     bornPlace: string;
     images: IImage[];
@@ -27,6 +28,9 @@ export interface IVideo {
     id: string;
     name: string;
     poster: IImage;
+    image: IImage;
+    playlistId: string;
+    caption: string;
 }
 
 export interface IFilm {

@@ -1,8 +1,130 @@
-<div class="row">
-  <div class="col-8 border rounded">
-    <h3>Name -----</h3>
-  </div>
-  <div class="col-4">
+<div class="row" *ngIf="data">
+  <div class="col-8 p-3 ">
+    <div class="p-3 border rounded ">
+      <h3>{{data.name}}</h3>
+      <div class="row">
+        <div class="col-4">
+          <img title="{{data.heroImage.title}}" src="{{data.heroImage.url}}">
+        </div>
+        <div class="col-8">
+          <app-video-image [imageUrl]="data.heroVideo.image.url" [imageTitle]="data.heroVideo.image.title"
+            [caption]="caption">
+          </app-video-image>
+        </div>
+      </div>
+      <div class="font13 pt-3 pb-3">
+        <a routerLink="resume">View Resume</a>
+        |
+        <a routerLink="resumephotos">Official Photos »</a>
+      </div>
+      <div innerHTML="{{data.bio}}"></div>
+      <div class="pt-3">
+        <span class="color-grey font-weight-bold mr-1">Born:</span>
+        <a routerLink="/search/name" [queryParams]=birthdayQueryParams>{{bornOn}}</a>,
+        <a routerLink="/search/name" [queryParams]=yearQueryParams>{{bornOnYear}}</a>
+        in
+        <a routerLink="/search/name?birth_place={{data.bornPlace}}"> {{data.bornPlace}}</a>
+      </div>
+      <div class="mt-3 mb-2">
+        <a href="https://pro.imdb.com/name/{{data.id}}"> More at IMDbPro » </a>
+        <br>
+        Contact Info: <a href="https://pro.imdb.com/name/{{data.id}}"> View agent, publicist, legal on IMDbPro</a>
+      </div>
+      <div class="d-flex flex-inline ">
+        <div *ngFor="let item of data.images" class="p-1">
+          <img src="{{item.url}}" title="{{item.title}}"></div>
+      </div>
+      <div>
+        <a routerLink="mediaindex">{{data.totalImages}}</a>
+        |
+        <a routerLink="videogallery">{{data.totalVideos}}</a>
+        »
+      </div>
+    </div>
+    <div class="p-3 border rounded mt-2">
+      <h3 class="color-dark-gold">Known For</h3>
+      <div class="d-flex flex-inline">
+        <div *ngFor="let item of data.movies" class=" p-2 w-25">
+          <app-image-popover [data]="item"></app-image-popover>
+        </div>
+      </div>
+    </div>
+    <div class="p-3 border rounded mt-2">
+      <h3 class="color-dark-gold">Filmography</h3>
+      <div>
+        <span class="float-left mr-2">Jump to: </span>
+        <ul>
+          <li *ngFor="let item of data.filmography" class='splitVertical'>
+            <a href="/name/{{data.id}}#{{item.sectionName}}">{{item.sectionName|getSectionName}}</a>
+          </li>
+        </ul>
+      </div>
+      <div *ngFor="let section of data.filmography">
+        <div class="float-right">
+          <div *ngIf="bShow">
+            <span class=" showbtn " (click)="onShow()">Hide </span>
+            <i class="fas fa-caret-up showbtn" (click)="onShow()"></i>
+          </div>
+          <div *ngIf="!bShow">
+            <span class=" showbtn " (click)="onShow()">Show </span>
+            <i class="fas fa-caret-down showbtn" (click)="onShow()"></i>
+          </div>
+        </div>
+        <h6 class="mt-2 font-weight-bold color-gold">{{section.sectionName}}</h6>
 
+        <div class="mt-1 p-1" [hidden]="!bShow" *ngFor="let item of section.items ;let i=index"
+          [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
+          <a class="font-weight-bold" routerLink="/title/{{item.id}}">{{item.name}}</a>
+          {{item.type}}
+          <span class="float-right">{{item.year}}</span>
+          <br>
+          {{item.role}}
+        </div>
+
+      </div>
+    </div>
+    <div class="p-3 border rounded mt-2">
+      <h3 class="color-dark-gold">Related Videos</h3>
+      <div class="d-flex flex-inline ">
+        <div *ngFor="let item of data.relatedVideos" class="p-1">
+          <a routerLink="videoplayer/{{item.id}}">
+            <img src="{{item.poster.url}}" title="{{item.poster.title}}">
+          </a>
+        </div>
+      </div>
+      <div class="border-dotted">
+        <a routerLink="videoplayer">See all {{data.totalVideos}} »</a>
+      </div>
+    </div>
+    <div class="p-3 border rounded mt-2">
+      <span class="rightcornerlink "> <a href="https://contribute.imdb.com/updates?edit={{data.id}}">Edit</a></span>
+
+      <h3 class="color-dark-gold">Personal Details</h3>
+      <div innerHTML="{{data.personalDetails.otherWorks}}"></div>
+      <div innerHTML="{{data.personalDetails.publicity}}"></div>
+      <div>
+        Official Sites:
+        <a href="{{data.personalDetails.officialSite.url}}">
+          {{data.personalDetails.officialSite.title}}" </a>
+      </div>
+      <div innerHTML="{{data.personalDetails.height}}"></div>
+    </div>
+
+    <div class="p-3 border rounded mt-2">
+      <span class="rightcornerlink "> <a href="https://contribute.imdb.com/updates?edit={{data.id}}">Edit</a></span>
+      <h3 class="color-dark-gold">Did You Know?</h3>
+      <div innerHTML="{{data.personalQuote}}"></div>
+      <div innerHTML="{{data.trivial}}"></div>
+      <div>Star Sign:
+        <a routerLink="/search/name?star_sign=pisces">Pisces</a>
+      </div>
+    </div>
+
+    <app-contribute></app-contribute>
+
+
+    <div class="col-4 bk-grey">
+
+    </div>
   </div>
 </div>

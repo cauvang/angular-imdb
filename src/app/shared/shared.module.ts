@@ -9,7 +9,6 @@ import { VideoImageComponent } from './video-image/video-image.component';
 import { GetTitlePipe } from './getTitle.pipe';
 import { LoadingIconComponent } from './loading-icon/loading-icon.component';
 import { ShareWidgetComponent } from './share-widget/share-widget.component';
-import { CustomDateFormatPipe } from './custom-date-format.pipe';
 import { AppRoutingModule } from '../app-routing.module';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { ShowtimeMovieNearComponent } from './showtime-movie-near/showtime-movie-near.component';
@@ -25,6 +24,8 @@ import { StringDisplayComponent } from './string-display/string-display.componen
 import { RatingModule } from 'ngx-rating';
 import { QueryUrlPipe } from './query-url.pipe';
 import { RouteDirective } from './route.directive';
+import { ImagePopoverComponent } from './image-popover/image-popover.component';
+import { ContributeComponent } from './contribute/contribute.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,6 @@ import { RouteDirective } from './route.directive';
     GetTitlePipe,
     LoadingIconComponent,
     ShareWidgetComponent,
-    CustomDateFormatPipe,
     SortDropdownComponent,
     MovieItemComponent,
     ShowtimeMovieNearComponent,
@@ -55,7 +55,8 @@ import { RouteDirective } from './route.directive';
     StringDisplayComponent,
     QueryUrlPipe,
     RouteDirective,
-
+    ImagePopoverComponent,
+    ContributeComponent
 
   ],
   exports: [
@@ -64,7 +65,6 @@ import { RouteDirective } from './route.directive';
     GetTitlePipe,
     LoadingIconComponent,
     ShareWidgetComponent,
-    CustomDateFormatPipe,
     SortDropdownComponent,
     MovieItemComponent,
     ShowtimeMovieNearComponent,
@@ -77,7 +77,9 @@ import { RouteDirective } from './route.directive';
     ValueFormatPipe,
     StringDisplayComponent,
     QueryUrlPipe,
-    RouteDirective
+    RouteDirective,
+    ImagePopoverComponent,
+    ContributeComponent
   ]
 })
 export class SharedModule { }

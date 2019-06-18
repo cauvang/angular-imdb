@@ -3,9 +3,13 @@
   <li *ngFor="let item of dates;let i=index" class="my-btn m-1 font13">
     <a routerLink="{{type}}/{{location.country}}/{{location.postcode}}/{{item | date :'yyyy-MM-dd'}}"
       (click)="OnSelectDate(item)" [ngClass]="{'active': selectedDate.getDate() === item.getDate()}">
-      {{item | customDateFormat: 'ddd'}}
+      <!-- {{item | customDateFormat: 'ddd'}} -->
+      {{item | date: 'ddd'}}
+
       <br />
-      {{item | customDateFormat: 'DD'}}
+      <!-- {{item | customDateFormat: 'DD'}} -->
+      {{item | date: 'DD'}}
+
     </a>
   </li>
 </ul>

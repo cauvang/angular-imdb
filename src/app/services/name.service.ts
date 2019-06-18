@@ -17,7 +17,7 @@ export class NameService {
   }
 
   public getName(id: string): Observable<IName> {
-    return this.http.get<IName>(this.appConfig.rootURL + 'name/' + id);
+    return this.http.get<IName>(this.appConfig.rootURL + 'names/' + id);
   }
 
 

@@ -15,10 +15,10 @@ import { ShowtimeDisplayComponent } from './showtime-display/showtime-display.co
 import { ShowtimeTheaterListComponent } from './showtime-theater-list/showtime-theater-list.component';
 import { ShowtimeCinemaComponent } from './showtime-cinema/showtime-cinema.component';
 import { SetLocationComponent } from './set-location/set-location.component';
-import { ImagePopoverComponent } from './image-popover/image-popover.component';
 import { WeekdaySelectComponent } from './weekday-select/weekday-select.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { CustomDateFormatPipe } from './custom-date-format.pipe';
 
 @NgModule({
     declarations: [
@@ -32,9 +32,10 @@ import { FavouriteComponent } from './favourite/favourite.component';
         ShowtimeDisplayComponent,
         ShowtimeCinemaComponent,
         SetLocationComponent,
-        ImagePopoverComponent,
         WeekdaySelectComponent,
         FavouriteComponent,
+        CustomDateFormatPipe,
+
     ],
     imports: [
         AppRoutingModule,

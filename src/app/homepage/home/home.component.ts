@@ -26,13 +26,7 @@ export class HomeComponent implements OnInit {
   private birthdayToday: string;
 
   constructor(private service: HomePageService, private router: Router) {
-    // this.trailers = [];
-    // this.schedulesThisWeek = [];
-    // this.schedulesNowPlaying = [];
-    // this.schedulesComingSoon = [];
-    // this.articles = [];
-    // this.news = [];
-    // this.birthday = [];
+
   }
 
   ngOnInit() {

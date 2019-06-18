@@ -13,7 +13,6 @@ import { TitleExternalReviewComponent } from './title-external-review/title-exte
 import { TitleHomepageComponent } from './title-homepage/title-homepage.component';
 import { CastsComponent } from './casts/casts.component';
 import { SeeAlsoComponent } from './see-also/see-also.component';
-import { ContributeComponent } from './contribute/contribute.component';
 import { ListComponent } from './list/list.component';
 
 import { TitleDetailsFullCreditsComponent } from './title-details-full-credits/title-details-full-credits.component';
@@ -64,7 +63,6 @@ import { PhotosModule } from '../photos/photos.module';
         ListComponent,
         CastsComponent,
         SeeAlsoComponent,
-        ContributeComponent,
         TitleStorylineKeywordsComponent,
         TitlePhotoVideoPhotosComponent,
         TitlePhotoVideoVideosComponent,

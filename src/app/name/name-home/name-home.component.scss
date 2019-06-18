@@ -1,0 +1,15 @@
+ul {
+  list-style-type: none;
+
+  & li {
+    display: inline;
+
+    &:last-child::after {
+      content: '';
+    }
+  }
+}
+
+.showbtn {
+  color: #136CB2;
+}

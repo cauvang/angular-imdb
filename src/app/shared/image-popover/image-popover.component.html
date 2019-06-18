@@ -1,0 +1,16 @@
+<div *ngIf="data" class="position-relative bk-trans">
+  <a *ngIf="data.image" routerLink="{{url}}"><img class="w-100" src="{{data.image.url}}"></a>
+  <br>
+  <div class="text-center font13">
+    <a routerLink="{{url}}">{{data.name}}</a>
+    <div *ngIf="data.rank">Rank: {{data.rank}}</div>
+
+    <div class="role" *ngIf="data.role">
+      {{data.role}}
+      <br>
+      {{data.year}}
+    </div>
+  </div>
+
+  <img class="wishlist" title="Click to add to watchlist" src="/assets/add-to-watchlist.png">
+</div>

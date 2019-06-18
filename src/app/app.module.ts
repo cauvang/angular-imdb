@@ -29,6 +29,7 @@ import { TitlesModule } from './titles/titles.module';
 import { TitlesService } from './services/titles.service';
 import { ListsComponent } from './lists/lists.component';
 import { PhotosModule } from './photos/photos.module';
+import { GetSectionNamePipe } from './name/get-section-name.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PhotosModule } from './photos/photos.module';
     NameBioComponent,
     NameMediaIndexComponent,
     ListsComponent,
+    GetSectionNamePipe,
   ],
   imports: [
     BrowserModule,

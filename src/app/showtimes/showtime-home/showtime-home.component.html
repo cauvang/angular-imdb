@@ -8,12 +8,12 @@
       <ul class="nav nav-tabs position-relative mt-3">
         <li class="nav-item">
           <a class="nav-link font-weight-bold" [ngClass]="{'active': isActivatedTab('movies')}"
-            routerLink="/showtimes/movies/{{location.country}}/{{location.postcode}}/{{selectedDate}}">Movies
+            routerLink="/showtimes/location/{{location.country}}/{{location.postcode}}/{{selectedDate}}">Movies
             ({{nMovie}}) </a>
         </li>
         <li class="nav-item">
           <a class="nav-link font-weight-bold" [ngClass]="{'active': isActivatedTab('theater')}"
-            routerLink="/showtimes/theater/{{location.country}}/{{location.postcode}}/{{selectedDate}}">Theater
+            routerLink="/showtimes/{{location.country}}/{{location.postcode}}/{{selectedDate}}">Theater
             ({{nTheater}})</a>
         </li>
         <li class="nav-item">

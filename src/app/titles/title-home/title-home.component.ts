@@ -15,11 +15,7 @@ export class TitleHomeComponent implements OnInit {
   public toggleMegaMenu = false;
   private id: string;
   private data: ITitle;
-  private caption: {
-    videoCounts: number,
-    imageCounts: number,
-    length: number
-  };
+  private caption: {};
   private today: string;
   private similarTitles: ITitle[];
   private selectedTitle: ITitle;
@@ -37,7 +33,7 @@ export class TitleHomeComponent implements OnInit {
       this.caption = {
         videoCounts: data.videoCounts,
         imageCounts: data.imageCounts,
-        length: 1.06
+        length: "1.06 | Trailer"
       };
       this.similarTitles = data.similarTitles.slice(0, 6);
       this.selectedTitle = this.similarTitles[0];
