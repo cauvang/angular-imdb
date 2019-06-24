@@ -12,7 +12,7 @@
 
   <div class="col-4 p-3">
     <app-menu [data]="data.item.menus" [name]="data.item.name" [id]="data.item.id" [titleType]="titleType"></app-menu>
-    <app-share [data]="data.item"></app-share>
+    <app-share-page [fbUrl]="fbUrl" [twitterUrl]="twitterUrl"></app-share-page>
     <div class="border rounded grey mt-2 ">
       <app-user-list [data]="data.userList" [id]="data.item.id" link="list"></app-user-list>
     </div>

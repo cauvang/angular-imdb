@@ -24,7 +24,6 @@ import { TitleDetailsLocationsComponent } from './title-details-locations/title-
 import { JumpToComponent } from './jump-to/jump-to.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
-import { ShareComponent } from './share/share.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { TitleDoYouKnowTriviaComponent } from './title-do-you-know-trivia/title-do-you-know-trivia.component';
 import { TitleDoYouKnowVersionsComponent } from './title-do-you-know-versions/title-do-you-know-versions.component';
@@ -33,6 +32,8 @@ import { TitleStorylineKeywordsComponent } from './title-storyline-keywords/titl
 import { TitlePhotoVideoPhotosComponent } from './title-photo-video-photos/title-photo-video-photos.component';
 import { TitlePhotoVideoVideosComponent } from './title-photo-video-videos/title-photo-video-videos.component';
 import { PhotosModule } from '../photos/photos.module';
+import { RelatedNewsComponent } from './related-news/related-news.component';
+import { ContributeComponent } from './contribute/contribute.component';
 
 @NgModule({
     declarations: [
@@ -55,17 +56,20 @@ import { PhotosModule } from '../photos/photos.module';
         TitleDoYouKnowVersionsComponent,
         TitleDoYouKnowConnectionsComponent,
 
+        TitlePhotoVideoPhotosComponent,
+        TitlePhotoVideoVideosComponent,
+
         JumpToComponent,
         HeaderComponent,
         MenuComponent,
-        ShareComponent,
         UserListComponent,
         ListComponent,
         CastsComponent,
         SeeAlsoComponent,
         TitleStorylineKeywordsComponent,
-        TitlePhotoVideoPhotosComponent,
-        TitlePhotoVideoVideosComponent,
+        RelatedNewsComponent,
+        ContributeComponent,
+
     ],
     imports: [
         AppRoutingModule,
@@ -74,6 +78,12 @@ import { PhotosModule } from '../photos/photos.module';
         FormsModule,
         SharedModule,
         PhotosModule
+    ],
+    exports: [
+        RelatedNewsComponent,
+        JumpToComponent,
+        MenuComponent,
+        ContributeComponent,
     ],
     providers: [
         TitlesService

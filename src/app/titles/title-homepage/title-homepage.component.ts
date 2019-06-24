@@ -15,6 +15,8 @@ export class TitleHomepageComponent implements OnInit {
   private data: ITitleType;
 
   private titleType: string;
+  private fbUrl: string;
+  private twitterUrl: string;
 
   constructor(private service: TitlesService, private route: ActivatedRoute, private router: Router, ) {
     this.route.url.subscribe(url => {
@@ -29,12 +31,17 @@ export class TitleHomepageComponent implements OnInit {
         // console.log(this.titleType)
         this.service.getTitleDetail(this.id, this.titleType).subscribe(data => {
           this.data = data;
+          // http%3A%2F%2Fwww.imdb.com%2Ftitle%2F{{id}}%2F
+          // {{data.name}}({{data.year}})%20-%20https%3A%2F%2Fwww.imdb.com%2Ftitle%2F{{id}}%2F"
+          this.fbUrl = "http://www.imdb.com/title/" + this.id;
+          this.twitterUrl = data.item.name + data.item.year + "-https://www.imdb.com/title/" + this.id;
         });
       }
 
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
 }

@@ -1,9 +1,12 @@
 import { IImage } from './article';
-import { IMovie } from './movies';
+import { IMovie, IPerson } from './movies';
 import { INews } from './news';
 import { ILink } from './chart';
+import { IMenuList, IUser } from './title';
 
 export interface IName {
+    heroContent: IContent;
+    menu: IMenuList;
     id: string;
     name: string;
     bio: string;
@@ -21,8 +24,18 @@ export interface IName {
     personalQuote: string;
     trivial: string;
     personalDetails: IPerDetail;
+    //bio
+    spouses: IPerson;
+    quotes: string[];
+
 }
 
+export interface IContent {
+    name: string;
+    image: IImage;
+    text: string;
+    source: IImage;
+}
 
 export interface IVideo {
     id: string;
@@ -53,3 +66,28 @@ export interface IPerDetail {
     height: string;
 }
 
+export interface INameType {
+    item: INameDetail;
+    items: INameDetailList[];
+    userList: IUser[];
+    menus: IMenuList[];
+}
+
+
+export interface INameDetail {
+    id: string;
+    image: IImage;
+    title: string;
+    subTitle: string;
+}
+
+export interface INameDetailList {
+    name: string;
+    items: ITextList[];
+}
+
+export interface ITextList {
+    leftText: string;
+    rightText: string;
+    text: string;
+}

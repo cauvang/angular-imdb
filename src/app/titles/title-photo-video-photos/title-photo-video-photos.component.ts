@@ -14,6 +14,9 @@ export class TitlePhotoVideoPhotosComponent implements OnInit {
   private data: IPhoto;
   private queryParams: any;
 
+  private fbUrl: string;
+  private twitterUrl: string;
+
   constructor(private router: Router, private service: TitlesService, private route: ActivatedRoute) {
     this.id = this.router.routerState.snapshot.url.split('/')[2];
 
@@ -36,6 +39,8 @@ export class TitlePhotoVideoPhotosComponent implements OnInit {
     }
     this.service.getTitlePhoto(this.id, "mediaindex", queryString).subscribe(data => {
       this.data = data;
+      this.fbUrl = "http://www.imdb.com/title/" + this.id;
+      this.twitterUrl = data.item.name + data.item.year + "-https://www.imdb.com/title/" + this.id;
     });
   }
 }

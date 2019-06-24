@@ -46,6 +46,7 @@ import { TitleDoYouKnowConnectionsComponent } from './titles/title-do-you-know-c
 import { TitleStorylineKeywordsComponent } from './titles/title-storyline-keywords/title-storyline-keywords.component';
 import { TitlePhotoVideoVideosComponent } from './titles/title-photo-video-videos/title-photo-video-videos.component';
 import { TitlePhotoVideoPhotosComponent } from './titles/title-photo-video-photos/title-photo-video-photos.component';
+import { NameHomepageComponent } from './name/name-homepage/name-homepage.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -133,7 +134,10 @@ const routes: Routes = [
 
 
   {
-    path: 'name/:id', component: NameHomeComponent, children: [
+
+    path: 'name/:id', component: NameHomepageComponent, children: [
+      { path: '', component: NameHomeComponent },
+
       { path: 'bio', component: NameBioComponent },
       { path: 'mediaindex', component: NameMediaIndexComponent },
     ]

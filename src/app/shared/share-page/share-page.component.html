@@ -1,10 +1,8 @@
 <div class="mt-2 p-2 border rounded bk-grey ">
   <span class="font-weight-bold">Share</span> this page
-  <a class="mr-2" title="Share on Facebook"
-    href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.imdb.com%2Ftitle%2F{{id}}%2F"><i
+  <a class="mr-2" title="Share on Facebook" href="https://www.facebook.com/sharer.php?u={{fbUrl}}"><i
       class="border rounded p-2 fab fa-facebook-square"></i></a>
-  <a class="mr-2" title="Share on Twitter"
-    href="https://twitter.com/intent/tweet?text={{data.name}}({{data.year}})%20-%20https%3A%2F%2Fwww.imdb.com%2Ftitle%2F{{id}}%2F"><i
+  <a class="mr-2" title="Share on Twitter" href="https://twitter.com/intent/tweet?text={{twitterUrl}}"><i
       class="border rounded fab p-2 fa-twitter"></i></a>
   <a title="Share the page" routerLink="/title/{{id}}">
     <i class="border rounded p-2 fas fa-link"></i></a>

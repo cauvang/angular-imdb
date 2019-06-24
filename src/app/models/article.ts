@@ -7,6 +7,7 @@ export interface IArticle {
 }
 
 export interface IImage {
+    name: string;
     url: string;
     title: string;
     viewerId: string;

@@ -1,3 +1,19 @@
-<p>
-  name-bio works!
-</p>
+<div *ngIf="data">
+  <app-jump-to [data]="data" url="/name/{{id}}/bio"></app-jump-to>
+
+  <div *ngFor="let detailList of data">
+
+    <div class="titleData-header">
+      <h4 class="dataHeaderWithBorder" *ngIf="detailList.name!==''">
+        <a name="{{detailList.name}}">{{detailList.name}}</a>
+      </h4>
+
+      <div class="p-1" *ngFor="let item of detailList.items">
+        <span *ngIf="item.text" class="ml-1" innerHTML="{{item.text}}"></span>
+        <span *ngIf="!item.text">
+          <span class="mr-2" innerHTML="{{item.leftText}}"></span>
+          <span innerHTML="{{item.rightText}}"></span>
+        </span>
+      </div>
+    </div>
+  </div>

@@ -14,6 +14,7 @@ export class QueryStringPipe implements PipeTransform {
       const arr = v.split('=');
       queryObject[arr[0]] = decodeURIComponent(arr[1]);
     });
+
     return queryObject;
 
   }

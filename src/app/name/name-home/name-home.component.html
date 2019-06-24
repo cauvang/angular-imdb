@@ -50,7 +50,8 @@
       </div>
     </div>
     <div class="p-3 border rounded mt-2">
-      <h3 class="color-dark-gold">Filmography</h3>
+      <h3 class="color-dark-gold">
+        <a name="Filmography">Filmography</a></h3>
       <div>
         <span class="float-left mr-2">Jump to: </span>
         <ul>
@@ -59,20 +60,21 @@
           </li>
         </ul>
       </div>
-      <div *ngFor="let section of data.filmography">
+      <div *ngFor="let section of data.filmography" class="overflow-auto">
         <div class="float-right">
-          <div *ngIf="bShow">
-            <span class=" showbtn " (click)="onShow()">Hide </span>
-            <i class="fas fa-caret-up showbtn" (click)="onShow()"></i>
+          <div *ngIf="!section.clicked">
+            <button type="button" class="btn-link btn" (click)="section.clicked=true">Hide </button>
+            <i class="fas fa-caret-up showbtn" (click)="section.clicked=true"></i>
           </div>
-          <div *ngIf="!bShow">
-            <span class=" showbtn " (click)="onShow()">Show </span>
-            <i class="fas fa-caret-down showbtn" (click)="onShow()"></i>
+          <div *ngIf="section.clicked">
+            <button type="button" class=" btn btn-link " (click)="section.clicked=false">Show </button>
+            <i class="fas fa-caret-down showbtn" (click)="section.clicked=false"></i>
           </div>
         </div>
-        <h6 class="mt-2 font-weight-bold color-gold">{{section.sectionName}}</h6>
+        <h6 class="mt-2 font-weight-bold color-gold">
+          <a name="{{section.sectionName}}">{{section.sectionName}}</a></h6>
 
-        <div class="mt-1 p-1" [hidden]="!bShow" *ngFor="let item of section.items ;let i=index"
+        <div class="mt-1 p-1" [hidden]="section.clicked" *ngFor="let item of section.items ;let i=index"
           [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
           <a class="font-weight-bold" routerLink="/title/{{item.id}}">{{item.name}}</a>
           {{item.type}}
@@ -121,10 +123,22 @@
     </div>
 
     <app-contribute></app-contribute>
+  </div>
 
 
-    <div class="col-4 bk-grey">
+  <div class="col-4 bk-grey p-3">
+    <app-menu [data]="data.menu"></app-menu>
 
+    <div class="mt-2 p-2 border rounded bk-grey ">
+      <h5> See What the Original Karate Kid Is Watching</h5>
+      <app-video-image [imageUrl]="data.heroContent.image.url" [imageTitle]="data.heroContent.image.title">
+      </app-video-image>
+      <div innerHTML="{{data.heroContent.text}}"></div>
+      <a href="{{data.heroContent.source.url}}">Watch now »</a>
+    </div>
+    <app-share-page [fbUrl]="fbUrl" [twitterUrl]="twitterUrl"></app-share-page>
+
+    <div class="mt-2 p-2 border rounded bk-grey ">
+      <app-related-news [data]="data.relatedNews"></app-related-news>
     </div>
   </div>
-</div>

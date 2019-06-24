@@ -28,14 +28,21 @@ export class NameHomeComponent implements OnInit {
 
   private bShow: boolean;
 
+  private fbUrl: string;
+  private twitterUrl: string;
+
   constructor(private service: NameService, private route: ActivatedRoute) {
     this.route.params.subscribe((params: Params) => { this.id = params['id']; });
-    this.bShow = false;
+    //  this.bShow = false;
   }
 
   ngOnInit() {
     this.service.getName(this.id).subscribe(data => {
       this.data = data;
+      this.fbUrl = "http://www.imdb.com/name/" + this.id;
+      this.twitterUrl = data.name + "-https://www.imdb.com/name/" + this.id;
+
+
       this.caption = {
         length: data.heroVideo.caption,
         videoCounts: data.totalVideos,
@@ -55,13 +62,6 @@ export class NameHomeComponent implements OnInit {
     });
   }
 
-  onShow() {
-    if (this.bShow === false)
-      this.bShow = true;
-    else
-      this.bShow = false;
-
-  }
 
 
 }

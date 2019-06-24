@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { AppConfig } from '../models/constants';
 import { APP_CONFIG } from '../app.config';
-import { IName } from '../models/name';
+import { IName, INameType } from '../models/name';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,9 @@ export class NameService {
     return this.http.get<IName>(this.appConfig.rootURL + 'names/' + id);
   }
 
+  public getNameDetail(id: string, type: string): Observable<INameType> {
+    return this.http.get<INameType>(this.appConfig.rootURL + 'names/' + id + '/' + type);
+  }
 
 }
 

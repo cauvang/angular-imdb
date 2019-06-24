@@ -1,0 +1,20 @@
+<app-name-home *ngIf="isNameHome"></app-name-home>
+
+<div class="row" *ngIf="!isNameHome && data">
+  <div class="col-8 p-3 ">
+    <div class="p-3 mb-2 border rounded ">
+      <app-name-header [data]="data.item"></app-name-header>
+      <router-outlet></router-outlet>
+    </div>
+    <!-- <app-see-also [data]="data.seeAlso"></app-see-also> -->
+    <app-contribute></app-contribute>
+  </div>
+
+  <div class="col-4 p-3">
+    <!-- <app-menu [data]="data.item.menus" [name]="data.item.name" [id]="data.item.id" [titleType]="titleType"></app-menu> -->
+    <app-share-page [fbUrl]="fbUrl" [twitterUrl]="twitterUrl"></app-share-page>
+    <!-- <div class="border rounded grey mt-2 ">
+      <app-user-list [data]="data.userList" [id]="data.item.id" link="list"></app-user-list>
+    </div> -->
+  </div>
+</div>

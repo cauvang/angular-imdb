@@ -36,9 +36,6 @@ export class TitlesService {
   }
 
 
-  public getList(id: string, page: number): Observable<IList> {
-    return this.http.get<IList>(this.appConfig.rootURL + 'title/' + id + '/lists?page=' + page);
-  }
 
 
 

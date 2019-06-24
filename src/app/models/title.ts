@@ -134,4 +134,5 @@ export interface IMenu {
     url: string;
     key: string;
     disabled: boolean;
+    selected: boolean;
 }

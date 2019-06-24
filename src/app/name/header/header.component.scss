@@ -1,0 +1,16 @@
+.header {
+  & img {
+    height: 98px;
+    width: 67px;
+  }
+
+  & .title {
+    &-name {
+      font-size: 20px;
+    }
+
+    &-type {
+      font-size: 27px;
+    }
+  }
+}

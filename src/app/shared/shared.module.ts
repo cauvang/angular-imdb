@@ -25,7 +25,8 @@ import { RatingModule } from 'ngx-rating';
 import { QueryUrlPipe } from './query-url.pipe';
 import { RouteDirective } from './route.directive';
 import { ImagePopoverComponent } from './image-popover/image-popover.component';
-import { ContributeComponent } from './contribute/contribute.component';
+import { SharePageComponent } from './share-page/share-page.component';
+import { GetSectionNamePipe } from './get-section-name.pipe';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import { ContributeComponent } from './contribute/contribute.component';
     QueryUrlPipe,
     RouteDirective,
     ImagePopoverComponent,
-    ContributeComponent
+    SharePageComponent,
+    GetSectionNamePipe,
 
   ],
   exports: [
@@ -79,7 +81,9 @@ import { ContributeComponent } from './contribute/contribute.component';
     QueryUrlPipe,
     RouteDirective,
     ImagePopoverComponent,
-    ContributeComponent
+    SharePageComponent,
+    GetSectionNamePipe,
+
   ]
 })
 export class SharedModule { }

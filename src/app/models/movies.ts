@@ -38,6 +38,8 @@ export interface IPerson {
     id: string;
     description: string;
     image: IImage;
+    date: string;
+    year: string;
 }
 
 

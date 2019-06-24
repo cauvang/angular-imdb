@@ -74,7 +74,7 @@
         </div>
       </div>
 
-      <div class="title-info" *ngIf="data">
+      <div class="title-info">
         <div class="wish-list">
           <img class="w-100" title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png" />
         </div>
@@ -112,21 +112,21 @@
       </div>
     </div>
 
-    <div class="row bk-black">
+    <div class="row">
       <div class="col-4">
         <img title="{{data.image.title}}" src="{{data.image.url}}">
       </div>
       <div class="col-8">
-        <app-video-image [imageUrl]="data.trailer.image.url" [imageTitle]="data.trailer.image.title"
-          [caption]="caption"></app-video-image>
+        <app-video-image *ngIf="data.trailer.image" [imageUrl]="data.trailer.image.url"
+          [imageTitle]="data.trailer.image.title" [caption]="caption"></app-video-image>
       </div>
     </div>
 
-    <div class="row p-3 border-bottom">
+    <!-- <div class="row p-3 border-bottom">
       <div class="w-100"><a routerLink="/showtimes/title/{{data.id}}" [queryParams]="{date:today}">Get Showtimes</a>
       </div>
       <div title="In Theaters">In 37 theaters near 3030 AU [change]</div>
-    </div>
+    </div> -->
 
     <div class="row pt-3 pl-3">
       <div class="w-100"> {{data.description}}</div>
@@ -196,7 +196,7 @@
       <span class="pl-3">| See <a routerLink="/chart/top">the Top Rated Movies</a> as rated by our users.</span>
     </div>
 
-    <div class="row p-3">
+    <div class="row p-3" *ngIf="videos && videos.length>0">
       <h2>Videos</h2>
       <div class="ml-1 lr-1" *ngFor="let item of data.videos">
         <a routerLink="videoplayer/{{item.id}}">
@@ -217,7 +217,7 @@
       </div>
     </div>
 
-    <div class="row p-3" *ngIf="similarTitles">
+    <div class="row p-3" *ngIf="similarTitles && similarTitles.length>0">
       <h2>More Like This</h2>
       <div class="col-5">
         <div><a *ngFor="let item of similarTitles" routerLink="/title/{{item.id}}">
@@ -272,7 +272,6 @@
     <div class="row  p-3">
       <span class="rightcornerlink "> <a href="/register/login">Edit</a></span>
       <h2>Storyline</h2>
-
       <div class="pt-2"> {{data.storyline}} </div>
       <div class="pt-2 pb-2  w-100">
         <a routerLink="plotsummary">Plot Summary</a>
@@ -419,18 +418,12 @@
       <div class="pt-2" innerHTML="{{data.featuredList.content}}" appRouteDirective></div>
     </div>
 
-    <div class="border-top pt-3 pb-3">
-      <h5>Related News</h5>
-      <div class="p-2 " *ngFor="let item of data.relatedNews">
-        <a routerLink="/news/{{item.id}}">{{item.title}}</a>
-        <div>{{item.date}} | {{item.source}}</div>
-      </div>
-      <div class="border-top border-bottom">
-        <a routerLink="news">See all related articles »</a>
-      </div>
-    </div>
 
     <div class="border-top pt-3 pb-3">
+      <app-related-news [data]="data.relatedNews"></app-related-news>
+    </div>
+
+    <div class="border-top pt-3 pb-3" *ngIf="editorialList && editorialList.length>0">
       <h5>Editorial Lists</h5>
       <span>Related lists from IMDb editors</span>
       <app-list [data]="data.editorialList" link="list"></app-list>
@@ -459,7 +452,7 @@
       </div>
     </div>
 
-    <div class="border-top pt-3 pb-3">
+    <div class="border-top pt-3 pb-3" *ngIf="userPolls && userPolls.length>0">
       <h5 class="font18">User Polls</h5>
       <app-list [data]="data.userPolls" link="poll"></app-list>
       <div class="border-top border-bottom mt-2 pt-2 pb-2">

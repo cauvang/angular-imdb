@@ -1,5 +1,5 @@
 <div class="mt-2 p-2 border rounded bk-grey" *ngIf="displayedMenu">
-  <div class="font-weight-bold">
+  <div class="font-weight-bold" *ngIf="name">
     <a routerLink="/title/{{id}}"> {{name}}</a>
   </div>
 
