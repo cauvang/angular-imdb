@@ -3,7 +3,9 @@
   <span class="color-grey float-left mr-2">Jump to: </span>
   <ul>
     <li *ngFor="let item of data" [ngClass]="{'splitVertical': item.name!==''}">
-      <a href="{{url}}#{{item.name}}">{{item.name|getSectionName}}</a>
+      <a [routerLink]="url|queryUrl" [queryParams]="url|toQueryObject" fragment="{{item.name|getJumpToName}}">
+        {{item.name|getSectionName}} </a>
+      <!-- <a href="{{url}}#{{item.name}}">{{item.name|getSectionName}}</a> -->
       <span *ngIf="item.name!=''" class="color-grey ml-1">({{item.items.length}})</span>
     </li>
   </ul>

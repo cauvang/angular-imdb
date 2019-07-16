@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { INameDetailList } from 'src/app/models/name';
 import { NameService } from 'src/app/services/name.service';
 import { Router } from '@angular/router';
-import { INameType, INameDetailList } from 'src/app/models/name';
 
 @Component({
-  selector: 'app-name-bio',
-  templateUrl: './name-bio.component.html',
-  styleUrls: ['./name-bio.component.scss']
+  selector: 'app-name-detail-other-works',
+  templateUrl: './name-detail-other-works.component.html',
+  styleUrls: ['./name-detail-other-works.component.scss']
 })
-export class NameBioComponent implements OnInit {
+export class NameDetailOtherWorksComponent implements OnInit {
+
   private id: string;
   private data: INameDetailList[];
 
@@ -18,7 +19,7 @@ export class NameBioComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getNameDetail(this.id, 'bio').subscribe(data => this.data = data.items);
+    this.service.getNameDetail(this.id, 'otherworks').subscribe(data => this.data = data.items);
   }
 
 }

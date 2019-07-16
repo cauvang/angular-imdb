@@ -29,8 +29,8 @@ import { TitleDoYouKnowTriviaComponent } from './title-do-you-know-trivia/title-
 import { TitleDoYouKnowVersionsComponent } from './title-do-you-know-versions/title-do-you-know-versions.component';
 import { TitleDoYouKnowConnectionsComponent } from './title-do-you-know-connections/title-do-you-know-connections.component';
 import { TitleStorylineKeywordsComponent } from './title-storyline-keywords/title-storyline-keywords.component';
-import { TitlePhotoVideoPhotosComponent } from './title-photo-video-photos/title-photo-video-photos.component';
-import { TitlePhotoVideoVideosComponent } from './title-photo-video-videos/title-photo-video-videos.component';
+import { TitlePhotoMediaIndexComponent } from './title-photo-media-index/title-photo-media-index.component';
+import { TitlePhotoVideoGalleryComponent } from './title-photo-video-gallery/title-photo-video-gallery.component';
 import { PhotosModule } from '../photos/photos.module';
 import { RelatedNewsComponent } from './related-news/related-news.component';
 import { ContributeComponent } from './contribute/contribute.component';
@@ -56,8 +56,8 @@ import { ContributeComponent } from './contribute/contribute.component';
         TitleDoYouKnowVersionsComponent,
         TitleDoYouKnowConnectionsComponent,
 
-        TitlePhotoVideoPhotosComponent,
-        TitlePhotoVideoVideosComponent,
+        TitlePhotoMediaIndexComponent,
+        TitlePhotoVideoGalleryComponent,
 
         JumpToComponent,
         HeaderComponent,
@@ -84,6 +84,8 @@ import { ContributeComponent } from './contribute/contribute.component';
         JumpToComponent,
         MenuComponent,
         ContributeComponent,
+        UserListComponent,
+        SeeAlsoComponent
     ],
     providers: [
         TitlesService

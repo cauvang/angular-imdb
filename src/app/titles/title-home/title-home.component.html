@@ -75,17 +75,8 @@
       </div>
 
       <div class="title-info">
-        <div class="wish-list">
-          <img class="w-100" title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png" />
-        </div>
-        <div class="title-info-detail">
-          <h1>{{data.name}}</h1>
-          <span class="title-year">
-            <a class="color-grey" href="/year/{{data.year}}">({{data.year}})</a></span>
-        </div>
-
-        <div class="rating-wrapper mb-5">
-          <div class="d-flex flex-row imdbRating ">
+        <div class="rating-wrapper">
+          <div class="d-flex flex-row rating-imdb ">
             <i class="fas fa-star  color-gold"></i>
             <div>
               <span class="rating-value">{{data.ratingValue}}</span>
@@ -95,26 +86,38 @@
               </div>
             </div>
           </div>
-          <span class="vertical-align">|</span>
-          <div>
+          <div class="rating-star-button">
             <i class="far fa-star "></i>
             <span class="font15 pt-2">Rate This</span>
           </div>
         </div>
-        <div>
-          <ul class="sub-list mt-3">
-            <li>{{data.contentRating}}</li>
-            <li>{{data.length}}</li>
-            <li>{{data.genre}}</li>
-            <li>{{data.datePublished}}</li>
-          </ul>
+        <div class="titlebar">
+          <div class="wish-list">
+            <img class="w-100" title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png" />
+          </div>
+          <div class="titlebar-wrapper">
+            <h1>{{data.name}}
+              <span class="titleYear"> <a class="color-grey" href="/year/{{data.year}}">({{data.year}})</a></span>
+            </h1>
+            <div>
+              <ul class="titlebar-sublist mt-3">
+                <li>{{data.contentRating}}</li>
+                <li>{{data.length}}</li>
+                <li>{{data.genre}}</li>
+                <li>{{data.datePublished}}</li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+
+
       </div>
     </div>
 
     <div class="row">
       <div class="col-4">
-        <img title="{{data.image.title}}" src="{{data.image.url}}">
+        <img class="w-100" title="{{data.image.title}}" src="{{data.image.url}}">
       </div>
       <div class="col-8">
         <app-video-image *ngIf="data.trailer.image" [imageUrl]="data.trailer.image.url"

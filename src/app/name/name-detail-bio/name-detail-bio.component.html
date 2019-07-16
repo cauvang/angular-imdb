@@ -1,14 +1,14 @@
 <div *ngIf="data">
-  <app-jump-to [data]="data" url="/name/{{id}}/bio"></app-jump-to>
+  <app-jump-to [data]="data" url="/name/{{id}}/{{nameType}}"></app-jump-to>
 
   <div *ngFor="let detailList of data">
-
     <div class="titleData-header">
-      <h4 class="dataHeaderWithBorder" *ngIf="detailList.name!==''">
-        <a name="{{detailList.name}}">{{detailList.name}}</a>
-      </h4>
+      <h5 class="dataHeaderWithBorder" *ngIf="detailList.name!==''">
+        <a name="{{detailList.name|getJumpToName}}">{{detailList.name}}</a>
+      </h5>
 
-      <div class="p-1" *ngFor="let item of detailList.items">
+      <div class="p-2 mt-1" *ngFor="let item of detailList.items;let i=index"
+        [ngClass]="{'bk-grey': i%2===1,'bk-white':i%2===0}">
         <span *ngIf="item.text" class="ml-1" innerHTML="{{item.text}}"></span>
         <span *ngIf="!item.text">
           <span class="mr-2" innerHTML="{{item.leftText}}"></span>

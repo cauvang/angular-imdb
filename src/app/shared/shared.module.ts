@@ -27,6 +27,8 @@ import { RouteDirective } from './route.directive';
 import { ImagePopoverComponent } from './image-popover/image-popover.component';
 import { SharePageComponent } from './share-page/share-page.component';
 import { GetSectionNamePipe } from './get-section-name.pipe';
+import { GetJumpToNamePipe } from './get-jump-to-name.pipe';
+import { QueryFragmentPipe } from './query-fragment.pipe';
 
 @NgModule({
   imports: [
@@ -35,7 +37,7 @@ import { GetSectionNamePipe } from './get-section-name.pipe';
     FormsModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    RatingModule
+    RatingModule,
   ],
   declarations: [
     DropdownDirective,
@@ -59,6 +61,8 @@ import { GetSectionNamePipe } from './get-section-name.pipe';
     ImagePopoverComponent,
     SharePageComponent,
     GetSectionNamePipe,
+    GetJumpToNamePipe,
+    QueryFragmentPipe,
 
   ],
   exports: [
@@ -83,7 +87,8 @@ import { GetSectionNamePipe } from './get-section-name.pipe';
     ImagePopoverComponent,
     SharePageComponent,
     GetSectionNamePipe,
-
+    GetJumpToNamePipe,
+    QueryFragmentPipe
   ]
 })
 export class SharedModule { }

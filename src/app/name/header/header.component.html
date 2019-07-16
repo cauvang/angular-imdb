@@ -1,15 +1,21 @@
 <div class="mb-3 header d-flex">
-  <span class="rightcornerlink"> <a href="/register/login">Edit</a></span>
-  <a class="float-left mr-2" routerLink="/title/{{data.id}}"> <img src="{{data.image.url}}"></a>
+  <span *ngIf="currentFilter" class="rightcornerlink">
+    <a href="/register/login">Edit</a>
+  </span>
+  <span *ngIf="!currentFilter" class="rightcorner">
+    <a routerLink="/name/{{id}}/resume"> View Official IMDb Resume Photos » </a>
+  </span>
+
+  <a class="float-left mr-2" routerLink="/name/{{data.id}}"> <img src="{{data.image.url}}"></a>
   <div class="title">
     <div>
       <a class="title-name" routerLink="/name/{{data.id}}">{{data.title}}</a>
     </div>
     <div class="title-type">{{data.subTitle}}</div>
-    <!-- <div *ngIf="currentFilter">
-      <a routerLink="/title/{{data.id}}/mediaindex">All > </a>
+    <div *ngIf="currentFilter">
+      <a routerLink="/name/{{data.id}}/mediaindex">All > </a>
       <span class="font-weight-bold"> {{currentFilter}}</span>
-    </div> -->
+    </div>
 
 
   </div>

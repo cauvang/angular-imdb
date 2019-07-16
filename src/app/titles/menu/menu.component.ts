@@ -11,32 +11,37 @@ import { IMenuList } from 'src/app/models/title';
 export class MenuComponent implements OnInit {
   @Input() data: IMenuList[];
   @Input() name: string;
-  @Input() id: string;
-  @Input() titleType: string;
+  @Input() type: string;
 
+  private url: string;
   private bHidden: boolean = true;
   private displayedMenu: IMenuList[];
   private selectedMenu: IMenuList;
   private unselectedMenu: IMenuList[];
 
-  constructor() { }
+  constructor() {
+    console.log("data", this.data)
+  }
 
   ngOnInit() {
+    this.url = document.location.href;
   }
 
   ngOnChanges(): void {
-    if (this.titleType === undefined) {
+    console.log("type", this.type)
+    if (this.type === undefined) {
       this.selectedMenu = this.data[0];
     } else {
+      this.type = this.type.includes('?') ? this.type.split['?'][0] : this.type;
       this.selectedMenu = this.data.find(x => {
         return x.items.some(
-          item => item.url.includes(this.titleType))
+          item => item.url.includes(this.type))
       });
     }
+    console.log("aaa", this.type, this.data, this.selectedMenu)
     this.unselectedMenu = this.data.filter(x => x.name != this.selectedMenu.name);
 
     this.displayedMenu = [this.selectedMenu, ...[]];
-
   }
 
   onExploreMore() {

@@ -5,21 +5,33 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
+import { TitlesModule } from '../titles/titles.module';
+import { PhotosModule } from '../photos/photos.module';
 import { NameService } from '../services/name.service';
 import { NameHomeComponent } from './name-home/name-home.component';
-import { NameBioComponent } from './name-bio/name-bio.component';
-import { NameMediaIndexComponent } from './name-media-index/name-media-index.component';
-import { TitlesModule } from '../titles/titles.module';
 import { NameHomepageComponent } from './name-homepage/name-homepage.component';
 import { HeaderComponent } from './header/header.component';
+import { NameNewsComponent } from './name-news/name-news.component';
+import { NameAwardComponent } from './name-award/name-award.component';
+import { NamePhotoMediaIndexComponent } from './name-photo-media-index/name-photo-media-index.component';
+import { NamePhotoVideoGalleryComponent } from './name-photo-video-gallery/name-photo-video-gallery.component';
+import { NameDetailBioComponent } from './name-detail-bio/name-detail-bio.component';
+import { NameDetailOtherWorksComponent } from './name-detail-other-works/name-detail-other-works.component';
+import { NameDetailExternalStiesComponent } from './name-detail-external-sties/name-detail-external-sties.component';
 
 @NgModule({
     declarations: [
         NameHomeComponent,
-        NameBioComponent,
-        NameMediaIndexComponent,
         NameHomepageComponent,
         HeaderComponent,
+        NameNewsComponent,
+        NameAwardComponent,
+        NamePhotoMediaIndexComponent,
+        NamePhotoVideoGalleryComponent,
+
+        NameDetailBioComponent,
+        NameDetailExternalStiesComponent,
+        NameDetailOtherWorksComponent,
 
     ],
     imports: [
@@ -28,7 +40,8 @@ import { HeaderComponent } from './header/header.component';
         CommonModule,
         FormsModule,
         SharedModule,
-        TitlesModule
+        TitlesModule,
+        PhotosModule
     ],
     providers: [
         NameService

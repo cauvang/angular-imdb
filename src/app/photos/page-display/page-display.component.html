@@ -1,7 +1,7 @@
 <div class="d-flex">
   <div class="flex-grow-1"> {{display}} </div>
 
-  <nav *ngIf="pages.length!==1">
+  <nav *ngIf="pages.length!==1" class="ml-3">
     <ul class="font15 ">
       <li *ngIf="data.currentPage!==1" class="pr-2">
         <a [routerLink]="url|queryUrl" [queryParams]="getQuery(data.currentPage-1)"> « Previous </a>

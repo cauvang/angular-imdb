@@ -27,8 +27,6 @@ export class TitleHomepageComponent implements OnInit {
         this.titleType = urls[3].split('#')[0];
         if (this.titleType === "officialsites")
           this.titleType = "externalsites";
-        // this.titleType === "officialsites" ? "externalsites" : this.titleType;
-        // console.log(this.titleType)
         this.service.getTitleDetail(this.id, this.titleType).subscribe(data => {
           this.data = data;
           // http%3A%2F%2Fwww.imdb.com%2Ftitle%2F{{id}}%2F

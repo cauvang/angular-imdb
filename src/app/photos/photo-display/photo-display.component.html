@@ -1,9 +1,6 @@
 <div class="d-flex">
-  <div class="flex-fill">
-    <app-page-display [data]="data"></app-page-display>
-
-  </div>
-  <div *ngIf="isVideoGallery" class="flex-fill ml-5">
+  <app-page-display [data]="data"></app-page-display>
+  <div *ngIf="isVideoGallery" class="right-corner ">
     <app-sort-dropdown datasetType="video" (sortChange)="onSortChange($event)"></app-sort-dropdown>
   </div>
 </div>

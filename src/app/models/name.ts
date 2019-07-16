@@ -2,7 +2,7 @@ import { IImage } from './article';
 import { IMovie, IPerson } from './movies';
 import { INews } from './news';
 import { ILink } from './chart';
-import { IMenuList, IUser } from './title';
+import { IMenuList, IUser, IUrl } from './title';
 
 export interface IName {
     heroContent: IContent;
@@ -70,7 +70,8 @@ export interface INameType {
     item: INameDetail;
     items: INameDetailList[];
     userList: IUser[];
-    menus: IMenuList[];
+    menu: IMenuList[];
+    seeAlso: IUrl[];
 }
 
 

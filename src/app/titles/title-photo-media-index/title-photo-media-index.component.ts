@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { IPhoto } from 'src/app/models/photo';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TitlesService } from 'src/app/services/titles.service';
+import { IPhoto } from 'src/app/models/photo';
 
 @Component({
-  selector: 'app-title-photo-video-videos',
-  templateUrl: './title-photo-video-videos.component.html',
-  styleUrls: ['./title-photo-video-videos.component.scss']
+  selector: 'app-title-photo-media-index',
+  templateUrl: './title-photo-media-index.component.html',
+  styleUrls: ['./title-photo-media-index.component.scss']
 })
-export class TitlePhotoVideoVideosComponent implements OnInit {
+export class TitlePhotoMediaIndexComponent implements OnInit {
+
   private id: string;
   private data: IPhoto;
   private queryParams: any;
@@ -22,11 +23,13 @@ export class TitlePhotoVideoVideosComponent implements OnInit {
     this.route.queryParams.subscribe(queryParams => {
       this.queryParams = queryParams;
       this.loadData();
+
     });
+
+
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   loadData() {
     const url = document.location.href;
@@ -34,21 +37,12 @@ export class TitlePhotoVideoVideosComponent implements OnInit {
     if (url.indexOf('?')) {
       queryString = url.split('?')[1];
     }
-
-    this.service.getTitlePhoto(this.id, "videogallery", queryString).subscribe(data => {
+    this.service.getTitlePhoto(this.id, "mediaindex", queryString).subscribe(data => {
       this.data = data;
       this.fbUrl = "http://www.imdb.com/title/" + this.id;
       this.twitterUrl = data.item.name + data.item.year + "-https://www.imdb.com/title/" + this.id;
     });
   }
-
-  onSortChange(sortBy) {
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.route,
-        queryParams: sortBy,
-        queryParamsHandling: 'merge'
-      });
-  }
 }
+
+

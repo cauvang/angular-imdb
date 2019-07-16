@@ -15,9 +15,7 @@ export class TitleDetailsExternalSitesComponent implements OnInit {
 
   constructor(private service: TitlesService, private router: Router) {
     this.id = this.router.routerState.snapshot.url.split('/')[2];
-    console.log("bb");
     this.service.getTitleDetail(this.id, 'externalsites').subscribe(data => {
-      console.log("m")
       this.data = data.items;
     });
   }

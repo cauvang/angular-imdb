@@ -27,8 +27,6 @@ import { FindHomeComponent } from './find/find-home/find-home.component';
 import { SearchKeywordRoutingComponent } from './search/search-keyword-routing/search-keyword-routing.component';
 import { SearchTitleTextComponent } from './search/search-title-text/search-title-text.component';
 import { SearchNameTextComponent } from './search/search-name-text/search-name-text.component';
-import { NameBioComponent } from './name/name-bio/name-bio.component';
-import { NameMediaIndexComponent } from './name/name-media-index/name-media-index.component';
 import { TitleReviewComponent } from './titles/title-review/title-review.component';
 import { TitleExternalReviewComponent } from './titles/title-external-review/title-external-review.component';
 import { TitleCriticReviewComponent } from './titles/title-critic-review/title-critic-review.component';
@@ -44,9 +42,16 @@ import { TitleDoYouKnowTriviaComponent } from './titles/title-do-you-know-trivia
 import { TitleDoYouKnowVersionsComponent } from './titles/title-do-you-know-versions/title-do-you-know-versions.component';
 import { TitleDoYouKnowConnectionsComponent } from './titles/title-do-you-know-connections/title-do-you-know-connections.component';
 import { TitleStorylineKeywordsComponent } from './titles/title-storyline-keywords/title-storyline-keywords.component';
-import { TitlePhotoVideoVideosComponent } from './titles/title-photo-video-videos/title-photo-video-videos.component';
-import { TitlePhotoVideoPhotosComponent } from './titles/title-photo-video-photos/title-photo-video-photos.component';
+import { TitlePhotoMediaIndexComponent } from './titles/title-photo-media-index/title-photo-media-index.component';
+import { TitlePhotoVideoGalleryComponent } from './titles/title-photo-video-gallery/title-photo-video-gallery.component';
 import { NameHomepageComponent } from './name/name-homepage/name-homepage.component';
+import { NameNewsComponent } from './name/name-news/name-news.component';
+import { NameAwardComponent } from './name/name-award/name-award.component';
+import { NamePhotoMediaIndexComponent } from './name/name-photo-media-index/name-photo-media-index.component';
+import { NamePhotoVideoGalleryComponent } from './name/name-photo-video-gallery/name-photo-video-gallery.component';
+import { NameDetailBioComponent } from './name/name-detail-bio/name-detail-bio.component';
+import { NameDetailOtherWorksComponent } from './name/name-detail-other-works/name-detail-other-works.component';
+import { NameDetailExternalStiesComponent } from './name/name-detail-external-sties/name-detail-external-sties.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -117,8 +122,8 @@ const routes: Routes = [
       { path: 'externalreviews', component: TitleExternalReviewComponent },
     ]
   },
-  { path: 'title/:id/mediaindex', component: TitlePhotoVideoPhotosComponent },
-  { path: 'title/:id/videogallery', component: TitlePhotoVideoVideosComponent },
+  { path: 'title/:id/mediaindex', component: TitlePhotoMediaIndexComponent },
+  { path: 'title/:id/videogallery', component: TitlePhotoVideoGalleryComponent },
 
   { path: 'chart/:chartType', component: ChartTopRatedComponent },
   { path: 'india/top', component: ChartTopRatedComponent },
@@ -134,14 +139,22 @@ const routes: Routes = [
 
 
   {
-
     path: 'name/:id', component: NameHomepageComponent, children: [
       { path: '', component: NameHomeComponent },
+      { path: 'bio', component: NameDetailBioComponent },
+      { path: 'bio/:section', component: NameDetailBioComponent },
 
-      { path: 'bio', component: NameBioComponent },
-      { path: 'mediaindex', component: NameMediaIndexComponent },
-    ]
+      { path: 'otherworks', component: NameDetailOtherWorksComponent },
+      { path: 'publicity', component: NameDetailBioComponent },
+      { path: 'officialsites', component: NameDetailExternalStiesComponent },
+
+      { path: 'news', component: NameNewsComponent },
+      { path: 'awards', component: NameAwardComponent },
+
+    ],
   },
+  { path: 'name/:id/mediaindex', component: NamePhotoMediaIndexComponent },
+  { path: 'name/:id/videogallery', component: NamePhotoVideoGalleryComponent },
 
   { path: 'list/:id', component: ListsComponent },
 
@@ -154,7 +167,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled' })],
+
   exports: [RouterModule],
 
 })

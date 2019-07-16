@@ -72,83 +72,103 @@
   }
 
   &-info {
-    height: 150px;
+    // height: 150px;
     width: 100%;
     background: #333333;
-    padding: 1rem;
+    // padding: 1rem;
 
-    .wish-list {
-      width: 38px;
-      float: left;
 
-    }
 
-    &-detail {
-      width: 48%;
-      float: left;
-      margin-left: 1rem;
+    //   &-detail {
+    //     // width: 48%;
+    //     // float: left;
+    //     // margin-left: 1rem;
 
-      h1 {
-        font-size: 36px;
-        color: #fff;
-        display: inline;
-      }
 
-      .title-year {
-        font-size: 28px;
-        margin-left: 10px;
-      }
-    }
+    //   }
 
-    .sub-list {
-      list-style-type: none;
 
-      li {
-        display: inline;
-        font-size: 13px;
-        padding-right: 5px;
+  }
+}
 
-        &::after {
-          content: '|';
-          padding-left: 5px;
-          font-weight: 200;
-        }
-      }
-    }
-
-    .rating {
-      &-wrapper {
-        margin-left: 30rem;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-      }
-
-      &-count {
-        margin-top: -14px;
-      }
-
-      &-value {
-        font-size: 32px;
-        font-weight: bold;
-        color: white;
-      }
-    }
-
-    .fas,
-    .far {
-      font-weight: 900;
-      font-size: 25px;
-      padding-top: 8px;
-    }
-
-    .vertical-align {
-      font-size: 40px;
-      padding: 0 5px;
-    }
+.rating {
+  &-wrapper {
+    float: right;
+    position: relative;
+    margin-right: 10px;
+    width: 192px;
   }
 
+  &-count {
+    margin-top: -14px;
+  }
 
+  &-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+  }
+
+  &-imdb {
+    float: left;
+  }
+
+  &-star-button {
+    border-left: 1px solid #6b6b6b;
+    float: right;
+  }
+
+  .fas,
+  .far {
+    font-weight: 900;
+    font-size: 25px;
+    padding-top: 8px;
+  }
+}
+
+
+
+
+.titlebar {
+  position: relative;
+
+  .wish-list {
+    width: 38px;
+    // float: left;
+    margin-left: 5px;
+    position: absolute;
+  }
+
+  h1 {
+    font-size: 36px;
+    color: #fff;
+    // display: inline;
+  }
+
+  .titleYear {
+    font-size: 25px;
+    // margin-left: 10px;
+  }
+
+  &-wrapper {
+    margin-left: 52px;
+  }
+
+  &-sublist {
+    list-style-type: none;
+
+    li {
+      display: inline;
+      font-size: 13px;
+      padding-right: 5px;
+
+      &::after {
+        content: '|';
+        padding-left: 5px;
+        font-weight: 200;
+      }
+    }
+  }
 }
 
 

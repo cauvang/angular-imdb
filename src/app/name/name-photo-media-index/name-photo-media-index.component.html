@@ -1,0 +1,18 @@
+<div class="row" *ngIf="data">
+  <div class="col-8 p-3 ">
+    <div class="p-3 border rounded ">
+      <app-name-header [data]="data.item" [currentFilter]="data.currentFilter"></app-name-header>
+
+      <app-photo-display [data]="data" type="name" [isVideoGallery]=false> </app-photo-display>
+    </div>
+
+  </div>
+
+  <div class="col-4 p-3">
+    <app-photo-refine [data]="data"></app-photo-refine>
+    <app-menu [data]="data.menu" [name]="data.item.title" type="mediaindex">
+    </app-menu>
+    <app-share-page [fbUrl]="fbUrl" [twitterUrl]="twitterUrl"></app-share-page>
+
+  </div>
+</div>

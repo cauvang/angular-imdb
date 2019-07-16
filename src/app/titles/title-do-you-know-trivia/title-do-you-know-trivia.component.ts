@@ -29,8 +29,6 @@ export class TitleDoYouKnowTriviaComponent implements OnInit {
         this.isHTML = false;
         break;
     }
-    // if (this.titleType === "quotes" || this.titleType === "crazycredits")
-    // this.isHTML = true;
   }
 
   ngOnInit() {

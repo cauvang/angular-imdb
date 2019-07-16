@@ -1,13 +1,13 @@
 <div class="mt-2 p-2 border rounded bk-grey" *ngIf="displayedMenu">
   <div class="font-weight-bold" *ngIf="name">
-    <a routerLink="/title/{{id}}"> {{name}}</a>
+    <a routerLink="{{url}}"> {{name}}</a>
   </div>
 
   <div class="border-top p-2" *ngFor="let submenu of displayedMenu">
     <div class="font-weight-bold">{{ submenu.name}}</div>
     <div *ngFor="let item of submenu.items">
-      <a [ngClass]="{'color-grey': item.disabled}" routerLinkActive="selected"
-        [routerLink]="item.url|queryUrl">{{item.name}}</a>
+      <a [ngClass]="{'color-grey': item.disabled}" routerLinkActive="selected" [routerLink]="item.url|queryUrl"
+        [queryParams]="item.url|toQueryObject" [fragment]="item.url|queryFragment">{{item.name}}</a>
     </div>
   </div>
 

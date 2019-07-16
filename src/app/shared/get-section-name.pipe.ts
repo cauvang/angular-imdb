@@ -7,7 +7,7 @@ export class GetSectionNamePipe implements PipeTransform {
 
   transform(value: string, args?: any): any {
 
-    return value.split('(')[0];
+    return value.split('(')[0].trim();
   }
 
 }

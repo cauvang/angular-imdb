@@ -8,6 +8,7 @@ import { INameDetail } from 'src/app/models/name';
 })
 export class HeaderComponent implements OnInit {
   @Input() data: INameDetail;
+  @Input() currentFilter: string;
 
   constructor() { }
 
