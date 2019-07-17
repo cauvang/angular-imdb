@@ -12,7 +12,7 @@
         <div class="row">
           <div class="input-group">
             <input type="text" [(ngModel)]="qParam" value="{{qParam}}" class="form-control font13 search-box"
-              placeholder="Find Movies, TV shows, Celebrities and more ...">
+              placeholder="Find Movies, TV shows, Celebrities and more ..." #box (keyup.enter)="onEnter(box.value)">
             <div class="input-group-append">
               <div class="dropdown" appDropdown #r="appDropDown">
                 <button class="btn  dropdown-toggle font13 search-type" type="button" id="dropdownMenuButton"

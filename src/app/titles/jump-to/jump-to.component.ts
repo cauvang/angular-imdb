@@ -14,11 +14,10 @@ export class JumpToComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   ngOnChanges(): void {
+
     this.data.forEach(element => {
       if (element.items != undefined)
         this.nTotal += element.items.length;

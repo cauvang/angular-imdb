@@ -29,8 +29,6 @@ export class NameHomepageComponent implements OnInit {
           this.nameType = "externalsites";
         this.service.getNameDetail(this.id, this.nameType).subscribe(data => {
           this.data = data;
-          console.log("datahome", this.data)
-
           this.fbUrl = "http://www.imdb.com/name/" + this.id;
           this.twitterUrl = data.item.title + "-https://www.imdb.com/name/" + this.id;
         });

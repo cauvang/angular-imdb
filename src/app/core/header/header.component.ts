@@ -41,4 +41,9 @@ export class HeaderComponent implements OnInit {
     this.sParam = s;
 
   }
+
+  onEnter(value: string) {
+    console.log("search", value)
+    this.router.navigateByUrl('/find?q=' + value + '&s=' + this.sParam);
+  }
 }

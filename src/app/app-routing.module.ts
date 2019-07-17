@@ -146,7 +146,8 @@ const routes: Routes = [
 
       { path: 'otherworks', component: NameDetailOtherWorksComponent },
       { path: 'publicity', component: NameDetailBioComponent },
-      { path: 'officialsites', component: NameDetailExternalStiesComponent },
+      // { path: 'officialsites', component: NameDetailExternalStiesComponent },
+      { path: 'externalsites', component: NameDetailExternalStiesComponent },
 
       { path: 'news', component: NameNewsComponent },
       { path: 'awards', component: NameAwardComponent },

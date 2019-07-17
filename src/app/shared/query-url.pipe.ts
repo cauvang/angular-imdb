@@ -6,16 +6,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class QueryUrlPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    if (value.includes('externalsites') && !value.includes('name')) {
-      value = value.replace('externalsites', 'officialsites');
+    if (value.includes('name')) {
+      if (value.includes('officialsites')) {
+        value = value.replace('officialsites', 'externalsites');
+      }
     }
-    const results = value.split('?');
-    // if (results.length > 1 && results[1].includes('#'))
-    //   return results[0].slice(0, -1) + '#' + results[1].split('#')[1];
+    else {
+      if (value.includes('externalsites')) {
+        value = value.replace('externalsites', 'officialsites');
+      }
+    }
 
-    // else
-    return results[0];
-
+    if (value.includes('?'))
+      return value.split('?')[0];
+    else
+      return value;
   }
 
 }

@@ -20,7 +20,6 @@ export class MenuComponent implements OnInit {
   private unselectedMenu: IMenuList[];
 
   constructor() {
-    console.log("data", this.data)
   }
 
   ngOnInit() {
@@ -28,19 +27,17 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    console.log("type", this.type)
     if (this.type === undefined) {
       this.selectedMenu = this.data[0];
     } else {
-      this.type = this.type.includes('?') ? this.type.split['?'][0] : this.type;
+      if (this.type.includes('?'))
+        this.type = this.type.split('?')[0];
       this.selectedMenu = this.data.find(x => {
         return x.items.some(
           item => item.url.includes(this.type))
       });
     }
-    console.log("aaa", this.type, this.data, this.selectedMenu)
     this.unselectedMenu = this.data.filter(x => x.name != this.selectedMenu.name);
-
     this.displayedMenu = [this.selectedMenu, ...[]];
   }
 
