@@ -14,11 +14,23 @@ export class TitleDoYouKnowTriviaComponent implements OnInit {
   private data: IDetailList[];
   private titleType: string;
   private isHTML = false;
+  private url: string;
 
   constructor(private router: Router, private service: TitlesService) {
-    const urls = this.router.routerState.snapshot.url.split('/');
+    this.url = this.router.routerState.snapshot.url;
+    console.log("trivia url", this.url)
+    const urls = this.url.split('/');
     this.id = urls[2];
-    this.titleType = urls[3];
+    const type = urls[3];
+    if (type.includes("?"))
+      this.titleType = type.split("?")[0];
+    else {
+      if (type.includes("#"))
+        this.titleType = type.split("#")[0];
+      else
+        this.titleType = type;
+    }
+
     switch (this.titleType) {
       case "quotes":
       case "crazycredits":

@@ -17,7 +17,7 @@ export class QueryFragmentPipe implements PipeTransform {
     //   queryObject[arr[0]] = decodeURIComponent(arr[1].split('#')[0]);
 
     // });
-
+    console.log("freg", value, value.split('#')[1])
     return value.split('#')[1];
   }
 

@@ -14,7 +14,8 @@ export class JumpToComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   ngOnChanges(): void {
 

@@ -3,17 +3,18 @@
 
   <nav *ngIf="pages.length!==1" class="ml-3">
     <ul class="font15 ">
-      <li *ngIf="data.currentPage!==1" class="pr-2">
-        <a [routerLink]="url|queryUrl" [queryParams]="getQuery(data.currentPage-1)"> « Previous </a>
+      <li *ngIf="currentPage!=='1'" class="pr-2">
+        <a [routerLink]="url|queryUrl" [queryParams]="getQuery(currentPage-1)"> « Previous </a>
       </li>
 
       <li *ngFor="let ipage of pages" class="page-link">
-        <span *ngIf="ipage ===data.currentPage" class="current">{{data.currentPage}}</span>
-        <a *ngIf="data.currentPage !== ipage" [routerLink]="url|queryUrl" [queryParams]="getQuery(ipage)">{{ipage}}</a>
+        <span *ngIf="ipage.toString() ===currentPage" class="current">{{currentPage}}</span>
+        <a *ngIf="currentPage !== ipage.toString()" [routerLink]="url|queryUrl"
+          [queryParams]="getQuery(ipage)">{{ipage}}</a>
       </li>
 
-      <li *ngIf="data.currentPage!==data.totalPages" class="pl-2">
-        <a [routerLink]="url|queryUrl" [queryParams]="getQuery(data.currentPage+1)"> Next »</a>
+      <li *ngIf="currentPage!==data.totalPages.toString()" class="pl-2">
+        <a [routerLink]="url|queryUrl" [queryParams]="getQuery(currentPage,true)"> Next »</a>
       </li>
     </ul>
   </nav>

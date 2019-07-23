@@ -16,11 +16,14 @@ export class QueryUrlPipe implements PipeTransform {
         value = value.replace('externalsites', 'officialsites');
       }
     }
-
     if (value.includes('?'))
       return value.split('?')[0];
-    else
-      return value;
+    else {
+      if (value.includes('#'))
+        return value.split('#')[0];
+      else
+        return value;
+    }
   }
 
 }

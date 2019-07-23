@@ -37,6 +37,7 @@ export interface IType {
     refine: string;
     count: string;
     url: string;
+    selected: boolean;
 }
 export interface ISeeMore {
     text: string;

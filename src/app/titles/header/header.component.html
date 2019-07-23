@@ -7,9 +7,17 @@
       <span class="color-grey ml-1">{{data.year}}</span>
     </div>
     <div class="title-type">{{data.subTitle}}</div>
-    <div *ngIf="currentFilter">
-      <a routerLink="/title/{{data.id}}/mediaindex">All > </a>
+    <div *ngIf="type==='mediaindex' && currentFilter">
+      <a routerLink="/title/{{data.id}}/mediaindex">All </a> >
       <span class="font-weight-bold"> {{currentFilter}}</span>
+    </div>
+    <div *ngIf="type==='videogallery' && currentFilters.length!==0 ">
+      <a routerLink="/title/{{data.id}}/videogallery">All </a>
+      <span *ngFor="let item of currentFilters">
+        >
+        <a>{{item.name|getSectionName}}</a>
+        <a routerLink="/title/{{data.id}}/videogallery" [queryParams]="{filters:item.filter}"> [x] </a>
+      </span>
     </div>
     <div class="border rounded" *ngIf="data.subTitle==='Full Cast & Crew'">
       <a class="p-1 mt-2 mb-2" href="https://pro.imdb.com/title/{{data.id}}">See agents for this cast & crew on

@@ -9,8 +9,8 @@ export class GetJumpToNamePipe implements PipeTransform {
     const val = value.split('(')[0].trim();
     if (val === 'Personal Quotes')
       return 'quotes';
-    if (val.includes(' '))
-      return val.replace(' ', '_');
+    // if (val.includes(' '))
+    //   return val.replace(' ', '_');
     return val;
   }
 

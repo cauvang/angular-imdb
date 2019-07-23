@@ -14,25 +14,36 @@ export class PageDisplayComponent implements OnInit {
   private url: string;
   private pages: number[];
   private display: string;
+  private currentPage: string = "1";
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.url = router.routerState.snapshot.url;
+    route.queryParams.subscribe(params => {
+      this.queryParams = params;
+      if (params["page"])
+        this.currentPage = params["page"];
 
-    // if (this.queryParams === undefined)
-    route.queryParams.subscribe(params => { this.queryParams = params; });
+    });
   }
 
   ngOnInit() {
-    this.initPages();
-    this.display = this.data.display.split('\n')[0];
+    this.displayPages();
+
   }
   ngOnChanges() {
+    this.displayPages();
+  }
+
+  displayPages() {
     this.initPages();
     this.display = this.data.display.split('\n')[0];
 
-
   }
-  getQuery(page: number) {
+  getQuery(page: number, isNext: boolean) {
+    if (isNext) {
+      let temp: string = page.toString();
+      page = parseInt(temp) + 1;
+    }
     return { ...this.queryParams, page };
   };
 

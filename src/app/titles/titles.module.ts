@@ -34,6 +34,7 @@ import { TitlePhotoVideoGalleryComponent } from './title-photo-video-gallery/tit
 import { PhotosModule } from '../photos/photos.module';
 import { RelatedNewsComponent } from './related-news/related-news.component';
 import { ContributeComponent } from './contribute/contribute.component';
+import { TitleNewsComponent } from './title-news/title-news.component';
 
 @NgModule({
     declarations: [
@@ -69,6 +70,7 @@ import { ContributeComponent } from './contribute/contribute.component';
         TitleStorylineKeywordsComponent,
         RelatedNewsComponent,
         ContributeComponent,
+        TitleNewsComponent,
 
     ],
     imports: [

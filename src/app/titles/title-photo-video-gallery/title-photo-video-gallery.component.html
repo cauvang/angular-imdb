@@ -1,7 +1,7 @@
 <div class="row" *ngIf="data">
   <div class="col-8 p-3 ">
     <div class="p-3 border rounded ">
-      <app-title-header [data]="data.item"></app-title-header>
+      <app-title-header [data]="data.item" [currentFilters]="currentFilters" type="videogallery"></app-title-header>
       <app-photo-display [data]="data" type="title" [isVideoGallery]=true (sortChange)="onSortChange($event)">
       </app-photo-display>
     </div>
@@ -22,8 +22,14 @@
         <h5 class="color-gold">{{filter.filterType}}</h5>
         <ul>
           <li *ngFor="let item of filter.items">
-            <a [routerLink]="item.url|queryUrl" [queryParams]="item.url| toQueryObject">{{item.name}} </a>
-            <span>({{item.count}})</span>
+            <span *ngIf="item.count===null" class="font-weight-bold">
+              {{item.name}}
+              <a routerLink="/title/{{id}}/videogallery" [queryParams]="{filters:item.filter}"> [x]</a>
+            </span>
+            <span *ngIf="item.count!==null">
+              <a routerLink="/title/{{id}}/videogallery" [queryParams]="{filters:item.filter}">{{item.name}} </a>
+              <span>({{item.count}})</span>
+            </span>
           </li>
         </ul>
       </div>

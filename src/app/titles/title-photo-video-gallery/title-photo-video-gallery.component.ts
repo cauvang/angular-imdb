@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPhoto } from 'src/app/models/photo';
+import { IPhoto, IType } from 'src/app/models/photo';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TitlesService } from 'src/app/services/titles.service';
 
@@ -15,6 +15,7 @@ export class TitlePhotoVideoGalleryComponent implements OnInit {
 
   private fbUrl: string;
   private twitterUrl: string;
+  private currentFilters: IType[];
 
   constructor(private router: Router, private service: TitlesService, private route: ActivatedRoute) {
     this.id = this.router.routerState.snapshot.url.split('/')[2];
@@ -26,6 +27,7 @@ export class TitlePhotoVideoGalleryComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   loadData() {
@@ -39,6 +41,10 @@ export class TitlePhotoVideoGalleryComponent implements OnInit {
       this.data = data;
       this.fbUrl = "http://www.imdb.com/title/" + this.id;
       this.twitterUrl = data.item.name + data.item.year + "-https://www.imdb.com/title/" + this.id;
+
+      this.currentFilters = data.filters.map(x => {
+        return x.items.find(x => x.selected);
+      }).filter(x => x != null);
     });
   }
 

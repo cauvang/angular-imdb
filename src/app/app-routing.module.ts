@@ -52,6 +52,7 @@ import { NamePhotoVideoGalleryComponent } from './name/name-photo-video-gallery/
 import { NameDetailBioComponent } from './name/name-detail-bio/name-detail-bio.component';
 import { NameDetailOtherWorksComponent } from './name/name-detail-other-works/name-detail-other-works.component';
 import { NameDetailExternalStiesComponent } from './name/name-detail-external-sties/name-detail-external-sties.component';
+import { TitleNewsComponent } from './titles/title-news/title-news.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -116,6 +117,7 @@ const routes: Routes = [
       { path: 'plotsummary', component: TitleDoYouKnowConnectionsComponent },
       { path: 'keywords', component: TitleStorylineKeywordsComponent },
 
+      { path: 'news', component: TitleNewsComponent },
 
       { path: 'criticreviews', component: TitleCriticReviewComponent },
       { path: 'reviews', component: TitleReviewComponent },
