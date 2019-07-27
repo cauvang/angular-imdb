@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NameService } from 'src/app/services/name.service';
-import { IPhoto } from 'src/app/models/photo';
+import { IPhoto, IType } from 'src/app/models/photo';
 
 @Component({
   selector: 'app-name-photo-video-gallery',
@@ -16,6 +16,7 @@ export class NamePhotoVideoGalleryComponent implements OnInit {
 
   private fbUrl: string;
   private twitterUrl: string;
+  private currentFilters: IType[];
 
   constructor(private router: Router, private service: NameService, private route: ActivatedRoute) {
     this.id = this.router.routerState.snapshot.url.split('/')[2];
@@ -40,6 +41,10 @@ export class NamePhotoVideoGalleryComponent implements OnInit {
       this.data = data;
       this.fbUrl = "http://www.imdb.com/name/" + this.id;
       this.twitterUrl = data.item.name + data.item.year + "-https://www.imdb.com/name/" + this.id;
+
+      this.currentFilters = data.filters.map(x => {
+        return x.items.find(x => x.value === '' && x.refine !== null);
+      }).filter(x => x != null);
     });
   }
 

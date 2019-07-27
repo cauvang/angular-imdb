@@ -24,7 +24,9 @@
           <li *ngFor="let item of filter.items">
             <span *ngIf="item.count===null" class="font-weight-bold">
               {{item.name}}
-              <a routerLink="/title/{{id}}/videogallery" [queryParams]="{filters:item.filter}"> [x]</a>
+              <a *ngIf="item.filter===''" routerLink="/title/{{id}}/videogallery"> [x]</a>
+              <a *ngIf="item.filter!==''" routerLink="/title/{{id}}/videogallery" [queryParams]="{filters:item.filter}">
+                [x]</a>
             </span>
             <span *ngIf="item.count!==null">
               <a routerLink="/title/{{id}}/videogallery" [queryParams]="{filters:item.filter}">{{item.name}} </a>

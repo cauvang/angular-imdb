@@ -12,9 +12,20 @@
       <a class="title-name" routerLink="/name/{{data.id}}">{{data.title}}</a>
     </div>
     <div class="title-type">{{data.subTitle}}</div>
-    <div *ngIf="currentFilter">
-      <a routerLink="/name/{{data.id}}/mediaindex">All > </a>
+
+    <div *ngIf="type==='mediaindex' && currentFilter">
+      <a routerLink="/name/{{data.id}}/mediaindex">All </a> >
       <span class="font-weight-bold"> {{currentFilter}}</span>
+    </div>
+    <div *ngIf="type==='videogallery' && currentFilters.length!==0 ">
+      <a routerLink="/name/{{data.id}}/videogallery">All </a>
+      <span *ngFor="let item of currentFilters">
+        >
+        <a>{{item.title|getSectionName}}</a>
+        <a *ngIf="item.refine===''" routerLink="/name/{{data.id}}/videogallery"> [x] </a>
+        <a *ngIf="item.refine!==''" routerLink="/name/{{data.id}}/videogallery" [queryParams]="{refine:item.refine}">
+          [x] </a>
+      </span>
     </div>
 
 

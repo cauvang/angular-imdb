@@ -16,7 +16,9 @@
       <span *ngFor="let item of currentFilters">
         >
         <a>{{item.name|getSectionName}}</a>
-        <a routerLink="/title/{{data.id}}/videogallery" [queryParams]="{filters:item.filter}"> [x] </a>
+        <a *ngIf="item.filter===''" routerLink="/title/{{data.id}}/videogallery"> [x] </a>
+        <a *ngIf="item.filter!==''" routerLink="/title/{{data.id}}/videogallery" [queryParams]="{filters:item.filter}">
+          [x] </a>
       </span>
     </div>
     <div class="border rounded" *ngIf="data.subTitle==='Full Cast & Crew'">

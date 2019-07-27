@@ -1,13 +1,11 @@
 <div class="row" *ngIf="data">
   <div class="col-8 p-3 ">
     <div class="p-3 border rounded ">
-      <app-name-header [data]="data.item"></app-name-header>
+      <app-name-header [data]="data.item" [currentFilters]="currentFilters" type="videogallery"></app-name-header>
       <app-photo-display [data]="data" type="name" [isVideoGallery]=true (sortChange)="onSortChange($event)">
       </app-photo-display>
     </div>
-
     <app-see-also [data]="data.seeAlso"></app-see-also>
-
   </div>
 
   <div class="col-4 p-3">
@@ -17,8 +15,18 @@
         <h5 class="color-gold">{{filter.name}}</h5>
         <ul>
           <li *ngFor="let item of filter.items">
-            <a [routerLink]="item.refine">{{item.title}} </a>
-            <span>{{item.value}}</span>
+            <span *ngIf="item.value===''" class="font-weight-bold">
+              {{item.title}}
+              <a *ngIf="item.refine===''" routerLink="/name/{{id}}/videogallery"> [x]</a>
+              <a *ngIf="item.refine!=='' && item.refine!==null" routerLink="/name/{{id}}/videogallery"
+                [queryParams]="{refine:item.refine}">
+                [x]</a>
+            </span>
+            <span *ngIf="item.value!==''">
+              <a routerLink="/name/{{id}}/videogallery" [queryParams]="{refine:item.refine}">{{item.title}} </a>
+              <span>{{item.value}}</span>
+            </span>
+
           </li>
         </ul>
       </div>

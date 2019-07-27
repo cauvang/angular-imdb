@@ -33,11 +33,15 @@ export interface IFilter {
 }
 
 export interface IType {
+    //title
     name: string;
     refine: string;
     count: string;
     url: string;
     selected: boolean;
+    //name
+    title: string;
+    value: string;
 }
 export interface ISeeMore {
     text: string;

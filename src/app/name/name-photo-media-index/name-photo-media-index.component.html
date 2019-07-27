@@ -1,7 +1,7 @@
 <div class="row" *ngIf="data">
   <div class="col-8 p-3 ">
     <div class="p-3 border rounded ">
-      <app-name-header [data]="data.item" [currentFilter]="data.currentFilter"></app-name-header>
+      <app-name-header [data]="data.item" [currentFilter]="data.currentFilter" type="mediaindex"></app-name-header>
 
       <app-photo-display [data]="data" type="name" [isVideoGallery]=false> </app-photo-display>
     </div>
