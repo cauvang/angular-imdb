@@ -53,6 +53,7 @@ import { NameDetailBioComponent } from './name/name-detail-bio/name-detail-bio.c
 import { NameDetailOtherWorksComponent } from './name/name-detail-other-works/name-detail-other-works.component';
 import { NameDetailExternalStiesComponent } from './name/name-detail-external-sties/name-detail-external-sties.component';
 import { TitleNewsComponent } from './titles/title-news/title-news.component';
+import { MediaViewerComponent } from './mediaviewer/media-viewer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -65,6 +66,7 @@ const routes: Routes = [
       { path: 'detail/:id', component: NewsDetailComponent }
     ]
   },
+
   {
     path: 'movies', component: MovieHomeComponent, children: [
       { path: 'in-theater', component: MovieTheatreComponent },
@@ -72,8 +74,7 @@ const routes: Routes = [
 
     ]
   },
-  { path: 'showtimes/title/:id', component: ShowtimeTitleComponent },
-  { path: 'showtimes/title/:id/:country/:zipcode/:date', component: ShowtimeTitleComponent },
+
   {
     path: 'showtimes', component: ShowtimeHomeComponent, children: [
       // { path: 'movies', component: ShowtimeMovieComponent },
@@ -93,6 +94,8 @@ const routes: Routes = [
   { path: 'showtimes/cinema/:id', component: ShowtimeCinemaComponent },
   { path: 'showtimes/cinema/:country/:id/:country/:zipcode', component: ShowtimeCinemaComponent },
   { path: 'showtimes/cinema/:country/:id/:country/:zipcode/:date', component: ShowtimeCinemaComponent },
+  { path: 'showtimes/title/:id', component: ShowtimeTitleComponent },
+  { path: 'showtimes/title/:id/:country/:zipcode/:date', component: ShowtimeTitleComponent },
 
 
   {
@@ -126,6 +129,7 @@ const routes: Routes = [
   },
   { path: 'title/:id/mediaindex', component: TitlePhotoMediaIndexComponent },
   { path: 'title/:id/videogallery', component: TitlePhotoVideoGalleryComponent },
+  { path: 'title/:id/mediaviewer/:rid', component: MediaViewerComponent },
 
   { path: 'chart/:chartType', component: ChartTopRatedComponent },
   { path: 'india/top', component: ChartTopRatedComponent },
@@ -158,13 +162,14 @@ const routes: Routes = [
   },
   { path: 'name/:id/mediaindex', component: NamePhotoMediaIndexComponent },
   { path: 'name/:id/videogallery', component: NamePhotoVideoGalleryComponent },
+  { path: 'name/:id/mediaviewer/:id', component: MediaViewerComponent },
 
   { path: 'list/:id', component: ListsComponent },
 
   { path: 'feature/genre', component: GenresComponent },
 
   { path: 'gallery/:id', component: PhotoHomeComponent },
-  // {path:'gallery/:id/mediaviewer/:id',component:}
+  { path: 'gallery/:id/mediaviewer/:id', component: MediaViewerComponent },
 
   { path: 'find', component: FindHomeComponent }
 ];

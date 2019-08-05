@@ -23,6 +23,7 @@ import { TitlesModule } from './titles/titles.module';
 import { ListsComponent } from './lists/lists.component';
 import { PhotosModule } from './photos/photos.module';
 import { NameModule } from './name/name.module';
+import { MediaViewerComponent } from './mediaviewer/media-viewer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NameModule } from './name/name.module';
     FindHomeComponent,
     FindAbbComponent,
     ListsComponent,
+    MediaViewerComponent,
   ],
   imports: [
     BrowserModule,

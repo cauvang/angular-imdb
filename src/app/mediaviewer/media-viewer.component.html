@@ -1,0 +1,32 @@
+<div *ngIf="data" class="fullscreen">
+  <div class="image-viewer">
+    <img class="image " src="{{currentImage.src}}">
+    <span title="Next (arrow right)" (click)="onNext()"> <i class="fas fa-arrow-right"></i> </span>
+    <span title="Previous (arrow left)" (click)="onPrev()"><i class="fas fa-arrow-left"></i></span>
+
+    <a class="view-header" routerLink="{{data.galleryIndexUrl}}">
+      <span class="color-white">{{data.galleryTitle}}</span></a>
+    <div class="view-footer">
+      <div class="view-image-info">
+        <div>
+          <span class="float-right">
+            <button type="button" class="font11 btn btn-light mr-1">Edit Tags</button>
+            <button type="button" class="font11 btn btn-light ml-1">Report This</button>
+          </span>
+          <span>{{currentInd+1}} of {{data.totalImageCount}}</span>
+        </div>
+        <div innerHTML="{{currentImage.caption}}"> </div>
+
+        <div class="border-top">
+          <span class="font-weight-bold">Titles: </span>
+          <a routerLink="/title/{{id}}">{{data.galleryTitle}}</a>
+        </div>
+        <div *ngIf="people">
+          <span class="font-weight-bold">People: </span>
+          <span innerHTML="{{people}}"></span>
+        </div>
+        <div *ngIf="currentImage.copyright">© {{currentImage.copyright}}</div>
+      </div>
+
+    </div>
+  </div>
