@@ -57,6 +57,6 @@ export class MediaViewerComponent implements OnInit {
   }
 
   onClose() {
-    this.router.navigateByUrl("/title" + this.id + "/mediaindex");
+    this.router.navigateByUrl("/title/" + this.id + "/mediaindex");
   }
 }
