@@ -1,29 +1,25 @@
 .fullscreen {
-  //   position: fixed;
-  //   left: 0;
-  //   top: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  z-index: 9999;
+
   width: 100%;
   height: auto;
   min-height: 100%;
-  // //   overflow-x: hidden;
-  z-index: 1;
-  background-color: red;
+  background-color: black;
 }
 
 
 
 .image {
-  //   padding-top: 10px;
-  // display: block;
-  height: auto;
-  width: 100%;
-  //   position: relative;
+  height: 900px;
   background-size: cover;
 
-  //   mx-auto
   &-viewer {
     position: relative;
-
+    text-align: center;
   }
 }
 
@@ -31,14 +27,24 @@
   &-header {
     position: absolute;
     top: 0;
-    left: 50%;
-    padding-top: 10px;
+    padding: 20px;
+    transition: .5s ease;
+    opacity: 0;
+
+    text-align: center;
+    width: 100%;
+    background: rgba(20, 20, 20, 0.85);
+
+    &-title {
+      text-decoration: none !important;
+      color: white;
+    }
   }
 
   &-footer {
     position: absolute;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(20, 20, 20, 0.85);
     width: 100%;
     transition: .5s ease;
     opacity: 0;
@@ -58,6 +64,10 @@
 }
 
 .fullscreen:hover .view-footer {
+  opacity: 1;
+}
+
+.fullscreen:hover .view-header {
   opacity: 1;
 }
 
@@ -84,4 +94,14 @@
 
 .fa-arrow-left {
   left: 30px;
+}
+
+
+
+.btn-close {
+  float: right;
+  position: relative;
+  background: rgba(20, 20, 20, 0.85);
+  color: white;
+  border: none;
 }

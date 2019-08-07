@@ -55,4 +55,8 @@ export class MediaViewerComponent implements OnInit {
     this.resetImageViewer();
     this.changeURL();
   }
+
+  onClose() {
+    this.router.navigateByUrl("/title" + this.id + "/mediaindex");
+  }
 }
