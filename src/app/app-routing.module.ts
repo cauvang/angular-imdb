@@ -54,6 +54,7 @@ import { NameDetailOtherWorksComponent } from './name/name-detail-other-works/na
 import { NameDetailExternalStiesComponent } from './name/name-detail-external-sties/name-detail-external-sties.component';
 import { TitleNewsComponent } from './titles/title-news/title-news.component';
 import { MediaViewerComponent } from './mediaviewer/media-viewer.component';
+import { VideoplayerComponent } from './videoplayer/videoplayer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -130,6 +131,7 @@ const routes: Routes = [
   { path: 'title/:id/mediaindex', component: TitlePhotoMediaIndexComponent },
   { path: 'title/:id/videogallery', component: TitlePhotoVideoGalleryComponent },
   { path: 'title/:id/mediaviewer/:rid', component: MediaViewerComponent },
+  { path: 'title/:id/videoplayer/:rid', component: VideoplayerComponent },
 
   { path: 'chart/:chartType', component: ChartTopRatedComponent },
   { path: 'india/top', component: ChartTopRatedComponent },
@@ -171,7 +173,9 @@ const routes: Routes = [
   { path: 'gallery/:id', component: PhotoHomeComponent },
   { path: 'gallery/:id/mediaviewer/:id', component: MediaViewerComponent },
 
-  { path: 'find', component: FindHomeComponent }
+  { path: 'find', component: FindHomeComponent },
+  { path: 'videoplayer/:id', component: VideoplayerComponent }
+
 ];
 
 @NgModule({

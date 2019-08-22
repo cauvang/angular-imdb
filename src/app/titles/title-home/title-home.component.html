@@ -199,7 +199,8 @@
       <span class="pl-3">| See <a routerLink="/chart/top">the Top Rated Movies</a> as rated by our users.</span>
     </div>
 
-    <div class="row p-3" *ngIf="videos && videos.length>0">
+    <div class="row p-3">
+      <!-- *ngIf="videos && videos.length>0"> -->
       <h2>Videos</h2>
       <div class="ml-1 lr-1" *ngFor="let item of data.videos">
         <a routerLink="videoplayer/{{item.id}}">

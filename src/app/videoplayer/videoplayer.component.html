@@ -1,0 +1,79 @@
+<div class="row fullscreen">
+  <div class="col-9">
+    <button type="button" class="btn-close" aria-label="Close" (click)="onClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <i class="fas fa-share-alt" title="Share this video"></i>
+
+    <div class="video-display">
+      <vg-player *ngIf="data">
+        <vg-overlay-play></vg-overlay-play>
+        <vg-buffering></vg-buffering>
+
+        <vg-scrub-bar>
+          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+
+        <vg-controls>
+          <vg-play-pause></vg-play-pause>
+          <vg-playback-button></vg-playback-button>
+
+          <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+          <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+
+          <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+          <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+          <vg-track-selector></vg-track-selector>
+          <vg-mute></vg-mute>
+          <vg-volume></vg-volume>
+
+          <vg-fullscreen></vg-fullscreen>
+        </vg-controls>
+
+        <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
+          <source src="{{data.videoUrl}}" type="{{data.videoMimeType}}">
+
+          <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
+            srclang="en" default>
+
+        </video>
+      </vg-player>
+    </div>
+  </div>
+  <div class="col-3 border-left color-white ">
+    <div class="video-related">
+      <div class="font-weight-bold p-1"> {{title}}</div>
+      <div class="font11 pl-1">1 of {{playList.length}}</div>
+      <i class="fas fa-angle-right "></i>
+    </div>
+    <div class="over-flow">
+      <div class="primary-relation-card p-1 font13" *ngIf="relation">
+        <img class="float-left" src="{{relation.poster.url}}">
+        <img class="wishlist" title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png">
+        <span class="p-1">{{relation.name}}</span>
+      </div>
+
+      <div class="video-description p-1" *ngIf="metadata">
+        <span class="pt-3 font-weight-bold"> {{metadata.title}} ({{metadata.duration}})</span>
+        <i class="fas fa-angle-down" [ngClass]="{'hidden': !bHidden}" (click)="onClickDown()"></i>
+        <i class="fas fa-angle-up" [ngClass]="{'hidden': bHidden}" (click)="onClickUp()"></i>
+        <div class="meta-description" [ngClass]="{'overflow': bHidden}"> {{metadata.description}}</div>
+      </div>
+
+      <div *ngFor="let item of playList" class="playlist ">
+        <div class="float-left image">
+          <img src="{{item.smallSlate.url}}">
+        </div>
+        <div class="font11 image">
+          <!-- <div>{{item.description}}</div> -->
+          <div>{{item.title}}</div>
+          <div>{{item.duration}}</div>
+        </div>
+      </div>
+    </div>
+    test
+  </div>
+</div>

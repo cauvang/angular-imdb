@@ -11,8 +11,8 @@
       <i class="fas fa-th"></i>
       <a class="ml-5 " routerLink="{{data.galleryIndexUrl}}">
         <span class="view-header-title">{{data.galleryTitle}}</span></a>
-      <button type="button" class="btn-close" (click)="onClose()">
-        X
+      <button type="button" class="close" aria-label="Close" (click)="onClose()">
+        <span aria-hidden="true">&times;</span>
       </button>
     </span>
 

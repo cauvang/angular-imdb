@@ -1,0 +1,97 @@
+.fullscreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  z-index: 9999;
+
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: black;
+}
+
+.video-display {
+  position: absolute;
+  top: 120px;
+  width: 100%;
+}
+
+.btn-close {
+  background: black;
+  color: white;
+  border: none;
+  font-size: 30px;
+}
+
+.fa-share-alt {
+  color: white;
+  top: 15px;
+}
+
+.primary-relation-card {
+  border-top: 1px solid #474747;
+  overflow: auto;
+  padding: 10px 12px 10px 16px;
+  position: relative;
+}
+
+.wishlist {
+  position: absolute;
+  top: 7px;
+  left: 12px;
+  width: 27px;
+  height: 34px;
+}
+
+.video {
+  &-description {
+    border-top: 1px solid #474747;
+    position: relative;
+  }
+
+  &-related {
+    position: relative;
+  }
+}
+
+.fa-angle-right {
+  top: 15px;
+  border: 1px white solid;
+  border-radius: 50%;
+  padding: 0px 3px;
+  cursor: pointer;
+}
+
+
+.meta-description {
+  color: #a4a4a4;
+  // overflow: hidden;
+  max-height: 60px;
+  font-size: 13px;
+}
+
+.fas {
+  position: absolute;
+  right: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.over-flow {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.playlist {
+  border-top: 1px solid #474747;
+  display: block;
+  overflow: auto;
+}
+
+.image {
+  margin: 5px 8px 5px 5px;
+}
