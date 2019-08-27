@@ -70,8 +70,12 @@ export interface IVideos {
 export interface IPlaylist {
     id: string;
     title: string;
+    listItems: IListItem[];
 }
-
+export interface IListItem {
+    description: string;
+    videoId: string;
+}
 export interface IRelation {
     id: string;
     name: string;
@@ -89,5 +93,14 @@ export interface IVideoMetadata {
     canonicalUrl: string;
     primaryConst: string;
     title: string;
-
+    duration: string;
+    smallSlate: IPoster;
+    slate: IPoster;
+    name: string;
+    encodings: Encoding[];
+}
+export interface Encoding {
+    definition: string;
+    mimetype: string;
+    videoUrl: string;
 }

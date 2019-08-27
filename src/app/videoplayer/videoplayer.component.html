@@ -1,12 +1,12 @@
 <div class="row fullscreen">
-  <div class="col-9">
+  <div class="col-8">
     <button type="button" class="btn-close" aria-label="Close" (click)="onClose()">
       <span aria-hidden="true">&times;</span>
     </button>
     <i class="fas fa-share-alt" title="Share this video"></i>
 
     <div class="video-display">
-      <vg-player *ngIf="data">
+      <vg-player *ngIf="primaryMetadata">
         <vg-overlay-play></vg-overlay-play>
         <vg-buffering></vg-buffering>
 
@@ -34,46 +34,50 @@
         </vg-controls>
 
         <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
-          <source src="{{data.videoUrl}}" type="{{data.videoMimeType}}">
+          <source src="{{primaryMetadata.encodings[1].videoUrl}}" type="{{primaryMetadata.encodings[1].videoMimeType}}">
 
-          <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
-            srclang="en" default>
+          <!-- <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
+            srclang="en" default> -->
 
         </video>
       </vg-player>
     </div>
   </div>
-  <div class="col-3 border-left color-white ">
-    <div class="video-related">
-      <div class="font-weight-bold p-1"> {{title}}</div>
-      <div class="font11 pl-1">1 of {{playList.length}}</div>
+  <div class="col-4 border-left color-white ">
+    <div class="video-related" *ngIf="playList">
+      <div class="font-weight-bold p-1"> Related Videos</div>
+      <div class="font11 p-1" *ngIf="playList.length!=1">{{currentInd}} of {{playList.length}}</div>
       <i class="fas fa-angle-right "></i>
     </div>
-    <div class="over-flow">
-      <div class="primary-relation-card p-1 font13" *ngIf="relation">
-        <img class="float-left" src="{{relation.poster.url}}">
+
+    <div class="scrollable-area">
+      <div class="primary-relation-card p-2 font13" *ngIf="primaryRelation">
+        <img class="float-left" src="{{primaryRelation.poster.url}}">
         <img class="wishlist" title="Click to add to watchlist" src="../../../assets/add-to-watchlist.png">
-        <span class="p-1">{{relation.name}}</span>
+        <span class="p-1">{{primaryRelation.name}}</span>
       </div>
 
-      <div class="video-description p-1" *ngIf="metadata">
-        <span class="pt-3 font-weight-bold"> {{metadata.title}} ({{metadata.duration}})</span>
+      <div class="video-description" *ngIf="primaryMetadata">
+        <span class="pt-3 font-weight-bold"> {{primaryMetadata.title}} ({{primaryMetadata.duration}})</span>
         <i class="fas fa-angle-down" [ngClass]="{'hidden': !bHidden}" (click)="onClickDown()"></i>
         <i class="fas fa-angle-up" [ngClass]="{'hidden': bHidden}" (click)="onClickUp()"></i>
-        <div class="meta-description" [ngClass]="{'overflow': bHidden}"> {{metadata.description}}</div>
+        <div class="meta-description" [ngClass]="{'expanded': bHidden}"> {{primaryMetadata.description}}</div>
       </div>
 
-      <div *ngFor="let item of playList" class="playlist ">
+      <div *ngFor="let item of metadataList" class="playlist" [ngClass]="{'selected': item.videoId==videoId}"
+        (click)="onSelectVideo()">
+        <!-- <a routerLink="/videoplayer/{{item.videoId}}"> -->
+
         <div class="float-left image">
           <img src="{{item.smallSlate.url}}">
         </div>
         <div class="font11 image">
-          <!-- <div>{{item.description}}</div> -->
-          <div>{{item.title}}</div>
-          <div>{{item.duration}}</div>
+          <div class="video-title">{{item.title}}</div>
+          <div class="secondary-text">{{item.name}}</div>
+          <div class="secondary-text">{{item.duration}}</div>
         </div>
+        <!-- </a> -->
       </div>
     </div>
-    test
   </div>
 </div>
